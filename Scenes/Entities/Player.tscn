@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cpikplq3do4tn"]
+
+[ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="1_3kvya"]
+[ext_resource type="Script" uid="uid://d27r272845fef" path="res://Scripts/entityScripts/player.gd" id="1_v402d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tapu"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=152485545]
+script = ExtResource("1_v402d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
+texture = ExtResource("1_3kvya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844248807]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_2tapu")
+
+[node name="Node" type="Node" parent="." unique_id=1922377365]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node" unique_id=1787809085]
+
+[node name="AnimationTree" type="AnimationTree" parent="Node" unique_id=1541876600]

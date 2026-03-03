@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://boe7aodqj52wj"]
+
+[ext_resource type="Texture2D" uid="uid://0w80icvljpq8" path="res://Assets/Environment/bg_placeholder.png" id="1_0q8xj"]
+[ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_jjp5g"]
+[ext_resource type="Texture2D" uid="uid://bgvqqupf1fqj0" path="res://Assets/Environment/floor_placeholder.png" id="3_j1dxk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjp5g"]
+
+[node name="Overworld" type="Node2D" unique_id=43480892]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1380311869]
+offset_left = 155.0
+offset_top = 24.0
+offset_right = 795.0
+offset_bottom = 384.0
+texture = ExtResource("1_0q8xj")
+
+[node name="CharacterBody2D" parent="." unique_id=152485545 instance=ExtResource("1_jjp5g")]
+position = Vector2(450, 235)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1236193648]
+position = Vector2(-2, -30)
+zoom = Vector2(2.5, 2.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=432287639]
+position = Vector2(2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=754424006]
+position = Vector2(467, 315)
+shape = SubResource("WorldBoundaryShape2D_jjp5g")
+
+[node name="FloorPlaceholder" type="Sprite2D" parent="." unique_id=1435957771]
+position = Vector2(475, 209)
+texture = ExtResource("3_j1dxk")
