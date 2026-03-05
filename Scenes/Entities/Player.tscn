@@ -6,6 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tapu"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=152485545]
+collision_layer = 3
+collision_mask = 35
 script = ExtResource("1_v402d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
@@ -20,3 +22,11 @@ shape = SubResource("RectangleShape2D_2tapu")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node" unique_id=1787809085]
 
 [node name="AnimationTree" type="AnimationTree" parent="Node" unique_id=1541876600]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1744227099]
+collision_layer = 3
+collision_mask = 35
+
+[node name="DoorCollision" type="CollisionShape2D" parent="Area2D" unique_id=1406576169]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_2tapu")

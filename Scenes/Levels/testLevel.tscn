@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://clfd6k78sp6bf"]
+
+[ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_4cjtc"]
+[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="1_33gn4"]
+[ext_resource type="PackedScene" uid="uid://bk812ny6pdphy" path="res://Scenes/Levels/Door/door.tscn" id="3_ad6ng"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_33gn4"]
+
+[node name="TestLevel" type="Node2D" unique_id=1594793928]
+
+[node name="Important" type="Sprite2D" parent="." unique_id=913824143]
+position = Vector2(325, 235)
+texture = ExtResource("1_33gn4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=847587723]
+position = Vector2(2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1035025397]
+position = Vector2(327, 275)
+shape = SubResource("WorldBoundaryShape2D_33gn4")
+
+[node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_4cjtc")]
+position = Vector2(336, 232)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=414050316]
+position = Vector2(-2, -30)
+zoom = Vector2(2.5, 2.5)
+
+[node name="Door" parent="." unique_id=936906215 instance=ExtResource("3_ad6ng")]
+position = Vector2(358, 273)

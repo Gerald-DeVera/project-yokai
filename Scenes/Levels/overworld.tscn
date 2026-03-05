@@ -15,10 +15,10 @@ offset_right = 795.0
 offset_bottom = 384.0
 texture = ExtResource("1_0q8xj")
 
-[node name="CharacterBody2D" parent="." unique_id=152485545 instance=ExtResource("1_jjp5g")]
+[node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_jjp5g")]
 position = Vector2(450, 235)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1236193648]
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1236193648]
 position = Vector2(-2, -30)
 zoom = Vector2(2.5, 2.5)
 
