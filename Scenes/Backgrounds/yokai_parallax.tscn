@@ -6,6 +6,35 @@
 [ext_resource type="Texture2D" uid="uid://dl03vd5gi67di" path="res://Assets/Environment/bg_yokai/bg_yokai_bamboo.png" id="4_jts0m"]
 [ext_resource type="Texture2D" uid="uid://dn4ju8cogq4m" path="res://Assets/Environment/bg_yokai/bg_yokai_bushes.png" id="5_2uq6s"]
 [ext_resource type="Texture2D" uid="uid://bsrt2ntfky13l" path="res://Assets/Environment/bg_yokai/bg_yokai_fog.png" id="6_7yvho"]
+[ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="7_di1ba"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jts0m"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_2uq6s"]
+offsets = PackedFloat32Array(0.04918033, 0.22950819, 0.852459, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wh3g1"]
+gradient = SubResource("Gradient_2uq6s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_itgy4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 360, 1)
+spread = 34.824
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 10, 0)
+scale_min = 0.29999998
+scale_max = 0.79999995
+color_ramp = SubResource("GradientTexture1D_wh3g1")
+anim_offset_max = 1.0
 
 [node name="YokaiParallax" type="Node2D" unique_id=1985771975]
 
@@ -55,3 +84,15 @@ repeat_size = Vector2(640, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D6" unique_id=623668607]
 position = Vector2(320, 180)
 texture = ExtResource("6_7yvho")
+
+[node name="Parallax2D7" type="Parallax2D" parent="." unique_id=434115106]
+z_index = 1
+repeat_size = Vector2(640, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Parallax2D7" unique_id=418200801]
+material = SubResource("CanvasItemMaterial_jts0m")
+position = Vector2(390, -3)
+amount = 100
+texture = ExtResource("7_di1ba")
+visibility_rect = Rect2(-336.285, -204.975, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_itgy4")
