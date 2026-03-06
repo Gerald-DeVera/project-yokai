@@ -8,6 +8,7 @@ size = Vector2(128, 128)
 
 [node name="Door" type="Node2D" unique_id=936906215]
 script = ExtResource("1_b14id")
+next_scene = "Level1"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=363985637]
 position = Vector2(64, -64)

@@ -20,7 +20,7 @@ position = Vector2(327, 275)
 shape = SubResource("WorldBoundaryShape2D_33gn4")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_4cjtc")]
-position = Vector2(336, 232)
+position = Vector2(262, 240)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=414050316]
 position = Vector2(-2, -30)
@@ -28,3 +28,6 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="Door" parent="." unique_id=936906215 instance=ExtResource("3_ad6ng")]
 position = Vector2(358, 273)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1649099595 groups=["spawnPoint"]]
+position = Vector2(183, 219)

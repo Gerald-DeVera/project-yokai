@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://0w80icvljpq8" path="res://Assets/Environment/bg_placeholder.png" id="1_0q8xj"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_jjp5g"]
 [ext_resource type="Texture2D" uid="uid://bgvqqupf1fqj0" path="res://Assets/Environment/floor_placeholder.png" id="3_j1dxk"]
+[ext_resource type="PackedScene" uid="uid://bk812ny6pdphy" path="res://Scenes/Levels/Door/door.tscn" id="4_j1dxk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjp5g"]
 
@@ -16,7 +17,7 @@ offset_bottom = 384.0
 texture = ExtResource("1_0q8xj")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_jjp5g")]
-position = Vector2(450, 235)
+position = Vector2(511, 243)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1236193648]
 position = Vector2(-2, -30)
@@ -32,3 +33,7 @@ shape = SubResource("WorldBoundaryShape2D_jjp5g")
 [node name="FloorPlaceholder" type="Sprite2D" parent="." unique_id=1435957771]
 position = Vector2(475, 209)
 texture = ExtResource("3_j1dxk")
+
+[node name="Door" parent="." unique_id=936906215 instance=ExtResource("4_j1dxk")]
+position = Vector2(601, 316)
+next_scene = "Level2"
