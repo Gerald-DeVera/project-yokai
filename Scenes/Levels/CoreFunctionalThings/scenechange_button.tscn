@@ -1,23 +1,23 @@
-[gd_scene format=3 uid="uid://bkseg0330f5dy"]
+[gd_scene format=3 uid="uid://dq0ga3oci1o5s"]
 
-[ext_resource type="Script" uid="uid://cn5khebxj0vmt" path="res://Scripts/button.gd" id="1_e5evr"]
-[ext_resource type="Texture2D" uid="uid://caot7p66xv01q" path="res://Assets/Sprites/buttonTemp.png" id="2_sfqrj"]
-[ext_resource type="Texture2D" uid="uid://4d76n0stgffr" path="res://Assets/Sprites/buttonTemp2.png" id="3_sfqrj"]
+[ext_resource type="Script" uid="uid://cn5khebxj0vmt" path="res://Scripts/button.gd" id="1_6ngg6"]
+[ext_resource type="Texture2D" uid="uid://caot7p66xv01q" path="res://Assets/Sprites/buttonTemp.png" id="2_3mjxd"]
+[ext_resource type="Texture2D" uid="uid://4d76n0stgffr" path="res://Assets/Sprites/buttonTemp2.png" id="3_8g0gy"]
 
 [node name="Button" type="Node2D" unique_id=206299497]
-script = ExtResource("1_e5evr")
+script = ExtResource("1_6ngg6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131053964]
 visible = false
 position = Vector2(3.8146973e-06, -3.8146973e-06)
 scale = Vector2(0.4097222, 0.4097222)
-texture = ExtResource("2_sfqrj")
+texture = ExtResource("2_3mjxd")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1435040230]
 visible = false
 position = Vector2(-7.450581e-09, -62.999996)
 scale = Vector2(0.22844827, 0.22844827)
-texture = ExtResource("3_sfqrj")
+texture = ExtResource("3_8g0gy")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=594640783]
 visible = false
