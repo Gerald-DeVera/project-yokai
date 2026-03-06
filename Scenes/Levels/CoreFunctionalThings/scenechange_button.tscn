@@ -6,6 +6,7 @@
 
 [node name="Button" type="Node2D" unique_id=206299497]
 script = ExtResource("1_6ngg6")
+next_scene = "Level3"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131053964]
 visible = false

@@ -194,3 +194,6 @@ tile_set = SubResource("TileSet_7vorq")
 [node name="Button" parent="." unique_id=206299497 instance=ExtResource("22_2j0ao")]
 position = Vector2(475, 284)
 next_scene = "Level2"
+
+[node name="Button2" parent="." unique_id=596333177 instance=ExtResource("22_2j0ao")]
+position = Vector2(362, 286)

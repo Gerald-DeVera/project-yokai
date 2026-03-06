@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var next_scene :String
+@export var interactable :bool 
 @onready var playerCharacter = $"../PlayerCharacter"
 @onready var Sprite1 = $Sprite2D
 @onready var Sprite2 = $Sprite2D2
@@ -16,20 +17,23 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var temp = canInteract
 	if playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer:
-		print("I am interactable")
+		# print("I go to %s" %next_scene)
 		canInteract = true
+		interactable = true
 	else:
-		print("I am not interactable")
+		# print("I am not interactable")
 		canInteract = false
+		interactable = false
 	if temp != canInteract:
 		InteractLabel.visible = !InteractLabel.visible
 		Signals.PlayerCanInteract.emit("button",canInteract)
 
 func ButtonPressed(InteractableObject:String):
-	if InteractableObject == "button":
+	if InteractableObject == "button" && interactable == true:
+		print(next_scene)
 		SceneTransition.play("gradient_up")
 		await SceneTransition.animation_finished
 		playerCharacter.queue_free()
-		print("scene transition")
+		# print("scene transition")
 		await get_tree().create_timer(1).timeout
 		sceneManager.transition_to_scene(next_scene)
