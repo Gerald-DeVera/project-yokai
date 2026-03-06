@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b5m0h0n4twj7d"]
+
+[ext_resource type="Texture2D" uid="uid://0w80icvljpq8" path="res://Assets/Environment/bg_placeholder.png" id="1_g6s36"]
+
+[node name="CityParallax" type="Node2D" unique_id=1814770720]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1028128081]
+scroll_scale = Vector2(0.525, 1)
+scroll_offset = Vector2(0, 76.765)
+repeat_size = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1569659940]
+position = Vector2(320, 180)
+texture = ExtResource("1_g6s36")
