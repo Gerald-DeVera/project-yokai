@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var next_scene :String
+@export var dialogueBalloon :String
+@export var dialogueStartingPosition :String
 @export var interactable :bool
 @export var isDialogue :bool 
 @onready var playerCharacter = $"../PlayerCharacter"
@@ -10,7 +11,7 @@ extends Node2D
 @onready var SceneTransition = $"../SceneTransitionAnimation/AnimationPlayer"
 var minimumDistanceFromPlayer = 35
 var canInteract = false
-const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
+#const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
 
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
@@ -31,15 +32,8 @@ func _process(delta: float) -> void:
 		Signals.PlayerCanInteract.emit("button",canInteract)
 
 func ButtonPressed(InteractableObject:String):
-	if InteractableObject == "button" && interactable == true && isDialogue == false:
-		print(next_scene)
-		SceneTransition.play("gradient_up")
-		await SceneTransition.animation_finished
-		playerCharacter.queue_free()
-		# print("scene transition")
-		await get_tree().create_timer(1).timeout
-		sceneManager.transition_to_scene(next_scene)
-	elif  InteractableObject == "button" && interactable == true && isDialogue == true:
+	print("interact")
+	if  InteractableObject == "button" && interactable == true && isDialogue == true:
 		print("start dialogue")
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Test.dialogue"), "start", )
 		return

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bgtb1xxbcsj6c"]
+
+[ext_resource type="Script" uid="uid://btneotlvk3b2r" path="res://Scripts/dialogue_button.gd" id="1_fff5n"]
+[ext_resource type="Texture2D" uid="uid://caot7p66xv01q" path="res://Assets/Sprites/buttonTemp.png" id="2_uhj1f"]
+[ext_resource type="Texture2D" uid="uid://4d76n0stgffr" path="res://Assets/Sprites/buttonTemp2.png" id="3_7y45o"]
+
+[node name="Button" type="Node2D" unique_id=206299497]
+script = ExtResource("1_fff5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131053964]
+visible = false
+position = Vector2(3.8146973e-06, -3.8146973e-06)
+scale = Vector2(0.4097222, 0.4097222)
+texture = ExtResource("2_uhj1f")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1435040230]
+visible = false
+position = Vector2(-7.450581e-09, -62.999996)
+scale = Vector2(0.22844827, 0.22844827)
+texture = ExtResource("3_7y45o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=594640783]
+visible = false
+offset_left = -4.0
+offset_top = -50.0
+offset_right = 36.0
+offset_bottom = -10.0
+text = "E"

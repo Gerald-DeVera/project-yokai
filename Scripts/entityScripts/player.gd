@@ -18,7 +18,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	#interact
-	if canInteract and is_on_floor() and Input.is_action_pressed("Interact"):
+	if canInteract and is_on_floor() and Input.is_action_just_pressed("Interact"):
 		Signals.PlayerInteractPressed.emit(interactable)
 	#jump
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
