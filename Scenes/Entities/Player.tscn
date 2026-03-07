@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpikplq3do4tn"]
 
-[ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="1_3kvya"]
 [ext_resource type="Script" uid="uid://d27r272845fef" path="res://Scripts/entityScripts/player.gd" id="1_v402d"]
+[ext_resource type="Texture2D" uid="uid://b0emeyxar74if" path="res://Assets/Sprites/mc sprite.png" id="2_v402d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tapu"]
 
@@ -11,7 +11,9 @@ collision_mask = 35
 script = ExtResource("1_v402d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
-texture = ExtResource("1_3kvya")
+texture = ExtResource("2_v402d")
+hframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844248807]
 position = Vector2(0, 14)

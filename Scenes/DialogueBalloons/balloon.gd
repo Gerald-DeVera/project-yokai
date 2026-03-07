@@ -23,6 +23,9 @@ extends CanvasLayer
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+## ADDED SPRITE 1 FOR MC
+@onready var char_sprite_left: Sprite2D = %Sprite2DLeft
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -144,14 +147,26 @@ func apply_dialogue_line() -> void:
 	will_hide_balloon = false
 
 	dialogue_label.show()
+	
+	# TEMP SPRITE SWITCHING CODE
+	if dialogue_line.has_tag("expression_left"):
+		var expression_mode_left = dialogue_line.get_tag_value("expression_left")
+		print(expression_mode_left)
+		if expression_mode_left == "neutral":
+			char_sprite_left.frame = 0
+		elif expression_mode_left == "happy":
+			char_sprite_left.frame = 1
+		elif expression_mode_left == "angry":
+			char_sprite_left.frame = 2
+		elif expression_mode_left == "confused":
+			char_sprite_left.frame = 3
+		elif expression_mode_left == "unimp":
+			char_sprite_left.frame = 4
+	
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
-
-	if dialogue_line.has_tag("expression"):
-		print(dialogue_line.get_tag_value("expression"))
-
-
+		
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):
 		audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))

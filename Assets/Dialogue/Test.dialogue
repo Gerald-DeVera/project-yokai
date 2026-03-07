@@ -1,14 +1,15 @@
 ~ start
-Makoto: [[Hi|Hello|Howdy]], this is some dialogue. [#expression=happy,center]
-Makoto: What should I get from don don rice? [#expression=confused,left]
+
+Makoto: [[Hi|Hello|Howdy]], this is some dialogue. [#expression_left=neutral]
+Makoto: What should I get from don don rice? [#expression_left=confused]
 [wait=1]
 - First one
-	Makoto: You picked the first one.
+	Makoto: You picked the first one. [#expression_left=happy]
 - Second one
-	Makoto: You picked the second one.
+	Makoto: You picked the second one. [#expression_left=angry]
 - Start again => start
 - End the conversation => END
-Makoto: For more information see the online documentation.
+Makoto: For more information see the online documentation. [#expression_left=unimp]
 => END
 
 ~ start2

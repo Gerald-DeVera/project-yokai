@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c0x2couw6qcwt" path="res://Scenes/DialogueBalloons/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="Texture2D" uid="uid://d2froflcq1kex" path="res://Assets/Sprites/mc_expressions.png" id="4_ycpbo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -103,6 +104,13 @@ _data = {
 layer = 100
 script = ExtResource("1_36de5")
 
+[node name="Sprite2DLeft" type="Sprite2D" parent="." unique_id=954953329]
+unique_name_in_owner = true
+position = Vector2(59.000004, 251)
+scale = Vector2(1.4667953, 1.4667953)
+texture = ExtResource("4_ycpbo")
+hframes = 5
+
 [node name="Balloon" type="Control" parent="." unique_id=1909268423]
 unique_name_in_owner = true
 layout_mode = 3
@@ -119,12 +127,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = -124.0
-offset_right = -77.0
-offset_bottom = 2.0
+offset_left = 98.0
+offset_top = -113.0
+offset_right = -42.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.9112186, 0.9112186)
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer" unique_id=388375479]
 clip_children = 2
@@ -178,10 +187,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -286.0
-offset_top = -129.0
-offset_right = 295.0
-offset_bottom = -59.0
+offset_left = -298.0
+offset_top = -57.0
+offset_right = 283.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -192,6 +201,7 @@ response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=1915867988]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Response example"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1890522177]
