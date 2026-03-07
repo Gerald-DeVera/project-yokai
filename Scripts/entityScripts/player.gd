@@ -28,6 +28,11 @@ func _physics_process(delta):
 	#print(direction)
 	if direction:
 		velocity.x = direction * speed
+		#bad temp implementation
+		if direction == -1:
+			$Sprite2D.frame = 1
+		elif direction == 1:
+			$Sprite2D.frame = 0
 	else:
 		velocity.x = move_toward(velocity.x,0, speed)
 
