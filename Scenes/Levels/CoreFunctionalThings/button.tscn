@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cn5khebxj0vmt" path="res://Scripts/button.gd" id="1_e5evr"]
 [ext_resource type="Texture2D" uid="uid://caot7p66xv01q" path="res://Assets/Sprites/buttonTemp.png" id="2_sfqrj"]
-[ext_resource type="Texture2D" uid="uid://4d76n0stgffr" path="res://Assets/Sprites/buttonTemp2.png" id="3_sfqrj"]
+[ext_resource type="Texture2D" uid="uid://bukgbln8egy6s" path="res://Assets/Sprites/tooltip_interact.png" id="3_sfqrj"]
 
 [node name="Button" type="Node2D" unique_id=206299497]
 script = ExtResource("1_e5evr")
@@ -14,8 +14,7 @@ scale = Vector2(0.4097222, 0.4097222)
 texture = ExtResource("2_sfqrj")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1435040230]
-visible = false
-position = Vector2(-7.450581e-09, -62.999996)
+position = Vector2(-7.450581e-09, -27.000004)
 scale = Vector2(0.22844827, 0.22844827)
 texture = ExtResource("3_sfqrj")
 

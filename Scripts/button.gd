@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		canInteract = false
 		interactable = false
 	if temp != canInteract:
-		InteractLabel.visible = !InteractLabel.visible
+		Sprite2.visible = !Sprite2.visible
 		Signals.PlayerCanInteract.emit("button",canInteract)
 
 func ButtonPressed(InteractableObject:String):

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpikplq3do4tn"]
 
 [ext_resource type="Script" uid="uid://d27r272845fef" path="res://Scripts/entityScripts/player.gd" id="1_v402d"]
-[ext_resource type="Texture2D" uid="uid://b0emeyxar74if" path="res://Assets/Sprites/mc sprite.png" id="2_v402d"]
+[ext_resource type="Texture2D" uid="uid://d38yvq807fu2e" path="res://Assets/Sprites/mc sprite.png" id="2_v402d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tapu"]
 

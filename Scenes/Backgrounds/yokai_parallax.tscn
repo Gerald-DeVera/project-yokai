@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cfycym8ujxmq4" path="res://Assets/Environment/bg_yokai/bg_yokai_mtn.png" id="1_kpi17"]
 [ext_resource type="Texture2D" uid="uid://bqngcy78xundy" path="res://Assets/Environment/bg_yokai/bg_yokai_farbushes.png" id="2_7yvho"]
+[ext_resource type="Texture2D" uid="uid://cbumlhtkdam55" path="res://Assets/Environment/bg_yokai/bg_yokai_clouds.png" id="2_jts0m"]
 [ext_resource type="Texture2D" uid="uid://cygc16tli8ax" path="res://Assets/Environment/bg_yokai/bg_yokai_assets.png" id="3_di1ba"]
 [ext_resource type="Texture2D" uid="uid://dl03vd5gi67di" path="res://Assets/Environment/bg_yokai/bg_yokai_bamboo.png" id="4_jts0m"]
 [ext_resource type="Texture2D" uid="uid://dn4ju8cogq4m" path="res://Assets/Environment/bg_yokai/bg_yokai_bushes.png" id="5_2uq6s"]
@@ -45,6 +46,15 @@ repeat_size = Vector2(640, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1587079287]
 position = Vector2(320, 180)
 texture = ExtResource("1_kpi17")
+
+[node name="Parallax2D8" type="Parallax2D" parent="." unique_id=1229516448]
+scroll_scale = Vector2(0.035, 1)
+repeat_size = Vector2(640, 0)
+autoscroll = Vector2(1.215, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D8" unique_id=60778220]
+position = Vector2(320, 180)
+texture = ExtResource("2_jts0m")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1694597022]
 scroll_scale = Vector2(0.26, 1)

@@ -1,14 +1,56 @@
 [gd_scene format=3 uid="uid://b5m0h0n4twj7d"]
 
-[ext_resource type="Texture2D" uid="uid://0w80icvljpq8" path="res://Assets/Environment/bg_placeholder.png" id="1_g6s36"]
+[ext_resource type="Texture2D" uid="uid://0c3ou111ymwa" path="res://Assets/Environment/bg_overworld/bg_overworld_mtn.png" id="1_g6s36"]
+[ext_resource type="Texture2D" uid="uid://xo8r4e2wtjy1" path="res://Assets/Environment/bg_overworld/bg_overworld_skyline.png" id="2_r5620"]
+[ext_resource type="Texture2D" uid="uid://bq71u1qagvip4" path="res://Assets/Environment/bg_overworld/bg_overworld_buildingsfar.png" id="3_olqjy"]
+[ext_resource type="Texture2D" uid="uid://d1w3txf8ph1me" path="res://Assets/Environment/bg_overworld/bg_overworld_fog.png" id="4_wnaq5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c7muk"]
+load_path = "res://.godot/imported/bg_overworld_clouds.png-36d16b74e4bae806f064c380e994b325.ctex"
 
 [node name="CityParallax" type="Node2D" unique_id=1814770720]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1028128081]
-scroll_scale = Vector2(0.525, 1)
+scroll_scale = Vector2(0.355, 1)
 scroll_offset = Vector2(0, 76.765)
-repeat_size = Vector2(480, 0)
+repeat_size = Vector2(640, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1569659940]
 position = Vector2(320, 180)
 texture = ExtResource("1_g6s36")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=456723443]
+scroll_scale = Vector2(0.355, 1)
+scroll_offset = Vector2(0, 76.765)
+repeat_size = Vector2(640, 0)
+autoscroll = Vector2(1.22, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=575546011]
+position = Vector2(320, 140.23499)
+texture = SubResource("CompressedTexture2D_c7muk")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1538610902]
+scroll_scale = Vector2(0.42, 1)
+scroll_offset = Vector2(0, 76.765)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=989695334]
+position = Vector2(320, 180)
+texture = ExtResource("2_r5620")
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=311238400]
+scroll_scale = Vector2(0.56, 1)
+scroll_offset = Vector2(0, 76.765)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=1165510788]
+position = Vector2(320, 148.23499)
+texture = ExtResource("3_olqjy")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1714044497]
+scroll_offset = Vector2(0, 76.765)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D5" unique_id=56626193]
+position = Vector2(320, 180)
+texture = ExtResource("4_wnaq5")

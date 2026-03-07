@@ -2,8 +2,261 @@
 
 [ext_resource type="Script" uid="uid://c0x2couw6qcwt" path="res://Scenes/DialogueBalloons/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="3_42mdh"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Texture2D" uid="uid://d2froflcq1kex" path="res://Assets/Sprites/mc_expressions.png" id="4_ycpbo"]
+
+[sub_resource type="Animation" id="Animation_ncufs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.4667953, 1.4667953)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59.000004, 251)]
+}
+
+[sub_resource type="Animation" id="Animation_0ddih"]
+resource_name = "fade_in"
+length = 0.6666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.342, 1.342), Vector2(1.467, 1.467)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(59, 259.81), Vector2(59, 251)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.45840502, 0.45840508, 0.45840502, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_64xvc"]
+resource_name = "fade_out"
+length = 0.6666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.45840502, 0.45840508, 0.45840502, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.4667953, 1.4667953), Vector2(1.342, 1.342)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(59.000004, 251), Vector2(59, 259.81)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qwen"]
+_data = {
+&"RESET": SubResource("Animation_ncufs"),
+&"enter_convo": SubResource("Animation_0ddih"),
+&"exit_convo": SubResource("Animation_64xvc")
+}
+
+[sub_resource type="Animation" id="Animation_42mdh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.4862745, 0.4862745, 0.4862745, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.3, 2.212)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(557, 272.835)]
+}
+
+[sub_resource type="Animation" id="Animation_5qwen"]
+resource_name = "enter_convo"
+length = 0.667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.4862745, 0.4862745, 0.4862745, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(557, 272.835), Vector2(557, 251.00002)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.3, 2.212), Vector2(1.5999949, 2.7215223)]
+}
+
+[sub_resource type="Animation" id="Animation_0x0e6"]
+resource_name = "exit_convo"
+length = 0.6677
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6677),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.48570347, 0.48570353, 0.48570347, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6677),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.5999949, 2.7215223), Vector2(1.3, 2.212)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6677),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(557, 251.00002), Vector2(557, 272.835)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5727g"]
+_data = {
+&"RESET": SubResource("Animation_42mdh"),
+&"enter_convo": SubResource("Animation_5qwen"),
+&"exit_convo": SubResource("Animation_0x0e6")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -110,6 +363,21 @@ position = Vector2(59.000004, 251)
 scale = Vector2(1.4667953, 1.4667953)
 texture = ExtResource("4_ycpbo")
 hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2DLeft" unique_id=1070743769]
+libraries/ = SubResource("AnimationLibrary_5qwen")
+
+[node name="Sprite2DRight" type="Sprite2D" parent="." unique_id=1709037210]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.4862745, 0.4862745, 0.4862745, 1)
+position = Vector2(557, 272.835)
+rotation = 0.2814246
+scale = Vector2(1.3, 2.212)
+texture = ExtResource("3_42mdh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2DRight" unique_id=1118437839]
+libraries/ = SubResource("AnimationLibrary_5727g")
 
 [node name="Balloon" type="Control" parent="." unique_id=1909268423]
 unique_name_in_owner = true

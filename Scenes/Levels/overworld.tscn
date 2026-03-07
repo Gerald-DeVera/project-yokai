@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://0w80icvljpq8" path="res://Assets/Environment/bg_placeholder.png" id="1_0q8xj"]
 [ext_resource type="PackedScene" uid="uid://b5m0h0n4twj7d" path="res://Scenes/Backgrounds/city_parallax.tscn" id="1_bpa6q"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_jjp5g"]
+[ext_resource type="Texture2D" uid="uid://b6e0oyfns02h6" path="res://Assets/Environment/bg_overworld/bg_tileset_fences.png" id="2_21y02"]
 [ext_resource type="Texture2D" uid="uid://bgvqqupf1fqj0" path="res://Assets/Environment/floor_placeholder.png" id="3_j1dxk"]
 [ext_resource type="Texture2D" uid="uid://dck2lqrribduv" path="res://Assets/Environment/bg_overworld/convenience.png" id="3_jv171"]
 [ext_resource type="Texture2D" uid="uid://deiq4acpd6rmm" path="res://Assets/Environment/bg_overworld/city_overworld_tileset.png" id="5_ipohl"]
@@ -22,6 +23,107 @@
 [ext_resource type="PackedScene" uid="uid://drhqyb3tnqixy" path="res://Scenes/Other/scene_transition_animation.tscn" id="21_pbaho"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_2j0ao"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="22_pbaho"]
+[ext_resource type="Texture2D" uid="uid://bbuyrkrybp0et" path="res://Assets/Environment/bg_overworld/bg_bush.png" id="24_r8fhl"]
+[ext_resource type="Texture2D" uid="uid://2rjjcvjvkft" path="res://Assets/Environment/bg_overworld/bg_streetlight.png" id="25_onlrw"]
+[ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="26_x82q5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sg6ii"]
+texture = ExtResource("2_21y02")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+3:0/0 = 0
+6:0/0 = 0
+6:0/0/terrain_set = 0
+6:0/0/terrains_peering_bit/bottom_left_corner = 1
+6:0/0/terrains_peering_bit/left_side = 1
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/bottom_left_corner = 0
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/terrains_peering_bit/top_right_corner = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_left_corner = 0
+3:1/0 = 0
+6:1/0 = 0
+6:1/0/terrain_set = 0
+6:1/0/terrains_peering_bit/bottom_left_corner = 1
+6:1/0/terrains_peering_bit/left_side = 1
+6:1/0/terrains_peering_bit/top_left_corner = 1
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrains_peering_bit/right_side = 1
+4:0/0/terrains_peering_bit/bottom_right_corner = 1
+4:1/0 = 0
+4:1/0/terrain_set = 0
+4:1/0/terrains_peering_bit/right_side = 1
+4:1/0/terrains_peering_bit/bottom_right_corner = 1
+4:1/0/terrains_peering_bit/top_right_corner = 1
+5:0/0 = 0
+5:0/0/terrain_set = 0
+5:0/0/terrain = 1
+5:0/0/terrains_peering_bit/right_side = 1
+5:0/0/terrains_peering_bit/bottom_right_corner = 1
+5:0/0/terrains_peering_bit/bottom_side = 1
+5:0/0/terrains_peering_bit/bottom_left_corner = 1
+5:0/0/terrains_peering_bit/left_side = 1
+5:1/0 = 0
+5:1/0/terrain_set = 0
+5:1/0/terrain = 1
+5:1/0/terrains_peering_bit/right_side = 1
+5:1/0/terrains_peering_bit/bottom_right_corner = 1
+5:1/0/terrains_peering_bit/bottom_side = 1
+5:1/0/terrains_peering_bit/bottom_left_corner = 1
+5:1/0/terrains_peering_bit/left_side = 1
+5:1/0/terrains_peering_bit/top_left_corner = 1
+5:1/0/terrains_peering_bit/top_side = 1
+5:1/0/terrains_peering_bit/top_right_corner = 1
+
+[sub_resource type="TileSet" id="TileSet_x2dcs"]
+tile_size = Vector2i(24, 24)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Wire"
+terrain_set_0/terrain_0/color = Color(0.37297317, 0.32074204, 0.6783508, 1)
+terrain_set_0/terrain_1/name = "Block"
+terrain_set_0/terrain_1/color = Color(0.25919905, 0.59566516, 0.5808119, 1)
+sources/0 = SubResource("TileSetAtlasSource_sg6ii")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjp5g"]
 distance = 3.0
@@ -64,6 +166,11 @@ sources/0 = SubResource("TileSetAtlasSource_r0pkw")
 [node name="Overworld" type="Node2D" unique_id=43480892]
 
 [node name="Node2D2" parent="." unique_id=1814770720 instance=ExtResource("1_bpa6q")]
+z_index = -2
+
+[node name="CityFenceMap" type="TileMapLayer" parent="." unique_id=307175695]
+tile_map_data = PackedByteArray("AABYAAwAAAAFAAEAAABXAAwAAAAFAAEAAABWAAwAAAAFAAEAAABVAAwAAAAFAAEAAABmAAwAAAAFAAEAAABlAAwAAAAFAAEAAABkAAwAAAAFAAEAAABjAAwAAAAFAAEAAABiAAwAAAAFAAEAAABhAAwAAAAFAAEAAABgAAwAAAAFAAEAAABfAAwAAAAFAAEAAABeAAwAAAAFAAEAAABnAAwAAAAFAAEAAABIAAwAAAAFAAEAAABHAAwAAAAFAAEAAABGAAwAAAAFAAEAAABFAAwAAAAFAAEAAABEAAwAAAAFAAEAAABDAAwAAAAFAAEAAABCAAwAAAAFAAEAAABBAAwAAAAFAAEAAABAAAwAAAAFAAEAAAA/AAwAAAAFAAEAAAA+AAwAAAAFAAEAAAA9AAwAAAAFAAEAAAA8AAwAAAAFAAEAAAA7AAwAAAAFAAEAAAA6AAwAAAAFAAEAAABHAAsAAAAFAAAAAABGAAsAAAAFAAAAAABFAAsAAAAFAAAAAABEAAsAAAAFAAAAAABDAAsAAAAFAAAAAABCAAsAAAAFAAAAAABBAAsAAAAFAAAAAABAAAsAAAAFAAAAAAA/AAsAAAAFAAAAAAA+AAsAAAAFAAAAAAA9AAsAAAAFAAAAAAA8AAsAAAAFAAAAAAA7AAsAAAAFAAAAAAA6AAsAAAAFAAAAAAA5AAwAAAAEAAEAAAA5AAsAAAAEAAAAAABIAAsAAAAFAAAAAABZAAwAAAAFAAEAAABZAAsAAAAFAAAAAABYAAsAAAAFAAAAAABXAAsAAAAFAAAAAABWAAsAAAAFAAAAAABVAAsAAAAFAAAAAABUAAwAAAAFAAEAAABUAAsAAAAFAAAAAABTAAwAAAAFAAEAAABTAAsAAAAFAAAAAABSAAwAAAAFAAEAAABSAAsAAAAFAAAAAABRAAwAAAAFAAEAAABRAAsAAAAFAAAAAABQAAwAAAAFAAEAAABQAAsAAAAFAAAAAABPAAwAAAAFAAEAAABPAAsAAAAFAAAAAABOAAwAAAAFAAEAAABOAAsAAAAFAAAAAABNAAwAAAAFAAEAAABNAAsAAAAFAAAAAABMAAwAAAAFAAEAAABMAAsAAAAFAAAAAABLAAwAAAAFAAEAAABLAAsAAAAFAAAAAABKAAwAAAAFAAEAAABKAAsAAAAFAAAAAABJAAwAAAAFAAEAAABJAAsAAAAFAAAAAABaAAsAAAAGAAAAAABaAAwAAAAGAAEAAABnAAsAAAAFAAAAAABmAAsAAAAFAAAAAABlAAsAAAAFAAAAAABkAAsAAAAFAAAAAABjAAsAAAAFAAAAAABiAAsAAAAFAAAAAABhAAsAAAAFAAAAAABgAAsAAAAFAAAAAABfAAsAAAAFAAAAAABeAAsAAAAFAAAAAABdAAwAAAAEAAEAAABdAAsAAAAEAAAAAABoAAsAAAAGAAAAAABoAAwAAAAGAAEAAAAwAAwAAAABAAEAAAAvAAwAAAABAAEAAAAuAAwAAAABAAEAAAAtAAwAAAABAAEAAAAsAAwAAAABAAEAAAArAAwAAAABAAEAAAAqAAwAAAABAAEAAAApAAwAAAABAAEAAAAoAAwAAAABAAEAAAAnAAwAAAABAAEAAAAmAAwAAAABAAEAAAAlAAwAAAABAAEAAAAkAAwAAAABAAEAAAAjAAwAAAABAAEAAAAiAAwAAAABAAEAAAAhAAwAAAABAAEAAAAgAAwAAAABAAEAAAAfAAwAAAABAAEAAAAeAAwAAAABAAEAAAAdAAwAAAAAAAEAAAAdAAsAAAAAAAAAAAAeAAsAAAABAAAAAAAfAAsAAAABAAAAAAAgAAsAAAABAAAAAAAhAAsAAAABAAAAAAAiAAsAAAABAAAAAAAjAAsAAAABAAAAAAAkAAsAAAABAAAAAAAlAAsAAAABAAAAAAAmAAsAAAABAAAAAAAnAAsAAAABAAAAAAAoAAsAAAABAAAAAAApAAsAAAABAAAAAAAqAAsAAAABAAAAAAArAAsAAAABAAAAAAAsAAsAAAABAAAAAAAtAAsAAAABAAAAAAAuAAsAAAABAAAAAAAvAAsAAAABAAAAAAAwAAsAAAABAAAAAAAxAAwAAAACAAEAAAAxAAsAAAACAAAAAAAMAAwAAAABAAEAAAALAAwAAAABAAEAAAAKAAwAAAABAAEAAAAJAAwAAAABAAEAAAAIAAwAAAABAAEAAAAHAAwAAAABAAEAAAAGAAwAAAABAAEAAAAFAAwAAAABAAEAAAAEAAwAAAABAAEAAAADAAwAAAABAAEAAAACAAwAAAABAAEAAAABAAwAAAABAAEAAAAAAAwAAAABAAEAAAD//wwAAAABAAEAAAD+/wwAAAABAAEAAAD+/wsAAAABAAAAAAD//wsAAAABAAAAAAAAAAsAAAABAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAADAAsAAAABAAAAAAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAIAAsAAAABAAAAAAAJAAsAAAABAAAAAAAKAAsAAAABAAAAAAALAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAwAAAACAAEAAAANAAsAAAACAAAAAAD9/wwAAAABAAEAAAD8/wwAAAABAAEAAAD7/wwAAAABAAEAAAD6/wwAAAABAAEAAAD5/wwAAAABAAEAAAD4/wwAAAABAAEAAAD3/wwAAAABAAEAAAD2/wwAAAABAAEAAAD1/wwAAAABAAEAAAD0/wwAAAABAAEAAADz/wwAAAABAAEAAADy/wwAAAABAAEAAADx/wwAAAABAAEAAADw/wwAAAABAAEAAADv/wwAAAABAAEAAADu/wwAAAAAAAEAAADu/wsAAAAAAAAAAADv/wsAAAABAAAAAADw/wsAAAABAAAAAADx/wsAAAABAAAAAADy/wsAAAABAAAAAADz/wsAAAABAAAAAAD0/wsAAAABAAAAAAD1/wsAAAABAAAAAAD2/wsAAAABAAAAAAD3/wsAAAABAAAAAAD4/wsAAAABAAAAAAD5/wsAAAABAAAAAAD6/wsAAAABAAAAAAD7/wsAAAABAAAAAAD8/wsAAAABAAAAAAD9/wsAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_x2dcs")
 
 [node name="BuildingContainer" type="Node2D" parent="." unique_id=1506817960]
 
@@ -191,6 +298,7 @@ tile_map_data = PackedByteArray("AAAaABEAAAAAAAIAAAAaABAAAAAAAAIAAAAaAA8AAAAAAAI
 tile_set = SubResource("TileSet_7vorq")
 
 [node name="SceneTransitionAnimation" parent="." unique_id=590620136 instance=ExtResource("21_pbaho")]
+z_index = 2
 
 [node name="Button" parent="." unique_id=206299497 instance=ExtResource("22_2j0ao")]
 position = Vector2(475, 284)
@@ -200,7 +308,77 @@ next_scene = "Level2"
 position = Vector2(362, 286)
 
 [node name="Button4" parent="." unique_id=97808445 instance=ExtResource("22_pbaho")]
-position = Vector2(741, 279)
+position = Vector2(811, 279)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
 dialogueStartingPosition = "start"
 isDialogue = true
+
+[node name="AssetContainer" type="Node2D" parent="." unique_id=1451457834]
+z_index = -1
+position = Vector2(-419, 212)
+
+[node name="BgBush" type="Sprite2D" parent="AssetContainer" unique_id=24942778]
+position = Vector2(34, 88)
+texture = ExtResource("24_r8fhl")
+
+[node name="BgStreetlight6" type="Sprite2D" parent="AssetContainer" unique_id=1754018075]
+position = Vector2(1024, 32)
+texture = ExtResource("25_onlrw")
+
+[node name="BgTree" type="Sprite2D" parent="AssetContainer" unique_id=184871377]
+position = Vector2(959, 20.25)
+scale = Vector2(0.79850745, 0.79850745)
+texture = ExtResource("26_x82q5")
+
+[node name="BgTree2" type="Sprite2D" parent="AssetContainer" unique_id=2090033886]
+texture = ExtResource("26_x82q5")
+
+[node name="BgTree3" type="Sprite2D" parent="AssetContainer" unique_id=536768826]
+z_index = 1
+position = Vector2(1788, 0)
+texture = ExtResource("26_x82q5")
+
+[node name="BgStreetlight" type="Sprite2D" parent="AssetContainer" unique_id=29269756]
+position = Vector2(2502, 30)
+texture = ExtResource("25_onlrw")
+
+[node name="BgStreetlight2" type="Sprite2D" parent="AssetContainer" unique_id=257960]
+position = Vector2(2892, 30)
+texture = ExtResource("25_onlrw")
+
+[node name="BgStreetlight3" type="Sprite2D" parent="AssetContainer" unique_id=1778155796]
+position = Vector2(1986, 30)
+texture = ExtResource("25_onlrw")
+
+[node name="BgStreetlight4" type="Sprite2D" parent="AssetContainer" unique_id=2011541752]
+position = Vector2(2288, 31)
+texture = ExtResource("25_onlrw")
+
+[node name="BgStreetlight5" type="Sprite2D" parent="AssetContainer" unique_id=1244276516]
+position = Vector2(1359, 31)
+texture = ExtResource("25_onlrw")
+
+[node name="BgStreetlight7" type="Sprite2D" parent="AssetContainer" unique_id=897600698]
+position = Vector2(394, 30)
+texture = ExtResource("25_onlrw")
+
+[node name="BgStreetlight8" type="Sprite2D" parent="AssetContainer" unique_id=1846545817]
+position = Vector2(-42, 30)
+texture = ExtResource("25_onlrw")
+
+[node name="BgBush2" type="Sprite2D" parent="AssetContainer" unique_id=1532530712]
+position = Vector2(1135, 87)
+texture = ExtResource("24_r8fhl")
+
+[node name="BgBush3" type="Sprite2D" parent="AssetContainer" unique_id=154164383]
+position = Vector2(736, 89)
+texture = ExtResource("24_r8fhl")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2097716855]
+color = Color(0.85068303, 0.9157074, 0.94329, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1296946442]
+position = Vector2(528, 32)
+color = Color(0.21960789, 0.21794888, 0.3463178, 1)
+energy = 0.7
+shadow_enabled = true

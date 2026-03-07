@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="1_33gn4"]
 [ext_resource type="Texture2D" uid="uid://cyxff0kgo76fs" path="res://Assets/Environment/office_interior.png" id="4_l0i5o"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="5_gdkqi"]
+[ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="5_lhiah"]
 [ext_resource type="PackedScene" uid="uid://drhqyb3tnqixy" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_sfvug"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_33gn4"]
@@ -15,6 +16,94 @@ gradient = SubResource("Gradient_l0i5o")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sfvug"]
 polygon = PackedVector2Array(4.9992943, 32.85324, 10.7467575, 3.038086, -2.6218224, -31.215668, -2.2059517, -33.490723, 11.365173, 1.2820435, 5.4044075, 33.891235)
+
+[sub_resource type="Animation" id="Animation_cg16o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerCharacter/Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l1hg2"]
+resource_name = "zoom_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.6830231),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(3.705, 3.705)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerCharacter/Camera2D:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.25),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_fbqcr"]
+resource_name = "zoom_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 4.594795),
+"update": 0,
+"values": [Vector2(3.7, 3.7), Vector2(2.5, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerCharacter/Camera2D:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3.1383367),
+"update": 0,
+"values": [Vector2(0, 25), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pwkim"]
+_data = {
+&"RESET": SubResource("Animation_cg16o"),
+&"zoom_in": SubResource("Animation_l1hg2"),
+&"zoom_out": SubResource("Animation_fbqcr")
+}
 
 [node name="TestLevel" type="Node2D" unique_id=1594793928]
 
@@ -59,6 +148,17 @@ texture = ExtResource("4_l0i5o")
 position = Vector2(224, 246)
 next_scene = "Level1"
 
+[node name="Button2" parent="." unique_id=1461815565 instance=ExtResource("5_lhiah")]
+position = Vector2(327, 245)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "start2"
+isDialogue = true
+
+[node name="Button3" parent="." unique_id=1403522223 instance=ExtResource("5_lhiah")]
+position = Vector2(453, 249)
+dialogueStartingPosition = "start3"
+isDialogue = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=804787415]
 layer = -1
 
@@ -68,7 +168,7 @@ offset_top = -6.0000153
 offset_right = -44.420006
 offset_bottom = 38.49498
 scale = Vector2(18.819786, 8.988636)
-color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+color = Color(0.03529412, 0.039215688, 0.039215688, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=358075095]
 position = Vector2(347, 227)
@@ -86,6 +186,10 @@ occluder = SubResource("OccluderPolygon2D_sfvug")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=951174994]
 position = Vector2(1, 0)
 scale = Vector2(1.0018339, 1)
-color = Color(0.62514436, 0.7614232, 0.9403582, 1)
+color = Color(0.8584622, 0.8855957, 0.9182237, 1)
 
 [node name="SceneTransitionAnimation" parent="." unique_id=590620136 instance=ExtResource("5_sfvug")]
+z_index = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1610618236]
+libraries/ = SubResource("AnimationLibrary_pwkim")

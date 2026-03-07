@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dq0ga3oci1o5s"]
+[gd_scene format=3 uid="uid://s1dck0vst647"]
 
-[ext_resource type="Script" uid="uid://cn5khebxj0vmt" path="res://Scripts/button.gd" id="1_6ngg6"]
-[ext_resource type="Texture2D" uid="uid://caot7p66xv01q" path="res://Assets/Sprites/buttonTemp.png" id="2_3mjxd"]
-[ext_resource type="Texture2D" uid="uid://bukgbln8egy6s" path="res://Assets/Sprites/tooltip_interact.png" id="3_6ngg6"]
+[ext_resource type="Script" uid="uid://cn5khebxj0vmt" path="res://Scripts/button.gd" id="1_mu0js"]
+[ext_resource type="Texture2D" uid="uid://caot7p66xv01q" path="res://Assets/Sprites/buttonTemp.png" id="2_wsfkg"]
+[ext_resource type="Texture2D" uid="uid://bukgbln8egy6s" path="res://Assets/Sprites/tooltip_interact.png" id="3_gll3u"]
 
 [sub_resource type="Animation" id="Animation_6ngg6"]
 length = 0.001
@@ -43,20 +43,20 @@ _data = {
 }
 
 [node name="Button" type="Node2D" unique_id=206299497]
-script = ExtResource("1_6ngg6")
+script = ExtResource("1_mu0js")
 next_scene = "Level3"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131053964]
 visible = false
 position = Vector2(3.8146973e-06, -3.8146973e-06)
 scale = Vector2(0.4097222, 0.4097222)
-texture = ExtResource("2_3mjxd")
+texture = ExtResource("2_wsfkg")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1435040230]
 visible = false
 position = Vector2(-7.450581e-09, -40)
 scale = Vector2(0.62622285, 0.62622285)
-texture = ExtResource("3_6ngg6")
+texture = ExtResource("3_gll3u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D2" unique_id=1775876419]
 libraries/ = SubResource("AnimationLibrary_8g0gy")

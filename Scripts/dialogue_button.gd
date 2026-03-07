@@ -28,12 +28,12 @@ func _process(delta: float) -> void:
 		canInteract = false
 		interactable = false
 	if temp != canInteract:
-		InteractLabel.visible = !InteractLabel.visible
+		Sprite2.visible = !Sprite2.visible
 		Signals.PlayerCanInteract.emit("button",canInteract)
 
 func ButtonPressed(InteractableObject:String):
 	print("interact")
 	if  InteractableObject == "button" && interactable == true && isDialogue == true:
 		print("start dialogue")
-		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Test.dialogue"), "start", )
+		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Test.dialogue"), dialogueStartingPosition, )
 		return

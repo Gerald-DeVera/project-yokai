@@ -1,6 +1,16 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+## DIALOGUE STATE ENUM
+enum dialogueStates {
+	neutral = 0,
+	happy = 1,
+	angry = 2,
+	confused = 3,
+	unimp = 4
+}
+##VARIABLE FOR CAMERA CONTROL DOES NOT WORK ATM
+@onready var CameraControl = $"../AnimationPlayer"
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -25,6 +35,11 @@ extends CanvasLayer
 
 ## ADDED SPRITE 1 FOR MC
 @onready var char_sprite_left: Sprite2D = %Sprite2DLeft
+@onready var animate_left: AnimationPlayer = %Sprite2DLeft/AnimationPlayer
+
+## SPRITE FOR 2ND SPEAKER
+@onready var char_sprite_right: Sprite2D = %Sprite2DRight
+@onready var animate_right: AnimationPlayer = %Sprite2DRight/AnimationPlayer
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -75,6 +90,7 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 func _ready() -> void:
+	
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -147,21 +163,39 @@ func apply_dialogue_line() -> void:
 	will_hide_balloon = false
 
 	dialogue_label.show()
-	
-	# TEMP SPRITE SWITCHING CODE
+	#modulate right sprite for now, repeat for left and enable sprite switching
+	if dialogue_line.has_tag("actor_right"):
+		var show_sprite = dialogue_line.get_tag_value("actor_right")
+		if show_sprite == "on":
+			char_sprite_right.visible = true
+			print("on")
+		elif show_sprite == "off":
+			char_sprite_right.visible = false
+			print("off")
+			
+	#!!!!!! TEMP SPRITE SWITCHING CODE FOR LEFT SPRITE, USES ENUM @ THE TOP
 	if dialogue_line.has_tag("expression_left"):
 		var expression_mode_left = dialogue_line.get_tag_value("expression_left")
 		print(expression_mode_left)
-		if expression_mode_left == "neutral":
-			char_sprite_left.frame = 0
-		elif expression_mode_left == "happy":
-			char_sprite_left.frame = 1
-		elif expression_mode_left == "angry":
-			char_sprite_left.frame = 2
-		elif expression_mode_left == "confused":
-			char_sprite_left.frame = 3
-		elif expression_mode_left == "unimp":
-			char_sprite_left.frame = 4
+		char_sprite_left.frame = dialogueStates.get(expression_mode_left)
+
+	#SPRITE ANIMATIONE FFEECTSSSS
+	if dialogue_line.has_tag("animate_left"):
+		var animate_mode_left = dialogue_line.get_tag_value("animate_left")
+		print(animate_mode_left)
+		animate_left.play(str(animate_mode_left))
+		
+	if dialogue_line.has_tag("animate_right"):
+		var animate_mode_right = dialogue_line.get_tag_value("animate_right")
+		print(animate_mode_right)
+		animate_right.play(str(animate_mode_right))
+		
+	#!!!!!!!! TEMP CAMERA MOVEMENT SYSTEM
+	if dialogue_line.has_tag("camera_animation") && CameraControl != null:
+		print(CameraControl)
+		var animation_name = dialogue_line.get_tag_value("camera_animation")
+		print(animation_name)
+		CameraControl.play(str(animation_name))
 	
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()

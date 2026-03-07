@@ -231,7 +231,15 @@ tile_set = SubResource("TileSet_nbfcv")
 position = Vector2(232, 168)
 next_scene = "Level1"
 
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2077677274]
+position = Vector2(304, 64)
+color = Color(0.9999998, 0.9245057, 0.9990881, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="CanvasModulate" unique_id=1347124316]
+color = Color(0.09278502, 0.049602278, 0.019943109, 1)
+
 [node name="SceneTransitionAnimation" parent="." unique_id=590620136 instance=ExtResource("23_wc4nj")]
+z_index = 2
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=398184601]
 visible = false
