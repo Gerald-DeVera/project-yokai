@@ -31,10 +31,15 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
+	if Input.is_action_just_pressed("Fullscreen"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	#Do not continue if we do not allow input for the player
 	if inputDisabled:
 		return
-	
+
 	if Input.is_action_just_pressed("Spirit Sight"):
 		spiritSightOn = !spiritSightOn
 		print("Spirit Sight = ", spiritSightOn)

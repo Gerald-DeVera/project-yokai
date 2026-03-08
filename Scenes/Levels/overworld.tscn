@@ -277,7 +277,7 @@ offset_bottom = 384.0
 texture = ExtResource("1_0q8xj")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_jjp5g")]
-position = Vector2(551, 243)
+position = Vector2(560, 288)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1236193648]
 position = Vector2(-2, -30)
