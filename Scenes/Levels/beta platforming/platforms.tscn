@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://3uixw5405jop"]
+
+[ext_resource type="Texture2D" uid="uid://btxnwixacwi5k" path="res://Assets/Environment/yokai_platforms/beta tileset.png" id="1_3aet1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji2ks"]
+size = Vector2(48, 14.5)
+
+[node name="Platforms" type="Node2D" unique_id=447349731]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=2132392268]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1602837107]
+texture = ExtResource("1_3aet1")
+region_enabled = true
+region_rect = Rect2(72.05699, 24.089478, 47.94301, 15.321129)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=706984789]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_ji2ks")
+one_way_collision = true
