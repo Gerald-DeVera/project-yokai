@@ -22,6 +22,7 @@ func _ready() -> void:
 	Signals.PlayerCanInteract.connect(Callable(self,"ChangeInteractionStatus"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
+	Signals.togglePlayerInput.connect(Callable(self,"toggleInput"))
 	if sceneManager.player_pos:
 		global_position = sceneManager.player_pos
 	inventory.makeReady()
@@ -31,10 +32,15 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
+	if Input.is_action_just_pressed("Fullscreen"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	#Do not continue if we do not allow input for the player
 	if inputDisabled:
 		return
-	
+
 	if Input.is_action_just_pressed("Spirit Sight"):
 		spiritSightOn = !spiritSightOn
 		print("Spirit Sight = ", spiritSightOn)
@@ -66,6 +72,13 @@ func _process(delta: float) -> void:
 func ChangeInteractionStatus(InteractableObject:String,IsTrue:bool):
 	canInteract = IsTrue
 	interactable = InteractableObject
+
+func toggleInput(toggle: bool):
+	#true
+	if toggle:
+		enableInput(true)
+	else:
+		disableInput(false)
 
 func disableInput(resource):
 	inputDisabled = true

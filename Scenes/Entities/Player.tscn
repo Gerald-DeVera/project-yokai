@@ -672,7 +672,6 @@ blend_point_6/pos = Vector2(0, 0)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_td8ue"]
 resource_local_to_scene = true
-graph_offset = Vector2(-563.17395, 314.1507)
 nodes/output/position = Vector2(420, 180)
 nodes/MovementStateMachine/node = SubResource("AnimationNodeStateMachine_yu0ev")
 nodes/MovementStateMachine/position = Vector2(-80, 120)
