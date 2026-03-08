@@ -69,6 +69,7 @@ func ChangeInteractionStatus(InteractableObject:String,IsTrue:bool):
 
 func disableInput(resource):
 	inputDisabled = true
+	movement_state_machine.travel("IdleSet")
 
 func enableInput(resource):
 	inputDisabled = false
@@ -85,19 +86,21 @@ func animate(direction):
 		#$Animations/AnimationTree.set("parameters/TweenMachine/Windup/blend_position", Vector2(direction,0))
 	else:
 		movement_state_machine.travel("IdleSet")
-		if hasStopped != true:
+		if hasStopped != true && Input.is_action_just_pressed("move_left") or hasStopped != true && Input.is_action_just_pressed("move_right"):
 			$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 1)
 			$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-			hasStopped = true
+			await $Animations/AnimationTree.animation_finished
+		hasStopped = true
 			
 	if not is_on_floor():
 		movement_state_machine.travel("JumpSet")
 		$Animations/AnimationTree.set("parameters/MovementStateMachine/JumpSet/blend_position", Vector2(direction,0))
+	#Added for redundancy
 	if inputDisabled == true:
 		movement_state_machine.travel("IdleSet")
 
 func get_basic_input():
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+	if hasStopped == true && Input.is_action_just_pressed("move_left") or hasStopped == true && Input.is_action_just_pressed("move_right"):
 		$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 0)
 		$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		hasStopped = false

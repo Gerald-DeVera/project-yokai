@@ -1,8 +1,87 @@
 [gd_scene format=3 uid="uid://bgtb1xxbcsj6c"]
 
 [ext_resource type="Script" uid="uid://btneotlvk3b2r" path="res://Scripts/dialogue_button.gd" id="1_fff5n"]
-[ext_resource type="Texture2D" uid="uid://caot7p66xv01q" path="res://Assets/Sprites/buttonTemp.png" id="2_uhj1f"]
 [ext_resource type="Texture2D" uid="uid://bukgbln8egy6s" path="res://Assets/Sprites/tooltip_interact.png" id="3_fff5n"]
+
+[sub_resource type="Gradient" id="Gradient_yf8g8"]
+offsets = PackedFloat32Array(0.27152318, 0.6225166)
+colors = PackedColorArray(0.42210877, 0.81869435, 0.84736943, 0.5372549, 0.62, 0.7276666, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fff5n"]
+gradient = SubResource("Gradient_yf8g8")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.52093023, 0.4883721)
+
+[sub_resource type="Animation" id="Animation_7y45o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.23137255)]
+}
+
+[sub_resource type="Animation" id="Animation_j3f8e"]
+resource_name = "spirit_glow"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.83333325, 1.7333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.52, 0.52), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.45, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.23137255), Color(1, 1, 1, 0.92941177), Color(1, 1, 1, 0.2901961)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sdqs2"]
+_data = {
+&"RESET": SubResource("Animation_7y45o"),
+&"spirit_glow": SubResource("Animation_j3f8e")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ul4dt"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 25.61
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 3.6299775
+scale_min = 0.0
 
 [sub_resource type="Animation" id="Animation_fff5n"]
 length = 0.001
@@ -45,13 +124,23 @@ _data = {
 [node name="Button" type="Node2D" unique_id=206299497]
 script = ExtResource("1_fff5n")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131053964]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=744752406]
 visible = false
-position = Vector2(3.8146973e-06, -3.8146973e-06)
-scale = Vector2(0.4097222, 0.4097222)
-texture = ExtResource("2_uhj1f")
+modulate = Color(1, 1, 1, 0.23137255)
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_fff5n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=10750322]
+libraries/ = SubResource("AnimationLibrary_sdqs2")
+autoplay = &"spirit_glow"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D" unique_id=1987477782]
+modulate = Color(0.30314922, 0.75346965, 0.72491324, 1)
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_ul4dt")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1435040230]
+visible = false
 position = Vector2(0, -40)
 scale = Vector2(0.626, 0.626)
 texture = ExtResource("3_fff5n")
