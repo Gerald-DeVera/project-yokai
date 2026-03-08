@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://da6l0wvmuuywl"]
+
+[ext_resource type="Script" uid="uid://bni55u2x62wtl" path="res://Scripts/InventoryScripts/inventory_ui.gd" id="1_l5fgy"]
+[ext_resource type="Texture2D" uid="uid://cjq2dedu1ftbt" path="res://Assets/InventoryItems/inventory-background.png" id="2_r55ft"]
+[ext_resource type="PackedScene" uid="uid://b63wahbdevhj" path="res://Scenes/UIandUtil/InventoryUISlot.tscn" id="3_1ui8g"]
+
+[node name="InventoryUi" type="Control" unique_id=934222206]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_l5fgy")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1011476813]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 82.0
+texture = ExtResource("2_r55ft")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=307651115]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -38.0
+offset_right = 28.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="InventoryUiSlot1" parent="NinePatchRect/GridContainer" unique_id=1666548045 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot2" parent="NinePatchRect/GridContainer" unique_id=578548784 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot3" parent="NinePatchRect/GridContainer" unique_id=368153460 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot4" parent="NinePatchRect/GridContainer" unique_id=343032961 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot5" parent="NinePatchRect/GridContainer" unique_id=1301032530 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot6" parent="NinePatchRect/GridContainer" unique_id=199458218 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot7" parent="NinePatchRect/GridContainer" unique_id=1309279385 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot8" parent="NinePatchRect/GridContainer" unique_id=1536272338 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot9" parent="NinePatchRect/GridContainer" unique_id=1769469263 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot10" parent="NinePatchRect/GridContainer" unique_id=338648178 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot11" parent="NinePatchRect/GridContainer" unique_id=606930027 instance=ExtResource("3_1ui8g")]
+layout_mode = 2
+
+[node name="InventoryUiSlot" parent="NinePatchRect/GridContainer" unique_id=1282413305 instance=ExtResource("3_1ui8g")]
+layout_mode = 2

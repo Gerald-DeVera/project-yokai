@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cpikplq3do4tn"]
 
 [ext_resource type="Script" uid="uid://d27r272845fef" path="res://Scripts/entityScripts/player.gd" id="1_v402d"]
+[ext_resource type="Resource" uid="uid://bg0mts2rbbb7b" path="res://Assets/InventoryItems/playerInventory.tres" id="2_agccv"]
 [ext_resource type="Texture2D" uid="uid://bsfqeclee1nh4" path="res://Assets/Sprites/mc sprite-Sheet.png" id="2_v402d"]
+[ext_resource type="PackedScene" uid="uid://da6l0wvmuuywl" path="res://Scenes/UIandUtil/InventoryUI.tscn" id="4_g4oe6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tapu"]
 
@@ -563,6 +565,7 @@ node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"MovementStateMach
 collision_layer = 3
 collision_mask = 35
 script = ExtResource("1_v402d")
+inventory = ExtResource("2_agccv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
 texture = ExtResource("2_v402d")
@@ -602,3 +605,9 @@ collision_mask = 35
 [node name="DoorCollision" type="CollisionShape2D" parent="Area2D" unique_id=1406576169]
 position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_2tapu")
+
+[node name="InventoryUi" parent="." unique_id=934222206 instance=ExtResource("4_g4oe6")]
+offset_left = -81.0
+offset_top = -77.0
+offset_right = -81.0
+offset_bottom = -77.0

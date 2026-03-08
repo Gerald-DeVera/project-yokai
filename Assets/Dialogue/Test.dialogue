@@ -24,3 +24,7 @@ Makoto: you look like a mean fella
 John: im john yo [#animate_left=exit_convo][#animate_right=enter_convo]
 John: nice to meet u im actually really nice
 Makoto: oh okay :) [#expression_left=neutral][#animate_left=enter_convo][#animate_right=exit_convo]
+=> END	
+
+~ dinoObtained
+Makoto: Oh boy! A Dino Nugget! [#expression_left=happy]

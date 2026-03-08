@@ -3,6 +3,8 @@ extends CharacterBody2D
 const speed = 150.0
 const jump_velocity = -200.0	
 
+@export var inventory: Inv
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canInteract = false
 var interactable = ""
@@ -23,6 +25,7 @@ func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
 	if sceneManager.player_pos:
 		global_position = sceneManager.player_pos
+	inventory.makeReady()
 
 
 func _physics_process(delta):
@@ -39,7 +42,7 @@ func _physics_process(delta):
 		
 	#interact
 	if canInteract and is_on_floor() and Input.is_action_just_pressed("Interact"):
-		disableInput(true)
+		#disableInput(true)
 		Signals.PlayerInteractPressed.emit(interactable)
 	#jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():

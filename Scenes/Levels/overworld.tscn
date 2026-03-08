@@ -23,8 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://drhqyb3tnqixy" path="res://Scenes/Other/scene_transition_animation.tscn" id="21_pbaho"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_2j0ao"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="22_pbaho"]
+[ext_resource type="Script" uid="uid://cja2uvu75861w" path="res://Scripts/interactableItem.gd" id="24_onlrw"]
 [ext_resource type="Texture2D" uid="uid://bbuyrkrybp0et" path="res://Assets/Environment/bg_overworld/bg_bush.png" id="24_r8fhl"]
 [ext_resource type="Texture2D" uid="uid://2rjjcvjvkft" path="res://Assets/Environment/bg_overworld/bg_streetlight.png" id="25_onlrw"]
+[ext_resource type="Resource" uid="uid://bedkcslnfmeg7" path="res://Assets/InventoryItems/dinoNugget.tres" id="25_x82q5"]
 [ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="26_x82q5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sg6ii"]
@@ -313,6 +315,12 @@ position = Vector2(811, 279)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
 dialogueStartingPosition = "start"
 isDialogue = true
+
+[node name="item" parent="." unique_id=827391407 instance=ExtResource("22_pbaho")]
+position = Vector2(674, 282)
+script = ExtResource("24_onlrw")
+item = ExtResource("25_x82q5")
+interactable = true
 
 [node name="AssetContainer" type="Node2D" parent="." unique_id=1451457834]
 z_index = -1
