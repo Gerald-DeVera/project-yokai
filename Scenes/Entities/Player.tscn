@@ -5,6 +5,133 @@
 [ext_resource type="Texture2D" uid="uid://bsfqeclee1nh4" path="res://Assets/Sprites/mc sprite-Sheet.png" id="2_v402d"]
 [ext_resource type="PackedScene" uid="uid://da6l0wvmuuywl" path="res://Scenes/UIandUtil/InventoryUI.tscn" id="4_g4oe6"]
 
+[sub_resource type="Gradient" id="Gradient_g4oe6"]
+offsets = PackedFloat32Array(0.39490446, 0.71672356)
+colors = PackedColorArray(0.4, 0.84313726, 0.7254902, 0.3529412, 0.044287793, 0.4047784, 0.6138141, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_86atj"]
+gradient = SubResource("Gradient_g4oe6")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.517094, 0.491453)
+
+[sub_resource type="Animation" id="Animation_46t5s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.135, 0.135)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0pa8p"]
+resource_name = "spirit_sense"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.51),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.135, 0.135), Vector2(2.795, 2.795)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hljs"]
+_data = {
+&"RESET": SubResource("Animation_46t5s"),
+&"spirit_sense": SubResource("Animation_0pa8p")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4oe6"]
+blend_mode = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_86atj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yu0ev"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 24.12
+angle_min = -360.0
+angle_max = 368.40002
+inherit_velocity_ratio = 0.135
+spread = 180.0
+initial_velocity_max = 3.3
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 46.87998
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 34.109997
+scale_max = 2.0
+color = Color(0.47833925, 0.68319243, 0.7094421, 1)
+hue_variation_min = -0.11000002
+hue_variation_max = 0.049999975
+collision_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_86atj"]
+offsets = PackedFloat32Array(0.32764506, 0.39590445, 0.45392492)
+colors = PackedColorArray(0.5974209, 0.70185655, 0.83442074, 0, 0.6431373, 0.8666667, 1, 0.31764707, 0.18039216, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yu0ev"]
+gradient = SubResource("Gradient_86atj")
+fill = 1
+fill_from = Vector2(0.4957265, 0.45726496)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tapu"]
 
 [sub_resource type="Animation" id="Animation_agccv"]
@@ -566,6 +693,24 @@ collision_layer = 3
 collision_mask = 35
 script = ExtResource("1_v402d")
 inventory = ExtResource("2_agccv")
+
+[node name="DomainExpansion" type="Sprite2D" parent="." unique_id=1193672217]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 2)
+scale = Vector2(0.135, 0.135)
+texture = SubResource("GradientTexture2D_86atj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DomainExpansion" unique_id=1415474178]
+libraries/ = SubResource("AnimationLibrary_0hljs")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="DomainExpansion" unique_id=39314026]
+material = SubResource("CanvasItemMaterial_g4oe6")
+amount = 51
+texture = SubResource("CanvasTexture_86atj")
+process_material = SubResource("ParticleProcessMaterial_yu0ev")
+
+[node name="Sprite2D" type="Sprite2D" parent="DomainExpansion" unique_id=901851855]
+texture = SubResource("GradientTexture2D_yu0ev")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
 texture = ExtResource("2_v402d")

@@ -14,8 +14,7 @@ var direction: Vector2
 var hasStopped = true
 
 @onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
-@onready var tween_machine = $Animations/AnimationTree.get("parameters/TweenMachine/playback")
-
+@onready var domain_expansion = $DomainExpansion/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,6 +38,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Spirit Sight"):
 		spiritSightOn = !spiritSightOn
 		print("Spirit Sight = ", spiritSightOn)
+		domain_expansion.play("spirit_sense")
 		
 	#interact
 	if canInteract and is_on_floor() and Input.is_action_just_pressed("Interact"):

@@ -19,6 +19,8 @@ func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
 	if isSpiritButton:
 		visible = false
+		Sprite2.modulate = Color("57e3ff")
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
