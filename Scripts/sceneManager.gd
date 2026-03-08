@@ -7,10 +7,11 @@ extends Node
 var scenes : Dictionary = { "Level1": "res://Scenes/Levels/overworld.tscn" ,
 							"Level2": "res://Scenes/Levels/testLevel.tscn" ,
 							"Level3": "res://Scenes/Levels/baseYokaiWorld.tscn"}
+var player_pos: Vector2
 
 func transition_to_scene(level : String):
 	var scene_path : String = scenes.get(level)
 	
 	if scene_path != null:
 		await get_tree().create_timer(1.0).timeout
-		get_tree(). change_scene_to_file(scene_path)
+		get_tree().change_scene_to_file(scene_path)

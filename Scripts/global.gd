@@ -1,6 +1,3 @@
 extends Node
 
-enum dialogueStates {
-	hungry,
-	notHungry
-}
+var player_pos: Vector2

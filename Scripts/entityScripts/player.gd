@@ -6,25 +6,35 @@ const jump_velocity = -200.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canInteract = false
 var interactable = ""
+var inputDisabled = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Player")
 	Signals.PlayerCanInteract.connect(Callable(self,"ChangeInteractionStatus"))
+	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
+	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
+	if sceneManager.player_pos:
+		global_position = sceneManager.player_pos
 
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
+	#Do not continue if we do not allow input for the player
+	if inputDisabled:
+		return
+
 	#interact
 	if canInteract and is_on_floor() and Input.is_action_just_pressed("Interact"):
+		disableInput(true)
 		Signals.PlayerInteractPressed.emit(interactable)
 	#jump
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("move_left", "move_right")
 	#print(direction)
 	if direction:
 		velocity.x = direction * speed
@@ -45,3 +55,9 @@ func _process(delta: float) -> void:
 func ChangeInteractionStatus(InteractableObject:String,IsTrue:bool):
 	canInteract = IsTrue
 	interactable = InteractableObject
+
+func disableInput(resource):
+	inputDisabled = true
+
+func enableInput(resource):
+	inputDisabled = false

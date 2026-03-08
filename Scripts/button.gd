@@ -2,7 +2,7 @@ extends Node2D
 
 @export var next_scene :String
 @export var interactable :bool
-@export var isDialogue :bool 
+@export var player_pos :Vector2
 @onready var playerCharacter = $"../PlayerCharacter"
 @onready var Sprite1 = $Sprite2D
 @onready var Sprite2 = $Sprite2D2
@@ -31,7 +31,8 @@ func _process(delta: float) -> void:
 		Signals.PlayerCanInteract.emit("button",canInteract)
 
 func ButtonPressed(InteractableObject:String):
-	if InteractableObject == "button" && interactable == true && isDialogue == false:
+	if InteractableObject == "button" && interactable == true:
+		sceneManager.player_pos = player_pos
 		print(next_scene)
 		SceneTransition.play("gradient_up")
 		await SceneTransition.animation_finished
@@ -39,7 +40,3 @@ func ButtonPressed(InteractableObject:String):
 		# print("scene transition")
 		await get_tree().create_timer(1).timeout
 		sceneManager.transition_to_scene(next_scene)
-	elif  InteractableObject == "button" && interactable == true && isDialogue == true:
-		print("start dialogue")
-		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Test.dialogue"), "start", )
-		return
