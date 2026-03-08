@@ -125,7 +125,7 @@ collision_mode = 2
 
 [sub_resource type="Gradient" id="Gradient_86atj"]
 offsets = PackedFloat32Array(0.16556291, 0.39590445, 0.45392492)
-colors = PackedColorArray(1, 1, 1, 1, 0.6431373, 0.8666667, 1, 0.31764707, 0.18039216, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0, 0.6431373, 0.8666667, 1, 0.31764707, 0.18039216, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yu0ev"]
 gradient = SubResource("Gradient_86atj")

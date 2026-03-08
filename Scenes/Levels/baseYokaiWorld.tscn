@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_4r1gn"]
 [ext_resource type="PackedScene" uid="uid://drhqyb3tnqixy" path="res://Scenes/Other/scene_transition_animation.tscn" id="23_wc4nj"]
 [ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="24_wc4nj"]
+[ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="25_rj0db"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8x7c5"]
 distance = 3.0
@@ -99,6 +100,77 @@ scale_min = 0.29999998
 scale_max = 0.79999995
 color_ramp = SubResource("GradientTexture1D_wc4nj")
 anim_offset_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_wh3g1"]
+offsets = PackedFloat32Array(0.016806724, 0.5546219, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.7254902, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sg6ii"]
+gradient = SubResource("Gradient_wh3g1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ao21d"]
+texture = SubResource("GradientTexture2D_sg6ii")
+
+[sub_resource type="Animation" id="Animation_onlrw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x82q5"]
+resource_name = "play_title"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.0333333, 2.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.4, 4.8333335, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3t3b"]
+_data = {
+&"RESET": SubResource("Animation_onlrw"),
+&"play_title": SubResource("Animation_x82q5")
+}
 
 [node name="BaseYokaiWorld" type="Node2D" unique_id=1832718104]
 
@@ -249,3 +321,28 @@ amount = 100
 texture = ExtResource("24_wc4nj")
 visibility_rect = Rect2(-336.285, -204.975, 700, 400)
 process_material = SubResource("ParticleProcessMaterial_4r1gn")
+
+[node name="TempTitleContainer" type="CanvasLayer" parent="." unique_id=969145633]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TempTitleContainer" unique_id=1155717550]
+z_index = 4
+offset_left = 218.0
+offset_top = 20.0
+offset_right = 452.0
+offset_bottom = 63.0
+theme = ExtResource("25_rj0db")
+theme_type_variation = &"Title"
+theme_override_colors/font_outline_color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/normal_font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_ao21d")
+bbcode_enabled = true
+text = "[wave amp=10.0 freq=5.0 connected=1]Place, Japan[/wave]"
+scroll_active = false
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TempTitleContainer/RichTextLabel" unique_id=70078979]
+libraries/ = SubResource("AnimationLibrary_s3t3b")
+autoplay = &"play_title"

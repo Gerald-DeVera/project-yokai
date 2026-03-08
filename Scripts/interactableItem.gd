@@ -10,7 +10,9 @@ class_name interactableItem
 @onready var Sprite2 = $Sprite2D2
 @onready var InteractLabel = $RichTextLabel
 @onready var SceneTransition = $"../SceneTransitionAnimation/AnimationPlayer"
+@onready var tooltip = $Sprite2D2/RichTextLabel
 @export var isSpiritButton:bool
+@export var interactText: String
 var minimumDistanceFromPlayer = 35
 var canInteract = false
 var spiritButtonVisibilityDistance = 100
@@ -18,6 +20,7 @@ const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
 
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
+	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
 

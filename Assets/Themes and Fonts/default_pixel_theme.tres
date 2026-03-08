@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://b7h0edkhnv8f2"]
+
+[ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="1_oplx1"]
+
+[resource]
+default_font = ExtResource("1_oplx1")

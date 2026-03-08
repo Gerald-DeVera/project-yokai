@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btneotlvk3b2r" path="res://Scripts/dialogue_button.gd" id="1_fff5n"]
 [ext_resource type="Texture2D" uid="uid://bukgbln8egy6s" path="res://Assets/Sprites/tooltip_interact.png" id="3_fff5n"]
+[ext_resource type="FontFile" uid="uid://b6jdat4l5binh" path="res://Assets/Themes and Fonts/Jersey10-Regular.ttf" id="3_uhj1f"]
 
 [sub_resource type="Gradient" id="Gradient_yf8g8"]
 offsets = PackedFloat32Array(0.27152318, 0.6225166)
@@ -83,6 +84,10 @@ radial_velocity_min = -2.2351742e-05
 radial_velocity_max = 3.6299775
 scale_min = 0.0
 
+[sub_resource type="FontVariation" id="FontVariation_7y45o"]
+base_font = ExtResource("3_uhj1f")
+spacing_glyph = 1
+
 [sub_resource type="Animation" id="Animation_fff5n"]
 length = 0.001
 tracks/0/type = "value"
@@ -145,14 +150,18 @@ position = Vector2(0, -40)
 scale = Vector2(0.626, 0.626)
 texture = ExtResource("3_fff5n")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D2" unique_id=594640783]
+offset_left = -64.995
+offset_top = -34.783
+offset_right = 66.090004
+offset_bottom = -14.183001
+theme_override_colors/font_outline_color = Color(0.13319641, 0.13319641, 0.13319638, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = SubResource("FontVariation_7y45o")
+theme_override_font_sizes/normal_font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D2" unique_id=840898157]
 libraries/ = SubResource("AnimationLibrary_7y45o")
 autoplay = &"bounce_idle"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=594640783]
-visible = false
-offset_left = -4.0
-offset_top = -50.0
-offset_right = 36.0
-offset_bottom = -10.0
-text = "E"

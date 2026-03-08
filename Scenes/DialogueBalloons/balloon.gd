@@ -9,7 +9,7 @@ enum dialogueStates {
 	confused = 3,
 	unimp = 4
 }
-##VARIABLE FOR CAMERA CONTROL DOES NOT WORK ATM
+#CAMERA CONTROL REFERENCE IN SCENE
 @onready var CameraControl = $"../AnimationPlayer"
 
 ## The dialogue resource
@@ -86,7 +86,7 @@ var mutation_cooldown: Timer = Timer.new()
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
 ## Indicator to show that player can progress dialogue.
-@onready var progress: Polygon2D = %Progress
+@onready var progress: Sprite2D = %Progress
 
 
 func _ready() -> void:
