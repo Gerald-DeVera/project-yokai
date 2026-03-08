@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="1_v5q4d"]
 [ext_resource type="Resource" uid="uid://bedkcslnfmeg7" path="res://Assets/InventoryItems/dinoNugget.tres" id="2_djvy0"]
+[ext_resource type="Resource" uid="uid://bnsmlnw5bsgdu" path="res://Assets/InventoryItems/testItem.tres" id="3_djvy0"]
 [ext_resource type="Script" uid="uid://dv74ncrdees8q" path="res://Scripts/InventoryScripts/inventory.gd" id="3_kx2gv"]
 
 [resource]
 script = ExtResource("3_kx2gv")
-items = Array[ExtResource("1_v5q4d")]([ExtResource("2_djvy0"), null, null, null, null, null, null, null, null, null, null, null])
+items = Array[ExtResource("1_v5q4d")]([ExtResource("2_djvy0"), null, null, null, ExtResource("3_djvy0"), null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://dv74ncrdees8q"

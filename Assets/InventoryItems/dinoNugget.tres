@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="invItem" format=3 uid="uid://bedkcslnfmeg7"]
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://bedkcslnfmeg7"]
 
 [ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="1_c2lkh"]
 [ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="2_wr086"]
@@ -7,4 +7,5 @@
 script = ExtResource("1_c2lkh")
 name = "dinoNugget"
 texture = ExtResource("2_wr086")
+description = "delicious"
 metadata/_custom_type_script = "uid://dec4ct7yuknap"

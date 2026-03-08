@@ -4,7 +4,7 @@ extends Control
 @onready var gridExist = $NinePatchRect/GridContainer
 
 var slots: Array
-
+var curSlotIndex: int = 0
 var is_open = false
 
 func _ready() -> void:
@@ -27,11 +27,29 @@ func _process(delta: float) -> void:
 			close()
 		else:
 			open()
+			curSlotIndex = 0
+
+	if is_open:
+		if Input.is_action_just_pressed("move_left") and curSlotIndex > 0:
+			curSlotIndex -= 1
+			if(inv.items[curSlotIndex]):
+				print("item: ", inv.items[curSlotIndex].name, " item description: ", inv.items[curSlotIndex].description)
+		elif Input.is_action_just_pressed("move_right") and curSlotIndex < min(inv.items.size(), slots.size()) - 1:
+			curSlotIndex += 1
+			if(inv.items[curSlotIndex]):
+				print("item: ", inv.items[curSlotIndex].name, " item description: ", inv.items[curSlotIndex].description)
+		
+#		if inv.items[curSlotIndex]:
+		#slots[curSlotIndex]
+		
+		#print("thjig")
   
 func close():
 	visible = false
 	is_open = false
+	Signals.togglePlayerInput.emit(true)
 	
 func open():
 	self.visible = true
 	is_open = true	
+	Signals.togglePlayerInput.emit(false)

@@ -22,6 +22,7 @@ func _ready() -> void:
 	Signals.PlayerCanInteract.connect(Callable(self,"ChangeInteractionStatus"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
+	Signals.togglePlayerInput.connect(Callable(self,"toggleInput"))
 	if sceneManager.player_pos:
 		global_position = sceneManager.player_pos
 	inventory.makeReady()
@@ -71,6 +72,13 @@ func _process(delta: float) -> void:
 func ChangeInteractionStatus(InteractableObject:String,IsTrue:bool):
 	canInteract = IsTrue
 	interactable = InteractableObject
+
+func toggleInput(toggle: bool):
+	#true
+	if toggle:
+		enableInput(true)
+	else:
+		disableInput(false)
 
 func disableInput(resource):
 	inputDisabled = true
