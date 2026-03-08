@@ -140,7 +140,7 @@ zoom = Vector2(2.5, 2.5)
 position = Vector2(209, 199)
 
 [node name="OfficeInterior" type="Sprite2D" parent="." unique_id=1661842683]
-z_index = -1
+z_index = -3
 position = Vector2(313, 230)
 texture = ExtResource("4_l0i5o")
 

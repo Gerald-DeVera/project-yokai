@@ -18,17 +18,18 @@ var canInteract = false
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
 	if isSpiritButton:
-		visible = false
+		self.visible = false
 		Sprite2.modulate = Color("57e3ff")
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if isSpiritButton and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
-		visible = false
+		self.visible = false
+		Sprite1.visible = true
 	else:
-		visible = true
-	if !visible:
+		self.visible = true
+	if !self.visible:
 		return
 	
 	var temp = canInteract

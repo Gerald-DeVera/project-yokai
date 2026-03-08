@@ -124,8 +124,8 @@ hue_variation_max = 0.049999975
 collision_mode = 2
 
 [sub_resource type="Gradient" id="Gradient_86atj"]
-offsets = PackedFloat32Array(0.32764506, 0.39590445, 0.45392492)
-colors = PackedColorArray(0.5974209, 0.70185655, 0.83442074, 0, 0.6431373, 0.8666667, 1, 0.31764707, 0.18039216, 1, 1, 0)
+offsets = PackedFloat32Array(0.16556291, 0.39590445, 0.45392492)
+colors = PackedColorArray(1, 1, 1, 1, 0.6431373, 0.8666667, 1, 0.31764707, 0.18039216, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yu0ev"]
 gradient = SubResource("Gradient_86atj")
@@ -704,7 +704,7 @@ libraries/ = SubResource("AnimationLibrary_0hljs")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="DomainExpansion" unique_id=39314026]
 material = SubResource("CanvasItemMaterial_g4oe6")
-amount = 51
+amount = 14
 texture = SubResource("CanvasTexture_86atj")
 process_material = SubResource("ParticleProcessMaterial_yu0ev")
 
