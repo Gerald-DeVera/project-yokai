@@ -1,13 +1,19 @@
 extends CharacterBody2D
 
 const speed = 150.0
-const jump_velocity = -200.0
+const jump_velocity = -200.0	
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canInteract = false
 var interactable = ""
 var inputDisabled = false
 var spiritSightOn = false
+var direction: Vector2
+var hasStopped = true
+
+@onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
+@onready var tween_machine = $Animations/AnimationTree.get("parameters/TweenMachine/playback")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,16 +49,13 @@ func _physics_process(delta):
 	#print(direction)
 	if direction:
 		velocity.x = direction * speed
-		#bad temp implementation
-		if direction == -1:
-			$Sprite2D.frame = 1
-		elif direction == 1:
-			$Sprite2D.frame = 0
 	else:
 		velocity.x = move_toward(velocity.x,0, speed)
-
+	
+	animate(direction)
 	move_and_slide()
-
+	get_basic_input()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -66,3 +69,32 @@ func disableInput(resource):
 
 func enableInput(resource):
 	inputDisabled = false
+	
+#ANIMATIONTREE CONTROLLLLLLL
+func animate(direction):
+	if direction:
+		movement_state_machine.travel("RunSet")
+		#tween_machine.travel("Windup")
+		$Animations/AnimationTree.set("parameters/MovementStateMachine/RunSet/blend_position", Vector2(direction,0))
+		$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(direction,0))
+		$Animations/AnimationTree.set("parameters/WindupSpace/blend_position",Vector2(direction,0))
+		$Animations/AnimationTree.set("parameters/EaseOutSpace/blend_position",Vector2(direction,0))
+		#$Animations/AnimationTree.set("parameters/TweenMachine/Windup/blend_position", Vector2(direction,0))
+	else:
+		movement_state_machine.travel("IdleSet")
+		if hasStopped != true:
+			$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 1)
+			$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+			hasStopped = true
+			
+	if not is_on_floor():
+		movement_state_machine.travel("JumpSet")
+		$Animations/AnimationTree.set("parameters/MovementStateMachine/JumpSet/blend_position", Vector2(direction,0))
+	if inputDisabled == true:
+		movement_state_machine.travel("IdleSet")
+
+func get_basic_input():
+	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+		$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 0)
+		$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		hasStopped = false

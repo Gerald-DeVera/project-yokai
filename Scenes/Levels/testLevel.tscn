@@ -159,6 +159,7 @@ isDialogue = true
 position = Vector2(453, 249)
 dialogueStartingPosition = "start3"
 isDialogue = true
+isSpiritButton = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=804787415]
 layer = -1
