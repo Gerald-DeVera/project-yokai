@@ -7,6 +7,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canInteract = false
 var interactable = ""
 var inputDisabled = false
+var spiritSightOn = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +26,11 @@ func _physics_process(delta):
 	#Do not continue if we do not allow input for the player
 	if inputDisabled:
 		return
-
+	
+	if Input.is_action_just_pressed("Spirit Sight"):
+		spiritSightOn = !spiritSightOn
+		print("Spirit Sight = ", spiritSightOn)
+		
 	#interact
 	if canInteract and is_on_floor() and Input.is_action_just_pressed("Interact"):
 		disableInput(true)

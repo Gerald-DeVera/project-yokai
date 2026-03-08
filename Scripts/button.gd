@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name button
+
 @export var next_scene :String
 @export var interactable :bool
 @export var player_pos :Vector2
@@ -8,15 +10,26 @@ extends Node2D
 @onready var Sprite2 = $Sprite2D2
 @onready var InteractLabel = $RichTextLabel
 @onready var SceneTransition = $"../SceneTransitionAnimation/AnimationPlayer"
+@export var isSpiritButton:bool
 var minimumDistanceFromPlayer = 35
 var canInteract = false
+var spiritButtonVisibilityDistance = 100
 const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
 
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
+	if isSpiritButton:
+		self.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if isSpiritButton and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
+		self.visible = false
+	else:
+		self.visible = true
+	if !self.visible:
+		return
+	
 	var temp = canInteract
 	if playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer:
 		# print("I go to %s" %next_scene)
