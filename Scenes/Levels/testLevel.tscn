@@ -176,6 +176,7 @@ color = Color(0.03529412, 0.039215688, 0.039215688, 1)
 position = Vector2(347, 227)
 rotation = 5.6830244
 scale = Vector2(4.074195, 1.0882062)
+energy = 0.84
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_gdkqi")
 

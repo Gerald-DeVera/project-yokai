@@ -159,6 +159,10 @@ func _on_focus_changed(control: Control) -> void:
 
 
 func _on_response_mouse_entered(item: Control) -> void:
+	#starts pin animation
+	print(item.name)
+	item.play_pin()
+	#ends here
 	if "Disallowed" in item.name: return
 
 	item.grab_focus()

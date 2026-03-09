@@ -132,6 +132,9 @@ gradient = SubResource("Gradient_86atj")
 fill = 1
 fill_from = Vector2(0.4957265, 0.45726496)
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_yu0ev"]
+diffuse_texture = ExtResource("2_v402d")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tapu"]
 
 [sub_resource type="Animation" id="Animation_agccv"]
@@ -712,7 +715,7 @@ process_material = SubResource("ParticleProcessMaterial_yu0ev")
 texture = SubResource("GradientTexture2D_yu0ev")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
-texture = ExtResource("2_v402d")
+texture = SubResource("CanvasTexture_yu0ev")
 hframes = 10
 vframes = 5
 frame = 1

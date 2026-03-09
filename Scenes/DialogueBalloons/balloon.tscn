@@ -12,6 +12,9 @@
 [ext_resource type="FontFile" uid="uid://b6jdat4l5binh" path="res://Assets/Themes and Fonts/Jersey10-Regular.ttf" id="9_5727g"]
 [ext_resource type="Texture2D" uid="uid://wypmt6ikjvbu" path="res://Assets/UI/dialog_ui_glassicon.png" id="10_odnn5"]
 [ext_resource type="StyleBox" uid="uid://cbv3qss5nqtmi" path="res://Assets/Themes and Fonts/dialog_choice_default.tres" id="11_5727g"]
+[ext_resource type="Script" uid="uid://yu6haqrkldiu" path="res://Scenes/DialogueBalloons/response_pin_animation.gd" id="13_ffy0d"]
+[ext_resource type="Texture2D" uid="uid://cy0wxwljw68c8" path="res://Assets/dialog_ui_stringasset.png" id="14_ffy0d"]
+[ext_resource type="Texture2D" uid="uid://cyi03makeinfs" path="res://Assets/UI/pin animation-Sheet.png" id="15_dtsjo"]
 
 [sub_resource type="Animation" id="Animation_ncufs"]
 length = 0.001
@@ -371,6 +374,43 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
+[sub_resource type="Animation" id="Animation_d4akc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bsd0q"]
+resource_name = "pin"
+length = 0.31
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wq6vg"]
+_data = {
+&"RESET": SubResource("Animation_d4akc"),
+&"pin": SubResource("Animation_bsd0q")
+}
+
 [node name="ExampleBalloon" type="CanvasLayer" unique_id=712276871]
 layer = 100
 script = ExtResource("1_36de5")
@@ -479,6 +519,7 @@ layout_mode = 2
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/Control" unique_id=403611450]
 unique_name_in_owner = true
+clip_contents = false
 layout_mode = 0
 offset_left = -5.8565083
 offset_top = -20.487152
@@ -503,10 +544,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -298.0
-offset_top = -57.0
-offset_right = 283.0
-offset_bottom = 13.0
+offset_left = -168.0
+offset_top = -70.0
+offset_right = 252.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -517,7 +557,7 @@ response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=1915867988]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme = ExtResource("4_ncufs")
 theme_override_colors/font_color = Color(0.3167818, 0.15626591, 0.051027603, 1)
 theme_override_colors/font_focus_color = Color(0.60508853, 0.32278985, 0.13918373, 1)
@@ -531,6 +571,36 @@ theme_override_styles/hover = ExtResource("11_5727g")
 theme_override_styles/disabled = ExtResource("11_5727g")
 theme_override_styles/focus = ExtResource("11_5727g")
 text = "Response example"
+script = ExtResource("13_ffy0d")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Balloon/ResponsesMenu/ResponseExample" unique_id=112208367]
+z_index = -1
+layout_mode = 0
+offset_left = 1.0
+offset_top = -10.000002
+offset_right = 14.0
+offset_bottom = 52.759995
+texture = ExtResource("14_ffy0d")
+region_rect = Rect2(5, 1, 14, 62)
+patch_margin_top = 15
+patch_margin_bottom = 23
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Balloon/ResponsesMenu/ResponseExample" unique_id=166894392]
+visible = false
+z_index = 3
+position = Vector2(-5, 5)
+texture = ExtResource("15_dtsjo")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/ResponsesMenu/ResponseExample/Sprite2D" unique_id=1486978483]
+libraries/ = SubResource("AnimationLibrary_wq6vg")
+
+[node name="PanelContainer" type="PanelContainer" parent="Balloon" unique_id=1497859664]
+layout_mode = 0
+offset_right = 6.0
+offset_bottom = 6.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1890522177]
 unique_name_in_owner = true

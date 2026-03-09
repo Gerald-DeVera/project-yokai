@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://boe7aodqj52wj"]
 
-[ext_resource type="Texture2D" uid="uid://0w80icvljpq8" path="res://Assets/Environment/bg_placeholder.png" id="1_0q8xj"]
 [ext_resource type="PackedScene" uid="uid://b5m0h0n4twj7d" path="res://Scenes/Backgrounds/city_parallax.tscn" id="1_bpa6q"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_jjp5g"]
 [ext_resource type="Texture2D" uid="uid://b6e0oyfns02h6" path="res://Assets/Environment/bg_overworld/bg_tileset_fences.png" id="2_21y02"]
@@ -165,6 +164,16 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Ground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_r0pkw")
+
+[sub_resource type="Gradient" id="Gradient_onlrw"]
+offsets = PackedFloat32Array(0.22516556, 0.58278143)
+colors = PackedColorArray(0.92047477, 0.9952534, 0.79887176, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sg6ii"]
+gradient = SubResource("Gradient_onlrw")
+fill = 2
+fill_from = Vector2(0.4883721, 0.59534883)
+fill_to = Vector2(0, 0.9488372)
 
 [sub_resource type="Gradient" id="Gradient_x82q5"]
 offsets = PackedFloat32Array(0.016806724, 0.5546219, 1)
@@ -340,14 +349,6 @@ texture = ExtResource("7_2j0ao")
 position = Vector2(-302, 216)
 texture = ExtResource("15_x2dcs")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1380311869]
-visible = false
-offset_left = 155.0
-offset_top = 24.0
-offset_right = 795.0
-offset_bottom = 384.0
-texture = ExtResource("1_0q8xj")
-
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_jjp5g")]
 position = Vector2(560, 288)
 
@@ -458,13 +459,33 @@ position = Vector2(736, 89)
 texture = ExtResource("24_r8fhl")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2097716855]
-color = Color(0.85068303, 0.9157074, 0.94329, 1)
+color = Color(0.8865808, 0.891657, 0.93878037, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1296946442]
 position = Vector2(528, 32)
 color = Color(0.21960789, 0.21794888, 0.3463178, 1)
 energy = 0.7
 shadow_enabled = true
+
+[node name="NIGHTTIME" type="DirectionalLight2D" parent="." unique_id=444820985]
+visible = false
+position = Vector2(528, 32)
+color = Color(0.4919927, 0.6009379, 0.52865124, 1)
+blend_mode = 1
+
+[node name="Node2D" type="Node2D" parent="." unique_id=462453197]
+visible = false
+position = Vector2(528, 32)
+
+[node name="PointLight2D2" type="PointLight2D" parent="Node2D" unique_id=906047845]
+position = Vector2(248.49608, 230.00002)
+scale = Vector2(1.0157484, 1.6250001)
+texture = SubResource("GradientTexture2D_sg6ii")
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D" unique_id=1402112254]
+position = Vector2(283, 232)
+scale = Vector2(0.9843759, 1.4296873)
+texture = SubResource("GradientTexture2D_sg6ii")
 
 [node name="TempTitleContainer" type="CanvasLayer" parent="." unique_id=1097258040]
 
