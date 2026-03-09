@@ -31,6 +31,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		move_and_slide()
 	
 	if Input.is_action_just_pressed("Fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
@@ -62,7 +63,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x,0, speed)
 	
 	animate(direction)
-	move_and_slide()
+	if is_on_floor():
+		move_and_slide()
 	get_basic_input()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
