@@ -6,6 +6,7 @@ extends Control
 var slots: Array
 var curSlotIndex: int = 0
 var is_open = false
+var inputDisabled = false
 
 func _ready() -> void:
 	if gridExist:
@@ -15,13 +16,24 @@ func _ready() -> void:
 		print("no exist")
 	close()
 	Signals.updateInventory.connect(Callable(self,"updateSlots"))
+	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
+	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
 	return
 
 func updateSlots():
 	for i in range(min(inv.items.size(), slots.size())):
 		slots[i].update(inv.items[i])
 
+func enableInput(resource):
+	inputDisabled = false
+
+func disableInput(resource):
+	inputDisabled = true
+
 func _process(delta: float) -> void:
+	if inputDisabled:
+		return
+	
 	if Input.is_action_just_pressed("inventory"):
 		if is_open:
 			close()
