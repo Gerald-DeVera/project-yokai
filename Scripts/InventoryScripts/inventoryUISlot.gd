@@ -1,6 +1,7 @@
 extends Panel
 
 @onready var itemVisual: Sprite2D = $CenterContainer/Panel/itemDisplay
+@onready var indicator: Sprite2D = $InventoryItemindic
 
 func _ready() -> void:
 	return
@@ -13,3 +14,8 @@ func update(item: InvItem):
 		itemVisual.visible = true
 		itemVisual.texture = item.texture
 		
+func showActive():
+	indicator.visible = true
+	
+func hideActive():
+	indicator.visible = false

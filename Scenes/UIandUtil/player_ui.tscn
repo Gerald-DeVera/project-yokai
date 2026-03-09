@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://gmvotdpb4ayo"]
+
+[ext_resource type="PackedScene" uid="uid://da6l0wvmuuywl" path="res://Scenes/UIandUtil/InventoryUI.tscn" id="1_8dawd"]
+[ext_resource type="Script" uid="uid://dyffpe8jdn41l" path="res://Scenes/UIandUtil/player_ui.gd" id="1_awuwx"]
+
+[sub_resource type="Animation" id="Animation_awuwx"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_yu4om"]
+resource_name = "move"
+length = 0.76666665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryUi:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 0.23325822),
+"update": 0,
+"values": [Vector2(25, 562), Vector2(25, 189)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53qiu"]
+_data = {
+&"RESET": SubResource("Animation_awuwx"),
+&"move": SubResource("Animation_yu4om")
+}
+
+[node name="PlayerUI" type="CanvasLayer" unique_id=668959072]
+script = ExtResource("1_awuwx")
+
+[node name="InventoryUi" parent="." unique_id=934222206 instance=ExtResource("1_8dawd")]
+offset_left = 25.0
+offset_top = 562.0
+offset_right = 25.0
+offset_bottom = 562.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1112914171]
+libraries/ = SubResource("AnimationLibrary_53qiu")
+
+[connection signal="inventoryClose" from="InventoryUi" to="." method="_on_inventory_ui_inventory_close"]
+[connection signal="inventoryOpen" from="InventoryUi" to="." method="_on_inventory_ui_inventory_open"]

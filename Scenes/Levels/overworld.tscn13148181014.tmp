@@ -488,8 +488,6 @@ position = Vector2(283, 232)
 scale = Vector2(0.9843759, 1.4296873)
 texture = SubResource("GradientTexture2D_sg6ii")
 
-[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("29_sg6ii")]
-
 [node name="TempTitleContainer" type="CanvasLayer" parent="." unique_id=1097258040]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TempTitleContainer" unique_id=816351316]
@@ -514,3 +512,5 @@ visible_ratio = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TempTitleContainer/RichTextLabel" unique_id=1414620962]
 libraries/ = SubResource("AnimationLibrary_sg6ii")
 autoplay = &"play_title"
+
+[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("29_sg6ii")]
