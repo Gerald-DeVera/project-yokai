@@ -51,7 +51,6 @@ script = ExtResource("1_3jkv3")
 position = Vector2(8, 8)
 texture = ExtResource("2_b8i2g")
 hframes = 2
-frame = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1424436862]
 clip_contents = true

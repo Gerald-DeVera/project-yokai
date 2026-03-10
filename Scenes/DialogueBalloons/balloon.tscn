@@ -335,6 +335,7 @@ texture = ExtResource("6_0x0e6")
 [sub_resource type="FontVariation" id="FontVariation_odnn5"]
 base_font = ExtResource("9_5727g")
 spacing_glyph = 1
+spacing_bottom = -10
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
@@ -498,7 +499,7 @@ theme_override_colors/font_outline_color = Color(0.14284664, 0.052954964, 0.0032
 theme_override_constants/text_highlight_h_padding = 3
 theme_override_constants/text_highlight_v_padding = 3
 theme_override_fonts/normal_font = SubResource("FontVariation_odnn5")
-text = "Dialogue..."
+text = "Dialogue... I'm filling out the box to show you how this looks"
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=563335113]
 custom_minimum_size = Vector2(20, 10)
