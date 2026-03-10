@@ -19,11 +19,12 @@ Makoto: lets get outta here [#camera_animation=zoom_out]
 => END
 
 ~ start3
-Makoto: who the hell is this guy [#expression_left=unimp][#animate_left=enter_convo][#actor_right=on]
+Makoto: who the hell is this guy [#expression_left=unimp][#animate_left=enter_convo][#actor_right=on][#new_actor=yumi]
 Makoto: you look like a mean fella
 John: im john yo [#animate_left=exit_convo][#animate_right=enter_convo]
-John: nice to meet u im actually really nice
+John: nice to meet u im actually really nice[#expression_right=happy]
 Makoto: oh okay :) [#expression_left=neutral][#animate_left=enter_convo][#animate_right=exit_convo]
+Ina: hello my name is Ina please don't end the convo-- [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#new_actor=ina]
 => END	
 
 ~ dinoObtained

@@ -41,6 +41,10 @@ enum dialogueStates {
 @onready var char_sprite_right: Sprite2D = %Sprite2DRight
 @onready var animate_right: AnimationPlayer = %Sprite2DRight/AnimationPlayer
 
+##PRELOAD SPEAKER TEXTURES
+var yumi_texture = preload("res://Assets/Sprites/yumi expressions.png")
+var ina_texture = preload("res://Assets/Sprites/ina expressions.png")
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -163,6 +167,14 @@ func apply_dialogue_line() -> void:
 	will_hide_balloon = false
 
 	dialogue_label.show()
+	
+	if dialogue_line.has_tag("new_actor"):
+		var load_sprite = dialogue_line.get_tag_value("new_actor")
+		if load_sprite == "yumi":
+			char_sprite_right.texture = yumi_texture
+		elif load_sprite == "ina":
+			char_sprite_right.texture = ina_texture
+	
 	#modulate right sprite for now, repeat for left and enable sprite switching
 	if dialogue_line.has_tag("actor_right"):
 		var show_sprite = dialogue_line.get_tag_value("actor_right")
@@ -178,6 +190,11 @@ func apply_dialogue_line() -> void:
 		var expression_mode_left = dialogue_line.get_tag_value("expression_left")
 		print(expression_mode_left)
 		char_sprite_left.frame = dialogueStates.get(expression_mode_left)
+		
+	if dialogue_line.has_tag("expression_right"):
+		var expression_mode_right = dialogue_line.get_tag_value("expression_right")
+		print(expression_mode_right)
+		char_sprite_right.frame = dialogueStates.get(expression_mode_right)
 
 	#SPRITE ANIMATIONE FFEECTSSSS
 	if dialogue_line.has_tag("animate_left"):
