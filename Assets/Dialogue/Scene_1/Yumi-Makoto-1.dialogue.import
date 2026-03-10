@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://chvt7aj270iv1"
+path="res://.godot/imported/Yumi-Makoto-1.dialogue-844815982b3df7aeaf7076f6b1c0706c.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/Scene_1/Yumi-Makoto-1.dialogue"
+dest_files=["res://.godot/imported/Yumi-Makoto-1.dialogue-844815982b3df7aeaf7076f6b1c0706c.tres"]
+
+[params]
+
+defaults=true

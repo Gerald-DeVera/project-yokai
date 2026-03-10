@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cvxyj26h6i4vw"
+path="res://.godot/imported/Kite-Makoto-1.dialogue-844f0f174f30e561fb6e9ae658a734b7.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/Scene_1/Kite-Makoto-1.dialogue"
+dest_files=["res://.godot/imported/Kite-Makoto-1.dialogue-844f0f174f30e561fb6e9ae658a734b7.tres"]
+
+[params]
+
+defaults=true

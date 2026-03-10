@@ -1,0 +1,15 @@
+#This is a conversaton between Kite and Makoto that plays at the start of the game. 
+~ start
+Kite: Ah, lady Makoto beginning work early as per usual I see.
+Makoto: Yes. Just some paperwork.
+Kite: Wonderous! The joys of modern busy work seem to have you in high spirits my lady!
+Makoto: Would you like to take over?
+Kite: I would! However, most unfortunately I lack the hands required for such delicate work my lady.
+Makoto: ...
+Kite: Do we have any upcoming cases my lady? Evil waits for no one and as agents of justice we must work tirelessly to maintain the peace!
+Makoto: No. Uncle Yutaka said he did have a case for us soon.
+Kite: Wonderful! Shall we be expecting him?
+Makoto: He told me someone would come to us.
+There is a knock at the door.
+Makoto: That must be them.
+=> END
