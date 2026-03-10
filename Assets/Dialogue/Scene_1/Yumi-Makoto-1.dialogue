@@ -1,23 +1,39 @@
 #This is a conversaton that plays when the palyer interacts with Yumi at the start.
 ~ start
-???: I'm looking for Makoto's office. 
-Makoto: Yes. Are you here for a consult?
-???: Oh thank god I thought I was in the wrong place. It was hard finding your office you know! 
+Yumi: Yahello! I'm looking for Makoto's office. 
+Makoto: Are you here for a consult?
+Yumi: Oh thank god I thought I was in the wrong place. It was hard finding your office you know! 
 Makoto: But you made it. Yutaka told me someone would be coming by but nothing beyond that.
-???: That lame old geezer! I guess I'll have to start from the beginning. 
+Yumi: That lame old geezer! I'll have to start from the beginning. 
 Yumi: I'm Yumi from Yu3!
 Makoto: If I recall, that's the new idol group that everyone is talking about right?
-Yumi: Yuppies! Although we just debuted a few months ago we've been topping the charts!
+Yumi: Yuppies! We debuted a few months ago but we've been topping the charts!
 Makoto: I see. May I ask what brings you here then.
 Yumi: Well... Our lead singer Yui went missing a few days ago and no ones heard from her since! 
 Yumi: She's like my best friend and I've been [wave amp=25 freq=5]SUPER[/wave] worried!
 Makoto: Why come to me then? The police handle missing cases all the time. 
 Yumi: Well... Our talent agency doesn't want this going public. 
 Makoto: I fail to see how that's relevant. Shouldn't finding her be top priority?
-Yumi: It is it's just that Yui requested to keep her private life and Idol life seperate no matter what. 
-Yumi: Something like this would totes blow her cover! As her best friend I can't let that happen.
+Yumi: It is! It's just that Yui requested to keep her private life and Idol life seperate no matter what!
+Yumi: Something like this would totes blow her cover! As her best friend I can not let that happen.
 Makoto: I still don't think I'd be the best suited for the job.
-Yumi: Nonesense! That old geezer said you're the best! 
+Yumi: Nonesense! That old geezer said you're the bestof the best! 
 Yumi: He also told me to say "Makoto you still owe me for last case consider this paying it forward [wave amp=25 freq=5]AHAHAH[/wave]"
 Yumi: Exactly like that!
-=> END
+Kite: It is almost like Matsu-Sama is here with us! A request from one as noble as he can't be refused right lady Makoto?
+Makoto lets out a sigh.
+Makoto: Fine. I'll investigate.
+Yumi: Yippie! Thank you so so much!
+Kite: Fortuitous day! We charge forth agents of justice to find the missing Idol!
+Makoto: Since I am taking the case I have a few questions for you.
+Yumi: Of course, Ask away!
+~ questions
+- What happened to your arm?
+	Yumi: Oh this hehe... I um hurt my arm during practice. I don't see why that matters.
+	=> questions
+- Do you know where Yui was last seen?
+	Yumi: I know she came down to the East River District before she dissappeared. She told me her parents own a shop around here.
+	Yumi: But she never told me which shop was thiers. Sorry.
+	=> questions
+- That's all for now.
+	=> END
