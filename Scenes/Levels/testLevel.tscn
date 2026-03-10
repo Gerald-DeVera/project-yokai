@@ -155,12 +155,14 @@ position = Vector2(327, 245)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
 dialogueStartingPosition = "start2"
 isDialogue = true
+dialoguePath = "res://Assets/Dialogue/Test.dialogue"
 
 [node name="RightDoor" parent="." unique_id=1403522223 instance=ExtResource("5_lhiah")]
 position = Vector2(453, 249)
 dialogueStartingPosition = "start3"
 isDialogue = true
 isSpiritButton = true
+dialoguePath = "res://Assets/Dialogue/Test.dialogue"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=804787415]
 layer = -1

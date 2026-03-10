@@ -1,5 +1,4 @@
 ~ start
-
 Makoto: [[Hi|Hello|Howdy]], this is some dialogue. [#expression_left=neutral][#actor_right=off]
 Makoto: What should I get from don don rice? [#expression_left=confused]
 [wait=1]
@@ -29,3 +28,7 @@ Ina: hello my name is Ina please don't end the convo-- [#animate_left=exit_convo
 
 ~ dinoObtained
 Makoto: Oh boy! A Dino Nugget! [#expression_left=happy]
+	
+~ functionTest
+Ina: this is for testing other functions [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#actor_right=on][#new_actor=ina]
+=> END

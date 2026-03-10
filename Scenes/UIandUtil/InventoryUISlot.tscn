@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b63wahbdevhj"]
 
 [ext_resource type="Script" uid="uid://d22t72451rc4w" path="res://Scripts/InventoryScripts/inventoryUISlot.gd" id="1_3jkv3"]
-[ext_resource type="Texture2D" uid="uid://cka3gr58wfupy" path="res://Assets/UI/inventory_item.png" id="2_3jkv3"]
-[ext_resource type="Texture2D" uid="uid://gb8u6c2l2gt0" path="res://Assets/UI/inventory_itemindic.png" id="3_b8i2g"]
+[ext_resource type="Texture2D" uid="uid://0lfj0c2e5xsw" path="res://Assets/UI/inventory_itemslotround.png" id="2_b8i2g"]
+[ext_resource type="Texture2D" uid="uid://d5fhouwn51hw" path="res://Assets/UI/inventory_indicglass.png" id="3_442oc"]
 
 [sub_resource type="Animation" id="Animation_b8i2g"]
 length = 0.001
@@ -49,17 +49,18 @@ script = ExtResource("1_3jkv3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=221127916]
 position = Vector2(8, 8)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_3jkv3")
+texture = ExtResource("2_b8i2g")
+hframes = 2
+frame = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1424436862]
 clip_contents = true
 custom_minimum_size = Vector2(33, 33)
 layout_mode = 0
 offset_left = -8.0
-offset_top = -10.0
-offset_right = 23.83
-offset_bottom = 23.395
+offset_top = -16.995
+offset_right = 25.0
+offset_bottom = 16.005
 
 [node name="Panel" type="Panel" parent="CenterContainer" unique_id=816734717]
 layout_mode = 2
@@ -68,9 +69,10 @@ layout_mode = 2
 
 [node name="InventoryItemindic" type="Sprite2D" parent="." unique_id=1576653326]
 visible = false
-position = Vector2(8, 8)
+z_index = 20
+position = Vector2(18, 17.000002)
 scale = Vector2(0.885, 0.885)
-texture = ExtResource("3_b8i2g")
+texture = ExtResource("3_442oc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InventoryItemindic" unique_id=1092203297]
 libraries/ = SubResource("AnimationLibrary_5gukr")

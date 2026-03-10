@@ -12,6 +12,7 @@ extends Node2D
 @onready var tooltip = $Sprite2D2/RichTextLabel
 @export var isSpiritButton:bool
 @export var interactText: String
+@export var dialoguePath: String
 var minimumDistanceFromPlayer = 35
 var spiritButtonVisibilityDistance = 100
 var canInteract = false
@@ -52,5 +53,6 @@ func ButtonPressed(InteractableObject:String):
 	print("interact")
 	if  InteractableObject == "button" && interactable == true && isDialogue == true:
 		print("start dialogue")
-		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Test.dialogue"), dialogueStartingPosition, )
+		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePath), dialogueStartingPosition, )
+		print
 		return

@@ -23,8 +23,10 @@
 [ext_resource type="Texture2D" uid="uid://cam6skqiehvep" path="res://Assets/Environment/bg_yokai/bg_yokai_well.png" id="19_hki8u"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_4r1gn"]
 [ext_resource type="PackedScene" uid="uid://drhqyb3tnqixy" path="res://Scenes/Other/scene_transition_animation.tscn" id="23_wc4nj"]
+[ext_resource type="Texture2D" uid="uid://dopl6q8l06c2w" path="res://Assets/Sprites/ina sprite.png" id="23_wh3g1"]
 [ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="24_wc4nj"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="25_rj0db"]
+[ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="27_ao21d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8x7c5"]
 distance = 3.0
@@ -303,6 +305,12 @@ tile_set = SubResource("TileSet_nbfcv")
 position = Vector2(232, 168)
 next_scene = "Level1"
 
+[node name="InaSprite" type="Sprite2D" parent="." unique_id=868280798]
+position = Vector2(527, 165)
+texture = ExtResource("23_wh3g1")
+hframes = 2
+frame = 1
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2077677274]
 position = Vector2(304, 64)
 color = Color(0.9999998, 0.9245057, 0.9990881, 1)
@@ -346,3 +354,10 @@ visible_ratio = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TempTitleContainer/RichTextLabel" unique_id=70078979]
 libraries/ = SubResource("AnimationLibrary_s3t3b")
 autoplay = &"play_title"
+
+[node name="Button2" parent="." unique_id=359299384 instance=ExtResource("27_ao21d")]
+position = Vector2(527, 165)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "functionTest"
+isDialogue = true
+interactText = "Ina Rin"
