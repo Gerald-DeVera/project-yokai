@@ -1,11 +1,11 @@
 #This is a conversaton that plays when the palyer interacts with Yumi at the start.
 ~ start
-Yumi: Yahello! I'm looking for Makoto's office. [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#actor_right=on][#new_actor=yumi]
+? ? ?: Yahello! I'm looking for Makoto's office. [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#actor_right=on][#new_actor=yumi]
 Makoto: Are you here for a consult? [#animate_right=exit_convo][#animate_left=enter_convo]
-Yumi: Oh thank god! I thought I was in the wrong place. It was hard finding your office, you know! [#animate_left=exit_convo][#animate_right=enter_convo]
+? ? ?: Oh thank god! I thought I was in the wrong place. It was hard finding your office, you know! [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: Well, you made it. Yutaka told me someone would be coming by, but nothing beyond that. [#animate_right=exit_convo][#animate_left=enter_convo]
-Yumi: That lame old geezer! I'll have to start from the beginning. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
-Yumi: Ahem ahem! I'm Yumi from Yu3! [#expression_right=happy]
+? ? ?: That lame old geezer! I'll have to start from the beginning. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+? ? ?: Ahem ahem! I'm Yumi from Yu3! [#expression_right=happy]
 Makoto: If I recall, that's the new idol group that everyone is talking about, right? [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: Yuppies! We debuted a few months ago but we've been topping the charts! [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: I see... May I ask what brings you here? [#animate_right=exit_convo][#animate_left=enter_convo]
@@ -15,10 +15,10 @@ Makoto: Why come to me then? The police handle missing cases all the time. [#ani
 Yumi: Well... Our talent agency doesn't want this going public. [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: I fail to see how that's relevant. Shouldn't finding her be top priority? [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: It is! It's just that Yui requested to keep her private life and Idol life separate no matter what! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
-Yumi: Something like this would totes blow her cover! As her best friend I can not let that happen.
+Yumi: Something like this would totes blow her cover! As her bestie forever, I CANNOT let that happen.
 Makoto: I still don't think I'd be the best suited for the job. [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: Nonsense! That old geezer said you're the best of the best! [#animate_left=exit_convo][#animate_right=enter_convo]
-Yumi: He also told me to say, [outline_size=8][color=sky_blue]"Makoto... you still owe me for the last case. Consider this paying it forward... [wave amp=25 freq=5]AHAHAH[/wave][/color][/outline_size]"[#expression_right=neutral]
+Yumi: He also told me to say, [outline_size=8][color=sky_blue]"Makoto... you still owe me for the last case. Consider this paying it forward... [wave amp=25 freq=5]AHAHAH!!![/wave][/color][/outline_size]"[#expression_right=neutral]
 Yumi: Exactly like that! [#expression_right=happy]
 Kite: It is almost like Matsu-Sama is here with us! A request from one as noble as he can't be refused, right lady Makoto?
 Makoto lets out a sigh. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_right=neutral]
@@ -38,4 +38,5 @@ Makoto: So... [#animate_right=exit_convo][#animate_left=enter_convo]
 	Yumi: But... she never told me which shop was theirs. Sorry.
 	=> questions
 - That's all for now.
+	Makoto: Well, I'll see what I can do. Just hang tight and I'll let you know if there are any leads.
 	=> END

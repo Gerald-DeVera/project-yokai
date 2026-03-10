@@ -361,3 +361,4 @@ dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
 dialogueStartingPosition = "functionTest"
 isDialogue = true
 interactText = "Ina Rin"
+dialoguePath = "res://Assets/Dialogue/Test.dialogue"
