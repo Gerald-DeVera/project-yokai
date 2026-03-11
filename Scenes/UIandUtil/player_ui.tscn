@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://gmvotdpb4ayo"]
 
 [ext_resource type="PackedScene" uid="uid://da6l0wvmuuywl" path="res://Scenes/UIandUtil/InventoryUI.tscn" id="1_8dawd"]
-[ext_resource type="Script" uid="uid://dyffpe8jdn41l" path="res://Scenes/UIandUtil/player_ui.gd" id="1_awuwx"]
+[ext_resource type="Script" uid="uid://dyffpe8jdn41l" path="res://Scripts/InventoryScripts/player_ui.gd" id="1_awuwx"]
 
 [sub_resource type="Animation" id="Animation_awuwx"]
 length = 0.001
@@ -45,8 +45,8 @@ libraries/ = SubResource("AnimationLibrary_53qiu")
 [node name="HUD" type="Control" parent="." unique_id=1181559438]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 122.0
+offset_bottom = 99.0
 
 [node name="PauseMenu" type="NinePatchRect" parent="HUD" unique_id=1316186352]
 layout_mode = 0
