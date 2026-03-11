@@ -15,7 +15,7 @@ var hasStopped = true
 
 @onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
 @onready var domain_expansion = $DomainExpansion/AnimationPlayer
-
+@onready var PlayerUI = $"../PlayerUI"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Player")
@@ -32,6 +32,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		move_and_slide()
+	
+	if Input.is_action_just_pressed("PauseMenu"):
+		PlayerUI.PauseMenu.visible = true
+		get_tree().paused = true
+		
 	
 	if Input.is_action_just_pressed("Fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:

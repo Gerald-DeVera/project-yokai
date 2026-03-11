@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://urvqt848h801"]
+
+[ext_resource type="Script" uid="uid://df1alauyn4lwc" path="res://Scenes/UIandUtil/hud.gd" id="1_n4qwk"]
+
+[node name="Hud" type="Control" unique_id=1553692267]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -317.0
+offset_top = -174.0
+offset_right = -317.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n4qwk")
+
+[node name="PauseMenu" type="NinePatchRect" parent="." unique_id=2054619529]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 119.0
+offset_right = 422.0
+offset_bottom = 253.0
+
+[node name="ResumeButton" type="Button" parent="PauseMenu" unique_id=1005314133]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 12.0
+offset_right = 136.0
+offset_bottom = 43.0
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="PauseMenu" unique_id=590768599]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 71.0
+offset_right = 136.0
+offset_bottom = 102.0
+text = "Quit"
+
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/QuitButton" to="." method="_on_quit_button_pressed"]
