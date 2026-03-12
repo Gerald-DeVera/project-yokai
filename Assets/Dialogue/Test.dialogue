@@ -31,4 +31,10 @@ Makoto: Oh boy! A Dino Nugget! [#expression_left=happy]
 	
 ~ functionTest
 Ina: this is for testing other functions [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#actor_right=on][#new_actor=ina]
-=> END
+Ina: Can you get me a figurine from the toy store?
+do Global.searchInv("fox_toy")
+if Global.playerHasItem == false
+	=> END
+elif Global.playerHasItem == true
+	Ina: Oh wow, I've been waiting for this one! :3
+	=> END

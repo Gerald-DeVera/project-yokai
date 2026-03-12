@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://dplukno8ymnfn"]
+
+[ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="1_8glmy"]
+[ext_resource type="Texture2D" uid="uid://csy6aign2eos5" path="res://Assets/Environment/bg_yokai/bg_yokai_statue_fox.png" id="2_5oouf"]
+
+[resource]
+script = ExtResource("1_8glmy")
+name = "fox_toy"
+texture = ExtResource("2_5oouf")
+description = "im a whole ass statue dawg"

@@ -25,8 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="22_pbaho"]
 [ext_resource type="Script" uid="uid://cja2uvu75861w" path="res://Scripts/interactableItem.gd" id="24_onlrw"]
 [ext_resource type="Texture2D" uid="uid://bbuyrkrybp0et" path="res://Assets/Environment/bg_overworld/bg_bush.png" id="24_r8fhl"]
+[ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="24_x2dcs"]
+[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="25_m7okf"]
 [ext_resource type="Texture2D" uid="uid://2rjjcvjvkft" path="res://Assets/Environment/bg_overworld/bg_streetlight.png" id="25_onlrw"]
-[ext_resource type="Resource" uid="uid://bedkcslnfmeg7" path="res://Assets/InventoryItems/dinoNugget.tres" id="25_x82q5"]
 [ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="26_x82q5"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="29_sg6ii"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="29_x82q5"]
@@ -166,6 +167,13 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Ground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_x2dcs")
+
+[sub_resource type="Resource" id="Resource_xjuw7"]
+script = ExtResource("24_x2dcs")
+name = "dinoNugget"
+texture = ExtResource("25_m7okf")
+description = "delicious"
+metadata/_custom_type_script = "uid://dec4ct7yuknap"
 
 [sub_resource type="Gradient" id="Gradient_onlrw"]
 offsets = PackedFloat32Array(0.22516556, 0.58278143)
@@ -398,7 +406,7 @@ dialoguePath = "res://Assets/Dialogue/Test.dialogue"
 [node name="item" parent="." unique_id=827391407 instance=ExtResource("22_pbaho")]
 position = Vector2(674, 282)
 script = ExtResource("24_onlrw")
-item = ExtResource("25_x82q5")
+item = SubResource("Resource_xjuw7")
 interactable = true
 interactText = "nuggies o yea"
 

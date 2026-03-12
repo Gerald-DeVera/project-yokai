@@ -27,6 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="24_wc4nj"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="25_rj0db"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="27_ao21d"]
+[ext_resource type="Script" uid="uid://cja2uvu75861w" path="res://Scripts/interactableItem.gd" id="27_s3t3b"]
+[ext_resource type="Resource" uid="uid://dplukno8ymnfn" path="res://Assets/InventoryItems/foxToy.tres" id="28_s2ptr"]
+[ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="29_s2ptr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8x7c5"]
 distance = 3.0
@@ -359,5 +362,13 @@ dialogueStartingPosition = "functionTest"
 isDialogue = true
 interactText = "Ina Rin"
 dialoguePath = "res://Assets/Dialogue/Test.dialogue"
+
+[node name="Button3" parent="." unique_id=2080578498 instance=ExtResource("27_ao21d")]
+position = Vector2(53, 166)
+script = ExtResource("27_s3t3b")
+item = ExtResource("28_s2ptr")
+interactText = "Toy Store"
+
+[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("29_s2ptr")]
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("23_wc4nj")]
