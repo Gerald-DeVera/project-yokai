@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://drhqyb3tnqixy"]
+
+[ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="1_gcv13"]
+
+[node name="SceneTransitionAnimation" type="Node2D" unique_id=590620136]
+
+[node name="CanvasLayer" parent="." unique_id=302174458 instance=ExtResource("1_gcv13")]

@@ -8,7 +8,6 @@ class_name interactableItem
 @onready var playerCharacter = $"../PlayerCharacter"
 @onready var Sprite1 = $Sprite2D
 @onready var Sprite2 = $Sprite2D2
-@onready var InteractLabel = $RichTextLabel
 @onready var SceneTransition = $"../SceneTransitionAnimation/AnimationPlayer"
 @onready var tooltip = $Sprite2D2/RichTextLabel
 @export var isSpiritButton:bool

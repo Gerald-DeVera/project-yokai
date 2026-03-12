@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cyxff0kgo76fs" path="res://Assets/Environment/office_interior.png" id="4_l0i5o"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="5_gdkqi"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="5_lhiah"]
-[ext_resource type="PackedScene" uid="uid://drhqyb3tnqixy" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_sfvug"]
+[ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_sfvug"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="6_lhiah"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_33gn4"]
@@ -131,7 +131,7 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_33gn4")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_4cjtc")]
-position = Vector2(262, 240)
+position = Vector2(257, 250)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=414050316]
 position = Vector2(-2, -30)
@@ -196,8 +196,7 @@ color = Color(0.8584622, 0.8855957, 0.9182237, 1)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("6_lhiah")]
 
-[node name="SceneTransitionAnimation" parent="." unique_id=590620136 instance=ExtResource("5_sfvug")]
-z_index = 2
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1610618236]
 libraries/ = SubResource("AnimationLibrary_pwkim")
+
+[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_sfvug")]

@@ -6,7 +6,9 @@ extends Node
 #will be called by doors we create. It also contains the script needed to transition us to other scenes
 var scenes : Dictionary = { "Level1": "res://Scenes/Levels/overworld.tscn" ,
 							"Level2": "res://Scenes/Levels/testLevel.tscn" ,
-							"Level3": "res://Scenes/Levels/baseYokaiWorld.tscn"}
+							"Level3": "res://Scenes/Levels/baseYokaiWorld.tscn", 
+							"Level4": "res://Scenes/Levels/ramenshop.tscn",
+							"Level5": "res://Scenes/Levels/alleyway.tscn"}
 var player_pos: Vector2
 
 func transition_to_scene(level : String):

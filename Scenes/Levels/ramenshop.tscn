@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://dr1na402cc5sp"]
+
+[ext_resource type="Texture2D" uid="uid://d34upw1f0p5sq" path="res://Assets/Environment/ramen_interior_bg.png" id="1_cwa3q"]
+[ext_resource type="Texture2D" uid="uid://dhw5esxs6oinb" path="res://Assets/Sprites/ramen dad sprite.png" id="2_7xk53"]
+[ext_resource type="Texture2D" uid="uid://da1aafylvai8k" path="res://Assets/Environment/ramen_interior_stand.png" id="2_u10kd"]
+[ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="3_7xk53"]
+[ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="5_50fp6"]
+[ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="6_50fp6"]
+[ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="7_gj7ea"]
+[ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="8_7mtcg"]
+[ext_resource type="Texture2D" uid="uid://bpyraa42ekbiu" path="res://Assets/Environment/lightcone.png" id="8_71phu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_58a5k"]
+
+[sub_resource type="Animation" id="Animation_71phu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerCharacter/Camera2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-53, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.5, 2.5)]
+}
+
+[sub_resource type="Animation" id="Animation_jqh25"]
+resource_name = "zoom_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(3.7, 3.7)]
+}
+
+[sub_resource type="Animation" id="Animation_yfdhe"]
+resource_name = "zoom_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.7, 3.7), Vector2(2.5, 2.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uxdk6"]
+_data = {
+&"RESET": SubResource("Animation_71phu"),
+&"zoom_in": SubResource("Animation_jqh25"),
+&"zoom_out": SubResource("Animation_yfdhe")
+}
+
+[node name="RamenShop" type="Node2D" unique_id=416392867]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2007863621]
+layer = -3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1088622015]
+offset_left = -86.00001
+offset_top = -6.0000153
+offset_right = -44.420006
+offset_bottom = 38.49498
+scale = Vector2(18.819786, 8.988636)
+color = Color(0.03529412, 0.039215688, 0.039215688, 1)
+
+[node name="RamenInteriorBg" type="Sprite2D" parent="." unique_id=595637569]
+z_index = -2
+position = Vector2(313, 227)
+texture = ExtResource("1_cwa3q")
+
+[node name="RamenDadSprite" type="Sprite2D" parent="." unique_id=733758063]
+position = Vector2(314, 242)
+texture = ExtResource("2_7xk53")
+hframes = 2
+frame = 1
+
+[node name="RamenInteriorStand" type="Sprite2D" parent="." unique_id=1206320436]
+position = Vector2(340, 226)
+texture = ExtResource("2_u10kd")
+
+[node name="MerchWallPos" type="Marker2D" parent="." unique_id=150678712]
+position = Vector2(226, 212)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=193065245]
+position = Vector2(2, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=661629407]
+position = Vector2(327, 275)
+shape = SubResource("WorldBoundaryShape2D_58a5k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=601320749]
+position = Vector2(186, 275)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_58a5k")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=529935557]
+position = Vector2(457, 275)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_58a5k")
+
+[node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("3_7xk53")]
+position = Vector2(204, 247)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=397515915]
+position = Vector2(-2, -53)
+offset = Vector2(0, 25)
+zoom = Vector2(2.5, 2.5)
+
+[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_50fp6")]
+
+[node name="Door" parent="." unique_id=206299497 instance=ExtResource("6_50fp6")]
+position = Vector2(187, 249)
+next_scene = "Level1"
+interactText = "To City"
+
+[node name="SagawaDialogue" parent="." unique_id=833905275 instance=ExtResource("8_7mtcg")]
+z_index = 10
+position = Vector2(314, 231)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "sagawaInterview"
+isDialogue = true
+interactText = "Talk"
+dialoguePath = "res://Assets/Dialogue/mortalNPCs.dialogue"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1594552207]
+color = Color(0.94575983, 0.7313842, 0.6072151, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1909194808]
+color = Color(0.35652027, 0.19759586, 0.12620163, 1)
+energy = 0.09
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=421246896]
+position = Vector2(314, 228)
+color = Color(0.80702394, 0.61124486, 0.3169435, 1)
+energy = 0.84
+texture = ExtResource("8_71phu")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=979641304]
+position = Vector2(208, 227)
+color = Color(0.80702394, 0.61124486, 0.3169435, 1)
+energy = 0.84
+texture = ExtResource("8_71phu")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=718181498]
+position = Vector2(259, 227)
+color = Color(0.80702394, 0.61124486, 0.3169435, 1)
+energy = 0.84
+texture = ExtResource("8_71phu")
+
+[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("7_gj7ea")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1270764887]
+libraries/ = SubResource("AnimationLibrary_uxdk6")

@@ -44,6 +44,7 @@ enum dialogueStates {
 ##PRELOAD SPEAKER TEXTURES
 var yumi_texture = preload("res://Assets/Sprites/yumi expressions.png")
 var ina_texture = preload("res://Assets/Sprites/ina expressions.png")
+var sagawa_texture = preload("res://Assets/Sprites/ramen dad expressions.png")
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -174,6 +175,8 @@ func apply_dialogue_line() -> void:
 			char_sprite_right.texture = yumi_texture
 		elif load_sprite == "ina":
 			char_sprite_right.texture = ina_texture
+		elif load_sprite == "sagawa":
+			char_sprite_right.texture = sagawa_texture
 	
 	#modulate right sprite for now, repeat for left and enable sprite switching
 	if dialogue_line.has_tag("actor_right"):
@@ -183,6 +186,15 @@ func apply_dialogue_line() -> void:
 			print("on")
 		elif show_sprite == "off":
 			char_sprite_right.visible = false
+			print("off")
+			
+	if dialogue_line.has_tag("actor_left"):
+		var show_sprite = dialogue_line.get_tag_value("actor_left")
+		if show_sprite == "on":
+			char_sprite_left.visible = true
+			print("on")
+		elif show_sprite == "off":
+			char_sprite_left.visible = false
 			print("off")
 			
 	#!!!!!! TEMP SPRITE SWITCHING CODE FOR LEFT SPRITE, USES ENUM @ THE TOP

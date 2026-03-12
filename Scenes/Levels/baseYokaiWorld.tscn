@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dgtpmtcs771ax" path="res://Assets/Environment/bg_yokai/bg_yokai_teahouse.png" id="18_fvt3n"]
 [ext_resource type="Texture2D" uid="uid://cam6skqiehvep" path="res://Assets/Environment/bg_yokai/bg_yokai_well.png" id="19_hki8u"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_4r1gn"]
-[ext_resource type="PackedScene" uid="uid://drhqyb3tnqixy" path="res://Scenes/Other/scene_transition_animation.tscn" id="23_wc4nj"]
+[ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="23_wc4nj"]
 [ext_resource type="Texture2D" uid="uid://dopl6q8l06c2w" path="res://Assets/Sprites/ina sprite.png" id="23_wh3g1"]
 [ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="24_wc4nj"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="25_rj0db"]
@@ -318,9 +318,6 @@ color = Color(0.9999998, 0.9245057, 0.9990881, 1)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="CanvasModulate" unique_id=1347124316]
 color = Color(0.09278502, 0.049602278, 0.019943109, 1)
 
-[node name="SceneTransitionAnimation" parent="." unique_id=590620136 instance=ExtResource("23_wc4nj")]
-z_index = 2
-
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=398184601]
 visible = false
 material = SubResource("CanvasItemMaterial_rj0db")
@@ -362,3 +359,5 @@ dialogueStartingPosition = "functionTest"
 isDialogue = true
 interactText = "Ina Rin"
 dialoguePath = "res://Assets/Dialogue/Test.dialogue"
+
+[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("23_wc4nj")]

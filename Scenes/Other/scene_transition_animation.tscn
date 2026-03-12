@@ -1,58 +1,4 @@
-[gd_scene format=3 uid="uid://drhqyb3tnqixy"]
-
-[sub_resource type="Animation" id="Animation_u4l3x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-223, 1277)]
-}
-
-[sub_resource type="Animation" id="Animation_wtbpg"]
-resource_name = "gradient_down"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-223, 469), Vector2(-223, 1515)]
-}
-
-[sub_resource type="Animation" id="Animation_ax2sl"]
-resource_name = "gradient_up"
-length = 0.43333334
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.43333334),
-"transitions": PackedFloat32Array(1, 12.996067),
-"update": 0,
-"values": [Vector2(-223, 1277), Vector2(-223, 475)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wtbpg"]
-_data = {
-&"RESET": SubResource("Animation_u4l3x"),
-&"gradient_down": SubResource("Animation_wtbpg"),
-&"gradient_up": SubResource("Animation_ax2sl")
-}
+[gd_scene format=3 uid="uid://blc0clnqvdoqs"]
 
 [sub_resource type="Gradient" id="Gradient_mpcjy"]
 offsets = PackedFloat32Array(0.686747, 1)
@@ -62,20 +8,71 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_mpcjy")
 use_hdr = true
 
-[node name="SceneTransitionAnimation" type="Node2D" unique_id=590620136]
+[sub_resource type="Animation" id="Animation_u4l3x"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionAnimation/TextureRect:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1277, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=533904540]
+[sub_resource type="Animation" id="Animation_wtbpg"]
+resource_name = "gradient_down"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionAnimation/TextureRect:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(469, -0.25, 0, 0.25, 0, 1515, -0.083333336, -174.33334, 0, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=831295493]
-libraries/ = SubResource("AnimationLibrary_wtbpg")
-autoplay = &"gradient_down"
-speed_scale = 0.528
+[sub_resource type="Animation" id="Animation_ax2sl"]
+resource_name = "gradient_up"
+length = 0.43333334
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionAnimation/TextureRect:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1277, -0.21666667, 0, 0.21666667, 0, 475, -0.07221667, 133.66667, 0, 0),
+"times": PackedFloat32Array(0, 0.4333)
+}
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=64065314]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wtbpg"]
+_data = {
+&"RESET": SubResource("Animation_u4l3x"),
+&"gradient_down": SubResource("Animation_wtbpg"),
+&"gradient_up": SubResource("Animation_ax2sl")
+}
+
+[node name="SceneTransitionAnimation" type="CanvasLayer" unique_id=302174458]
+layer = 100
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=748409655]
 offset_left = -223.0
 offset_top = 1277.0
 offset_right = -159.0
-offset_bottom = 1341.0
+offset_bottom = 1341.0004
 rotation = -1.5707964
 scale = Vector2(12.65961, 16.76256)
 texture = SubResource("GradientTexture2D_4rwhk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=528059966]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_wtbpg")
+autoplay = &"gradient_down"
+speed_scale = 0.528
