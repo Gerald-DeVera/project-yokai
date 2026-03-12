@@ -2,10 +2,12 @@ extends Control
 
 var runOnce = false
 var pageNumber
-
+@onready var thingToFillTemp = $Page3/RichTextLabel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	thingToFillTemp.clear()
+	for q in Global.foundQuotes:
+		thingToFillTemp.add_text(q.name)
 
 func setup() -> void:
 	pageNumber = 1

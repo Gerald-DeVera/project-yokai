@@ -43,3 +43,23 @@ offset_top = 278.0
 offset_right = 499.0
 offset_bottom = 309.0
 text = "->"
+
+[node name="Page3" type="VBoxContainer" parent="." unique_id=1464806730]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 72.0
+offset_right = 290.0
+offset_bottom = 272.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Page3" unique_id=1744876647]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "This quest is bussin
+What'd ya put in it Makoto?"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Page3" unique_id=714023820]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "FALL"
+fit_content = true

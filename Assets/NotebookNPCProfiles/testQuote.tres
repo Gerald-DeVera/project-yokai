@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NPC_Notebook_Profile" format=3 uid="uid://cg0oj4pitxt0d"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_uadud"]
+
+[resource]
+script = ExtResource("1_uadud")
+name = "Tom"
+evidenceQuotes = PackedStringArray("Eepy", "Tired")

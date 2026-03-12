@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dlxrimmenbrsr"]
+
+[ext_resource type="Script" uid="uid://b4cy02e3wkenc" path="res://Scripts/entityScripts/npc.gd" id="1_3twlq"]
+
+[node name="Npc" type="CharacterBody2D" unique_id=774758849]
+script = ExtResource("1_3twlq")
