@@ -501,6 +501,7 @@ scale = Vector2(0.9843759, 1.4296873)
 texture = SubResource("GradientTexture2D_sg6ii")
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("29_sg6ii")]
+layer = 100
 
 [node name="TempTitleContainer" type="CanvasLayer" parent="." unique_id=1097258040]
 
@@ -546,3 +547,8 @@ interactText = "S.G. Ramen"
 position = Vector2(910, 285)
 next_scene = "Level5"
 interactText = "Alleyway"
+
+[node name="FlowerDoor" parent="." unique_id=763387040 instance=ExtResource("22_2j0ao")]
+position = Vector2(1619, 288)
+next_scene = "Level6"
+interactText = "Camellia"

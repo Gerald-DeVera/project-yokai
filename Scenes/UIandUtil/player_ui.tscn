@@ -30,6 +30,7 @@ _data = {
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=668959072]
 process_mode = 3
+layer = 200
 script = ExtResource("1_awuwx")
 
 [node name="InventoryUi" parent="." unique_id=934222206 instance=ExtResource("1_8dawd")]

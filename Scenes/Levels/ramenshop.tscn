@@ -143,13 +143,16 @@ offset = Vector2(0, 25)
 zoom = Vector2(2.5, 2.5)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_50fp6")]
+layer = 100
 
 [node name="Door" parent="." unique_id=206299497 instance=ExtResource("6_50fp6")]
+light_mask = 2
 position = Vector2(187, 249)
 next_scene = "Level1"
 interactText = "To City"
 
 [node name="SagawaDialogue" parent="." unique_id=833905275 instance=ExtResource("8_7mtcg")]
+light_mask = 2
 z_index = 10
 position = Vector2(314, 231)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
