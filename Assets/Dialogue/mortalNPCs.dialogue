@@ -1,5 +1,5 @@
 ~ sagawaInterview
-if Global.interviewedSagawa == false
+if Global.dialogueFlags.interviewedSagawa == false
 	Makoto: Excuse me. [#camera_animation=zoom_in][#expression_right=confused][#animate_left=enter_convo][#actor_right=on][#new_actor=sagawa]
 	Sagawa: ... [#animate_left=exit_convo][#animate_right=enter_convo]
 	Makoto: Sir? [#animate_left=enter_convo][#animate_right=exit_convo]
@@ -48,9 +48,9 @@ if Global.interviewedSagawa == false
 	Makoto: I’ll be sure to keep you updated, Mister Sagawa. [#animate_left=enter_convo][#animate_right=exit_convo]
 	Makoto: She’s lucky to have such caring parents. [#expression_left=happy]
 	Sagawa: (Please be safe, Yui…) [#animate_left=exit_convo][#animate_right=enter_convo][#camera_animation=zoom_out]
-	do Global.interviewedSagawa = true
+	do Global.dialogueFlags.interviewedSagawa = true
 	#Set flag talked to Sagawa true 
-elif Global.interviewedSagawa == true
+elif Global.dialogueFlags.interviewedSagawa == true
 	% Sagawa: (Please be safe, Yui...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
 	% Sagawa: (The poor child...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
 	% Sagawa: (It's hard to run a store like this...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]

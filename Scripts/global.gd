@@ -5,6 +5,15 @@ var camera_pos: Vector2
 var inv: Inv = preload("res://Assets/InventoryItems/playerInventory.tres")
 var playerHasItem: bool
 
+#List of NPC Dialogue Flags
+#We also use these for one shots
+#Enums only story ints, so 0 is false, 1 is true
+var dialogueFlags = {
+	interviewedSagawa = false,
+	testFlag = false
+}
+var dialogueOneShot = false
+
 #The npcInfoTemplate contains the same fields as NPC does for its exported values, a name and a 
 #PackedStringArray for quotes
 #foundQuotes will be full of this resource object
@@ -21,10 +30,6 @@ var foundQuests = [questInfoTemplate.new("test",false,"Go to the place and do th
 #Global.foundQuests.append(Global.questInfoTemplate.new([quest info]))
 
 #This should help with better sorting of the Notebook in theory
-
-
-#List of NPC dialogue flags
-var interviewedSagawa: bool = false
 
 #Used in dialogue manager to look for a certain item, or can call for other events
 func searchInv(target_item: String):
@@ -56,5 +61,16 @@ func resetCamera():
 	tween.tween_property(camera_node, "position", camera_pos, 0.5)
 	print("moving back!")
 
+func prepareDialogue(dialogueFlag):
+	dialogueFlags[dialogueFlag] = true
+	dialogueOneShot = true	
+	return
+
+func finishOneShot(dialogueFlag):
+	dialogueFlags[dialogueFlag] = false
+	dialogueOneShot = false
+	
+func testThing():
+	print(dialogueFlags.testFlag)
 
 #Camera controls to be accessed from dialogue controls
