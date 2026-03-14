@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://xg0uwshbvyvo"]
 
 [ext_resource type="Texture2D" uid="uid://bon5st4pwyyyc" path="res://Assets/UI/inventory_notepad.png" id="1_edp7y"]
-[ext_resource type="Script" uid="uid://dk5n8xw1leeu2" path="res://Scenes/UIandUtil/notebook.gd" id="1_lndu6"]
+[ext_resource type="Script" uid="uid://dk5n8xw1leeu2" path="res://Scripts/notebook.gd" id="1_lndu6"]
 
 [node name="Notebook" type="Control" unique_id=523988141]
 layout_mode = 3
@@ -11,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lndu6")
-MAX_PAGES = 2
 
 [node name="Page1" type="NinePatchRect" parent="." unique_id=945781864]
 layout_mode = 0

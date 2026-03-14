@@ -3,6 +3,7 @@ extends CharacterBody2D
 const speed = 150.0
 const jump_velocity = -200.0	
 
+
 @export var inventory: Inv
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -27,7 +28,6 @@ func _ready() -> void:
 		global_position = sceneManager.player_pos
 	inventory.makeReady()
 
-
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -46,6 +46,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("PauseMenu"):
 		PlayerUI.PauseMenu.visible = true
 		get_tree().paused = true
+	
+	if Input.is_action_just_pressed("Notebook"):
+		PlayerUI.Notebook.visible = true
 
 	if Input.is_action_just_pressed("Spirit Sight"):
 		spiritSightOn = !spiritSightOn

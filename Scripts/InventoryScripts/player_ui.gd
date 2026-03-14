@@ -2,9 +2,11 @@ extends CanvasLayer
 
 @onready var InventoryAnimation = $AnimationPlayer
 @onready var PauseMenu = $HUD/PauseMenu
+@onready var Notebook = $HUD/Notebook
 
 func _ready() -> void:
 	PauseMenu.visible = false
+	Notebook.visible = false
 
 func _on_inventory_ui_inventory_close():
 	InventoryAnimation.play_backwards("move")

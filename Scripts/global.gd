@@ -8,10 +8,18 @@ var playerHasItem: bool
 #The npcInfoTemplate contains the same fields as NPC does for its exported values, a name and a 
 #PackedStringArray for quotes
 #foundQuotes will be full of this resource object
+
 const npcInfoTemplate = preload("res://Scripts/npcNotebookProfile.gd")
+var npcInfoList = [npcInfoTemplate.new("default"),]
+#Example for adding NPC data
+#Global.npcInfoList.append(Global.npcInfoTemplate.new([profile info]))
+
+
 const questInfoTemplate = preload("res://Scripts/questResourceTemplate.gd")
-var foundQuotes = [npcInfoTemplate.new("default"),]
 var foundQuests = [questInfoTemplate.new("test",false,"Go to the place and do the thing")]
+#Example for adding Quest
+#Global.foundQuests.append(Global.questInfoTemplate.new([quest info]))
+
 #This should help with better sorting of the Notebook in theory
 
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://da6l0wvmuuywl" path="res://Scenes/UIandUtil/InventoryUI.tscn" id="1_8dawd"]
 [ext_resource type="Script" uid="uid://dyffpe8jdn41l" path="res://Scripts/InventoryScripts/player_ui.gd" id="1_awuwx"]
+[ext_resource type="PackedScene" uid="uid://xg0uwshbvyvo" path="res://Scenes/UIandUtil/Notebook.tscn" id="3_yu4om"]
 
 [sub_resource type="Animation" id="Animation_awuwx"]
 length = 0.001
@@ -48,6 +49,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 122.0
 offset_bottom = 99.0
+
+[node name="Notebook" parent="HUD" unique_id=523988141 instance=ExtResource("3_yu4om")]
+visible = false
+layout_mode = 1
 
 [node name="PauseMenu" type="NinePatchRect" parent="HUD" unique_id=1316186352]
 layout_mode = 0

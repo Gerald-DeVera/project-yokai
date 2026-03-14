@@ -2,7 +2,7 @@ extends Control
 
 var runOnce = true
 var pageNumber
-@export var MAX_PAGES: int
+var MAX_PAGES = 2
 
 @onready var leftPage = $Page3/RichTextLabel
 @onready var rightPage = $Page4/RichTextLabel2
@@ -24,8 +24,9 @@ func _process(delta: float) -> void:
 	if visible and runOnce:
 		runOnce = false
 		setup()
+		return
 	
-	if Input.is_action_just_pressed("PauseMenu"):
+	if Input.is_action_just_pressed("Notebook"):
 		visible = false
 	
 
@@ -35,12 +36,12 @@ func flipToPage(page:int) -> void:
 	rightPage.clear()
 	match(page):
 		1:
-			print("Load from global quests storage")
+			pass
 			for quest in Global.foundQuests:
 				leftPage.add_text(quest.questName + "\n" + quest.fullDescription)
 				
 		2:
-			print("Load from global quotes storage")
+			pass
 	
 
 func _on_back_pressed() -> void:
