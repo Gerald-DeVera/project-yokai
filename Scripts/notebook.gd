@@ -24,10 +24,12 @@ func _process(delta: float) -> void:
 	if visible and runOnce:
 		runOnce = false
 		setup()
+		Signals.togglePlayerInput.emit(false)
 		return
 	
 	if Input.is_action_just_pressed("Notebook"):
 		visible = false
+		Signals.togglePlayerInput.emit(true)
 	
 
 #This implementation really depends on how much evidence there ends up being
