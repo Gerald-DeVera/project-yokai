@@ -1,52 +1,58 @@
 ~ sagawaInterview
-Makoto: Excuse me. [#camera_animation=zoom_in][#expression_right=confused][#animate_left=enter_convo][#actor_right=on][#new_actor=sagawa]
-Sagawa: ... [#animate_left=exit_convo][#animate_right=enter_convo]
-Makoto: Sir? [#animate_left=enter_convo][#animate_right=exit_convo]
-Sagawa: Oh. My bad miss, I’ve had a lot on my mind lately. I must've tuned you out by accident. What can I get for you? I’d recommend our [wave amp=25 freq=5]house special[/wave] if it’s your first time. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
-Makoto: It's fine. And sorry, I’m not here to place an order.[#animate_left=enter_convo][#animate_right=exit_convo]
-Sagawa: That so? Well then, what can I help you with, miss? [#expression_right=confused][#animate_left=exit_convo][#animate_right=enter_convo]
-Makoto: Are you familiar with Yui from YuYuYu? [#animate_left=enter_convo][#animate_right=exit_convo]
-#Cg of Yui photo
-#Sagawa surprise
-Sagawa: Ah, are you a fan of hers? I’m a bit too old to be keeping up with the trends, but I’ve heard of her before. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
-do Global.grabCameraPos()
-[do Global.moveCamera(Vector2(-40,-60))]Makoto takes a quick glance around at the ramen shop. [#animate_left=enter_convo][#animate_right=exit_convo]
-Makoto: [do Global.resetCamera()]Then I assume all of the idol merch hung up on these walls is someone else’s doing?
-Sagawa: What’s it to ya? I don’t like being rude, but I’ve got paying customers I need to be serving. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
-Sagawa: If this is just idle chit-chat, why don’t you try the arcade and ask some young’uns?
-Makoto: Mister Sagawa, my name is Makoto Satou. I was asked to investigate Yui’s whereabouts by Chief Inspector Yutaka Matsu of the ERPD. [#animate_left=enter_convo][#animate_right=exit_convo]
-Makoto: I was told by Yui’s friend that she was last seen visiting her parent’s shop, and my investigation led me to this very establishment.
-Sagawa sighs.
-Sagawa: Well, if it’s Matsu-san… I suppose you’re not here for a cheap tabloid interview then. [#animate_left=exit_convo][#animate_right=enter_convo]
-Sagawa:  Little Yui was indeed here the day before yesterday, and  yes – the merch is all ours, me and my wife. Yui’s our [wave amp=25 freq=5]dearest daughter[/wave], after all. [#expression_right=unimp]
-Sagawa:  If you are working to find her, I’ll try to tell you everything that’s left in this ol’ head of mine. [#expression_right=angry]
-Makoto: Let’s start with the basics. What was she doing here two days ago? [#animate_left=enter_convo][#animate_right=exit_convo]
-Sagawa: Yui is usually busy with her idol work, but she’s always made sure to stop by every now and then to help me and her mother out around the shop. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
-Sagawa: But recently, her mother took a fall and has been stuck in the hospital, so the store’s been shorthanded. [#expression_right=unimp]
-Sagawa: But Yui, the angel that she is, has been coming in more often to alleviate the burden.
-Sagawa: She’s even gone as far as taking a step back from her group to stay around, at least till her mother has recovered…
-Makoto: I see. Was there anything unusual on the day she went missing? [#animate_left=enter_convo][#animate_right=exit_convo]
-Sagawa: I think everything was the same for the most part… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
-Sagawa: …
-Sagawa: Actually, that day was particularly busy. We ended up having to [wave amp=25 freq=5]close late[/wave], and Yui stuck by my side the whole time.[#expression_right=confused]
-Sagawa: If I remember correctly, she left in a rush once we finished closing up, saying she was in a hurry to [wave amp=25 freq=5]meet up with a friend[/wave].
-Sagawa: …And that was the last I saw of her. We thought it was odd when she hadn’t sent her usual morning text the next day... [#expression_right=angry]
-Sagawa: ...but it wasn’t until last night that we knew something was terribly wrong.
-Sagawa: She had promised to stop by after practice that day, but we didn’t hear a peep all day and she never showed up.
-Sagawa: We’ve tried calling her so many times… even the agency said they can’t get a hold of her, and her manager claims she never showed up for practice that day. [#expression_right=unimp]
-Sagawa’s lip trembles a bit.
-Makoto: I see. Did she say [wave amp=25 freq=5]who she was meeting[/wave]? [#animate_left=enter_convo][#animate_right=exit_convo]
-Sagawa: No, she left so quickly that before I could even ask, she was gone as if she was spirited away. [#animate_left=exit_convo][#animate_right=enter_convo]
-Sagawa furrows his brow.
-Sagawa: Though, I do remember she said something about needing to [wave amp=25 freq=5]pick some things up[/wave] while she was in the area... [#expression_right=angry]
-Sagawa: ...but for all I know, it could’ve been something for idol practice or a trinket for that friend of hers. 
-Sagawa: I’m sorry I can’t tell you more than that, but that’s all I can squeeze out of this dwindlin’ memory of mine. [#expression_right=unimp]
-Makoto: That’s fine. The information you’ve provided so far has been a great help. [#animate_left=enter_convo][#animate_right=exit_convo]
-Sagawa: Please, Makoto, let us know immediately if she turns up. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
-Sagawa: I don’t know how much longer her mother and I can handle not knowing if she’s okay. The poor child, she hasn’t done anything wrong… [#expression_right=unimp]
-Makoto: I’ll be sure to keep you updated, Mister Sagawa. [#animate_left=enter_convo][#animate_right=exit_convo]
-Makoto: She’s lucky to have such caring parents. [#expression_left=happy]
-Sagawa: (Please be safe, Yui…) [#animate_left=exit_convo][#animate_right=enter_convo][#camera_animation=zoom_out]
-
-#Set flag talked to Sagawa true 
+if Global.interviewedSagawa == false
+	Makoto: Excuse me. [#camera_animation=zoom_in][#expression_right=confused][#animate_left=enter_convo][#actor_right=on][#new_actor=sagawa]
+	Sagawa: ... [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: Sir? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Sagawa: Oh. My bad miss, I’ve had a lot on my mind lately. I must've tuned you out by accident. What can I get for you? I’d recommend our [wave amp=25 freq=5]house special[/wave] if it’s your first time. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	Makoto: It's fine. And sorry, I’m not here to place an order.[#animate_left=enter_convo][#animate_right=exit_convo]
+	Sagawa: That so? Well then, what can I help you with, miss? [#expression_right=confused][#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: Are you familiar with Yui from YuYuYu? [#animate_left=enter_convo][#animate_right=exit_convo]
+	#Cg of Yui photo
+	#Sagawa surprise
+	Sagawa: Ah, are you a fan of hers? I’m a bit too old to be keeping up with the trends, but I’ve heard of her before. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	do Global.grabCameraPos()
+	[do Global.moveCamera(Vector2(-40,-60))]Makoto takes a quick glance around at the ramen shop. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Makoto: [do Global.resetCamera()]Then I assume all of the idol merch hung up on these walls is someone else’s doing?
+	Sagawa: What’s it to ya? I don’t like being rude, but I’ve got paying customers I need to be serving. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+	Sagawa: If this is just idle chit-chat, why don’t you try the arcade and ask some young’uns?
+	Makoto: Mister Sagawa, my name is Makoto Satou. I was asked to investigate Yui’s whereabouts by Chief Inspector Yutaka Matsu of the ERPD. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Makoto: I was told by Yui’s friend that she was last seen visiting her parent’s shop, and my investigation led me to this very establishment.
+	Sagawa sighs.
+	Sagawa: Well, if it’s Matsu-san… I suppose you’re not here for a cheap tabloid interview then. [#animate_left=exit_convo][#animate_right=enter_convo]
+	Sagawa:  Little Yui was indeed here the day before yesterday, and  yes – the merch is all ours, me and my wife. Yui’s our [wave amp=25 freq=5]dearest daughter[/wave], after all. [#expression_right=unimp]
+	Sagawa:  If you are working to find her, I’ll try to tell you everything that’s left in this ol’ head of mine. [#expression_right=angry]
+	Makoto: Let’s start with the basics. What was she doing here two days ago? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Sagawa: Yui is usually busy with her idol work, but she’s always made sure to stop by every now and then to help me and her mother out around the shop. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	Sagawa: But recently, her mother took a fall and has been stuck in the hospital, so the store’s been shorthanded. [#expression_right=unimp]
+	Sagawa: But Yui, the angel that she is, has been coming in more often to alleviate the burden.
+	Sagawa: She’s even gone as far as taking a step back from her group to stay around, at least till her mother has recovered…
+	Makoto: I see. Was there anything unusual on the day she went missing? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Sagawa: I think everything was the same for the most part… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+	Sagawa: …
+	Sagawa: Actually, that day was particularly busy. We ended up having to [wave amp=25 freq=5]close late[/wave], and Yui stuck by my side the whole time.[#expression_right=confused]
+	Sagawa: If I remember correctly, she left in a rush once we finished closing up, saying she was in a hurry to [wave amp=25 freq=5]meet up with a friend[/wave].
+	Sagawa: …And that was the last I saw of her. We thought it was odd when she hadn’t sent her usual morning text the next day... [#expression_right=angry]
+	Sagawa: ...but it wasn’t until last night that we knew something was terribly wrong.
+	Sagawa: She had promised to stop by after practice that day, but we didn’t hear a peep all day and she never showed up.
+	Sagawa: We’ve tried calling her so many times… even the agency said they can’t get a hold of her, and her manager claims she never showed up for practice that day. [#expression_right=unimp]
+	Sagawa’s lip trembles a bit.
+	Makoto: I see. Did she say [wave amp=25 freq=5]who she was meeting[/wave]? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Sagawa: No, she left so quickly that before I could even ask, she was gone as if she was spirited away. [#animate_left=exit_convo][#animate_right=enter_convo]
+	Sagawa furrows his brow.
+	Sagawa: Though, I do remember she said something about needing to [wave amp=25 freq=5]pick some things up[/wave] while she was in the area... [#expression_right=angry]
+	Sagawa: ...but for all I know, it could’ve been something for idol practice or a trinket for that friend of hers. 
+	Sagawa: I’m sorry I can’t tell you more than that, but that’s all I can squeeze out of this dwindlin’ memory of mine. [#expression_right=unimp]
+	Makoto: That’s fine. The information you’ve provided so far has been a great help. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Sagawa: Please, Makoto, let us know immediately if she turns up. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+	Sagawa: I don’t know how much longer her mother and I can handle not knowing if she’s okay. The poor child, she hasn’t done anything wrong… [#expression_right=unimp]
+	Makoto: I’ll be sure to keep you updated, Mister Sagawa. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Makoto: She’s lucky to have such caring parents. [#expression_left=happy]
+	Sagawa: (Please be safe, Yui…) [#animate_left=exit_convo][#animate_right=enter_convo][#camera_animation=zoom_out]
+	do Global.interviewedSagawa = true
+	#Set flag talked to Sagawa true 
+elif Global.interviewedSagawa == true
+	% Sagawa: (Please be safe, Yui...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	% Sagawa: (The poor child...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	% Sagawa: (It's hard to run a store like this...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	% Sagawa: (I hope that Makoto lady returns with good news...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
 => END

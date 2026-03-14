@@ -14,6 +14,10 @@ var foundQuotes = [npcInfoTemplate.new("default"),]
 var foundQuests = [questInfoTemplate.new("test",false,"Go to the place and do the thing")]
 #This should help with better sorting of the Notebook in theory
 
+
+#List of NPC dialogue flags
+var interviewedSagawa: bool = false
+
 #Used in dialogue manager to look for a certain item, or can call for other events
 func searchInv(target_item: String):
 	for item in inv.items:

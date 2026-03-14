@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://j5kcv1mse7an"]
+
+[ext_resource type="Texture2D" uid="uid://ci130vgswari0" path="res://Assets/Environment/clothing_interior bg.png" id="1_ata4p"]
+[ext_resource type="Texture2D" uid="uid://6s51neq63f0v" path="res://Assets/Environment/clothing_interior fg.png" id="2_hc8ab"]
+[ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="3_u2ouw"]
+[ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="4_gw6pd"]
+[ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="5_wft7n"]
+[ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="6_rphfw"]
+[ext_resource type="Texture2D" uid="uid://6bpgw4ajuq86" path="res://Assets/Environment/lightparallel.png" id="10_fj5wa"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hc7ey"]
+
+[sub_resource type="Animation" id="Animation_71phu"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerCharacter/Camera2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-53, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.5, 2.5)]
+}
+
+[sub_resource type="Animation" id="Animation_jqh25"]
+resource_name = "zoom_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(3.7, 3.7)]
+}
+
+[sub_resource type="Animation" id="Animation_yfdhe"]
+resource_name = "zoom_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerCharacter/Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.7, 3.7), Vector2(2.5, 2.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sgi0b"]
+_data = {
+&"RESET": SubResource("Animation_71phu"),
+&"zoom_in": SubResource("Animation_jqh25"),
+&"zoom_out": SubResource("Animation_yfdhe")
+}
+
+[sub_resource type="Gradient" id="Gradient_gl2bf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yyrmh"]
+gradient = SubResource("Gradient_gl2bf")
+
+[sub_resource type="Gradient" id="Gradient_o4f67"]
+offsets = PackedFloat32Array(0, 0.6423841)
+colors = PackedColorArray(0.3068251, 0.34408835, 0.35981658, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ata4p"]
+gradient = SubResource("Gradient_o4f67")
+fill = 1
+fill_from = Vector2(0.5069767, 0.49302325)
+fill_to = Vector2(1, 1)
+
+[node name="FlowerShop" type="Node2D" unique_id=1471775732]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=949669185]
+layer = -3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1057342045]
+offset_left = -86.00001
+offset_top = -6.0000153
+offset_right = -44.420006
+offset_bottom = 38.49498
+scale = Vector2(18.819786, 8.988636)
+color = Color(0.03529412, 0.039215688, 0.039215688, 1)
+
+[node name="ClothingInteriorBg" type="Sprite2D" parent="." unique_id=1251925827]
+position = Vector2(312, 228)
+texture = ExtResource("1_ata4p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1883024677]
+position = Vector2(2, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=344920375]
+position = Vector2(327, 275)
+shape = SubResource("WorldBoundaryShape2D_hc7ey")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=19991291]
+position = Vector2(186, 275)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_hc7ey")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1637059362]
+position = Vector2(285, 275)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_hc7ey")
+
+[node name="ClothingInteriorFg" type="Sprite2D" parent="." unique_id=346773962]
+position = Vector2(312, 228)
+texture = ExtResource("2_hc8ab")
+
+[node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("3_u2ouw")]
+z_index = 3
+position = Vector2(204, 247)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=799244237]
+position = Vector2(-2, -53)
+offset = Vector2(0, 25)
+zoom = Vector2(2.5, 2.5)
+
+[node name="Door" parent="." unique_id=206299497 instance=ExtResource("4_gw6pd")]
+light_mask = 2
+z_index = 3
+position = Vector2(189, 251)
+next_scene = "Level1"
+interactText = "To City"
+
+[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_wft7n")]
+visible = false
+
+[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("6_rphfw")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1432139461]
+libraries/ = SubResource("AnimationLibrary_sgi0b")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=763283052]
+position = Vector2(253, 189.51)
+color = Color(0.7655061, 0.73155606, 0.695892, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=233745160]
+color = Color(0.3528542, 0.2480346, 0.1742478, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1984763417]
+position = Vector2(218, 228)
+rotation = 3.1415927
+scale = Vector2(0.914, 1.5)
+color = Color(0.13754717, 0.24340633, 0.3894126, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_yyrmh")
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1908832012]
+position = Vector2(261, 190)
+scale = Vector2(0.453125, 1.546875)
+energy = 0.28
+texture = SubResource("GradientTexture2D_ata4p")
+
+[node name="PointLight2D7" type="PointLight2D" parent="." unique_id=691616809]
+position = Vector2(215, 236)
+color = Color(0.32043692, 0.35130256, 0.51085585, 1)
+energy = 0.6
+texture = ExtResource("10_fj5wa")
+
+[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=1839050325]
+position = Vector2(300, 190)
+scale = Vector2(0.453125, 1.546875)
+energy = 0.28
+texture = SubResource("GradientTexture2D_ata4p")
+
+[node name="PointLight2D5" type="PointLight2D" parent="." unique_id=262006364]
+position = Vector2(362, 190)
+scale = Vector2(0.453125, 1.546875)
+energy = 0.28
+texture = SubResource("GradientTexture2D_ata4p")

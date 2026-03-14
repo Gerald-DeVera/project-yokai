@@ -372,3 +372,8 @@ interactText = "Toy Store"
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("29_s2ptr")]
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("23_wc4nj")]
+
+[node name="ClothesDoor" parent="." unique_id=98718091 instance=ExtResource("22_4r1gn")]
+position = Vector2(2390, 166)
+next_scene = "Level8"
+interactText = "Yokai Home"

@@ -9,7 +9,9 @@ var scenes : Dictionary = { "Level1": "res://Scenes/Levels/overworld.tscn" ,
 							"Level3": "res://Scenes/Levels/baseYokaiWorld.tscn", 
 							"Level4": "res://Scenes/Levels/ramenshop.tscn",
 							"Level5": "res://Scenes/Levels/alleyway.tscn",
-							"Level6": "res://Scenes/Levels/flower_shop.tscn"}
+							"Level6": "res://Scenes/Levels/flower_shop.tscn",
+							"Level7": "res://Scenes/Levels/clothing_shop.tscn",
+							"Level8": "res://Scenes/Levels/yokaihome.tscn"}
 var player_pos: Vector2
 
 func transition_to_scene(level : String):

@@ -552,3 +552,8 @@ interactText = "Alleyway"
 position = Vector2(1619, 288)
 next_scene = "Level6"
 interactText = "Camellia"
+
+[node name="ClothesDoor" parent="." unique_id=28425032 instance=ExtResource("22_2j0ao")]
+position = Vector2(1518, 288)
+next_scene = "Level7"
+interactText = "Threads"
