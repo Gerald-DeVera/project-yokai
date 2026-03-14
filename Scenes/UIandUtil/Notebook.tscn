@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lndu6")
+MAX_PAGES = 2
 
 [node name="Page1" type="NinePatchRect" parent="." unique_id=945781864]
 layout_mode = 0
@@ -54,12 +55,20 @@ offset_bottom = 272.0
 [node name="RichTextLabel" type="RichTextLabel" parent="Page3" unique_id=1744876647]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "This quest is bussin
-What'd ya put in it Makoto?"
+text = "omg"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Page3" unique_id=714023820]
+[node name="Page4" type="VBoxContainer" parent="." unique_id=839758837]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 74.0
+offset_right = 487.0
+offset_bottom = 271.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Page4" unique_id=1497027401]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "FALL"
 fit_content = true
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Forward" to="." method="_on_forward_pressed"]

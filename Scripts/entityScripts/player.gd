@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const speed = 150.0
-const jump_velocity = -400.0	
+const jump_velocity = -100.0	
 
 @export var inventory: Inv
 
@@ -33,19 +33,19 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		move_and_slide()
 	
-	if Input.is_action_just_pressed("PauseMenu"):
-		PlayerUI.PauseMenu.visible = true
-		get_tree().paused = true
-		
-	
 	if Input.is_action_just_pressed("Fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
 	#Do not continue if we do not allow input for the player
 	if inputDisabled:
 		return
+		
+	if Input.is_action_just_pressed("PauseMenu"):
+		PlayerUI.PauseMenu.visible = true
+		get_tree().paused = true
 
 	if Input.is_action_just_pressed("Spirit Sight"):
 		spiritSightOn = !spiritSightOn

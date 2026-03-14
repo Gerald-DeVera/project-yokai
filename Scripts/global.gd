@@ -9,7 +9,9 @@ var playerHasItem: bool
 #PackedStringArray for quotes
 #foundQuotes will be full of this resource object
 const npcInfoTemplate = preload("res://Scripts/npcNotebookProfile.gd")
+const questInfoTemplate = preload("res://Scripts/questResourceTemplate.gd")
 var foundQuotes = [npcInfoTemplate.new("default"),]
+var foundQuests = [questInfoTemplate.new("test",false,"Go to the place and do the thing")]
 #This should help with better sorting of the Notebook in theory
 
 #Used in dialogue manager to look for a certain item, or can call for other events
