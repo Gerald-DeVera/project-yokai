@@ -42,7 +42,7 @@ elif Global.playerHasItem == true
 	=> END
 	
 ~ oneShotTest
-Makoto: do this work [#actor_right=on][#new_actor=Ina]
-Ina: I sure hope so
+Makoto: do this work 
+Ina: I sure hope so [#animate_right=enter_convo][#actor_right=on][#new_actor=ina]
 do Global.finishOneShot("testFlag")
 => END

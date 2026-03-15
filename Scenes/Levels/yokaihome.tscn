@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b2ofmtwlgac2h" path="res://Assets/Environment/yokaihome_interior bg.png" id="1_t26je"]
 [ext_resource type="Texture2D" uid="uid://bj55yr71wcerw" path="res://Assets/Environment/yokaihome_interior fg.png" id="2_vm7hy"]
+[ext_resource type="Texture2D" uid="uid://cnss2f3uqfbuh" path="res://Assets/Sprites/yui sprite-Sheet.png" id="3_vm7hy"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="4_7mosq"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="5_4lwr6"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="6_e5v46"]
@@ -9,6 +10,62 @@
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="9_o8uwm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_58a5k"]
+
+[sub_resource type="Animation" id="Animation_wvaob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eypgt"]
+resource_name = "idle_left"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13]
+}
+
+[sub_resource type="Animation" id="Animation_7ehg5"]
+resource_name = "idle_right"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mosq"]
+_data = {
+&"RESET": SubResource("Animation_wvaob"),
+&"idle_left": SubResource("Animation_eypgt"),
+&"idle_right": SubResource("Animation_7ehg5")
+}
 
 [sub_resource type="Gradient" id="Gradient_eypgt"]
 offsets = PackedFloat32Array(0, 0.6225166)
@@ -145,6 +202,15 @@ shape = SubResource("WorldBoundaryShape2D_58a5k")
 z_index = 10
 position = Vector2(351, 228)
 texture = ExtResource("2_vm7hy")
+
+[node name="YuiSpriteSheet" type="Sprite2D" parent="." unique_id=1433188238]
+position = Vector2(420, 251)
+texture = ExtResource("3_vm7hy")
+hframes = 14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YuiSpriteSheet" unique_id=1398361493]
+libraries/ = SubResource("AnimationLibrary_7mosq")
+autoplay = &"idle_left"
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("4_7mosq")]
 position = Vector2(204, 247)
