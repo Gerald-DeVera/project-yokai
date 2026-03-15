@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://rlyyoedu4kax" path="res://Assets/Environment/bg_overworld/apt.png" id="13_x82q5"]
 [ext_resource type="Texture2D" uid="uid://i74yx7vg1roh" path="res://Assets/Environment/bg_overworld/police_department.png" id="14_sg6ii"]
 [ext_resource type="Texture2D" uid="uid://dldvsy7c70q6j" path="res://Assets/Environment/bg_overworld/hobby.png" id="15_x2dcs"]
-[ext_resource type="Texture2D" uid="uid://beyvtt5n2gk14" path="res://Assets/Sprites/yumi sprite.png" id="17_sg6ii"]
+[ext_resource type="Texture2D" uid="uid://c3cs7oyxrot5m" path="res://Assets/Sprites/yumi sprite-Sheet.png" id="17_x2dcs"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="21_pbaho"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_2j0ao"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="22_pbaho"]
@@ -130,6 +130,62 @@ terrain_set_0/terrain_0/color = Color(0.37297317, 0.32074204, 0.6783508, 1)
 terrain_set_0/terrain_1/name = "Block"
 terrain_set_0/terrain_1/color = Color(0.25919905, 0.59566516, 0.5808119, 1)
 sources/0 = SubResource("TileSetAtlasSource_sg6ii")
+
+[sub_resource type="Animation" id="Animation_m7okf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xjuw7"]
+resource_name = "idle_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13, 15]
+}
+
+[sub_resource type="Animation" id="Animation_12d20"]
+resource_name = "idle_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_57gpc"]
+_data = {
+&"RESET": SubResource("Animation_m7okf"),
+&"idle_left": SubResource("Animation_xjuw7"),
+&"idle_right": SubResource("Animation_12d20")
+}
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjp5g"]
 distance = 3.0
@@ -363,8 +419,12 @@ texture = ExtResource("15_x2dcs")
 
 [node name="YumiSprite" type="Sprite2D" parent="." unique_id=611435481]
 position = Vector2(-180, 288)
-texture = ExtResource("17_sg6ii")
-hframes = 2
+texture = ExtResource("17_x2dcs")
+hframes = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YumiSprite" unique_id=1309823103]
+libraries/ = SubResource("AnimationLibrary_57gpc")
+autoplay = &"idle_right"
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_jjp5g")]
 position = Vector2(560, 288)
