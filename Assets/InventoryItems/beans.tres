@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://brw0m7nwfejnp"]
+
+[ext_resource type="Texture2D" uid="uid://b06qsv48l4ud" path="res://Assets/UI/Items/item_closeup_beans.png" id="1_7g20c"]
+[ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="1_qivux"]
+[ext_resource type="Texture2D" uid="uid://d2voteml87jir" path="res://Assets/UI/Items/item_beans.png" id="3_nqhn3"]
+
+[resource]
+script = ExtResource("1_qivux")
+name = "Bag of Beans"
+texture = ExtResource("3_nqhn3")
+description = "Just a bag of normal coffee beans. Oni-proof."
+closeup_texture = ExtResource("1_7g20c")

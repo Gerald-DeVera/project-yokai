@@ -6,9 +6,66 @@
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="5_gdkqi"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="5_lhiah"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_sfvug"]
+[ext_resource type="Texture2D" uid="uid://cmr5gdinfmqst" path="res://Assets/Sprites/kite sprite-Sheet.png" id="6_cg16o"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="6_lhiah"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_33gn4"]
+
+[sub_resource type="Animation" id="Animation_pwkim"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3638v"]
+resource_name = "idle_left"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11]
+}
+
+[sub_resource type="Animation" id="Animation_bx3pb"]
+resource_name = "idle_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h66fg"]
+_data = {
+&"RESET": SubResource("Animation_pwkim"),
+&"idle_left": SubResource("Animation_3638v"),
+&"idle_right": SubResource("Animation_bx3pb")
+}
 
 [sub_resource type="Gradient" id="Gradient_l0i5o"]
 
@@ -137,9 +194,6 @@ position = Vector2(257, 250)
 position = Vector2(-2, -30)
 zoom = Vector2(2.5, 2.5)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1649099595 groups=["spawnPoint"]]
-position = Vector2(209, 199)
-
 [node name="OfficeInterior" type="Sprite2D" parent="." unique_id=1661842683]
 z_index = -3
 position = Vector2(313, 230)
@@ -163,6 +217,15 @@ dialogueStartingPosition = "start3"
 isDialogue = true
 isSpiritButton = true
 dialoguePath = "res://Assets/Dialogue/Test.dialogue"
+
+[node name="KiteSpriteSheet" type="Sprite2D" parent="." unique_id=1242126631]
+position = Vector2(403, 248)
+texture = ExtResource("6_cg16o")
+hframes = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KiteSpriteSheet" unique_id=1694476200]
+libraries/ = SubResource("AnimationLibrary_h66fg")
+autoplay = &"idle_left"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=804787415]
 layer = -1

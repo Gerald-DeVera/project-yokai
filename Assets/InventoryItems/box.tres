@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://bdx4fwj77vwv3"]
+
+[ext_resource type="Texture2D" uid="uid://xbdvxe4uup6l" path="res://Assets/UI/Items/item_closeup_box.png" id="1_pqdqo"]
+[ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="2_n8eya"]
+[ext_resource type="Texture2D" uid="uid://dkxk4huiqlj3c" path="res://Assets/UI/Items/item_box.png" id="3_r1b4b"]
+
+[resource]
+script = ExtResource("2_n8eya")
+name = "Sealing Box"
+texture = ExtResource("3_r1b4b")
+description = "The box that you found and opened, releasing Kite from within."
+closeup_texture = ExtResource("1_pqdqo")

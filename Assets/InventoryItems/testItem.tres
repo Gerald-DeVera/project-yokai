@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_50m6f")
-name = "devious creature"
+name = "Devious Creature"
 texture = ExtResource("2_j7qme")
-description = "this thing is [color=red]EVIL[/color] bro do NOT trust it"
+description = "this thing is [color=red]EVIL[/color] bro do NOT trust it DO YOU UNDERSTAND ME"
 metadata/_custom_type_script = "uid://dec4ct7yuknap"

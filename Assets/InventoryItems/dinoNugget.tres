@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_c2lkh")
-name = "dinoNugget"
+name = "Dino Nugget"
 texture = ExtResource("2_wr086")
-description = "delicious"
+description = "This delicious nugget is one-of-a-kind. Make sure you ration it wisely!"
 metadata/_custom_type_script = "uid://dec4ct7yuknap"

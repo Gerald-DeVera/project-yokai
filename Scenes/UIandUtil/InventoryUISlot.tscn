@@ -41,6 +41,67 @@ _data = {
 &"bounce": SubResource("Animation_442oc")
 }
 
+[sub_resource type="Animation" id="Animation_6fuv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Panel/itemDisplay:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7, 0.7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ymift"]
+resource_name = "focus_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Panel/itemDisplay:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.7, 0.7), Vector2(0.83, 0.83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lg2ca"]
+_data = {
+&"RESET": SubResource("Animation_6fuv1"),
+&"focus_in": SubResource("Animation_ymift")
+}
+
 [node name="InventoryUiSlot" type="Panel" unique_id=1666548045]
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0
@@ -53,18 +114,20 @@ texture = ExtResource("2_b8i2g")
 hframes = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1424436862]
-clip_contents = true
 custom_minimum_size = Vector2(33, 33)
 layout_mode = 0
 offset_left = -8.0
 offset_top = -16.995
 offset_right = 25.0
 offset_bottom = 16.005
+pivot_offset = Vector2(16, 16.995)
 
 [node name="Panel" type="Panel" parent="CenterContainer" unique_id=816734717]
 layout_mode = 2
 
 [node name="itemDisplay" type="Sprite2D" parent="CenterContainer/Panel" unique_id=1329420600]
+position = Vector2(-0.99999994, 3.9950004)
+scale = Vector2(0.7, 0.7)
 
 [node name="InventoryItemindic" type="Sprite2D" parent="." unique_id=1576653326]
 visible = false
@@ -76,3 +139,6 @@ texture = ExtResource("3_442oc")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InventoryItemindic" unique_id=1092203297]
 libraries/ = SubResource("AnimationLibrary_5gukr")
 autoplay = &"bounce"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=888983228]
+libraries/ = SubResource("AnimationLibrary_lg2ca")

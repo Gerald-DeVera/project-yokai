@@ -78,7 +78,7 @@ func itemAnimation(prevSlot):
 		imageSwap.stop()
 		#print(inv.items[curSlotIndex].texture)
 		currentImage.texture = nextImage.texture
-		nextImage.texture = inv.items[curSlotIndex].texture
+		nextImage.texture = inv.items[curSlotIndex].closeup_texture
 		#currentImage.texture = inv.items[curSlotIndex+1].texture
 		imageSwap.play("change_image")
 	return
@@ -91,7 +91,7 @@ func close():
 	
 func open():
 	slots[0].showActive()
-	nextImage.texture = inv.items[0].texture
+	nextImage.texture = inv.items[0].closeup_texture
 	#self.visible = true
 	is_open = true	
 	Signals.togglePlayerInput.emit(false)

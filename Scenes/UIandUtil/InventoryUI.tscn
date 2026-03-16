@@ -4,21 +4,55 @@
 [ext_resource type="Texture2D" uid="uid://5scnqaoxc66l" path="res://Assets/UI/inventory_bg9tile.png" id="2_1ui8g"]
 [ext_resource type="Texture2D" uid="uid://8f2hoc3s7lwr" path="res://Assets/UI/inventory_top.png" id="2_brlqm"]
 [ext_resource type="PackedScene" uid="uid://b63wahbdevhj" path="res://Scenes/UIandUtil/InventoryUISlot.tscn" id="3_1ui8g"]
+[ext_resource type="Texture2D" uid="uid://cgvkyf0mg745a" path="res://Assets/UI/inventory_string.png" id="4_l4whu"]
+[ext_resource type="Texture2D" uid="uid://dssfp44il1vp6" path="res://Assets/UI/inventory_pencil2.png" id="5_7p7f7"]
 [ext_resource type="Texture2D" uid="uid://bon5st4pwyyyc" path="res://Assets/UI/inventory_notepad.png" id="5_hniqx"]
+[ext_resource type="Texture2D" uid="uid://cv2n6e7tnk1yk" path="res://Assets/UI/inventory_paper.png" id="5_nj6ur"]
 [ext_resource type="Texture2D" uid="uid://155r163nfntx" path="res://Assets/UI/inventory_polaroid.png" id="6_cjtsa"]
-[ext_resource type="FontFile" uid="uid://uf7b4k381gwo" path="res://Assets/Themes and Fonts/Jersey25-Regular.ttf" id="6_quqtj"]
+[ext_resource type="Texture2D" uid="uid://bvg51c4g5xjhn" path="res://Assets/UI/inventory_folder.png" id="6_l4whu"]
+[ext_resource type="Texture2D" uid="uid://d3l3uhte6sgco" path="res://Assets/UI/inventory_light.png" id="7_7p7f7"]
 [ext_resource type="FontFile" uid="uid://b6jdat4l5binh" path="res://Assets/Themes and Fonts/Jersey10-Regular.ttf" id="7_pl06r"]
-[ext_resource type="Texture2D" uid="uid://bukgbln8egy6s" path="res://Assets/Sprites/tooltip_interact.png" id="9_sp6qt"]
-[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="10_ohxgc"]
+[ext_resource type="Texture2D" uid="uid://div4bqbp01ac1" path="res://Assets/UI/inventory_pencil.png" id="8_l2le5"]
+[ext_resource type="Texture2D" uid="uid://fucyfubce8bi" path="res://Assets/UI/inventory_label.png" id="10_ltt6d"]
+[ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="11_17rtu"]
+[ext_resource type="FontFile" uid="uid://cwin2lch17kre" path="res://Assets/Themes and Fonts/SpecialElite-Regular.ttf" id="12_kp2k7"]
+[ext_resource type="Texture2D" uid="uid://c4ct5lt0d3ipq" path="res://Assets/UI/Items/item_closeup_yui1.png" id="15_7p7f7"]
+[ext_resource type="Texture2D" uid="uid://xbdvxe4uup6l" path="res://Assets/UI/Items/item_closeup_box.png" id="18_l2le5"]
+
+[sub_resource type="Gradient" id="Gradient_7p7f7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l2le5"]
+gradient = SubResource("Gradient_7p7f7")
+use_hdr = true
+
+[sub_resource type="Gradient" id="Gradient_17rtu"]
+offsets = PackedFloat32Array(0, 0.74834436, 1)
+colors = PackedColorArray(0.39, 0.30875, 0.195, 1, 0.53, 0.46392664, 0.34979996, 0, 0.5213274, 0.45431393, 0.34021056, 0.06194693)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_snt3q"]
+gradient = SubResource("Gradient_17rtu")
+use_hdr = true
+
+[sub_resource type="Gradient" id="Gradient_l4whu"]
+offsets = PackedFloat32Array(0.45033112, 1)
+colors = PackedColorArray(0.39, 0.30875, 0.195, 1, 0.5213274, 0.45431393, 0.34021056, 0.06194693)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7p7f7"]
+gradient = SubResource("Gradient_l4whu")
+use_hdr = true
 
 [sub_resource type="FontVariation" id="FontVariation_sp6qt"]
-base_font = ExtResource("6_quqtj")
-spacing_top = -4
+base_font = ExtResource("7_pl06r")
+spacing_top = -3
+spacing_bottom = -2
 
 [sub_resource type="FontVariation" id="FontVariation_ohxgc"]
-base_font = ExtResource("7_pl06r")
-spacing_top = -2
-spacing_bottom = -2
+base_font = ExtResource("12_kp2k7")
+
+[sub_resource type="FontVariation" id="FontVariation_snt3q"]
+base_font = ExtResource("11_17rtu")
+spacing_glyph = 1
 
 [sub_resource type="Animation" id="Animation_ltt6d"]
 length = 0.001
@@ -117,6 +151,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../PolCenter/Shadow:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_17rtu"]
@@ -218,6 +264,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../PolCenter/Shadow:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_snt3q"]
 _data = {
@@ -229,6 +287,12 @@ _data = {
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_l5fgy")
+
+[node name="Gradient" type="Sprite2D" parent="." unique_id=413083581]
+position = Vector2(146, 17)
+rotation = -1.5707964
+scale = Vector2(6.1879416, -14.667933)
+texture = SubResource("GradientTexture2D_l2le5")
 
 [node name="InventoryTop" type="Sprite2D" parent="." unique_id=136539936]
 position = Vector2(123, -188)
@@ -247,7 +311,26 @@ patch_margin_bottom = 19
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
+[node name="InventoryString" type="Sprite2D" parent="." unique_id=454084167]
+modulate = Color(1, 0.13333333, 0, 1)
+position = Vector2(91, -80.00001)
+rotation = 0.007983127
+texture = ExtResource("4_l4whu")
+
+[node name="InventoryPencil" type="Sprite2D" parent="." unique_id=1105185971]
+position = Vector2(239, -100.000015)
+rotation = -5.8960757
+texture = ExtResource("5_7p7f7")
+
+[node name="InventoryGrad" type="Sprite2D" parent="." unique_id=1171293651]
+modulate = Color(0.64, 0.5856, 0.544, 0.5294118)
+position = Vector2(122.00001, -41)
+rotation = -7.853982
+scale = Vector2(1.004, 3.325)
+texture = SubResource("GradientTexture2D_snt3q")
+
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1011476813]
+self_modulate = Color(0.7792914, 0.7792914, 0.7792913, 1)
 layout_mode = 0
 offset_right = 244.97
 offset_bottom = 174.145
@@ -258,6 +341,42 @@ patch_margin_right = 19
 patch_margin_bottom = 19
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[node name="InventoryPaper2" type="Sprite2D" parent="NinePatchRect" unique_id=1565558360]
+modulate = Color(0.8501113, 0.84176457, 0.7858674, 1)
+position = Vector2(97, 92)
+rotation = 0.088112965
+texture = ExtResource("5_nj6ur")
+
+[node name="InventoryPaper" type="Sprite2D" parent="NinePatchRect" unique_id=1488597370]
+modulate = Color(0.9325486, 0.9470827, 0.9408075, 1)
+position = Vector2(67, 89.000015)
+rotation = -0.112233385
+texture = ExtResource("5_nj6ur")
+
+[node name="InventoryFolder" type="Sprite2D" parent="NinePatchRect" unique_id=1013574619]
+modulate = Color(0.82, 0.82, 0.82, 1)
+position = Vector2(160, 80.99999)
+rotation = 0.13428359
+texture = ExtResource("6_l4whu")
+
+[node name="InventoryLight" type="Sprite2D" parent="NinePatchRect" unique_id=250559188]
+position = Vector2(199, 118)
+rotation = 0.7351972
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("7_7p7f7")
+
+[node name="InventoryPencil" type="Sprite2D" parent="NinePatchRect" unique_id=1267230510]
+position = Vector2(60, 149)
+rotation = -1.4726404
+texture = ExtResource("8_l2le5")
+
+[node name="InventoryGrad" type="Sprite2D" parent="NinePatchRect" unique_id=335140022]
+modulate = Color(0.21, 0.13538, 0.0378, 0.23529412)
+position = Vector2(122.64, 100.97)
+rotation = -1.5707964
+scale = Vector2(1.734, 3.325)
+texture = SubResource("GradientTexture2D_7p7f7")
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect" unique_id=307651115]
 layout_mode = 1
@@ -332,33 +451,36 @@ texture = ExtResource("6_cjtsa")
 
 [node name="InventoryNotepad" type="Sprite2D" parent="Control" unique_id=779133934]
 z_index = 3
-position = Vector2(0, 1)
+position = Vector2(12, 3)
+rotation = 0.029987874
 texture = ExtResource("5_hniqx")
 
 [node name="ItemName" type="RichTextLabel" parent="Control" unique_id=955019063]
 z_index = 3
 layout_mode = 0
-offset_left = -49.0
-offset_top = -53.0
-offset_right = 50.0
-offset_bottom = -17.0
-theme_override_colors/default_color = Color(0.21, 0.21, 0.21, 1)
+offset_left = -35.0
+offset_top = -54.0
+offset_right = 64.0
+offset_bottom = -18.0
+theme_override_colors/default_color = Color(0.23925436, 0.1564424, 0.07686553, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_sp6qt")
+theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
-text = "NO ITEM SELECTED"
+text = "NO ITEM SELECTED "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ItemDesc" type="RichTextLabel" parent="Control" unique_id=1685234644]
 z_index = 3
+clip_contents = false
 layout_mode = 0
-offset_left = -43.0
-offset_top = -21.0
-offset_right = 45.0
-offset_bottom = 53.0
-theme_override_colors/default_color = Color(0.24, 0.24, 0.24, 1)
+offset_left = -29.0
+offset_top = -22.0
+offset_right = 59.0
+offset_bottom = 52.0
+theme_override_colors/default_color = Color(0.43789178, 0.30292997, 0.20356822, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_ohxgc")
-theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "Select an item to view its description."
 
@@ -370,12 +492,43 @@ texture = ExtResource("6_cjtsa")
 
 [node name="NextImage" type="Sprite2D" parent="Control/PolLeft" unique_id=484844602]
 modulate = Color(1, 1, 1, 0)
-texture = ExtResource("9_sp6qt")
+position = Vector2(-0.2068615, -6.705014)
+texture = ExtResource("15_7p7f7")
 
 [node name="PolCenter" type="Sprite2D" parent="Control" unique_id=1916365605]
 position = Vector2(-106, 7)
 rotation = -0.09928758
 texture = ExtResource("6_cjtsa")
+
+[node name="Shadow" type="Sprite2D" parent="Control/PolCenter" unique_id=134848281]
+modulate = Color(0, 0, 0, 0.34117648)
+position = Vector2(0.8959497, 1.0941992)
+rotation = -0.004786037
+texture = ExtResource("6_cjtsa")
+
+[node name="InventoryLabel" type="Sprite2D" parent="Control" unique_id=490038518]
+z_index = 4
+position = Vector2(-52, -73.00001)
+scale = Vector2(1.165905, 1.165905)
+texture = ExtResource("10_ltt6d")
+
+[node name="Shadow" type="Sprite2D" parent="Control/InventoryLabel" unique_id=238316092]
+modulate = Color(0.03, 0.03, 0.03, 0.28235295)
+z_index = -1
+position = Vector2(1.7881393e-07, 2.5731115)
+scale = Vector2(0.9883093, 1.1150998)
+texture = ExtResource("10_ltt6d")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/InventoryLabel" unique_id=1222409355]
+clip_contents = false
+offset_left = -24.873383
+offset_top = -10.292434
+offset_right = 65.85662
+offset_bottom = 28.717564
+theme_override_colors/default_color = Color(0.3432984, 0.2557386, 0.14747271, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_snt3q")
+bbcode_enabled = true
+text = "Evidence"
 
 [node name="ItemImageDisplay" type="Sprite2D" parent="Control" unique_id=2020742195]
 position = Vector2(-106, 7)
@@ -383,8 +536,8 @@ rotation = -0.09928758
 texture = ExtResource("6_cjtsa")
 
 [node name="CurrentImage" type="Sprite2D" parent="Control/ItemImageDisplay" unique_id=855361446]
-position = Vector2(-0.499, 0)
-texture = ExtResource("10_ohxgc")
+position = Vector2(-0.4, -6.4)
+texture = ExtResource("18_l2le5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=8065889]
 root_node = NodePath("../PolLeft")

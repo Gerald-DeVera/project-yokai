@@ -1,11 +1,19 @@
 [gd_resource type="Resource" script_class="Inv" format=3 uid="uid://bg0mts2rbbb7b"]
 
 [ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="1_v5q4d"]
-[ext_resource type="Resource" uid="uid://bedkcslnfmeg7" path="res://Assets/InventoryItems/dinoNugget.tres" id="2_djvy0"]
-[ext_resource type="Resource" uid="uid://bnsmlnw5bsgdu" path="res://Assets/InventoryItems/testItem.tres" id="3_djvy0"]
+[ext_resource type="Resource" uid="uid://bdx4fwj77vwv3" path="res://Assets/InventoryItems/box.tres" id="2_83oh2"]
+[ext_resource type="Resource" uid="uid://dvb2pjxwhi7kb" path="res://Assets/InventoryItems/receipt.tres" id="3_f81gg"]
 [ext_resource type="Script" uid="uid://dv74ncrdees8q" path="res://Scripts/InventoryScripts/inventory.gd" id="3_kx2gv"]
+[ext_resource type="Resource" uid="uid://dvlmn46fh30rr" path="res://Assets/InventoryItems/hand.tres" id="4_qettd"]
+[ext_resource type="Resource" uid="uid://dk7wjvomgtb15" path="res://Assets/InventoryItems/flowers.tres" id="5_m3o3k"]
+[ext_resource type="Resource" uid="uid://bnsibo1s6wqps" path="res://Assets/InventoryItems/wallet.tres" id="6_u7agd"]
+[ext_resource type="Resource" uid="uid://qsl8j5173xia" path="res://Assets/InventoryItems/yuiphoto.tres" id="7_b042u"]
+[ext_resource type="Resource" uid="uid://dip4mu2dxey36" path="res://Assets/InventoryItems/id.tres" id="8_aiyl1"]
+[ext_resource type="Resource" uid="uid://c0i1iinxlvws8" path="res://Assets/InventoryItems/bracelet1.tres" id="9_l7cb8"]
+[ext_resource type="Resource" uid="uid://ryc1sd7ctmrp" path="res://Assets/InventoryItems/phone.tres" id="10_h5tek"]
+[ext_resource type="Resource" uid="uid://brw0m7nwfejnp" path="res://Assets/InventoryItems/beans.tres" id="11_lu2lw"]
 
 [resource]
 script = ExtResource("3_kx2gv")
-items = Array[ExtResource("1_v5q4d")]([ExtResource("2_djvy0"), null, null, null, ExtResource("3_djvy0"), null, null, null, null, null, null, null])
+items = Array[ExtResource("1_v5q4d")]([ExtResource("2_83oh2"), ExtResource("3_f81gg"), ExtResource("4_qettd"), ExtResource("5_m3o3k"), ExtResource("6_u7agd"), ExtResource("7_b042u"), ExtResource("8_aiyl1"), ExtResource("9_l7cb8"), ExtResource("10_h5tek"), ExtResource("11_lu2lw"), null, null])
 metadata/_custom_type_script = "uid://dv74ncrdees8q"

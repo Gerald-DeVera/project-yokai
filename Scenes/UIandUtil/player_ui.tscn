@@ -3,9 +3,38 @@
 [ext_resource type="PackedScene" uid="uid://da6l0wvmuuywl" path="res://Scenes/UIandUtil/InventoryUI.tscn" id="1_8dawd"]
 [ext_resource type="Script" uid="uid://dyffpe8jdn41l" path="res://Scripts/InventoryScripts/player_ui.gd" id="1_awuwx"]
 [ext_resource type="PackedScene" uid="uid://xg0uwshbvyvo" path="res://Scenes/UIandUtil/Notebook.tscn" id="3_yu4om"]
+[ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="4_fdc27"]
+[ext_resource type="Texture2D" uid="uid://badd2ckrtoejn" path="res://Assets/UI/dialog_ui_option.png" id="5_mt33g"]
+[ext_resource type="Texture2D" uid="uid://cka3gr58wfupy" path="res://Assets/UI/inventory_item.png" id="7_ytfb2"]
 
 [sub_resource type="Animation" id="Animation_awuwx"]
 length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryUi:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(562, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_mt33g"]
+resource_name = "move"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryUi:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(562, -0.25, 0, 0.033333335, -81.5, 187.5, -0.0633882, 27.256918, 0.100000024, -43, 182.5, -0.03333333, -1, 0, 0),
+"times": PackedFloat32Array(0, 0.19999999, 0.43333334)
+}
 
 [sub_resource type="Animation" id="Animation_yu4om"]
 resource_name = "move"
@@ -26,8 +55,25 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53qiu"]
 _data = {
 &"RESET": SubResource("Animation_awuwx"),
-&"move": SubResource("Animation_yu4om")
+&"move": SubResource("Animation_mt33g"),
+&"move_depr": SubResource("Animation_yu4om")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4e6t"]
+texture = ExtResource("5_mt33g")
+texture_margin_left = 8.867495
+texture_margin_top = 8.867495
+texture_margin_right = 8.867495
+texture_margin_bottom = 8.481952
+region_rect = Rect2(0, 0, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cou8r"]
+texture = ExtResource("7_ytfb2")
+texture_margin_left = 7.392234
+texture_margin_top = 6.691246
+texture_margin_right = 7.7108645
+texture_margin_bottom = 9.877554
+region_rect = Rect2(0, 0, 46, 49)
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=668959072]
 process_mode = 3
@@ -36,10 +82,11 @@ script = ExtResource("1_awuwx")
 
 [node name="InventoryUi" parent="." unique_id=934222206 instance=ExtResource("1_8dawd")]
 process_mode = 1
-offset_left = 25.0
+offset_left = 184.0
 offset_top = 562.0
-offset_right = 25.0
+offset_right = 184.0
 offset_bottom = 562.0
+scale = Vector2(0.955, 0.955)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1112914171]
 libraries/ = SubResource("AnimationLibrary_53qiu")
@@ -67,6 +114,10 @@ offset_left = 66.0
 offset_top = 12.0
 offset_right = 136.0
 offset_bottom = 43.0
+theme_override_colors/font_color = Color(0.3840039, 0.33983007, 0.23864725, 1)
+theme_override_fonts/font = ExtResource("4_fdc27")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_e4e6t")
 text = "Resume"
 
 [node name="QuitButton" type="Button" parent="HUD/PauseMenu" unique_id=965713807]
@@ -75,6 +126,10 @@ offset_left = 66.0
 offset_top = 71.0
 offset_right = 136.0
 offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.34405002, 0.22723502, 0.18135148, 1)
+theme_override_fonts/font = ExtResource("4_fdc27")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_cou8r")
 text = "Quit"
 
 [connection signal="inventoryClose" from="InventoryUi" to="." method="_on_inventory_ui_inventory_close"]
