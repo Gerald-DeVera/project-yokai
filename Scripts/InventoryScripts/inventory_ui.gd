@@ -52,38 +52,36 @@ func _process(delta: float) -> void:
 			curSlotIndex = 0
 
 	if is_open:
-		if Input.is_action_just_pressed("move_left") and curSlotIndex > 0:
-			curSlotIndex -= 1
-			slots[curSlotIndex].showActive()
-			slots[curSlotIndex+1].hideActive()
-			if(inv.items[curSlotIndex]):
-				print("item: ", inv.items[curSlotIndex].name, " item description: ", inv.items[curSlotIndex].description)
-				itemNameLabel.text = inv.items[curSlotIndex].name
-				itemDescription.text = inv.items[curSlotIndex].description
-				imageSwap.stop()
-				#print(inv.items[curSlotIndex].texture)
-				currentImage.texture = nextImage.texture
-				nextImage.texture = inv.items[curSlotIndex].texture
-				#currentImage.texture = inv.items[curSlotIndex+1].texture
-				imageSwap.play("change_image")
-		elif Input.is_action_just_pressed("move_right") and curSlotIndex < min(inv.items.size(), slots.size()) - 1:
-			curSlotIndex += 1
-			slots[curSlotIndex].showActive()
-			slots[curSlotIndex-1].hideActive()
-			if(inv.items[curSlotIndex]):
-				print("item: ", inv.items[curSlotIndex].name, " item description: ", inv.items[curSlotIndex].description)
-				itemNameLabel.text = inv.items[curSlotIndex].name
-				itemDescription.text = inv.items[curSlotIndex].description
-				imageSwap.stop()
-				print(inv.items[curSlotIndex].texture)
-				#currentImage.texture = inv.items[curSlotIndex-1].texture
-				currentImage.texture = nextImage.texture
-				nextImage.texture = inv.items[curSlotIndex].texture
-				imageSwap.play("change_image")
-#		if inv.items[curSlotIndex]:
-		#slots[curSlotIndex]
-		
-		#print("thjig")
+		if Input.is_action_just_pressed("move_left"):
+			var prevSlot = curSlotIndex
+			if curSlotIndex == 0:
+				curSlotIndex = slots.size()-1
+			else:
+				curSlotIndex -= 1
+			itemAnimation(prevSlot)
+		elif Input.is_action_just_pressed("move_right"):
+			var prevSlot = curSlotIndex
+			if curSlotIndex == slots.size()-1:
+				curSlotIndex = 0
+			else:
+				curSlotIndex += 1
+			itemAnimation(prevSlot)
+
+
+func itemAnimation(prevSlot):
+	slots[curSlotIndex].showActive()
+	slots[prevSlot].hideActive()
+	if(inv.items[curSlotIndex]):
+		#print("item: ", inv.items[curSlotIndex].name, " item description: ", inv.items[curSlotIndex].description)
+		itemNameLabel.text = inv.items[curSlotIndex].name
+		itemDescription.text = inv.items[curSlotIndex].description
+		imageSwap.stop()
+		#print(inv.items[curSlotIndex].texture)
+		currentImage.texture = nextImage.texture
+		nextImage.texture = inv.items[curSlotIndex].texture
+		#currentImage.texture = inv.items[curSlotIndex+1].texture
+		imageSwap.play("change_image")
+	return
   
 func close():
 	slots[curSlotIndex].hideActive()
