@@ -12,7 +12,13 @@ var dialogueFlags = {
 	interviewedSagawa = false,
 	testFlag = false
 }
-var dialogueOneShot = false
+var dialoguePrep = {
+	dialogueOneShot = false,
+	dialogueFilePath = "",
+	dialogueStartLine = "",
+	dialogueSceneStart = ""
+}
+
 
 #The npcInfoTemplate contains the same fields as NPC does for its exported values, a name and a 
 #PackedStringArray for quotes
@@ -61,14 +67,25 @@ func resetCamera():
 	tween.tween_property(camera_node, "position", camera_pos, 0.5)
 	print("moving back!")
 
-func prepareDialogue(dialogueFlag):
+func prepareDialogue(dialogueFlag, dialogueFP, dialogueSL, sceneToStart):
 	dialogueFlags[dialogueFlag] = true
-	dialogueOneShot = true	
+	dialoguePrep.dialogueFilePath = dialogueFP
+	dialoguePrep.dialogueStartLine = dialogueSL
+	dialoguePrep.dialogueSceneStart = sceneToStart
+	dialoguePrep.dialogueOneShot = true	
 	return
 
 func finishOneShot(dialogueFlag):
 	dialogueFlags[dialogueFlag] = false
-	dialogueOneShot = false
+	dialoguePrep.dialogueFilePath = ""
+	dialoguePrep.dialogueStartLine = ""
+	dialoguePrep.dialogueSceneStart = ""
+	dialoguePrep.dialogueOneShot = false
+	
+func initiateDialogueOneShot():
+	if dialoguePrep.dialogueOneShot == true and sceneManager.currentScene == dialoguePrep.dialogueSceneStart:
+		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePrep.dialogueFilePath), dialoguePrep.dialogueStartLine)
+	return
 	
 func testThing():
 	print(dialogueFlags.testFlag)

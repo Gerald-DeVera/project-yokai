@@ -15,7 +15,7 @@ Makoto: For more information see the online documentation. [#expression_left=uni
 Makoto: badabing badaboom this is what i call [outline_size=8][color=gold][wave amp=10.0 freq=5.0 connected=1]camera zoom[/wave][/color][/outline_size] [#expression_left=happy][#camera_animation=zoom_in][#actor_right=off]
 Makoto: okay this is jank asf i gotta fix shit [#expression_left=unimp]
 Makoto: lets get outta here [#camera_animation=zoom_out]
-do Global.prepareDialogue("testFlag")
+do Global.prepareDialogue("testFlag", "res://Assets/Dialogue/Test.dialogue", "oneShotTest", "Level4")
 do Global.testThing()
 => END
 

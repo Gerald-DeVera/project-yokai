@@ -13,6 +13,7 @@ var scenes : Dictionary = { "Level1": "res://Scenes/Levels/overworld.tscn" ,
 							"Level7": "res://Scenes/Levels/clothing_shop.tscn",
 							"Level8": "res://Scenes/Levels/yokaihome.tscn"}
 var player_pos: Vector2
+var currentScene = ""
 
 func transition_to_scene(level : String):
 	var scene_path : String = scenes.get(level)
@@ -20,4 +21,13 @@ func transition_to_scene(level : String):
 	if scene_path != null:
 		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_file(scene_path)
+		currentScene = level
 		
+
+func sceneLoadCheck():
+	Signals.togglePlayerInput.emit(false)
+	await get_tree().create_timer(1.0).timeout
+	if Global.dialoguePrep.dialogueOneShot == true and currentScene == Global.dialoguePrep.dialogueSceneStart:
+		Global.initiateDialogueOneShot()
+	else:
+		Signals.togglePlayerInput.emit(true)
