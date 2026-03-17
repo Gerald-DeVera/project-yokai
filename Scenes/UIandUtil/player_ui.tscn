@@ -3,9 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://da6l0wvmuuywl" path="res://Scenes/UIandUtil/InventoryUI.tscn" id="1_8dawd"]
 [ext_resource type="Script" uid="uid://dyffpe8jdn41l" path="res://Scripts/InventoryScripts/player_ui.gd" id="1_awuwx"]
 [ext_resource type="PackedScene" uid="uid://xg0uwshbvyvo" path="res://Scenes/UIandUtil/Notebook.tscn" id="3_yu4om"]
+[ext_resource type="Texture2D" uid="uid://cv2n6e7tnk1yk" path="res://Assets/UI/inventory_paper.png" id="4_a008j"]
+[ext_resource type="Texture2D" uid="uid://cgvkyf0mg745a" path="res://Assets/UI/inventory_string.png" id="4_cou8r"]
+[ext_resource type="Texture2D" uid="uid://bvg51c4g5xjhn" path="res://Assets/UI/inventory_folder.png" id="4_e4e6t"]
 [ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="4_fdc27"]
-[ext_resource type="Texture2D" uid="uid://badd2ckrtoejn" path="res://Assets/UI/dialog_ui_option.png" id="5_mt33g"]
-[ext_resource type="Texture2D" uid="uid://cka3gr58wfupy" path="res://Assets/UI/inventory_item.png" id="7_ytfb2"]
+[ext_resource type="Texture2D" uid="uid://155r163nfntx" path="res://Assets/UI/inventory_polaroid.png" id="5_a008j"]
+[ext_resource type="Texture2D" uid="uid://fucyfubce8bi" path="res://Assets/UI/inventory_label.png" id="5_ytfb2"]
+[ext_resource type="Texture2D" uid="uid://div4bqbp01ac1" path="res://Assets/UI/inventory_pencil.png" id="9_ubvsh"]
+
+[sub_resource type="Gradient" id="Gradient_7p7f7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cou8r"]
+gradient = SubResource("Gradient_7p7f7")
+use_hdr = true
 
 [sub_resource type="Animation" id="Animation_awuwx"]
 length = 0.001
@@ -19,6 +30,153 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(2),
 "points": PackedFloat32Array(562, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/PauseMenu:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(119, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/PauseMenu/InventoryPolaroid:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.46998125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/PauseMenu/InventoryPencil:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(191, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HUD/PauseMenu/InventoryPencil:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(112, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/PauseFX/InventoryPaper4:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.20868777, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HUD/PauseFX/InventoryPaper3:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.4159134, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HUD/PauseFX/InventoryPaper2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.0385463, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HUD/PauseFX/InventoryPaper:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.41726112, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PauseGradient:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(573, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HUD/PauseMenu/ResumeButton:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("HUD/PauseMenu/QuitButton:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("HUD/PauseMenu:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("HUD/PauseFX:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_mt33g"]
@@ -52,39 +210,239 @@ tracks/0/keys = {
 "values": [Vector2(25, 562), Vector2(25, 189)]
 }
 
+[sub_resource type="Animation" id="Animation_a008j"]
+resource_name = "pause_move"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/PauseMenu:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0),
+"points": PackedFloat32Array(-176.615, 0, 0, 0.07165599, 49.269165, 122.5, -0.03333333, -25, 0.02673058, 20.047935, 123.5, -0.029935926, 29.5, 0.10339743, -87.5),
+"times": PackedFloat32Array(0, 0.26666668, 0.33333334)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/PauseMenu/InventoryPolaroid:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.14835298, 0, 0, 0.024286134, -0.1030557, -0.46998125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2542832, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/PauseMenu/InventoryPencil:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(243, 0, 0, 0.043483745, -8.666667, 191, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.13909754, 0.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/PauseMenu/InventoryPencil:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(12.198502, 0, 0, 0.043483745, 16.633583, 112, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.13909754, 0.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HUD/PauseFX/InventoryPaper4:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1.3735741, 0, 0, 0.02914336, -0.19414774, 0.20868777, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0.1595946, 0.33445475)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/PauseFX/InventoryPaper3:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1.4451326, 0, 0, 0.026830394, -0.17153654, 0.4159134, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0.18457462, 0.34555697)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HUD/PauseFX/InventoryPaper2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-4.202753, 0, 0, 0.02914336, 0.19403447, -3.0385463, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0.1595946, 0.33445475)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HUD/PauseFX/InventoryPaper:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-1.446878, 0, 0, 0.02706169, 0.17160282, -0.41726112, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0.1859624, 0.34833252)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PauseGradient:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(573, -0.2, 0, 0.2, 0, 196.00002, -0.05620505, 62.833336, 0, 0),
+"times": PackedFloat32Array(0, 0.3372303)
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HUD/PauseMenu/ResumeButton:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HUD/PauseMenu/QuitButton:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("HUD/PauseMenu:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("HUD/PauseFX:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53qiu"]
 _data = {
 &"RESET": SubResource("Animation_awuwx"),
 &"move": SubResource("Animation_mt33g"),
-&"move_depr": SubResource("Animation_yu4om")
+&"move_depr": SubResource("Animation_yu4om"),
+&"pause_move": SubResource("Animation_a008j")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4e6t"]
-texture = ExtResource("5_mt33g")
-texture_margin_left = 8.867495
-texture_margin_top = 8.867495
-texture_margin_right = 8.867495
-texture_margin_bottom = 8.481952
-region_rect = Rect2(0, 0, 64, 64)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cou8r"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cou8r"]
-texture = ExtResource("7_ytfb2")
-texture_margin_left = 7.392234
-texture_margin_top = 6.691246
-texture_margin_right = 7.7108645
-texture_margin_bottom = 9.877554
-region_rect = Rect2(0, 0, 46, 49)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a008j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ubvsh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01cy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1ull"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mt33g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e4e6t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytfb2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xqmg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6frnm"]
+
+[sub_resource type="Animation" id="Animation_ubvsh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -65)]
+}
+
+[sub_resource type="Animation" id="Animation_01cy8"]
+resource_name = "bounce"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.50081515, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3, -65), Vector2(3, -67.95), Vector2(3, -61.495)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t1ull"]
+_data = {
+&"RESET": SubResource("Animation_ubvsh"),
+&"bounce": SubResource("Animation_01cy8")
+}
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=668959072]
 process_mode = 3
 layer = 200
 script = ExtResource("1_awuwx")
 
+[node name="PauseGradient" type="Sprite2D" parent="." unique_id=938576595]
+position = Vector2(284, 573)
+rotation = -1.5707964
+scale = Vector2(6.1879416, -14.667933)
+texture = SubResource("GradientTexture2D_cou8r")
+
 [node name="InventoryUi" parent="." unique_id=934222206 instance=ExtResource("1_8dawd")]
 process_mode = 1
-offset_left = 184.0
+offset_left = 191.0
 offset_top = 562.0
-offset_right = 184.0
+offset_right = 191.0
 offset_bottom = 562.0
 scale = Vector2(0.955, 0.955)
 
@@ -102,35 +460,140 @@ visible = false
 layout_mode = 1
 
 [node name="PauseMenu" type="NinePatchRect" parent="HUD" unique_id=1316186352]
+visible = false
 layout_mode = 0
 offset_left = 217.0
 offset_top = 119.0
 offset_right = 422.0
-offset_bottom = 253.0
+offset_bottom = 252.99988
+
+[node name="InventoryString" type="Sprite2D" parent="HUD/PauseMenu" unique_id=618088471]
+position = Vector2(97.999985, -67.34982)
+rotation = 0.45106384
+scale = Vector2(1.0969919, 1.1848402)
+texture = ExtResource("4_cou8r")
+
+[node name="InventoryPolaroid" type="Sprite2D" parent="HUD/PauseMenu" unique_id=1488432459]
+position = Vector2(0.99998283, 115.13324)
+rotation = -0.46998125
+texture = ExtResource("5_a008j")
+offset = Vector2(38.80887, -45.490067)
+
+[node name="InventoryFolder" type="Sprite2D" parent="HUD/PauseMenu" unique_id=176135198]
+position = Vector2(99, 56.999985)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("4_e4e6t")
+
+[node name="InventoryLabel" type="Sprite2D" parent="HUD/PauseMenu" unique_id=1375336499]
+position = Vector2(100, 28.5)
+scale = Vector2(1.6818181, 1.6818181)
+texture = ExtResource("5_ytfb2")
+
+[node name="InventoryLabel2" type="Sprite2D" parent="HUD/PauseMenu" unique_id=2037906854]
+position = Vector2(100, 80.5)
+scale = Vector2(1.6818181, 1.6818181)
+texture = ExtResource("5_ytfb2")
 
 [node name="ResumeButton" type="Button" parent="HUD/PauseMenu" unique_id=1392218984]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 12.0
-offset_right = 136.0
-offset_bottom = 43.0
+offset_left = 61.0
+offset_top = 12.5
+offset_right = 142.0
+offset_bottom = 43.5
 theme_override_colors/font_color = Color(0.3840039, 0.33983007, 0.23864725, 1)
+theme_override_colors/font_focus_color = Color(0.54901963, 0.49411765, 0.36078432, 1)
+theme_override_colors/font_pressed_color = Color(0.32669014, 0.28874084, 0.19899759, 1)
+theme_override_colors/font_hover_color = Color(0.54806864, 0.49267465, 0.36203638, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3254902, 0.2901961, 0.2, 1)
+theme_override_colors/font_disabled_color = Color(0.38431373, 0.34117648, 0.23921569, 1)
 theme_override_fonts/font = ExtResource("4_fdc27")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxTexture_e4e6t")
-text = "Resume"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cou8r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a008j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ubvsh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_01cy8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t1ull")
+disabled = true
+text = "Resume Case"
 
 [node name="QuitButton" type="Button" parent="HUD/PauseMenu" unique_id=965713807]
 layout_mode = 0
 offset_left = 66.0
-offset_top = 71.0
+offset_top = 65.5
 offset_right = 136.0
-offset_bottom = 102.0
-theme_override_colors/font_color = Color(0.34405002, 0.22723502, 0.18135148, 1)
+offset_bottom = 96.5
+theme_override_colors/font_color = Color(0.38431373, 0.34117648, 0.23921569, 1)
+theme_override_colors/font_focus_color = Color(0.54901963, 0.49411765, 0.36078432, 1)
+theme_override_colors/font_pressed_color = Color(0.3254902, 0.2901961, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.54901963, 0.49411765, 0.36078432, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3254902, 0.2901961, 0.2, 1)
+theme_override_colors/font_disabled_color = Color(0.38431373, 0.34117648, 0.23921569, 1)
 theme_override_fonts/font = ExtResource("4_fdc27")
-theme_override_font_sizes/font_size = 22
-theme_override_styles/normal = SubResource("StyleBoxTexture_cou8r")
-text = "Quit"
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mt33g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_e4e6t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ytfb2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6xqmg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6frnm")
+disabled = true
+text = "Retire"
+
+[node name="InventoryPencil" type="Sprite2D" parent="HUD/PauseMenu" unique_id=455909704]
+position = Vector2(191, 112)
+rotation = 0.45611486
+texture = ExtResource("9_ubvsh")
+
+[node name="PauseLabel" type="RichTextLabel" parent="HUD/PauseMenu" unique_id=1588197531]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -65.0
+offset_right = 211.46002
+offset_bottom = -29.07
+theme_override_colors/font_outline_color = Color(0.41899908, 0.3001572, 0.1343289, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("4_fdc27")
+theme_override_font_sizes/normal_font_size = 29
+text = "Investigation Paused"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/PauseMenu/PauseLabel" unique_id=407826355]
+libraries/ = SubResource("AnimationLibrary_t1ull")
+autoplay = &"bounce"
+
+[node name="PauseFX" type="Control" parent="HUD" unique_id=890141494]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InventoryPaper4" type="Sprite2D" parent="HUD/PauseFX" unique_id=392928575]
+modulate = Color(0.89059, 0.89059, 0.8905901, 1)
+position = Vector2(483.3636, 414.63632)
+rotation = 0.20868777
+scale = Vector2(1.3460312, 1.3460312)
+texture = ExtResource("4_a008j")
+offset = Vector2(39.51779, -55.934814)
+
+[node name="InventoryPaper3" type="Sprite2D" parent="HUD/PauseFX" unique_id=782455683]
+position = Vector2(527, 393.72723)
+rotation = 0.4159134
+scale = Vector2(1.4438798, 1.4438798)
+texture = ExtResource("4_a008j")
+offset = Vector2(37.54944, -57.263077)
+
+[node name="InventoryPaper2" type="Sprite2D" parent="HUD/PauseFX" unique_id=2046268749]
+modulate = Color(0.9079417, 0.9079417, 0.90794164, 1)
+position = Vector2(119.727264, 441.9091)
+rotation = -3.0385463
+scale = Vector2(1.4931105, 1.4931105)
+texture = ExtResource("4_a008j")
+offset = Vector2(37.9206, 55.942307)
+
+[node name="InventoryPaper" type="Sprite2D" parent="HUD/PauseFX" unique_id=1587146542]
+position = Vector2(107.000015, 390.09088)
+rotation = -0.41726112
+scale = Vector2(1.52, 1.52)
+texture = ExtResource("4_a008j")
+offset = Vector2(-37.904503, -55.728607)
 
 [connection signal="inventoryClose" from="InventoryUi" to="." method="_on_inventory_ui_inventory_close"]
 [connection signal="inventoryOpen" from="InventoryUi" to="." method="_on_inventory_ui_inventory_open"]

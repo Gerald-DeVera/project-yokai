@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var InventoryAnimation = $AnimationPlayer
+@onready var UIAnimation = $AnimationPlayer
 @onready var PauseMenu = $HUD/PauseMenu
 @onready var Notebook = $HUD/Notebook
 
@@ -9,14 +9,15 @@ func _ready() -> void:
 	Notebook.visible = false
 
 func _on_inventory_ui_inventory_close():
-	InventoryAnimation.play_backwards("move")
+	UIAnimation.play_backwards("move")
 
 func _on_inventory_ui_inventory_open():
-	InventoryAnimation.play("move")
+	UIAnimation.play("move")
 
 func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
-	PauseMenu.visible = false
+	UIAnimation.play_backwards("pause_move")
+
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

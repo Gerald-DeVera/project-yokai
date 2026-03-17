@@ -44,7 +44,7 @@ func _physics_process(delta):
 		return
 		
 	if Input.is_action_just_pressed("PauseMenu"):
-		PlayerUI.PauseMenu.visible = true
+		PlayerUI.UIAnimation.play("pause_move")
 		get_tree().paused = true
 	
 	if Input.is_action_just_pressed("Notebook"):
