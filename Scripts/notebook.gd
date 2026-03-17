@@ -4,7 +4,7 @@ var runOnce = true
 var pageNumber
 var MAX_PAGES = 2
 
-@onready var leftPage = $Page3/RichTextLabel
+@onready var leftPage = $ScrollContainerLeft/Page3/RichTextLabel
 @onready var rightPage = $Page4/RichTextLabel2
 
 # Called when the node enters the scene tree for the first time.

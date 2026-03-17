@@ -458,6 +458,11 @@ offset_bottom = 99.0
 [node name="Notebook" parent="HUD" unique_id=523988141 instance=ExtResource("3_yu4om")]
 visible = false
 layout_mode = 1
+offset_left = 47.0
+offset_top = 24.0
+offset_right = 47.0
+offset_bottom = 24.0
+scale = Vector2(0.87999994, 0.87999994)
 
 [node name="PauseMenu" type="NinePatchRect" parent="HUD" unique_id=1316186352]
 visible = false

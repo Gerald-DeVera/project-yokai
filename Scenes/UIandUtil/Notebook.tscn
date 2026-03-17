@@ -1,7 +1,58 @@
 [gd_scene format=3 uid="uid://xg0uwshbvyvo"]
 
-[ext_resource type="Texture2D" uid="uid://bon5st4pwyyyc" path="res://Assets/UI/inventory_notepad.png" id="1_edp7y"]
 [ext_resource type="Script" uid="uid://dk5n8xw1leeu2" path="res://Scripts/notebook.gd" id="1_lndu6"]
+[ext_resource type="Texture2D" uid="uid://1jye03hwhqbr" path="res://Assets/UI/notebook_bg.png" id="2_tj7at"]
+[ext_resource type="Texture2D" uid="uid://dsb0sd7xqjiw0" path="res://Assets/UI/notebook_arrow_left.png" id="3_j04p5"]
+[ext_resource type="Texture2D" uid="uid://bm52t7d01sxl" path="res://Assets/UI/notebook_containerfull.png" id="3_py0wg"]
+[ext_resource type="Texture2D" uid="uid://dw7j5n3o61wjd" path="res://Assets/UI/notebook_arrow.png" id="4_py0wg"]
+[ext_resource type="Texture2D" uid="uid://c5r6gyr0d8cva" path="res://Assets/UI/notebook_item.png" id="6_py0wg"]
+[ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="7_ccdpy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccdpy"]
+texture = ExtResource("3_j04p5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8moud"]
+texture = ExtResource("3_j04p5")
+modulate_color = Color(0.87058824, 0.8235294, 0.81960785, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dae4x"]
+texture = ExtResource("3_j04p5")
+modulate_color = Color(0.87058824, 0.8235294, 0.81960785, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n07e3"]
+texture = ExtResource("3_j04p5")
+modulate_color = Color(0.83033526, 0.83033514, 0.83033514, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6m8k7"]
+texture = ExtResource("3_j04p5")
+modulate_color = Color(0.87058824, 0.8235294, 0.81960785, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsr06"]
+texture = ExtResource("4_py0wg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ui26k"]
+texture = ExtResource("4_py0wg")
+modulate_color = Color(0.86952573, 0.8226794, 0.81933963, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwt1m"]
+texture = ExtResource("4_py0wg")
+modulate_color = Color(0.87058824, 0.8235294, 0.81960785, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6shv"]
+texture = ExtResource("4_py0wg")
+modulate_color = Color(0.73300546, 0.7330054, 0.7330054, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28t4t"]
+texture = ExtResource("4_py0wg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttkfq"]
+texture = ExtResource("6_py0wg")
+texture_margin_bottom = 17.0
+region_rect = Rect2(8.233398, 17.47901, 33.95014, 30.52099)
+
+[sub_resource type="FontVariation" id="FontVariation_8moud"]
+base_font = ExtResource("7_ccdpy")
+spacing_top = -7
 
 [node name="Notebook" type="Control" unique_id=523988141]
 layout_mode = 3
@@ -12,46 +63,110 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lndu6")
 
-[node name="Page1" type="NinePatchRect" parent="." unique_id=945781864]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 28.0
-offset_right = 312.0
-offset_bottom = 326.0
-texture = ExtResource("1_edp7y")
+[node name="NotebookBg" type="Sprite2D" parent="." unique_id=1961274536]
+position = Vector2(315.00003, 183)
+scale = Vector2(1.2142857, 1.2142857)
+texture = ExtResource("2_tj7at")
 
-[node name="Page2" type="NinePatchRect" parent="." unique_id=1279791413]
-layout_mode = 0
-offset_left = 312.0
-offset_top = 28.0
-offset_right = 510.0
-offset_bottom = 326.0
-texture = ExtResource("1_edp7y")
+[node name="NotebookContainerfull" type="Sprite2D" parent="." unique_id=1233650597]
+position = Vector2(214, 202.45001)
+scale = Vector2(1.205, 1.205)
+texture = ExtResource("3_py0wg")
 
 [node name="Back" type="Button" parent="." unique_id=1221703919]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 277.0
-offset_right = 174.0
-offset_bottom = 308.0
-text = "<-"
+offset_left = 83.0
+offset_top = 165.0
+offset_right = 105.0
+offset_bottom = 196.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ccdpy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8moud")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dae4x")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_n07e3")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6m8k7")
 
 [node name="Forward" type="Button" parent="." unique_id=2098534024]
 layout_mode = 0
-offset_left = 446.0
-offset_top = 278.0
-offset_right = 499.0
-offset_bottom = 309.0
-text = "->"
+offset_left = 523.0
+offset_top = 170.0
+offset_right = 544.0
+offset_bottom = 201.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_fsr06")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ui26k")
+theme_override_styles/hover = SubResource("StyleBoxTexture_iwt1m")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_y6shv")
+theme_override_styles/focus = SubResource("StyleBoxTexture_28t4t")
 
-[node name="Page3" type="VBoxContainer" parent="." unique_id=1464806730]
+[node name="ScrollContainerLeft" type="ScrollContainer" parent="." unique_id=1228633504]
 layout_mode = 0
-offset_left = 137.0
-offset_top = 72.0
-offset_right = 290.0
-offset_bottom = 272.0
+offset_left = 144.0
+offset_top = 103.450005
+offset_right = 290.89
+offset_bottom = 308.27002
+theme_override_constants/scrollbar_h_separation = 4
+tile_scroll_hint = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Page3" unique_id=1744876647]
+[node name="Page3" type="VBoxContainer" parent="ScrollContainerLeft" unique_id=1464806730]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1744876647]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_ttkfq")
+text = "omgasdasdasdasdasdasdasdadasdasdasd"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=444576380]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "omg"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=371101]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "omg"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1161799016]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "omg"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1840380028]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "omg"
+fit_content = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1483510585]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "omg"
+fit_content = true
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1480540794]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "omg"
+fit_content = true
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1208138795]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "omg"
+fit_content = true
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1242388359]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "omg"
+fit_content = true
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=487587917]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "omg"
@@ -68,6 +183,21 @@ offset_bottom = 271.0
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 fit_content = true
+
+[node name="TitleLeft" type="RichTextLabel" parent="." unique_id=1089448922]
+clip_contents = false
+layout_mode = 0
+offset_left = 145.0
+offset_top = 39.0
+offset_right = 283.825
+offset_bottom = 95.89
+theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = SubResource("FontVariation_8moud")
+theme_override_font_sizes/normal_font_size = 23
+text = "Investigation Progress"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Forward" to="." method="_on_forward_pressed"]
