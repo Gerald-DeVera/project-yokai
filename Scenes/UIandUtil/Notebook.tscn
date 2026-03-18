@@ -172,16 +172,22 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "omg"
 fit_content = true
 
-[node name="Page4" type="VBoxContainer" parent="." unique_id=839758837]
+[node name="ScrollContainerRight" type="ScrollContainer" parent="." unique_id=129799704]
 layout_mode = 0
-offset_left = 334.0
-offset_top = 74.0
-offset_right = 487.0
-offset_bottom = 271.0
+offset_left = 324.0
+offset_top = 98.0
+offset_right = 480.0
+offset_bottom = 307.0
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Page4" unique_id=1497027401]
+[node name="Page4" type="VBoxContainer" parent="ScrollContainerRight" unique_id=839758837]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainerRight/Page4" unique_id=1497027401]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "b"
 fit_content = true
 
 [node name="TitleLeft" type="RichTextLabel" parent="." unique_id=1089448922]

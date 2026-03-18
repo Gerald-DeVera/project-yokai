@@ -45,6 +45,11 @@ enum dialogueStates {
 var yumi_texture = preload("res://Assets/Sprites/yumi expressions.png")
 var ina_texture = preload("res://Assets/Sprites/ina expressions.png")
 var sagawa_texture = preload("res://Assets/Sprites/ramen dad expressions.png")
+var kite_texture_left = preload("res://Assets/Sprites/kite expressions left.png")
+var kite_texture_right = preload("res://Assets/Sprites/kite expressions right.png")
+var yui_texture = preload("res://Assets/Sprites/yui expressions.png")
+var shu_texture = preload("res://Assets/Sprites/shu expressions.png")
+var makoto_texture = preload("res://Assets/Sprites/mc_expressions.png")
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -177,6 +182,20 @@ func apply_dialogue_line() -> void:
 			char_sprite_right.texture = ina_texture
 		elif load_sprite == "sagawa":
 			char_sprite_right.texture = sagawa_texture
+		elif load_sprite == "kite_left":
+			char_sprite_left.texture = kite_texture_left
+		elif load_sprite == "kite_right":
+			char_sprite_right.texture = kite_texture_right
+		elif load_sprite == "makoto":
+			char_sprite_left.texture = makoto_texture
+		elif load_sprite == "yui":
+			char_sprite_right.texture = yui_texture
+		elif load_sprite == "shu":
+			char_sprite_right.texture = shu_texture
+
+
+
+			
 	
 	#modulate right sprite for now, repeat for left and enable sprite switching
 	if dialogue_line.has_tag("actor_right"):
