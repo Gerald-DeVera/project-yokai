@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bm52t7d01sxl" path="res://Assets/UI/notebook_containerfull.png" id="3_py0wg"]
 [ext_resource type="Texture2D" uid="uid://dw7j5n3o61wjd" path="res://Assets/UI/notebook_arrow.png" id="4_py0wg"]
 [ext_resource type="Texture2D" uid="uid://c5r6gyr0d8cva" path="res://Assets/UI/notebook_item.png" id="6_py0wg"]
+[ext_resource type="PackedScene" uid="uid://biwlt76pymedr" path="res://Scenes/UIandUtil/quest_entry.tscn" id="7_8moud"]
 [ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="7_ccdpy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccdpy"]
@@ -99,10 +100,10 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_28t4t")
 
 [node name="ScrollContainerLeft" type="ScrollContainer" parent="." unique_id=1228633504]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 103.450005
-offset_right = 290.89
-offset_bottom = 308.27002
+offset_left = 140.0
+offset_top = 102.0
+offset_right = 286.89
+offset_bottom = 306.82
 theme_override_constants/scrollbar_h_separation = 4
 tile_scroll_hint = true
 
@@ -118,59 +119,30 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ttkfq")
 text = "omgasdasdasdasdasdasdasdadasdasdasd"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=444576380]
+[node name="QuestEntry" parent="ScrollContainerLeft/Page3" unique_id=343606111 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
+size_flags_vertical = 0
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=371101]
+[node name="QuestEntry2" parent="ScrollContainerLeft/Page3" unique_id=284716588 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
+size_flags_vertical = 0
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1161799016]
+[node name="QuestEntry3" parent="ScrollContainerLeft/Page3" unique_id=168716424 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
+size_flags_vertical = 0
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1840380028]
+[node name="QuestEntry4" parent="ScrollContainerLeft/Page3" unique_id=987267144 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
+size_flags_vertical = 0
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1483510585]
+[node name="QuestEntry5" parent="ScrollContainerLeft/Page3" unique_id=33589544 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
-
-[node name="RichTextLabel7" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1480540794]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
-
-[node name="RichTextLabel8" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1208138795]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
-
-[node name="RichTextLabel9" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=1242388359]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
-
-[node name="RichTextLabel10" type="RichTextLabel" parent="ScrollContainerLeft/Page3" unique_id=487587917]
-layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "omg"
-fit_content = true
+size_flags_vertical = 0
 
 [node name="ScrollContainerRight" type="ScrollContainer" parent="." unique_id=129799704]
 layout_mode = 0
