@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://djhxuor13bg38"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_omaj0"]
+
+[resource]
+script = ExtResource("1_omaj0")
+questName = "TestQuest2"
+completionStatus = true
+fullDescription = "mem"
+metadata/_custom_type_script = "uid://pjdgdolk5h1u"

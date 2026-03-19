@@ -11,3 +11,5 @@ signal togglePlayerInput(inputAllowed:bool)
 signal updateInventory()
 
 signal collectItem(item: InvItem)
+
+signal sendQuestDesc(name: String, desc: String)

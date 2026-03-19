@@ -31,6 +31,7 @@ texture = ExtResource("3_x1h2n")
 region_rect = Rect2(3, 15.666, 42, 17.364)
 
 [node name="QuestEntry" type="Panel" unique_id=2142909392]
+custom_minimum_size = Vector2(27, 21)
 offset_right = 204.0
 offset_bottom = 36.0
 scale = Vector2(0.28392977, 0.28392977)
@@ -54,7 +55,9 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_tv5lr")
 theme_override_styles/focus = SubResource("StyleBoxTexture_a1v37")
 text = "Quest text goes here"
 
-[node name="Unchecked" type="Sprite2D" parent="." unique_id=834232158]
+[node name="checkSprite" type="Sprite2D" parent="." unique_id=834232158]
 position = Vector2(10.565994, 10.565994)
 scale = Vector2(0.572, 0.572)
 texture = ExtResource("4_eluju")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

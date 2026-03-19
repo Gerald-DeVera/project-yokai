@@ -3,6 +3,7 @@ extends Node
 var player_pos: Vector2
 var camera_pos: Vector2
 var inv: Inv = preload("res://Assets/InventoryItems/playerInventory.tres")
+
 var playerHasItem: bool
 
 #List of NPC Dialogue Flags
@@ -19,23 +20,19 @@ var dialoguePrep = {
 	dialogueSceneStart = ""
 }
 
-
-#The npcInfoTemplate contains the same fields as NPC does for its exported values, a name and a 
-#PackedStringArray for quotes
-#foundQuotes will be full of this resource object
+#Add new quest via script:
+#Global.questsList.insert(newQuestTemplate.new("wuh", false, "but"))
+var questsList: QuestsList = preload("res://Assets/Quests/questsList.tres")
+var newQuestTemplate = preload("res://Scripts/questItem.gd")
 
 const npcInfoTemplate = preload("res://Scripts/npcNotebookProfile.gd")
-var npcInfoList = [npcInfoTemplate.new("default"),]
 #Example for adding NPC data
-#Global.npcInfoList.append(Global.npcInfoTemplate.new([profile info]))
 
 
-const questInfoTemplate = preload("res://Scripts/questResourceTemplate.gd")
-var foundQuests = [questInfoTemplate.new("test",false,"Go to the place and do the thing")]
+#const questInfoTemplate = preload("res://Scripts/questResourceTemplate.gd")
+#var foundQuests = [questInfoTemplate.new("test",false,"Go to the place and do the thing")]
 #Example for adding Quest
 #Global.foundQuests.append(Global.questInfoTemplate.new([quest info]))
-
-#This should help with better sorting of the Notebook in theory
 
 #Used in dialogue manager to look for a certain item, or can call for other events
 func searchInv(target_item: String):
