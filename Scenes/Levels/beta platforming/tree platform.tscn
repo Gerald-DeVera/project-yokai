@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cghtljfncxgdr"]
 
-[ext_resource type="Texture2D" uid="uid://ctbge5d6822o4" path="res://Assets/Environment/yokai_platforms/beta tileset 3.png" id="1_7cbqt"]
+[ext_resource type="Texture2D" uid="uid://cgh734etfvmxp" path="res://Assets/Environment/platforming tiles/tree platform.png" id="1_7cbqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0xgh"]
 size = Vector2(72, 5)
@@ -12,7 +12,7 @@ size = Vector2(72, 5)
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1591675081]
 texture = ExtResource("1_7cbqt")
 region_enabled = true
-region_rect = Rect2(72.02, 47.991882, 72.03803, 23.902176)
+region_rect = Rect2(-0.055111885, -0.1438427, 72.08315, 24.163084)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1411336033]
 position = Vector2(0, -9.5)
