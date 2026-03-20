@@ -21,10 +21,12 @@ var dialoguePrep = {
 }
 
 #Add new quest via script:
-#Global.questsList.insert(newQuestTemplate.new("wuh", false, "but"))
+#Global.questsList.insert(newQuestTemplate.new("QuestName", true/false, "QuestDescription"))
 var questsList: QuestsList = preload("res://Assets/Quests/questsList.tres")
-var newQuestTemplate = preload("res://Scripts/questItem.gd")
+const newQuestTemplate = preload("res://Scripts/questItem.gd")
 
+#Global.npcProfileList.insert(npcInfoTemplate.new("MyName", "PictureFilePath", "Bio", ["Quote1", "Quote2", ...]))
+var npcProfileList: NPC_Profiles = preload("res://Assets/NotebookNPCProfiles/npcNotebookProfiles.tres")
 const npcInfoTemplate = preload("res://Scripts/npcNotebookProfile.gd")
 #Example for adding NPC data
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPC_Profiles" format=3 uid="uid://dwn18hrb2v3cj"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_c0mau"]
+[ext_resource type="Resource" uid="uid://cg0oj4pitxt0d" path="res://Assets/NotebookNPCProfiles/testProfile.tres" id="2_8dvat"]
+[ext_resource type="Resource" uid="uid://dtmdpham8ejii" path="res://Assets/NotebookNPCProfiles/testProfile2.tres" id="3_8dvat"]
+[ext_resource type="Script" uid="uid://b08d3hejytuhf" path="res://Scripts/NPC_Profiles.gd" id="3_aeliy"]
+
+[resource]
+script = ExtResource("3_aeliy")
+profileInfo = Array[ExtResource("1_c0mau")]([ExtResource("2_8dvat"), ExtResource("3_8dvat")])

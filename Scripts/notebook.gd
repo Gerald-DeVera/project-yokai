@@ -12,6 +12,10 @@ var questEntryTemplate = preload("res://Scenes/UIandUtil/quest_entry.tscn")
 @onready var questEntries = $QuestPage/ScrollContainerLeft/QuestEntries
 @onready var currentQuestDesc = $QuestPage/ScrollContainerRight/VBoxContainer/QuestDescription
 
+@onready var npcBio = $ProfilePages/Bio
+@onready var profileSprite = $ProfilePages/ProfilePicture
+@onready var npcInfo = $ProfilePages/Info_Quotes
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.sendQuestDesc.connect(Callable(self, "displayQuestDesc"))
@@ -45,6 +49,8 @@ func flipToPage(page:int) -> void:
 	pageTitle.set_text("")
 	questTitle.set_text("")
 	currentQuestDesc.set_text("")
+	npcBio.set_text("")
+	npcInfo.set_text("")
 	
 	for q in questEntries.get_children():
 		q.queue_free()
@@ -61,7 +67,13 @@ func flipToPage(page:int) -> void:
 				newQuestEntry.questDescription = Global.questsList.quests[q].fullDescription
 				questEntries.add_child(newQuestEntry)
 		_:
-			pass
+			profilePages.visible = true
+			var profile = Global.npcProfileList.profileInfo[page - 2]
+			pageTitle.set_text(profile.name)
+			profileSprite.texture = load(profile.profilePicPath)
+			npcBio.set_text(profile.bio)
+			for q in profile.evidenceQuotes:
+				npcInfo.add_text("- " + q + "\n")
 	
 
 func _on_back_pressed() -> void:
@@ -70,7 +82,7 @@ func _on_back_pressed() -> void:
 		flipToPage(pageNumber)
 
 func _on_forward_pressed() -> void:
-	if pageNumber < MAX_PAGES:
+	if pageNumber < Global.npcProfileList.profileInfo.size() + 1:
 		pageNumber += 1
 		flipToPage(pageNumber)
 
