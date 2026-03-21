@@ -13,3 +13,7 @@ signal updateInventory()
 signal collectItem(item: InvItem)
 
 signal sendQuestDesc(name: String, desc: String)
+
+signal toggleNotebookInput(input: bool)
+
+signal toggleInventoryInput(input: bool)

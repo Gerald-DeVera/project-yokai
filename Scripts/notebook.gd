@@ -4,6 +4,7 @@ var runOnce = true
 var pageNumber
 var MAX_PAGES = 2
 var questEntryTemplate = preload("res://Scenes/UIandUtil/quest_entry.tscn")
+var inputDisabled = false
 
 @onready var pageTitle = $TitleLeft
 @onready var questPage = $QuestPage
@@ -19,6 +20,9 @@ var questEntryTemplate = preload("res://Scenes/UIandUtil/quest_entry.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.sendQuestDesc.connect(Callable(self, "displayQuestDesc"))
+	Signals.toggleNotebookInput.connect(Callable(self, "toggleNotebookInput"))
+	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
+	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
 
 func setup() -> void:
 	pageNumber = 1
@@ -26,20 +30,28 @@ func setup() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !visible:
-		runOnce = true
-		return
-
-	if visible and runOnce:
-		runOnce = false
-		setup()
-		Signals.togglePlayerInput.emit(false)
+	if inputDisabled:
 		return
 	
-	if Input.is_action_just_pressed("Notebook"):
+	if Input.is_action_just_pressed("Notebook") and visible == true:
 		visible = false
 		Signals.togglePlayerInput.emit(true)
+		Signals.toggleInventoryInput.emit(false)
+	elif Input.is_action_just_pressed("Notebook") and visible == false:
+		visible = true
+		Signals.togglePlayerInput.emit(false)
+		Signals.toggleInventoryInput.emit(true)
+		setup()
 	
+
+func toggleNotebookInput(input: bool):
+	inputDisabled = input
+
+func enableInput(resource):
+	inputDisabled = false
+
+func disableInput(resource):
+	inputDisabled = true
 
 #This implementation really depends on how much evidence there ends up being
 func flipToPage(page:int) -> void:

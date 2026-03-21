@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const speed = 150.0
-const jump_velocity = -200.0	
+const jump_velocity = -250.0	
 
 
 @export var inventory: Inv
@@ -46,9 +46,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("PauseMenu"):
 		PlayerUI.UIAnimation.play("pause_move")
 		get_tree().paused = true
-	
-	if Input.is_action_just_pressed("Notebook"):
-		PlayerUI.Notebook.visible = true
 
 	if Input.is_action_just_pressed("Spirit Sight"):
 		spiritSightOn = !spiritSightOn

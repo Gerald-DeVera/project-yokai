@@ -24,6 +24,7 @@ func _ready() -> void:
 		print("no exist")
 	close()
 	Signals.updateInventory.connect(Callable(self,"updateSlots"))
+	Signals.toggleInventoryInput.connect(Callable(self, "toggleInventoryInput"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
 	return
@@ -31,6 +32,10 @@ func _ready() -> void:
 func updateSlots():
 	for i in range(min(inv.items.size(), slots.size())):
 		slots[i].update(inv.items[i])
+
+func toggleInventoryInput(input: bool):
+	print("inventory input called")
+	inputDisabled = input
 
 func enableInput(resource):
 	inputDisabled = false
@@ -46,10 +51,12 @@ func _process(delta: float) -> void:
 		if is_open:
 			inventoryClose.emit()
 			close()
+			Signals.toggleNotebookInput.emit(false)
 		else:
 			inventoryOpen.emit()
 			open()
 			curSlotIndex = 0
+			Signals.toggleNotebookInput.emit(true)
 
 	if is_open:
 		if Input.is_action_just_pressed("move_left"):
