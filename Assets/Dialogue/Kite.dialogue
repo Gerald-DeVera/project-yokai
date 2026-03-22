@@ -43,7 +43,7 @@ Makoto: If what you say is true though, then this seems to be as good a lead as 
 Kite: HUZZAH! [#animate_right=enter_convo][#animate_left=exit_convo]
 do Global.zoomCamera(Vector2(1.5,1.5))
 do Global.resetCamera()
-do Signals.toggleArea("AlleyDoor", true)
+do Signals.toggleArea.emit("AlleyDoor", true)
 => END
 
 ~ allEvidenceFoundAlley
