@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="4_n3o6x"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="5_umi5f"]
 [ext_resource type="Texture2D" uid="uid://nl0gx3lchq7s" path="res://Assets/Environment/platforming tiles/parallax beta 2.png" id="7_umi5f"]
+[ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="8_hynhp"]
+[ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="8_rxnno"]
+[ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="9_sw76f"]
+[ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="11_xgn0t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sw76f"]
 texture = ExtResource("2_umi5f")
@@ -140,9 +144,26 @@ position = Vector2(265, -136)
 [node name="Platforms5" parent="." unique_id=1170008379 instance=ExtResource("3_7ubhb")]
 position = Vector2(78, -68)
 
+[node name="Hazard" parent="." unique_id=1809822342 instance=ExtResource("8_rxnno")]
+position = Vector2(-348, 26)
+
+[node name="Hazard2" parent="." unique_id=1902928155 instance=ExtResource("8_rxnno")]
+position = Vector2(194, -212)
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=676130504]
 z_index = -5
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=828040437]
 position = Vector2(94, -146)
 texture = ExtResource("7_umi5f")
+
+[node name="checkpointManager" type="Node" parent="." unique_id=531586094]
+script = ExtResource("8_hynhp")
+
+[node name="Checkpoint" parent="checkpointManager" unique_id=703634066 instance=ExtResource("9_sw76f")]
+position = Vector2(-159, 2)
+
+[node name="Checkpoint2" parent="checkpointManager" unique_id=1036718129 instance=ExtResource("9_sw76f")]
+position = Vector2(4, -118)
+
+[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("11_xgn0t")]

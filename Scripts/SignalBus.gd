@@ -18,6 +18,11 @@ signal toggleNotebookInput(input: bool)
 
 signal toggleInventoryInput(input: bool)
 
+signal respawnPlayer()
+
+signal damagePlayer(damage: int)
+
+signal testSignal(message: String)
 signal toggleAsset(assetName: String, toggled: bool)
 
 signal updateDialogueStart(startingPoint: String)

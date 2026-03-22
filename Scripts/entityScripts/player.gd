@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const speed = 150.0
-const jump_velocity = -250.0	
+const jump_velocity = -300.0	
 
 
 @export var inventory: Inv
@@ -13,6 +13,7 @@ var inputDisabled = false
 var spiritSightOn = false
 var direction: Vector2
 var hasStopped = true
+var playerHealth : int = 10
 var hasunlockedSight = false #set to false at beginning of game pls
 var spiritTutorial = false
 var tempInputDisable = false
@@ -28,6 +29,7 @@ func _ready() -> void:
 	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
 	Signals.togglePlayerInput.connect(Callable(self,"toggleInput"))
+	Signals.damagePlayer.connect(Callable(self,"takeDamage"))
 	if sceneManager.player_pos:
 		global_position = sceneManager.player_pos
 	inventory.makeReady()
@@ -135,6 +137,12 @@ func get_basic_input():
 		$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 0)
 		$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		hasStopped = false
+
+func takeDamage(damage: int):
+	playerHealth -= damage
+	if playerHealth <= 0:
+		print("player should be dead")
+	return
 	
 func SeeTheThings():
 	hasunlockedSight = true

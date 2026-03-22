@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bybxhbeovcc5i"]
+
+[ext_resource type="Script" uid="uid://bpbt6cobjguyv" path="res://Scripts/hazard.gd" id="1_drdsm"]
+[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="1_m8yaq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drdsm"]
+size = Vector2(104, 38)
+
+[node name="Hazard" type="Node2D" unique_id=1809822342]
+script = ExtResource("1_drdsm")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1406447746]
+offset_right = 128.0
+offset_bottom = 78.0
+texture = ExtResource("1_m8yaq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1572386737]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=263954184]
+position = Vector2(63, 40)
+shape = SubResource("RectangleShape2D_drdsm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
