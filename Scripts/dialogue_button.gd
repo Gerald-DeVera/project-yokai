@@ -56,3 +56,4 @@ func ButtonPressed(InteractableObject:String):
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePath), dialogueStartingPosition, )
 		print
 		return
+		

@@ -26,3 +26,48 @@ elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.inte
 	% Florist: Need to water these flowers... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
 	% Florist: ... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
 => END
+
+~ shuConfrontation1
+Shu: Ah, the one with gray hair is back. Here to browse through some flowers this time?
+Makoto: I’ll have to decline once more.
+Shu: Are you back with more questions then? Sorry, but I’ve already told you everything I know…
+Makoto: It’s fine if it’s about flowers, right?
+Shu: Well… yes. I can do that.
+Makoto: In that case, how would I go about placing a custom order bouquet?
+Shu: A custom bouquet? If you’re looking for something simple, I can usually get one wrapped up within the day.
+Shu: But for ones with specific flowers or complex arrangements, those can take at least a week.
+Makoto: What kind of flowers would take you longer?
+Shu: Well, it’s mainly a matter of ordering ones we don’t have in stock, usually seasonal flowers or ones that need special attention. Ones like azaleas and certain lilies, for example.
+Makoto: And how do you do consultations?
+Shu: I’m actually the only one who does them here in the store. We used to have a drop box for requests but after a few mix-ups we had to swap to in-person exclusively. 
+Makoto: So you handle all of the custom orders? That sounds tough.
+Shu: It’s no problem. I handle them from start to finish with the client. It’s also a lot easier to show samples and discuss bouquet arrangements that way there’s less confusion.
+Makoto: So, if I placed an order for a bouquet, what would I need to pick it up?
+Shu: Well, since we may have to order the flowers and we have to take the time to set up the arrangements, we always take a deposit at the time of the order. Then I’d give you a receipt with the pick up time. Finally, we’d give you a call when it’s done for you to come pick it up.
+Shu: …
+Shu: …With all these questions I hope you’re planning on ordering one haha.
+Makoto: …
+Makoto: Sorry but I’ll still have to decline. I do believe that Yui must’ve been very interested in a bouquet though.
+Shu: …Yui?
+Makoto: Right. The girl that you claimed you had never seen before?
+Shu: What about her? I already said earlier I hadn’t seen her.
+Makoto: We found this bouquet along with other items that belonged to her in an alleyway nearby.
+Shu: That’s kind of… But why tell me? You think I had something to do with her going missing?
+Makoto: Well, according to the receipt found in her wallet, it was a custom order with a pickup date of two days ago.
+Makoto: And by your own admission you do all the consultations in person, start to finish. Which means you should be quite familiar with her!
+Shu: Erk…
+Makoto: There’s also another thing that’s been on my mind. When we first talked and here now again, you mentioned how scary it was that a “young lady could go missing”.
+Makoto: I never mentioned anything about a missing persons case – only that I was looking for someone.
+Shu: …!
+Makoto: I don’t know what your involvement is, but it’s clear that you’re hiding something at the very least.
+Makoto: Now, you can cooperate and tell me what you know, or I could take you in and you can meet my friends down at the ERPD.
+Shu: The ERPD…? Just who are you?
+Makoto: So, what’s your choice?
+Shu looks around the room nervously.
+Shu: Tsk. Just my luck. #add something here before she runs off
+#shu runs off after bumping makoto
+Shu makes a break for it, knocking Makoto out of the way!
+Makoto: Ah- Hey!
+Kite: My lady, are you alright!? We must give chase! 
+Makoto: I didn’t think she’d make a run for it. Let’s go!
+=> END

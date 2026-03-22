@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cgqpyo37oij00" path="res://Assets/Environment/flower_interior bg.png" id="1_tte5e"]
 [ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="2_gelyx"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="2_tg72r"]
+[ext_resource type="Script" uid="uid://bvy12j8mrwyh6" path="res://Scenes/Levels/shu_sprite.gd" id="3_6u22d"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="3_56ftc"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="4_4vb4o"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="4_gelyx"]
@@ -247,6 +248,7 @@ texture = ExtResource("2_gelyx")
 hframes = 8
 vframes = 4
 frame = 1
+script = ExtResource("3_6u22d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ShuSprite" unique_id=1343143286]
 libraries/ = SubResource("AnimationLibrary_vkm62")

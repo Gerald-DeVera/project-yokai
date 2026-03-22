@@ -67,6 +67,7 @@ Kite: Does this mean the florist was lying about not seeing Miss Yui? [#animate_
 Kite: I felt she had a most suspicious aura, but I ‘twas not expecting her to have lied so boldly to your face! [#expression_right=angry]
 Makoto: It’s a bit too early to say she was lying, but this means she had to have seen Yui at some point the day she went missing. We need to go back and investigate further. [#animate_right=exit_convo][#animate_left=enter_convo]
 Kite: Of course! With this evidence in hand, any falsehoods will be cleared away! Lead the way, lady Makoto! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+do Signals.changeDialoguePoint.emit("ShuSprite", "shuConfrontation1")
 do Global.zoomCamera(Vector2(2.5,2.5))
 do Global.resetCamera()
 => END
