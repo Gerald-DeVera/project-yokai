@@ -4,6 +4,7 @@ class_name interactableItem
 
 @export var item :InvItem
 @export var interactable :bool
+@export var isDialogue :bool
 #@export var player_pos :Vector2
 @onready var playerCharacter = $"../PlayerCharacter"
 @onready var Sprite1 = $Sprite2D
@@ -12,6 +13,11 @@ class_name interactableItem
 @onready var tooltip = $Sprite2D2/RichTextLabel
 @export var isSpiritButton:bool
 @export var interactText: String
+@export var locked:bool 
+@export var dialoguePath: String
+@export var dialogueStartingPosition :String
+@export var OneShot:bool
+
 var minimumDistanceFromPlayer = 35
 var canInteract = false
 var spiritButtonVisibilityDistance = 100
@@ -44,8 +50,14 @@ func _process(delta: float) -> void:
 	if temp != canInteract:
 		Sprite2.visible = !Sprite2.visible
 		Signals.PlayerCanInteract.emit("button",canInteract)
-
+		
 func ButtonPressed(InteractableObject:String):
-	if InteractableObject == "button" && interactable == true:
-		print("picked up item")
+	print("interact")
+	if InteractableObject == "button" && interactable == true && isDialogue == true && locked == false:
+		print("start dialogue")
+		Signals.collectItem.emit(item)
+		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePath), dialogueStartingPosition, )
+		if OneShot:
+			self.queue_free()
+	elif InteractableObject == "button" && interactable == true && isDialogue == false && locked == false:
 		Signals.collectItem.emit(item)

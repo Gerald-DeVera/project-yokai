@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dh5wywk702icd" path="res://Assets/Environment/flower_interior top.png" id="6_jecex"]
 [ext_resource type="Texture2D" uid="uid://bpyraa42ekbiu" path="res://Assets/Environment/lightcone.png" id="7_6u22d"]
 [ext_resource type="Texture2D" uid="uid://6bpgw4ajuq86" path="res://Assets/Environment/lightparallel.png" id="8_4vb4o"]
+[ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="9_jecex"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hc7ey"]
 
@@ -264,7 +265,7 @@ zoom = Vector2(2.5, 2.5)
 light_mask = 2
 z_index = 3
 position = Vector2(189, 251)
-next_scene = "Level1"
+next_scene = "City"
 interactText = "To City"
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("3_56ftc")]
@@ -282,6 +283,16 @@ texture = ExtResource("5_gelyx")
 light_mask = 2
 position = Vector2(253, 189.51)
 texture = ExtResource("6_jecex")
+
+[node name="ShuDialogue" parent="." unique_id=1279941344 instance=ExtResource("9_jecex")]
+light_mask = 2
+z_index = 10
+position = Vector2(281, 249)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "shuFirstMeeting"
+isDialogue = true
+interactText = "Talk"
+dialoguePath = "res://Assets/Dialogue/Shu.dialogue"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=763283052]
 position = Vector2(253, 189.51)

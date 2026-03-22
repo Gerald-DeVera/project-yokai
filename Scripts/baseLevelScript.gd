@@ -1,5 +1,7 @@
 extends Node
 
+@onready var YumiSprite = $YumiSprite
+@onready var YumiInteract = $YumiPostInterview
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

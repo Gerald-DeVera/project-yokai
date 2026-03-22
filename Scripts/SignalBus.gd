@@ -23,3 +23,12 @@ signal respawnPlayer()
 signal damagePlayer(damage: int)
 
 signal testSignal(message: String)
+signal toggleAsset(assetName: String, toggled: bool)
+
+signal updateDialogueStart(startingPoint: String)
+
+signal updateInfoAnimation(infoType: String)
+
+signal unlockSpiritSight()
+
+signal toggleArea(areaName: String, toggled: bool)

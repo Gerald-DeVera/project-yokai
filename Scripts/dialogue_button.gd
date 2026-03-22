@@ -12,6 +12,7 @@ extends Node2D
 @export var isSpiritButton:bool
 @export var interactText: String
 @export var dialoguePath: String
+@export var locked:bool 
 var minimumDistanceFromPlayer = 35
 var spiritButtonVisibilityDistance = 100
 var canInteract = false
@@ -36,7 +37,7 @@ func _process(delta: float) -> void:
 		return
 	
 	var temp = canInteract
-	if playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer:
+	if playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer and locked == false:
 		# print("I go to %s" %next_scene)
 		canInteract = true
 		interactable = true
@@ -50,7 +51,7 @@ func _process(delta: float) -> void:
 
 func ButtonPressed(InteractableObject:String):
 	print("interact")
-	if  InteractableObject == "button" && interactable == true && isDialogue == true:
+	if  InteractableObject == "button" && interactable == true && isDialogue == true && locked == false:
 		print("start dialogue")
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePath), dialogueStartingPosition, )
 		print

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cvxyj26h6i4vw"
+path="res://.godot/imported/Kite.dialogue-b9d9e8d73dab43d8ebf76f83fed5731d.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/Kite.dialogue"
+dest_files=["res://.godot/imported/Kite.dialogue-b9d9e8d73dab43d8ebf76f83fed5731d.tres"]
+
+[params]
+
+defaults=true

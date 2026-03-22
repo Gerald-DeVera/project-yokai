@@ -12,6 +12,7 @@ class_name button
 @export var isSpiritButton:bool
 @onready var tooltip = $Sprite2D2/RichTextLabel
 @export var interactText: String
+@export var locked:bool 
 
 var minimumDistanceFromPlayer = 35
 var canInteract = false
@@ -20,6 +21,7 @@ const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
 
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
+	Signals.toggleArea.connect(Callable(self,"ToggleLock"))
 	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
@@ -34,7 +36,7 @@ func _process(delta: float) -> void:
 		return
 	
 	var temp = canInteract
-	if playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer:
+	if playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer and locked == false:
 		# print("I go to %s" %next_scene)
 		canInteract = true
 		interactable = true
@@ -56,3 +58,10 @@ func ButtonPressed(InteractableObject:String):
 		# print("scene transition")
 		await get_tree().create_timer(1).timeout
 		sceneManager.transition_to_scene(next_scene)
+
+func ToggleLock(areaName: String, toggled: bool):
+	if areaName == self.name:
+		if toggled == true:
+			self.locked = false
+		elif toggled == false:
+			self.locked = true

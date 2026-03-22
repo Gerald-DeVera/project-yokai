@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://chvt7aj270iv1"
+path="res://.godot/imported/Yumi.dialogue-7334b903efb6b64fcddba61195e64b57.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/Yumi.dialogue"
+dest_files=["res://.godot/imported/Yumi.dialogue-7334b903efb6b64fcddba61195e64b57.tres"]
+
+[params]
+
+defaults=true

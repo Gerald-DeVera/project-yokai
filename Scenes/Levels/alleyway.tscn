@@ -14,7 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://rlyyoedu4kax" path="res://Assets/Environment/bg_overworld/apt.png" id="7_nr6mv"]
 [ext_resource type="Texture2D" uid="uid://b6e0oyfns02h6" path="res://Assets/Environment/bg_overworld/bg_tileset_fences.png" id="8_2khwm"]
 [ext_resource type="Texture2D" uid="uid://2rjjcvjvkft" path="res://Assets/Environment/bg_overworld/bg_streetlight.png" id="8_fi4eb"]
+[ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="14_2khwm"]
+[ext_resource type="Script" uid="uid://cja2uvu75861w" path="res://Scripts/interactableItem.gd" id="15_agp84"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="15_pbgbq"]
+[ext_resource type="Resource" uid="uid://c0i1iinxlvws8" path="res://Assets/InventoryItems/flowers.tres" id="16_57ck1"]
+[ext_resource type="Texture2D" uid="uid://c5feuka7xg2pa" path="res://Assets/UI/Items/item_sparkle-Sheet.png" id="17_57ck1"]
+[ext_resource type="Resource" uid="uid://dk7wjvomgtb15" path="res://Assets/InventoryItems/bracelet1.tres" id="18_ed5bj"]
+[ext_resource type="Resource" uid="uid://bnsibo1s6wqps" path="res://Assets/InventoryItems/wallet.tres" id="19_64xah"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_agp84"]
 texture = ExtResource("8_2khwm")
@@ -151,6 +157,43 @@ sources/0 = SubResource("TileSetAtlasSource_cdp0l")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_58a5k"]
 
+[sub_resource type="Animation" id="Animation_xin8x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wcxke"]
+resource_name = "sparkle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fb7ch"]
+_data = {
+&"RESET": SubResource("Animation_xin8x"),
+&"sparkle": SubResource("Animation_wcxke")
+}
+
 [sub_resource type="Gradient" id="Gradient_pbgbq"]
 offsets = PackedFloat32Array(0.13245033, 0.7086093)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -236,7 +279,7 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=416392867]
 
 [node name="CityParallax" parent="." unique_id=1814770720 instance=ExtResource("1_gtl7o")]
-modulate = Color(0.21895611, 0.16769153, 0.24841362, 1)
+modulate = Color(0.7504876, 0.5042774, 0.47230178, 1)
 
 [node name="BGAssetContainer" type="Node2D" parent="." unique_id=1245349333]
 
@@ -377,20 +420,86 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_dvcqd")]
 
-[node name="Button" parent="." unique_id=206299497 instance=ExtResource("6_jvwyf")]
+[node name="CityDoor" parent="." unique_id=206299497 instance=ExtResource("6_jvwyf")]
 position = Vector2(20, 284)
-next_scene = "Level1"
+next_scene = "City"
 interactText = "To City"
 
+[node name="Flowers" parent="." unique_id=456592238 instance=ExtResource("14_2khwm")]
+position = Vector2(135, 290)
+script = ExtResource("15_agp84")
+item = ExtResource("16_57ck1")
+isDialogue = true
+interactText = "???"
+dialoguePath = "res://Assets/Dialogue/General.dialogue"
+dialogueStartingPosition = "findFlowers"
+OneShot = true
+
+[node name="ItemSprite" type="Sprite2D" parent="Flowers" unique_id=416557702]
+z_index = 2
+position = Vector2(11, 11)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("17_57ck1")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flowers/ItemSprite" unique_id=1007305187]
+libraries/ = SubResource("AnimationLibrary_fb7ch")
+autoplay = &"sparkle"
+
+[node name="Bracelet" parent="." unique_id=1465975524 instance=ExtResource("14_2khwm")]
+position = Vector2(346, 301)
+script = ExtResource("15_agp84")
+item = ExtResource("18_ed5bj")
+isDialogue = true
+interactText = "???"
+dialoguePath = "res://Assets/Dialogue/General.dialogue"
+dialogueStartingPosition = "findBracelet"
+OneShot = true
+
+[node name="ItemSprite" type="Sprite2D" parent="Bracelet" unique_id=742014286]
+z_index = 2
+position = Vector2(11, 11)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("17_57ck1")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bracelet/ItemSprite" unique_id=77481786]
+libraries/ = SubResource("AnimationLibrary_fb7ch")
+autoplay = &"sparkle"
+
+[node name="Wallet" parent="." unique_id=584342706 instance=ExtResource("14_2khwm")]
+position = Vector2(566, 292)
+script = ExtResource("15_agp84")
+item = ExtResource("19_64xah")
+isDialogue = true
+interactText = "???"
+dialoguePath = "res://Assets/Dialogue/General.dialogue"
+dialogueStartingPosition = "findWallet"
+OneShot = true
+
+[node name="ItemSprite" type="Sprite2D" parent="Wallet" unique_id=984645047]
+z_index = 2
+position = Vector2(11, 11)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("17_57ck1")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Wallet/ItemSprite" unique_id=336223069]
+libraries/ = SubResource("AnimationLibrary_fb7ch")
+autoplay = &"sparkle"
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=475728219]
-color = Color(0.07608069, 0.042346917, 0.1355041, 1)
+visible = false
+color = Color(0.7419617, 0.6008004, 0.45610696, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1641504943]
-color = Color(0.1601325, 0.08987001, 0.23065206, 1)
+visible = false
+color = Color(0.79186064, 0.5415253, 0.48792732, 1)
 energy = 0.85
 blend_mode = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1606030445]
+visible = false
 position = Vector2(47.999992, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
@@ -398,6 +507,7 @@ color = Color(0.81799215, 0.8183224, 0.8106099, 1)
 texture = SubResource("GradientTexture2D_gia1v")
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2134199110]
+visible = false
 position = Vector2(290, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
@@ -405,6 +515,7 @@ color = Color(0.6874761, 0.63669235, 0.5901678, 1)
 texture = SubResource("GradientTexture2D_gia1v")
 
 [node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1865023061]
+visible = false
 position = Vector2(549, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
@@ -428,7 +539,7 @@ theme_override_constants/outline_size = 7
 theme_override_font_sizes/normal_font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxTexture_m5anf")
 bbcode_enabled = true
-text = "[wave amp=10.0 freq=5.0 connected=1]cheap trick rohan alleyway[/wave]"
+text = "[wave amp=10.0 freq=5.0 connected=1]Alleyway[/wave]"
 scroll_active = false
 horizontal_alignment = 1
 visible_characters = 0

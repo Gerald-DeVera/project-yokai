@@ -8,5 +8,5 @@
 script = ExtResource("2_fr0hm")
 name = "Photo of Yui"
 texture = ExtResource("3_fr0hm")
-description = "A photo of Yui given to you by Yumi."
+description = "A photo of Yui given to you by Yutaka as part of his very short briefing."
 closeup_texture = ExtResource("1_vrabd")

@@ -598,11 +598,6 @@ hframes = 6
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/ResponsesMenu/ResponseExample/Sprite2D" unique_id=1486978483]
 libraries/ = SubResource("AnimationLibrary_wq6vg")
 
-[node name="PanelContainer" type="PanelContainer" parent="Balloon" unique_id=1497859664]
-layout_mode = 0
-offset_right = 6.0
-offset_bottom = 6.0
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1890522177]
 unique_name_in_owner = true
 
