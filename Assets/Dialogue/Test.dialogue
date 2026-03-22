@@ -16,7 +16,6 @@ Makoto: badabing badaboom this is what i call [outline_size=8][color=gold][wave 
 Makoto: okay this is jank asf i gotta fix shit [#expression_left=unimp]
 Makoto: lets get outta here [#camera_animation=zoom_out]
 do Global.prepareDialogue("testFlag", "res://Assets/Dialogue/Test.dialogue", "oneShotTest", "Level4")
-do Global.testThing()
 => END
 
 ~ start3

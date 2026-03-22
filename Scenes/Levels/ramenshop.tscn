@@ -192,6 +192,7 @@ zoom = Vector2(2.5, 2.5)
 light_mask = 2
 position = Vector2(187, 249)
 next_scene = "Level1"
+player_pos = Vector2(1168, 290)
 interactText = "To City"
 
 [node name="SagawaDialogue" parent="." unique_id=833905275 instance=ExtResource("8_7mtcg")]

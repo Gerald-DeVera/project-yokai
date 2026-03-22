@@ -17,3 +17,9 @@ signal sendQuestDesc(name: String, desc: String)
 signal toggleNotebookInput(input: bool)
 
 signal toggleInventoryInput(input: bool)
+
+signal respawnPlayer()
+
+signal damagePlayer(damage: int)
+
+signal testSignal(message: String)
