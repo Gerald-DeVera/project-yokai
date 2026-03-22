@@ -1,5 +1,8 @@
 ~ sagawaInterview
-if Global.dialogueFlags.interviewedSagawa == false
+if Global.dialogueFlags.keyWitnessFound == false &&  Global.dialogueFlags.interviewedSagawa == false
+	Ramen Chef: [#animate_left=exit_convo]Fresh ramen! Come try our daily special! [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=sagawa][#expression_right=happy]
+	=> END
+elif Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.keyWitnessFound == true
 	Makoto: Excuse me. [#camera_animation=zoom_in][#expression_right=confused][#animate_left=enter_convo][#actor_right=on][#new_actor=sagawa]
 	Sagawa: ... [#animate_left=exit_convo][#animate_right=enter_convo]
 	Makoto: Sir? [#animate_left=enter_convo][#animate_right=exit_convo]
@@ -7,9 +10,9 @@ if Global.dialogueFlags.interviewedSagawa == false
 	Makoto: It's fine. And sorry, I’m not here to place an order.[#animate_left=enter_convo][#animate_right=exit_convo]
 	Sagawa: That so? Well then, what can I help you with, miss? [#expression_right=confused][#animate_left=exit_convo][#animate_right=enter_convo]
 	Makoto: Are you familiar with Yui from YuYuYu? [#animate_left=enter_convo][#animate_right=exit_convo]
-	#Cg of Yui photo
+	do Global.showEvidence("yui1")
 	#Sagawa surprise
-	Sagawa: Ah, are you a fan of hers? I’m a bit too old to be keeping up with the trends, but I’ve heard of her before. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Sagawa: [do Global.hideEvidence()]Ah, are you a fan of hers? I’m a bit too old to be keeping up with the trends, but I’ve heard of her before. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
 	do Global.grabCameraPos()
 	[do Global.moveCamera(Vector2(-40,-60))]Makoto takes a quick glance around at the ramen shop. [#animate_left=enter_convo][#animate_right=exit_convo]
 	Makoto: [do Global.resetCamera()]Then I assume all of the idol merch hung up on these walls is someone else’s doing?
@@ -49,6 +52,7 @@ if Global.dialogueFlags.interviewedSagawa == false
 	Makoto: She’s lucky to have such caring parents. [#expression_left=happy]
 	Sagawa: (Please be safe, Yui…) [#animate_left=exit_convo][#animate_right=enter_convo][#camera_animation=zoom_out]
 	do Global.dialogueFlags.interviewedSagawa = true
+	do Global.prepareDialogue("SagawaDone", "res://Assets/Dialogue/Kite.dialogue", "postSagawaInterview", "City")
 	#Set flag talked to Sagawa true 
 elif Global.dialogueFlags.interviewedSagawa == true
 	% Sagawa: (Please be safe, Yui...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
@@ -56,3 +60,59 @@ elif Global.dialogueFlags.interviewedSagawa == true
 	% Sagawa: (It's hard to run a store like this...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
 	% Sagawa: (I hope that Makoto lady returns with good news...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
 => END
+
+~ uselessWitness1
+Makoto: Excuse me. 
+Athletic Woman: Is there something you need?
+- Ask about Yui
+#CG of Yui here
+	Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?
+	Athletic Woman: Omg! She looks exactly like my oshi Yui from YuYuYu! But Yui looks waaay cuter!
+	Makoto: [do Global.hideEvidence()]Uh huh…. I didn't know they were so popular.
+	Athletic Woman: Huh!? Then why are you asking about this imposter? Are you an anti or something!?
+	Makoto: I'm just going to leave now.
+	=> END
+- Nevermind.
+	=> END
+
+~ keyWitness1
+Makoto: Excuse me.
+Old Guy: Hello miss, how can I help you?
+- Ask about Yui
+	Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?
+	#CG of Yui picture
+	Old Guy: Well, that looks like little miss Yui. I think she was helping out her dad, Sagawa-san, at his ramen shop the other day.
+	Old Guy: [do Global.hideEvidence()]Are you a friend of hers?
+	Makoto: Not exactly. But I need to find her.
+	Old Guy: Ah, well best of luck! She's one of the most caring people I know. 
+	Old Guy: She always makes time to come and help out around her parents shop. I certainly wish my son was half as caring, [wave amp=25 freq=5]gyahaha![/wave]
+	do Global.dialogueFlags.keyWitnessFound = true
+	#Set flag for knowing about Ramen shop and Yui
+	=> END
+- Nevermind.
+	=> END
+
+~ fashionClerkPostSagawa
+if Global.dialogueFlags.interviewedSagawa == false
+	Fashion Clerk: [#animate_left=exit_convo]Welcome ma’am, looking to expand your wardrobe?
+	Makoto: Sorry, maybe another time. [#animate_left=enter_convo]
+	=> END
+elif Global.dialogueFlags.interviewedSagawa == true
+	Makoto: Excuse me.
+	Fashion Clerk: Welcome ma’am, looking to expand your wardrobe?
+	Makoto: No. I just have a few questions, if you have the time.
+	Fashion Clerk: Ah, looking for a style consultation perhaps?
+	Makoto: Sorry, maybe some other time. I want to know… 
+	Makoto: I’m looking for this woman[do Global.showEvidence("yui1")]. She was in the area doing some shopping recently. Did she happen to stop by?
+	Fashion Clerk: Hmmm, let me see…
+	Fashion Clerk: Ah! She does look familiar. Hard to forget such a gorgeous face.[do Global.hideEvidence()]
+	Fashion Clerk: I think it was about a few days ago now that she stopped by right before closing. Kept on apologizing for coming in so late, but I didn’t really mind and helped her pick out a gift for a friend. After that, she paid and left the store in a rush. 
+	Makoto: I see. Did she happen to say where she was heading next?
+	Fashion Clerk: We chatted about a few things, but I think she did ask when the flower store closed. It was already late though, so I don’t know if she would’ve made it in time.
+	Makoto: Is there anything else you can recall during that conversation?
+	Fashion Clerk: If you’re trying to look for someone, then I can’t think of anything else.
+	Makoto: I see. That’s all I needed, thank you.
+	Fashion Clerk: Be sure to drop by again! We’ve got a clearance on select dresses!
+	Makoto: Right…
+	#Set flag here
+	=> END

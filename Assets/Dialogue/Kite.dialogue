@@ -1,0 +1,73 @@
+~ exitOffice_1
+Kite: The sun is shining brightly upon us Lady Makoto! Allow us to venture forth with justice in our hearts in pursuit of truth. [#expression_left=unimp][#expression_right=happy][#animate_right=enter_convo][#actor_right=on][#new_actor=kite_right]
+Makoto shakes her head and steps out into the East River District.
+do Global.finishOneShot("openingDone")
+#add thing that kicks the music in when the dialogue ends
+=> END
+
+~ postSagawaInterview
+#This plays after interviewing Sagawa and will be the dialogue 
+Kite: The plight of a Father who has lost his daughter! Is there no goal as noble as reuniting a family once whole now sundered?! [#animate_right=enter_convo][#expression_right=angry][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
+Makoto: Let’s not get ahead of ourselves. There is still too much we don’t know. We need to investigate further. [#animate_right=exit_convo][#animate_left=enter_convo]
+Makoto: According to her father, Yui was going to meet up with a friend after doing some shopping in the area. 
+Makoto: We can ask around the shops if one of the clerks may have seen her before she disappeared.
+Kite: Lead the way then, my lady! [#animate_right=enter_convo][#expression_right=neutral][#animate_left=exit_convo]
+do Signals.toggleAsset.emit("YumiSprite", true)
+do Global.finishOneShot("SagawaDone")
+=> END
+
+~ unlockSpiritSight
+#This is after Makoto asks around the shops and meets Shu for the first time hitting a dead end 
+Kite: Lady Makoto, that florist was mighty suspicious! Should we not have taken her in for further interrogation!? [#animate_right=enter_convo][#expression_right=confused][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
+Makoto: I agree that she may be hiding something, but we’d be accusing her based on a hunch. We need more information first. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=confused]
+Kite: In that case my lady, I can lend you some of my power! Together we shall pierce the cloudy veil to look at a time beyond our own! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+Makoto: What are you talking about? This is hardly the time for another one of your justice monologues. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=unimp]
+Kite: Worry not my lady, no monologue required – simply open your eyes and see the TRUTH! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+do Signals.updateInfoAnimation.emit("spirit")
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(0,25))
+do Global.zoomCamera(Vector2(2.5,2.5))
+do Global.finishOneShot("Shu1Done")
+#Add some kind of prompt to use spirit sight
+=> END
+
+~ spiritSightFirstUse
+#This plays when makoto first uses spirit sight and interacts with the yui after image
+Makoto: What’s going on? What kind of illusion is this? [#expression_left=confused][#expression_right=happy][#actor_right=on][#new_actor=kite_right]
+Kite: It is no mere trick, my lady! We are seeing echoes of the past, the TRUTH! [#animate_right=enter_convo][#animate_left=exit_convo]
+Kite: By channeling my power with your truth-seeking spirit I have awakened your dormant powers as a true ally of justice! 
+Kite: Our eyes have been set on Miss Yui, and so in turn, the evershifting veil between worlds has responded in kind!
+Kite: Now we may follow the trail of her spirit and uncover the truth!
+Makoto: Right… I know better than to ask you to elaborate further. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=unimp]
+Makoto: If what you say is true though, then this seems to be as good a lead as any. Let’s go. [#expression_left=neutral]
+Kite: HUZZAH! [#animate_right=enter_convo][#animate_left=exit_convo]
+do Global.zoomCamera(Vector2(1.5,1.5))
+do Global.resetCamera()
+do Signals.toggleArea("AlleyDoor", true)
+=> END
+
+~ allEvidenceFoundAlley
+#This plays once all evidence is gathered.
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(0,5))
+do Global.zoomCamera(Vector2(3.5,3.5))
+Kite: This scene, though normal in appearance, exudes a malevolent aura. [#animate_right=enter_convo][#expression_right=confused][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
+Kite: I believe the fair Miss Yui may have had a run in with an evil spirit.
+Makoto: It definitely looks like a struggle occurred here. After some investigation, I’ve also found a few items we can log as evidence. [#animate_right=exit_convo][#animate_left=enter_convo]
+Kite: A wallet, a bracelet, and a bouquet? What do you make of them, my lady?  [#animate_right=enter_convo][#animate_left=exit_convo]
+Makoto: Well, the wallet contains Yui’s ID, so we can safely assume it belongs to her. She must have dropped it during the struggle. [#animate_right=exit_convo][#animate_left=enter_convo]
+Makoto: The same can be said for this bracelet. I recall seeing one just like it at the fashion store we stopped by and it’s even engraved with her name. 
+Makoto: And finally the most important piece, the bouquet.
+Kite: The bouquet? [#animate_right=enter_convo][#animate_left=exit_convo]
+Makoto: Yes, the bouquet. By itself, it could have just been in this alleyway by coincidence. [#animate_right=exit_convo][#animate_left=enter_convo]
+Makoto: However, inside Yui’s wallet is a receipt from the flower store Camellia, with a transaction date of two days ago.
+Makoto: It also lists the type of bouquet and the flowers used in the arrangement.
+Makoto: Regardless, it looks like she did stop by the flower store.
+Kite: Does this mean the florist was lying about not seeing Miss Yui? [#animate_right=enter_convo][#animate_left=exit_convo]
+Kite: I felt she had a most suspicious aura, but I ‘twas not expecting her to have lied so boldly to your face! [#expression_right=angry]
+Makoto: It’s a bit too early to say she was lying, but this means she had to have seen Yui at some point the day she went missing. We need to go back and investigate further. [#animate_right=exit_convo][#animate_left=enter_convo]
+Kite: Of course! With this evidence in hand, any falsehoods will be cleared away! Lead the way, lady Makoto! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+do Global.zoomCamera(Vector2(2.5,2.5))
+do Global.resetCamera()
+=> END
+

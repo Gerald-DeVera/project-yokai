@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cyekjhx1bflyg"
+path="res://.godot/imported/Ina.dialogue-d4ee752b3a958099a405c8b0f705772c.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/Ina.dialogue"
+dest_files=["res://.godot/imported/Ina.dialogue-d4ee752b3a958099a405c8b0f705772c.tres"]
+
+[params]
+
+defaults=true

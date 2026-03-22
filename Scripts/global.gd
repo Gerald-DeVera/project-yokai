@@ -1,16 +1,38 @@
 extends Node
 
+var PlayerUIAnimation: AnimationPlayer
+var PlayerUITexture: Sprite2D
+
 var player_pos: Vector2
 var camera_pos: Vector2
 var inv: Inv = preload("res://Assets/InventoryItems/playerInventory.tres")
 
 var playerHasItem: bool
+var evidenceFound = 0 #for alleyway scene
+
+#preload a bunch of textures for evidence in cutscenes
+var evidenceTextures = {
+	"box": preload("res://Assets/UI/Items/item_closeup_box.png"),
+	"yui1": preload("res://Assets/UI/Items/item_closeup_yui1.png"),
+	"yui2": preload("res://Assets/UI/Items/item_closeup_yui2.png"),
+	"hand": preload("res://Assets/UI/Items/item_closeup_hand.png"),
+	"bracelet1": preload("res://Assets/UI/Items/item_closeup_bracelet1.png"),
+	"bracelet2": preload("res://Assets/UI/Items/item_closeup_bracelet2.png"),
+	"beans": preload("res://Assets/UI/Items/item_closeup_beans.png"),
+	"flowers": preload("res://Assets/UI/Items/item_closeup_flowers.png"),
+	"id": preload("res://Assets/UI/Items/item_closeup_id.png"),
+	"phone": preload("res://Assets/UI/Items/item_closeup_phone.png"),
+	"receipt": preload("res://Assets/UI/Items/item_closeup_receipt.png"),
+	"wallet": preload("res://Assets/UI/Items/item_closeup_wallet.png")
+}
 
 #List of NPC Dialogue Flags
 #We also use these for one shots
 #Enums only story ints, so 0 is false, 1 is true
 var dialogueFlags = {
+	keyWitnessfound = false,
 	interviewedSagawa = false,
+	interviewedShu = false,
 	testFlag = false
 }
 var dialoguePrep = {
@@ -45,7 +67,15 @@ func searchInv(target_item: String):
 			break
 		else:
 			playerHasItem = false
-
+		
+#Show evidence
+func showEvidence(evidenceName: String):
+	PlayerUITexture.texture = evidenceTextures[evidenceName]
+	PlayerUIAnimation.play("evidence")
+	
+func hideEvidence():
+	PlayerUIAnimation.play_backwards("evidence")
+#Camera controls to be accessed from dialogue controls
 func grabCameraPos():
 	camera_pos = get_viewport().get_camera_2d().position
 	print("Grabbed position!")
@@ -65,6 +95,13 @@ func resetCamera():
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(camera_node, "position", camera_pos, 0.5)
 	print("moving back!")
+	
+func zoomCamera(zoomAmt: Vector2):
+	var camera_node = get_viewport().get_camera_2d()
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(camera_node, "zoom", zoomAmt, 0.5)
 
 func prepareDialogue(dialogueFlag, dialogueFP, dialogueSL, sceneToStart):
 	dialogueFlags[dialogueFlag] = true
@@ -86,7 +123,8 @@ func initiateDialogueOneShot():
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePrep.dialogueFilePath), dialoguePrep.dialogueStartLine)
 	return
 	
-func testThing():
-	print(dialogueFlags.testFlag)
-
-#Camera controls to be accessed from dialogue controls
+func evidenceCounter():
+	evidenceFound += 1
+	if evidenceFound == 3:
+		#await get_tree().create_timer(1.0).timeout
+		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Kite.dialogue"), "allEvidenceFoundAlley")

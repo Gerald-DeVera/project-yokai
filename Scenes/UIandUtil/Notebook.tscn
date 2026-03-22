@@ -51,6 +51,7 @@ modulate_color = Color(0.73300546, 0.7330054, 0.7330054, 1)
 texture = ExtResource("4_py0wg")
 
 [node name="Notebook" type="Control" unique_id=523988141]
+z_index = 300
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

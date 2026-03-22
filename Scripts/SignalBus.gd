@@ -17,3 +17,13 @@ signal sendQuestDesc(name: String, desc: String)
 signal toggleNotebookInput(input: bool)
 
 signal toggleInventoryInput(input: bool)
+
+signal toggleAsset(assetName: String, toggled: bool)
+
+signal updateDialogueStart(startingPoint: String)
+
+signal updateInfoAnimation(infoType: String)
+
+signal unlockSpiritSight()
+
+signal toggleArea(areaName: String, toggled: bool)

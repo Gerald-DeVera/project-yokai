@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://c0i1iinxlvws8"]
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://dk7wjvomgtb15"]
 
-[ext_resource type="Texture2D" uid="uid://btmvrekeujqye" path="res://Assets/UI/Items/item_closeup_flowers.png" id="1_bja33"]
-[ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="2_hn2pw"]
-[ext_resource type="Texture2D" uid="uid://l81pyl58ox0j" path="res://Assets/UI/Items/item_flowers.png" id="3_hn2pw"]
+[ext_resource type="Texture2D" uid="uid://bguo6etyjl5t8" path="res://Assets/UI/Items/item_closeup_bracelet1.png" id="1_3pw5h"]
+[ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="2_t7q15"]
+[ext_resource type="Texture2D" uid="uid://byh1nxuvctd8d" path="res://Assets/UI/Items/item_bracelet1.png" id="3_0hrs2"]
 
 [resource]
-script = ExtResource("2_hn2pw")
-name = "Wilting Flowers"
-texture = ExtResource("3_hn2pw")
-description = "A bouquet of flowers found in the alleyway."
-closeup_texture = ExtResource("1_bja33")
+script = ExtResource("2_t7q15")
+name = "Bracelet"
+texture = ExtResource("3_0hrs2")
+description = "A bracelet found in the alleyway. Has Yui's name engraved on it."
+closeup_texture = ExtResource("1_3pw5h")

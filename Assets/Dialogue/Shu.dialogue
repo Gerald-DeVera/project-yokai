@@ -1,0 +1,28 @@
+~ shuFirstMeeting
+#this dialogue plays when first meeting Shu outside the flower shop post clothing store interview
+if Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.interviewedShu == false
+	Florist: Welcome in. Can I grab you anything? [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=happy]
+	Makoto: Just browsing. [#animate_left=enter_convo][#animate_right=exit_convo]
+	=> END
+elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedShu == false
+	Florist: Welcome in. Can I grab you anything? [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=happy]
+	Makoto: No, that won’t be necessary. I just wanted to ask a few questions if you have the time. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Florist: Sure, if it’s about flowers. Otherwise, I may not be any help.  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Makoto: It’s about a person I’m looking for. She may have stopped by here a few days ago. Do you recognize [do Global.showEvidence("yui1")]her? [#animate_left=enter_convo][#animate_right=exit_convo]
+	#Yui cg 
+	Florist stares intently at the photo.
+	Florist: Oh uh, definitely not… [do Global.hideEvidence()]Don’t recognize her at all.[#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
+	Makoto: Hmmm. If not, then that’s fine. Thank you for your statement. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Florist: Yeah, sorry. I really wish I could help. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Florist: It’s a scary world out there nowadays, with such a young lady going missing… [#expression_right=unimp]
+	Makoto: Sorry, did you say something? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Florist: Oh, ah – it’s nothing. Just saying it can be dangerous out there. Especially if you’re alone in an alleyway or if it’s late at night…  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Makoto: Right. I’ll be careful. Thank you for your concern. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Florist: Ah yes, of course… I’m just rambling… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
+	do Global.dialogueFlags.interviewedShu = true
+	do Global.prepareDialogue("Shu1Done", "res://Assets/Dialogue/Kite.dialogue", "unlockSpiritSight", "City")
+elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedShu == true
+	% Florist: Stay safe out there... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
+	% Florist: Need to water these flowers... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
+	% Florist: ... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
+=> END

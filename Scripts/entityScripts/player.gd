@@ -13,6 +13,9 @@ var inputDisabled = false
 var spiritSightOn = false
 var direction: Vector2
 var hasStopped = true
+var hasunlockedSight = false #set to false at beginning of game pls
+var spiritTutorial = false
+var tempInputDisable = false
 
 @onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
 @onready var domain_expansion = $DomainExpansion/AnimationPlayer
@@ -21,6 +24,7 @@ var hasStopped = true
 func _ready() -> void:
 	add_to_group("Player")
 	Signals.PlayerCanInteract.connect(Callable(self,"ChangeInteractionStatus"))
+	Signals.unlockSpiritSight.connect(Callable(self,"SeeTheThings"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
 	Signals.togglePlayerInput.connect(Callable(self,"toggleInput"))
@@ -47,11 +51,18 @@ func _physics_process(delta):
 		PlayerUI.UIAnimation.play("pause_move")
 		get_tree().paused = true
 
-	if Input.is_action_just_pressed("Spirit Sight"):
+	if Input.is_action_just_pressed("Spirit Sight") && hasunlockedSight == true:
 		spiritSightOn = !spiritSightOn
 		print("Spirit Sight = ", spiritSightOn)
 		domain_expansion.play("spirit_sense")
-		
+		if spiritTutorial == false:
+			spiritTutorial = true
+			await domain_expansion.animation_finished
+			Signals.updateInfoAnimation.emit("spiritdone")
+			tempInputDisable = false
+	
+	if tempInputDisable:
+		return
 	#interact
 	if canInteract and is_on_floor() and Input.is_action_just_pressed("Interact"):
 		#disableInput(true)
@@ -124,3 +135,8 @@ func get_basic_input():
 		$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 0)
 		$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		hasStopped = false
+	
+func SeeTheThings():
+	hasunlockedSight = true
+	tempInputDisable = true
+	movement_state_machine.travel("IdleSet")

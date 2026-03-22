@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://br3oydx54b1t6"
+path="res://.godot/imported/yokaiNPCs.dialogue-75b5613491441f2197c275191fb963dd.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/yokaiNPCs.dialogue"
+dest_files=["res://.godot/imported/yokaiNPCs.dialogue-75b5613491441f2197c275191fb963dd.tres"]
+
+[params]
+
+defaults=true

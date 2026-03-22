@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://v3f7it1ayarv"
+path="res://.godot/imported/Shu.dialogue-de946c172652dd006e0380e07c71f6df.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/Shu.dialogue"
+dest_files=["res://.godot/imported/Shu.dialogue-de946c172652dd006e0380e07c71f6df.tres"]
+
+[params]
+
+defaults=true

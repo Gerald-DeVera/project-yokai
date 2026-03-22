@@ -226,6 +226,7 @@ layer = 100
 [node name="Door" parent="." unique_id=206299497 instance=ExtResource("6_e5v46")]
 light_mask = 2
 position = Vector2(187, 249)
+next_scene = "Yokai"
 interactText = "To Spirit Realm"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1594552207]
