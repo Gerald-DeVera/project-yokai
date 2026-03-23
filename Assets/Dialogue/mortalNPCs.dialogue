@@ -106,9 +106,12 @@ elif Global.dialogueFlags.interviewedSagawa == true
 	Makoto: I’m looking for this woman[do Global.showEvidence("yui1")]. She was in the area doing some shopping recently. Did she happen to stop by?
 	Fashion Clerk: Hmmm, let me see…
 	Fashion Clerk: Ah! She does look familiar. Hard to forget such a gorgeous face.[do Global.hideEvidence()]
-	Fashion Clerk: I think it was about a few days ago now that she stopped by right before closing. Kept on apologizing for coming in so late, but I didn’t really mind and helped her pick out a gift for a friend. After that, she paid and left the store in a rush. 
+	Fashion Clerk: I think it was about a few days ago now that she stopped by right before closing. 
+	Fashion Clerk: Kept on apologizing for coming in so late, but I didn’t really mind and helped her pick out a gift for a friend. 
+	Fashion Clerk: After that, she paid and left the store in a rush. 
 	Makoto: I see. Did she happen to say where she was heading next?
-	Fashion Clerk: We chatted about a few things, but I think she did ask when the flower store closed. It was already late though, so I don’t know if she would’ve made it in time.
+	Fashion Clerk: We chatted about a few things, but I think she did ask when the flower store closed. 
+	Fashion Clerk: It was already late though, so I don’t know if she would’ve made it in time.
 	Makoto: Is there anything else you can recall during that conversation?
 	Fashion Clerk: If you’re trying to look for someone, then I can’t think of anything else.
 	Makoto: I see. That’s all I needed, thank you.

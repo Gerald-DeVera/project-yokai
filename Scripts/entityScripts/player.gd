@@ -26,6 +26,7 @@ func _ready() -> void:
 	add_to_group("Player")
 	Signals.PlayerCanInteract.connect(Callable(self,"ChangeInteractionStatus"))
 	Signals.unlockSpiritSight.connect(Callable(self,"SeeTheThings"))
+	Signals.moveCharacter.connect(Callable(self,"moveBody"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableInput"))
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
 	Signals.togglePlayerInput.connect(Callable(self,"toggleInput"))
@@ -148,3 +149,9 @@ func SeeTheThings():
 	hasunlockedSight = true
 	tempInputDisable = true
 	movement_state_machine.travel("IdleSet")
+	
+func moveBody(charName: String, event: String):
+	if charName == self.name:
+		if event == "exitStore":
+			print("im movin")
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(-1,0))

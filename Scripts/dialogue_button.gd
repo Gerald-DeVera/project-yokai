@@ -20,11 +20,13 @@ var canInteract = false
 
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
+	Signals.toggleAsset.connect(Callable(self,"toggleLock"))
 	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
 		Sprite2.modulate = Color("57e3ff")
-		
+	if Global.dialogueFlags.shuConfront == true && self.get_parent().name == "FlowerShop":
+		self.locked = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -56,4 +58,12 @@ func ButtonPressed(InteractableObject:String):
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePath), dialogueStartingPosition, )
 		print
 		return
+
+func toggleLock(assetName: String, toggled: bool):
+	print("signal received by:" + str(self.name))
+	if assetName == self.name:
+		if toggled == false:
+			self.locked = true
+		elif toggled == true:
+			self.locked = false
 		

@@ -62,13 +62,26 @@ Kite: The bouquet? [#animate_right=enter_convo][#animate_left=exit_convo]
 Makoto: Yes, the bouquet. By itself, it could have just been in this alleyway by coincidence. [#animate_right=exit_convo][#animate_left=enter_convo]
 Makoto: However, inside Yui’s wallet is a receipt from the flower store Camellia, with a transaction date of two days ago.
 Makoto: It also lists the type of bouquet and the flowers used in the arrangement.
+Makoto: Looks to be a custom order.
 Makoto: Regardless, it looks like she did stop by the flower store.
 Kite: Does this mean the florist was lying about not seeing Miss Yui? [#animate_right=enter_convo][#animate_left=exit_convo]
 Kite: I felt she had a most suspicious aura, but I ‘twas not expecting her to have lied so boldly to your face! [#expression_right=angry]
 Makoto: It’s a bit too early to say she was lying, but this means she had to have seen Yui at some point the day she went missing. We need to go back and investigate further. [#animate_right=exit_convo][#animate_left=enter_convo]
 Kite: Of course! With this evidence in hand, any falsehoods will be cleared away! Lead the way, lady Makoto! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
-do Signals.changeDialoguePoint.emit("ShuSprite", "shuConfrontation1")
+do Global.dialogueFlags.evidenceFound = true
 do Global.zoomCamera(Vector2(2.5,2.5))
 do Global.resetCamera()
 => END
 
+~ afterShuRuns
+Kite: She turned into this alleyway, Lady Makoto. We have her cornered now! [#animate_right=enter_convo][#expression_right=happy][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
+Kite: ... [#expression_right=neutral]
+Kite: Wait, she vanished!? Where could she have gone? [#expression_right=confused]
+Makoto: Huff huff, I swear- I saw her run this way… There’s no way she could’ve gotten away so quickly on foot. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=confused]
+Kite: ... [#animate_right=enter_convo][#animate_left=exit_convo]
+Kite: Wait, my Lady, do you feel that? The very ley lines around us have shifted.
+Makoto: Now's not the time for this Kite, we have to find her. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=unimp]
+Kite: No no, my lady, I'm serious! Something has shifted in this alley! We must investigate the area! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+Kite: Perhaps there's something we can not see!
+do Global.finishOneShot("ShuConfrontDone")
+=> END

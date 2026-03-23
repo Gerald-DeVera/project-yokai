@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://bv3aa5g716y4d"]
 
+[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="1_6u22d"]
 [ext_resource type="Texture2D" uid="uid://cgqpyo37oij00" path="res://Assets/Environment/flower_interior bg.png" id="1_tte5e"]
 [ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="2_gelyx"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="2_tg72r"]
-[ext_resource type="Script" uid="uid://bvy12j8mrwyh6" path="res://Scenes/Levels/shu_sprite.gd" id="3_6u22d"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="3_56ftc"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="4_4vb4o"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="4_gelyx"]
+[ext_resource type="Script" uid="uid://nwoi328xxqbv" path="res://Scenes/Entities/shu_sprite.gd" id="4_sgi0b"]
 [ext_resource type="Texture2D" uid="uid://bleee07tp44ux" path="res://Assets/Environment/flower_interior fg.png" id="5_gelyx"]
 [ext_resource type="Texture2D" uid="uid://dh5wywk702icd" path="res://Assets/Environment/flower_interior top.png" id="6_jecex"]
 [ext_resource type="Texture2D" uid="uid://bpyraa42ekbiu" path="res://Assets/Environment/lightcone.png" id="7_6u22d"]
@@ -208,6 +209,7 @@ color_ramp = SubResource("GradientTexture1D_wc4nj")
 anim_offset_max = 1.0
 
 [node name="FlowerShop" type="Node2D" unique_id=1471775732]
+script = ExtResource("1_6u22d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=949669185]
 layer = -3
@@ -216,6 +218,15 @@ layer = -3
 offset_left = -86.00001
 offset_top = -6.0000153
 offset_right = -44.420006
+offset_bottom = 38.49498
+scale = Vector2(18.819786, 8.988636)
+color = Color(0.03529412, 0.039215688, 0.039215688, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=175328355]
+z_index = 2
+offset_left = -86.00001
+offset_top = -6.0000153
+offset_right = -71.44086
 offset_bottom = 38.49498
 scale = Vector2(18.819786, 8.988636)
 color = Color(0.03529412, 0.039215688, 0.039215688, 1)
@@ -248,7 +259,7 @@ texture = ExtResource("2_gelyx")
 hframes = 8
 vframes = 4
 frame = 1
-script = ExtResource("3_6u22d")
+script = ExtResource("4_sgi0b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ShuSprite" unique_id=1343143286]
 libraries/ = SubResource("AnimationLibrary_vkm62")

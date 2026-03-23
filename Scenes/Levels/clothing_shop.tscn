@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://j5kcv1mse7an"]
 
 [ext_resource type="Texture2D" uid="uid://ci130vgswari0" path="res://Assets/Environment/clothing_interior bg.png" id="1_ata4p"]
+[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="1_s4gut"]
 [ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="2_ata4p"]
 [ext_resource type="Texture2D" uid="uid://6s51neq63f0v" path="res://Assets/Environment/clothing_interior fg.png" id="2_hc8ab"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="3_u2ouw"]
@@ -102,6 +103,7 @@ fill_from = Vector2(0.5069767, 0.49302325)
 fill_to = Vector2(1, 1)
 
 [node name="FlowerShop" type="Node2D" unique_id=1471775732]
+script = ExtResource("1_s4gut")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=949669185]
 layer = -3

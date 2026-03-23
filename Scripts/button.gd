@@ -40,6 +40,11 @@ func _process(delta: float) -> void:
 		# print("I go to %s" %next_scene)
 		canInteract = true
 		interactable = true
+	#i just want the portal to work man
+	elif playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer and self.name == "YokaiPortal" and Global.dialogueFlags.shuConfront == true:
+		canInteract = true
+		interactable = true
+		locked = false	
 	else:
 		# print("I am not interactable")
 		canInteract = false

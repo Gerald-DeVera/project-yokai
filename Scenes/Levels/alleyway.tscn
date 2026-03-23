@@ -19,8 +19,13 @@
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="15_pbgbq"]
 [ext_resource type="Resource" uid="uid://c0i1iinxlvws8" path="res://Assets/InventoryItems/flowers.tres" id="16_57ck1"]
 [ext_resource type="Texture2D" uid="uid://c5feuka7xg2pa" path="res://Assets/UI/Items/item_sparkle-Sheet.png" id="17_57ck1"]
+[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="18_64xah"]
 [ext_resource type="Resource" uid="uid://dk7wjvomgtb15" path="res://Assets/InventoryItems/bracelet1.tres" id="18_ed5bj"]
 [ext_resource type="Resource" uid="uid://bnsibo1s6wqps" path="res://Assets/InventoryItems/wallet.tres" id="19_64xah"]
+[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="23_64xah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5bj"]
+size = Vector2(13.000015, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_agp84"]
 texture = ExtResource("8_2khwm")
@@ -277,6 +282,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" unique_id=416392867]
+script = ExtResource("18_64xah")
 
 [node name="CityParallax" parent="." unique_id=1814770720 instance=ExtResource("1_gtl7o")]
 modulate = Color(0.7504876, 0.5042774, 0.47230178, 1)
@@ -305,10 +311,37 @@ texture = ExtResource("2_jvwyf")
 position = Vector2(292, 213)
 texture = ExtResource("2_jvwyf")
 
-[node name="Gridbox" type="Sprite2D" parent="BGAssetContainer" unique_id=474165747]
+[node name="RigidBody2D" type="RigidBody2D" parent="BGAssetContainer" unique_id=1915035216]
+z_index = 1
+position = Vector2(0, -0.69)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Gridbox" type="Sprite2D" parent="BGAssetContainer/RigidBody2D" unique_id=474165747]
 z_index = 1
 position = Vector2(133, 308)
 texture = ExtResource("4_pbgbq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BGAssetContainer/RigidBody2D" unique_id=577433948]
+z_index = 1
+position = Vector2(122.5, 308.19)
+rotation = 4.712389
+shape = SubResource("RectangleShape2D_ed5bj")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BGAssetContainer/RigidBody2D" unique_id=36424436]
+z_index = 1
+position = Vector2(144, 308.19)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_ed5bj")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BGAssetContainer/RigidBody2D" unique_id=1890032644]
+z_index = 1
+position = Vector2(133, 314.69)
+rotation = 3.1415927
+shape = SubResource("RectangleShape2D_ed5bj")
+one_way_collision = true
 
 [node name="BgTrash" type="Sprite2D" parent="BGAssetContainer" unique_id=2077572018]
 z_index = 1
@@ -395,6 +428,8 @@ tile_set = SubResource("TileSet_wkcwn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=193065245]
 position = Vector2(2, 40)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=661629407]
 position = Vector2(327, 275)
@@ -413,6 +448,7 @@ shape = SubResource("WorldBoundaryShape2D_58a5k")
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("4_qlm42")]
 z_index = 2
 position = Vector2(39, 285)
+collision_mask = 33
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=397515915]
 position = Vector2(-2, -30)
@@ -436,11 +472,11 @@ dialogueStartingPosition = "findFlowers"
 OneShot = true
 
 [node name="ItemSprite" type="Sprite2D" parent="Flowers" unique_id=416557702]
-z_index = 2
 position = Vector2(11, 11)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("17_57ck1")
 hframes = 8
+script = ExtResource("18_64xah")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Flowers/ItemSprite" unique_id=1007305187]
 libraries/ = SubResource("AnimationLibrary_fb7ch")
@@ -548,3 +584,13 @@ visible_ratio = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TempTitleContainer/RichTextLabel" unique_id=1901342340]
 libraries/ = SubResource("AnimationLibrary_nr6mv")
 autoplay = &"play_title"
+
+[node name="YokaiPortal" parent="." unique_id=455330688 instance=ExtResource("6_jvwyf")]
+position = Vector2(523, 289)
+next_scene = "Yokai"
+isSpiritButton = true
+interactText = "???"
+locked = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="YokaiPortal" unique_id=258561989]
+texture = ExtResource("23_64xah")

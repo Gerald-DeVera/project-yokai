@@ -34,3 +34,5 @@ signal unlockSpiritSight()
 signal toggleArea(areaName: String, toggled: bool)
 
 signal changeDialoguePoint(characterName: String, newstartingPoint: String)
+
+signal moveCharacter(charName: String, event: String)
