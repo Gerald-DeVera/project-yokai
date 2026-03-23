@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bfg4jc7su3tq5"]
 
 [ext_resource type="PackedScene" uid="uid://dwbvhkfgejqgx" path="res://Scenes/Backgrounds/yokai_parallax.tscn" id="1_7xa15"]
+[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="1_dtbgk"]
 [ext_resource type="Texture2D" uid="uid://dbrblhmdxf6i4" path="res://Assets/Environment/bg_yokai/yokai_hub_tileset.png" id="2_0uiui"]
 [ext_resource type="Texture2D" uid="uid://dkcppjjufcbmh" path="res://Assets/Environment/bg_yokai/bg_yokai_busstop.png" id="2_4irpa"]
 [ext_resource type="Texture2D" uid="uid://lmnpj1qfmcc" path="res://Assets/Environment/bg_yokai/bg_yokai_dagashi.png" id="3_arv8y"]
@@ -234,6 +235,7 @@ _data = {
 }
 
 [node name="BaseYokaiWorld" type="Node2D" unique_id=1832718104]
+script = ExtResource("1_dtbgk")
 
 [node name="YokaiParallax" parent="." unique_id=1985771975 instance=ExtResource("1_7xa15")]
 position = Vector2(0, -88)
@@ -363,6 +365,7 @@ tile_set = SubResource("TileSet_nbfcv")
 [node name="ToCity" parent="." unique_id=206299497 instance=ExtResource("22_4r1gn")]
 position = Vector2(232, 168)
 next_scene = "City"
+player_pos = Vector2(362, 290)
 
 [node name="InaSprite" type="Sprite2D" parent="." unique_id=868280798]
 position = Vector2(527, 165)
