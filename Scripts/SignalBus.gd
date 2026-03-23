@@ -22,7 +22,10 @@ signal respawnPlayer()
 
 signal damagePlayer(damage: int)
 
+signal updatePlayerHealth(health: int)
+
 signal testSignal(message: String)
+
 signal toggleAsset(assetName: String, toggled: bool)
 
 signal updateDialogueStart(startingPoint: String)

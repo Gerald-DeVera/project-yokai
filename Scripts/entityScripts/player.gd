@@ -49,6 +49,7 @@ func _physics_process(delta):
 		return
 		
 	if Input.is_action_just_pressed("PauseMenu"):
+		print("am i paused?")
 		PlayerUI.UIAnimation.play("pause_move")
 		get_tree().paused = true
 
@@ -141,6 +142,7 @@ func takeDamage(damage: int):
 	playerHealth -= damage
 	if playerHealth <= 0:
 		print("player should be dead")
+	Signals.updatePlayerHealth.emit(playerHealth)
 	return
 	
 func SeeTheThings():

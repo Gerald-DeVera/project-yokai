@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="8_rxnno"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="9_sw76f"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="11_xgn0t"]
+[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sw76f"]
 texture = ExtResource("2_umi5f")
@@ -167,3 +168,8 @@ position = Vector2(-159, 2)
 position = Vector2(4, -118)
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("11_xgn0t")]
+
+[node name="Projectile Shooter" type="Node2D" parent="." unique_id=1013051465]
+position = Vector2(202, -11)
+rotation = -1.5707964
+script = ExtResource("12_80tmh")
