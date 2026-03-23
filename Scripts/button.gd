@@ -25,6 +25,11 @@ func _ready() -> void:
 	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
+	if self.name == "AlleyDoor" && Global.dialogueFlags.interviewedShu == true:
+		locked = false	
+	#update when portal flag integrated
+	#if self.name == "YokaiPortal" && Global.dialogueFlags.shuConfront == true:
+		#locked = false	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -40,6 +45,11 @@ func _process(delta: float) -> void:
 		# print("I go to %s" %next_scene)
 		canInteract = true
 		interactable = true
+	#i just want the portal to work man
+	elif playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer and self.name == "YokaiPortal" and Global.dialogueFlags.shuConfront == true:
+		canInteract = true
+		interactable = true
+		locked = false	
 	else:
 		# print("I am not interactable")
 		canInteract = false

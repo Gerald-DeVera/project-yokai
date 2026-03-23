@@ -26,7 +26,7 @@ func transition_to_scene(level : String):
 
 func sceneLoadCheck():
 	Signals.togglePlayerInput.emit(false)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.2).timeout
 	if Global.dialoguePrep.dialogueOneShot == true and currentScene == Global.dialoguePrep.dialogueSceneStart:
 		Global.initiateDialogueOneShot()
 	else:

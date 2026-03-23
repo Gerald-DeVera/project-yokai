@@ -9,6 +9,8 @@ var inv: Inv = preload("res://Assets/InventoryItems/playerInventory.tres")
 
 var playerHasItem: bool
 var evidenceFound = 0 #for alleyway scene
+var spiritTutorial = false
+var hasunlockedSight = false #set to false at beginning of game pls
 
 #preload a bunch of textures for evidence in cutscenes
 var evidenceTextures = {
@@ -31,8 +33,11 @@ var evidenceTextures = {
 #Enums only story ints, so 0 is false, 1 is true
 var dialogueFlags = {
 	keyWitnessfound = false,
-	interviewedSagawa = false,
-	interviewedShu = false,
+	interviewedSagawa = true,
+	interviewedShu = true,
+	interviewedYumiStreet = true,
+	evidenceFound = true,
+	shuConfront = false,
 	testFlag = false
 }
 var dialoguePrep = {
@@ -120,6 +125,7 @@ func finishOneShot(dialogueFlag):
 	
 func initiateDialogueOneShot():
 	if dialoguePrep.dialogueOneShot == true and sceneManager.currentScene == dialoguePrep.dialogueSceneStart:
+		
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePrep.dialogueFilePath), dialoguePrep.dialogueStartLine)
 	return
 	
