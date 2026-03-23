@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://caixoahn8744"]
 
+[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="1_ed5bj"]
 [ext_resource type="PackedScene" uid="uid://b5m0h0n4twj7d" path="res://Scenes/Backgrounds/city_parallax.tscn" id="1_gtl7o"]
 [ext_resource type="Texture2D" uid="uid://deiq4acpd6rmm" path="res://Assets/Environment/bg_overworld/city_overworld_tileset.png" id="2_1qc4y"]
 [ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="2_jvwyf"]
@@ -459,6 +460,7 @@ zoom = Vector2(2.5, 2.5)
 [node name="CityDoor" parent="." unique_id=206299497 instance=ExtResource("6_jvwyf")]
 position = Vector2(20, 284)
 next_scene = "City"
+player_pos = Vector2(2755, 290)
 interactText = "To City"
 
 [node name="Flowers" parent="." unique_id=456592238 instance=ExtResource("14_2khwm")]

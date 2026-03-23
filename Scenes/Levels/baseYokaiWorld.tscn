@@ -473,6 +473,7 @@ tile_set = SubResource("TileSet_nbfcv")
 [node name="ToCity" parent="." unique_id=206299497 instance=ExtResource("22_4r1gn")]
 position = Vector2(-1007, 168)
 next_scene = "City"
+player_pos = Vector2(362, 290)
 
 [node name="YokaiShuOneShot" type="Node2D" parent="." unique_id=1203515857]
 position = Vector2(985, 162)
