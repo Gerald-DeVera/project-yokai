@@ -33,6 +33,7 @@ var dialogueFlags = {
 	keyWitnessfound = false,
 	interviewedSagawa = false,
 	interviewedShu = false,
+	interviewedYumiStreet = false,
 	evidenceFound = false,
 	shuConfront = false,
 	testFlag = false
