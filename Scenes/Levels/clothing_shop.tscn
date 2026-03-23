@@ -169,6 +169,7 @@ light_mask = 2
 z_index = 3
 position = Vector2(189, 251)
 next_scene = "City"
+player_pos = Vector2(1518, 290)
 interactText = "To City"
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_wft7n")]

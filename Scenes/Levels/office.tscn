@@ -204,7 +204,7 @@ texture = ExtResource("4_l0i5o")
 [node name="Door" parent="." unique_id=206299497 instance=ExtResource("5_gdkqi")]
 position = Vector2(224, 246)
 next_scene = "City"
-player_pos = Vector2(475, 288)
+player_pos = Vector2(1977, 290)
 
 [node name="Desk" parent="." unique_id=1461815565 instance=ExtResource("5_lhiah")]
 position = Vector2(327, 245)

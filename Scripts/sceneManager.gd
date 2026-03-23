@@ -26,8 +26,12 @@ func transition_to_scene(level : String):
 
 func sceneLoadCheck():
 	Signals.togglePlayerInput.emit(false)
+	Signals.toggleInventoryInput.emit(true)
+	Signals.toggleNotebookInput.emit(false)
 	await get_tree().create_timer(1.2).timeout
 	if Global.dialoguePrep.dialogueOneShot == true and currentScene == Global.dialoguePrep.dialogueSceneStart:
 		Global.initiateDialogueOneShot()
 	else:
 		Signals.togglePlayerInput.emit(true)
+		Signals.toggleInventoryInput.emit(false)
+		Signals.toggleNotebookInput.emit(true)

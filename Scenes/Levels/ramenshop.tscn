@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dr1na402cc5sp"]
 
-[ext_resource type="Script" path="res://Scripts/baseLevelScript.gd" id="1_8hc83"]
+[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="1_8hc83"]
 [ext_resource type="Texture2D" uid="uid://d34upw1f0p5sq" path="res://Assets/Environment/ramen_interior_bg.png" id="1_cwa3q"]
 [ext_resource type="Texture2D" uid="uid://c0ovb346f15ky" path="res://Assets/Sprites/ramen dad sprite-Sheet.png" id="2_71phu"]
 [ext_resource type="Texture2D" uid="uid://da1aafylvai8k" path="res://Assets/Environment/ramen_interior_stand.png" id="2_u10kd"]
@@ -192,6 +192,7 @@ zoom = Vector2(2.5, 2.5)
 light_mask = 2
 position = Vector2(187, 249)
 next_scene = "City"
+player_pos = Vector2(1168, 290)
 interactText = "To City"
 
 [node name="SagawaDialogue" parent="." unique_id=833905275 instance=ExtResource("8_7mtcg")]

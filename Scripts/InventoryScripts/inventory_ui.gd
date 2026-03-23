@@ -15,6 +15,7 @@ var slots: Array
 var curSlotIndex: int = 0
 var is_open = false
 var inputDisabled = false
+var numRows = 3
 
 func _ready() -> void:
 	if gridExist:
@@ -73,6 +74,20 @@ func _process(delta: float) -> void:
 			else:
 				curSlotIndex += 1
 			itemAnimation(prevSlot)
+		elif Input.is_action_just_pressed("move_down"):
+			var prevSlot = curSlotIndex
+			curSlotIndex += int((slots.size()/numRows))
+			curSlotIndex = curSlotIndex % slots.size()
+			itemAnimation(prevSlot)
+		elif Input.is_action_just_pressed("move_up"):
+			var prevSlot = curSlotIndex
+			if curSlotIndex > 3:
+				curSlotIndex -= int(slots.size()/numRows)
+			else: #curSlotIndex  is 0, 1, 2, 3, i.e. first row
+				curSlotIndex += slots.size() - int(slots.size()/numRows)
+			curSlotIndex = curSlotIndex % slots.size()
+			itemAnimation(prevSlot)
+			
 
 
 func itemAnimation(prevSlot):
