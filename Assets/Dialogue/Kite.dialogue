@@ -12,7 +12,7 @@ Makoto: Let’s not get ahead of ourselves. There is still too much we don’t k
 Makoto: According to her father, Yui was going to meet up with a friend after doing some shopping in the area. 
 Makoto: We can ask around the shops if one of the clerks may have seen her before she disappeared.
 Kite: Lead the way then, my lady! [#animate_right=enter_convo][#expression_right=neutral][#animate_left=exit_convo]
-do Signals.toggleAsset.emit("YumiSprite", true)
+#do Signals.toggleAsset.emit("YumiSprite", true)
 do Global.finishOneShot("SagawaDone")
 => END
 

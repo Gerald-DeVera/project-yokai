@@ -87,4 +87,5 @@ Makoto: ...Agent of justice? [#animate_left=enter_convo][#expression_left=unimp]
 do Signals.collectItem.emit(load("res://Assets/InventoryItems/hand.tres"))
 do Signals.toggleAsset.emit("YumiSprite", false)
 do Signals.updateInfoAnimation.emit("invnote")
+do Global.dialogueFlags.interviewedYumiStreet = true
 => END

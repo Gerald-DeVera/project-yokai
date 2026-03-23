@@ -21,12 +21,13 @@ elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.inte
 	Florist: Ah yes, of course… I’m just rambling… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
 	do Global.dialogueFlags.interviewedShu = true
 	do Global.prepareDialogue("Shu1Done", "res://Assets/Dialogue/Kite.dialogue", "unlockSpiritSight", "City")
+	=> END
 elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedShu == true && Global.dialogueFlags.evidenceFound == false
 	% Florist: Stay safe out there... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
 	% Florist: Need to water these flowers... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
 	% Florist: ... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
 	=> END
-elif Global.dialogueFlags.evidenceFound == true
+elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedShu == true && Global.dialogueFlags.evidenceFound == true
 	=> shuConfrontation1
 
 ~ shuConfrontation1
