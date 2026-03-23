@@ -281,7 +281,7 @@ _data = {
 &"play_title": SubResource("Animation_x82q5")
 }
 
-[node name="Node2D" type="Node2D" unique_id=416392867]
+[node name="Alleyway" type="Node2D" unique_id=416392867]
 script = ExtResource("18_64xah")
 
 [node name="CityParallax" parent="." unique_id=1814770720 instance=ExtResource("1_gtl7o")]
@@ -447,7 +447,7 @@ shape = SubResource("WorldBoundaryShape2D_58a5k")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("4_qlm42")]
 z_index = 2
-position = Vector2(39, 285)
+position = Vector2(40, 288)
 collision_mask = 33
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=397515915]

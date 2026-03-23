@@ -14,8 +14,6 @@ var spiritSightOn = false
 var direction: Vector2
 var hasStopped = true
 var playerHealth : int = 10
-var hasunlockedSight = false #set to false at beginning of game pls
-var spiritTutorial = false
 var tempInputDisable = false
 
 @onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
@@ -54,12 +52,12 @@ func _physics_process(delta):
 		PlayerUI.UIAnimation.play("pause_move")
 		get_tree().paused = true
 
-	if Input.is_action_just_pressed("Spirit Sight") && hasunlockedSight == true:
+	if Input.is_action_just_pressed("Spirit Sight") && Global.hasunlockedSight == true:
 		spiritSightOn = !spiritSightOn
 		print("Spirit Sight = ", spiritSightOn)
 		domain_expansion.play("spirit_sense")
-		if spiritTutorial == false:
-			spiritTutorial = true
+		if Global.spiritTutorial == false:
+			Global.spiritTutorial = true
 			await domain_expansion.animation_finished
 			Signals.updateInfoAnimation.emit("spiritdone")
 			tempInputDisable = false
@@ -146,7 +144,7 @@ func takeDamage(damage: int):
 	return
 	
 func SeeTheThings():
-	hasunlockedSight = true
+	Global.hasunlockedSight = true
 	tempInputDisable = true
 	movement_state_machine.travel("IdleSet")
 	
