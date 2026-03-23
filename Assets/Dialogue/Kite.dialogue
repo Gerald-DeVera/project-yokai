@@ -74,16 +74,14 @@ do Global.resetCamera()
 => END
 
 ~ afterShuRuns
-Kite: this is a test [#animate_right=enter_convo][#expression_right=happy][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
-Kite: this is a test2
-#Kite: She turned into this alleyway, Lady Makoto. We have her cornered now! [#animate_right=enter_convo][#expression_right=happy][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
-#Kite: ... [#expression_right=neutral]
-#Kite: Wait, she vanished!? Where could she have gone? [#expression_right=confused]
-#Makoto: Huff huff, I swear- I saw her run this way… There’s no way she could’ve gotten away so quickly on foot. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=confused]
-#Kite: ... [#animate_right=enter_convo][#animate_left=exit_convo]
-#Kite: Wait, my Lady, do you feel that? The very ley lines around us have shifted.
-#Makoto: Now's not the time for this Kite, we have to find her. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=unimp]
-#Kite: No no, my lady, I'm serious! Something has shifted in this alley! We must investigate the area! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
-#Kite: Perhaps there's something we can not see!
+Kite: She turned into this alleyway, Lady Makoto. We have her cornered now! [#animate_right=enter_convo][#expression_right=happy][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
+Kite: ... [#expression_right=neutral]
+Kite: Wait, she vanished!? Where could she have gone? [#expression_right=confused]
+Makoto: Huff huff, I swear- I saw her run this way… There’s no way she could’ve gotten away so quickly on foot. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=confused]
+Kite: ... [#animate_right=enter_convo][#animate_left=exit_convo]
+Kite: Wait, my Lady, do you feel that? The very ley lines around us have shifted.
+Makoto: Now's not the time for this Kite, we have to find her. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=unimp]
+Kite: No no, my lady, I'm serious! Something has shifted in this alley! We must investigate the area! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+Kite: Perhaps there's something we can not see!
 do Global.finishOneShot("ShuConfrontDone")
 => END

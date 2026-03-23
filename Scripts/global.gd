@@ -33,10 +33,10 @@ var evidenceTextures = {
 #Enums only story ints, so 0 is false, 1 is true
 var dialogueFlags = {
 	keyWitnessfound = false,
-	interviewedSagawa = false,
-	interviewedShu = false,
-	interviewedYumiStreet = false,
-	evidenceFound = false,
+	interviewedSagawa = true,
+	interviewedShu = true,
+	interviewedYumiStreet = true,
+	evidenceFound = true,
 	shuConfront = false,
 	testFlag = false
 }
