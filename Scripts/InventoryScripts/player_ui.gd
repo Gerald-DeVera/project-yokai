@@ -24,6 +24,8 @@ func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
 	UIAnimation.play_backwards("pause_move")
 
+func _physics_process(delta):
+	return
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

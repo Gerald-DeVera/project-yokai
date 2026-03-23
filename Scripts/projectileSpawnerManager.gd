@@ -1,6 +1,11 @@
 extends Node
 
-
+@onready var spawners = [
+	$spawner1,
+	$spawner2,
+	$spawner3
+]
+var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,13 +16,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		print("argh")
-		respawnPlayer()
-		Signals.damagePlayer.emit(1)
+func _on_cooldown_timeout() -> void:
+	spawners[rng.randf_range(0, spawners.size()-1)].shoot()
+	print("random lmao")
 	pass # Replace with function body.
-
-func respawnPlayer() -> void:
-	Signals.respawnPlayer.emit()
-	return	

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dq8nv7ywkhn1o"]
+
+[ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="1_mry3t"]
+
+[node name="Boss" type="Node2D" unique_id=1873205114]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1175422153]
+modulate = Color(0.9856376, 0.14786023, 0.22783986, 1)
+scale = Vector2(1, 4.166667)
+texture = ExtResource("1_mry3t")
