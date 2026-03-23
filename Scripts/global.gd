@@ -28,6 +28,9 @@ var evidenceTextures = {
 	"wallet": preload("res://Assets/UI/Items/item_closeup_wallet.png")
 }
 
+#stuff to queue free
+var oneshot_assets = {}
+
 #List of NPC Dialogue Flags
 #We also use these for one shots
 #Enums only story ints, so 0 is false, 1 is true
@@ -38,6 +41,8 @@ var dialogueFlags = {
 	interviewedYumiStreet = true,
 	evidenceFound = true,
 	shuConfront = false,
+	spiritRealmUnlocked = false,
+	shuSpirit1 = false,
 	testFlag = false
 }
 var dialoguePrep = {

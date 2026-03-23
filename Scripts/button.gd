@@ -49,7 +49,10 @@ func _process(delta: float) -> void:
 	elif playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer and self.name == "YokaiPortal" and Global.dialogueFlags.shuConfront == true:
 		canInteract = true
 		interactable = true
-		locked = false	
+		locked = false
+		if Global.dialogueFlags.spiritRealmUnlocked == false:
+			Global.dialogueFlags.spiritRealmUnlocked = true
+			DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Kite.dialogue"), "spiritSightRevealsYokaiRealm", )
 	else:
 		# print("I am not interactable")
 		canInteract = false

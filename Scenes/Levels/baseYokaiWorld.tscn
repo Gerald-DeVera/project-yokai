@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bfg4jc7su3tq5"]
 
 [ext_resource type="PackedScene" uid="uid://dwbvhkfgejqgx" path="res://Scenes/Backgrounds/yokai_parallax.tscn" id="1_7xa15"]
+[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="1_dtbgk"]
 [ext_resource type="Texture2D" uid="uid://dbrblhmdxf6i4" path="res://Assets/Environment/bg_yokai/yokai_hub_tileset.png" id="2_0uiui"]
 [ext_resource type="Texture2D" uid="uid://dkcppjjufcbmh" path="res://Assets/Environment/bg_yokai/bg_yokai_busstop.png" id="2_4irpa"]
 [ext_resource type="Texture2D" uid="uid://lmnpj1qfmcc" path="res://Assets/Environment/bg_yokai/bg_yokai_dagashi.png" id="3_arv8y"]
@@ -24,8 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_4r1gn"]
 [ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="23_s2ptr"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="23_wc4nj"]
+[ext_resource type="Script" uid="uid://dxr4en444ru7b" path="res://Scenes/Levels/yokai_shu_one_shot.gd" id="24_m45jl"]
 [ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="24_wc4nj"]
+[ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="25_nkwmm"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="25_rj0db"]
+[ext_resource type="Script" uid="uid://nwoi328xxqbv" path="res://Scenes/Entities/shu_sprite.gd" id="26_rgfmy"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="27_ao21d"]
 [ext_resource type="Script" uid="uid://cja2uvu75861w" path="res://Scripts/interactableItem.gd" id="27_s3t3b"]
 [ext_resource type="Resource" uid="uid://dplukno8ymnfn" path="res://Assets/InventoryItems/foxToy.tres" id="28_s2ptr"]
@@ -77,6 +81,101 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Ground 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_8yxiq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m45jl"]
+size = Vector2(295, 20)
+
+[sub_resource type="Animation" id="Animation_jecex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_6u22d"]
+resource_name = "idle_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13, 15]
+}
+
+[sub_resource type="Animation" id="Animation_sgi0b"]
+resource_name = "idle_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12, 14]
+}
+
+[sub_resource type="Animation" id="Animation_gl2bf"]
+resource_name = "run_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [17, 19, 21, 23, 25, 27, 29, 31]
+}
+
+[sub_resource type="Animation" id="Animation_yyrmh"]
+resource_name = "run_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 18, 20, 22, 24, 26, 28, 30]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fixjv"]
+_data = {
+&"RESET": SubResource("Animation_jecex"),
+&"idle_left": SubResource("Animation_6u22d"),
+&"idle_right": SubResource("Animation_sgi0b"),
+&"run_left": SubResource("Animation_gl2bf"),
+&"run_right": SubResource("Animation_yyrmh")
+}
 
 [sub_resource type="Animation" id="Animation_dtbgk"]
 length = 0.001
@@ -234,6 +333,7 @@ _data = {
 }
 
 [node name="BaseYokaiWorld" type="Node2D" unique_id=1832718104]
+script = ExtResource("1_dtbgk")
 
 [node name="YokaiParallax" parent="." unique_id=1985771975 instance=ExtResource("1_7xa15")]
 position = Vector2(0, -88)
@@ -347,8 +447,18 @@ position = Vector2(2, 1)
 position = Vector2(346, 191)
 shape = SubResource("WorldBoundaryShape2D_8x7c5")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1286182200]
+position = Vector2(-1134, 176)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_8x7c5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=828076849]
+position = Vector2(3991, 152)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_8x7c5")
+
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("3_d3x5n")]
-position = Vector2(306, 94)
+position = Vector2(-914, 159)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1787795744]
 position = Vector2(-2, -30)
@@ -361,8 +471,32 @@ tile_map_data = PackedByteArray("AAAZAAwAAAAAAAMAAAAZAAsAAAAAAAMAAAAZAAoAAAAAAAM
 tile_set = SubResource("TileSet_nbfcv")
 
 [node name="ToCity" parent="." unique_id=206299497 instance=ExtResource("22_4r1gn")]
-position = Vector2(232, 168)
+position = Vector2(-1007, 168)
 next_scene = "City"
+
+[node name="YokaiShuOneShot" type="Node2D" parent="." unique_id=1203515857]
+position = Vector2(985, 162)
+rotation = -1.5707964
+script = ExtResource("24_m45jl")
+
+[node name="Area2D" type="Area2D" parent="YokaiShuOneShot" unique_id=905871714]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YokaiShuOneShot/Area2D" unique_id=1170852080]
+position = Vector2(83, -6.999998)
+shape = SubResource("RectangleShape2D_m45jl")
+
+[node name="ShuSprite" type="Sprite2D" parent="." unique_id=1716690919]
+z_index = 1
+position = Vector2(1091, 165)
+texture = ExtResource("25_nkwmm")
+hframes = 8
+vframes = 4
+frame = 1
+script = ExtResource("26_rgfmy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShuSprite" unique_id=917521901]
+libraries/ = SubResource("AnimationLibrary_fixjv")
+autoplay = &"idle_right"
 
 [node name="InaSprite" type="Sprite2D" parent="." unique_id=868280798]
 position = Vector2(527, 165)
@@ -438,3 +572,5 @@ OneShot = false
 position = Vector2(2390, 166)
 next_scene = "YokaiHome"
 interactText = "Yokai Home"
+
+[connection signal="body_entered" from="YokaiShuOneShot/Area2D" to="YokaiShuOneShot" method="_on_area_2d_body_entered"]

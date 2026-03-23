@@ -62,10 +62,10 @@ Makoto: Sorry but I’ll still have to decline. I do believe that Yui must’ve 
 Florist: …Yui? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
 Makoto: Right. The girl that you claimed you had never seen before? [#animate_left=enter_convo][#animate_right=exit_convo]
 Florist: What about her? I already said earlier I hadn’t seen her. [#animate_left=exit_convo][#animate_right=enter_convo]
-Makoto: We found this bouquet along with other items that belonged to her in an alleyway nearby.[#animate_left=enter_convo][#animate_right=exit_convo]
-Florist: That’s kind of… But why tell me? You think I had something to do with her going missing? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
-Makoto: Well, according to the receipt found in her wallet, it was a custom order with a pickup date of two days ago.[#animate_left=enter_convo][#animate_right=exit_convo]
-Makoto: And by your own admission you do all the consultations in person, start to finish. Which means you should be quite familiar with her! [#expression_left=angry]
+Makoto: We found this[do Global.showEvidence("flowers")]bouquet along with other items that belonged to her in an alleyway nearby.[#animate_left=enter_convo][#animate_right=exit_convo]
+Florist: [do Global.hideEvidence()]That’s kind of… But why tell me? You think I had something to do with her going missing? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Makoto: Well, according to the[do Global.showEvidence("receipt")] receipt found in her wallet, it was a custom order with a pickup date of two days ago.[#animate_left=enter_convo][#animate_right=exit_convo]
+Makoto: [do Global.hideEvidence()]And by your own admission you do all the consultations in person, start to finish. Which means you should be quite familiar with her! [#expression_left=angry]
 Florist: Erk… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
 Makoto: There’s also another thing that’s been on my mind. When we first talked and here now again, you mentioned how scary it was that a “young lady could go missing”.[#animate_left=enter_convo][#animate_right=exit_convo]
 Makoto: I never mentioned anything about a missing persons case – only that I was looking for someone.
@@ -87,20 +87,37 @@ do Global.prepareDialogue("ShuConfrontDone", "res://Assets/Dialogue/Kite.dialogu
 do Global.dialogueFlags.shuConfront = true
 => END
 
+~ yokaiShuFound
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(70,25))
+do Global.zoomCamera(Vector2(2.5,2.5))
+Florist: Huff huff, I think I lost her… [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
+Kite: LADY MAKOTO, THERE SHE IS! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left][#expression_left=neutral]
+Makoto: Stop right there! [do Signals.moveCharacter.emit("ShuSprite", "turn_left")][#animate_left=enter_convo][#new_actor=makoto][#expression_left=angry]
+Kite: The truth shall be revealed madam! There is no running from justice![#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
+Florist: You're allied with a tengu spirit!? [do Signals.moveCharacter.emit("ShuSprite", "yokaiRun")]I’m not letting you catch me! [do Global.moveCamera(Vector2(110,25))][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+do Global.zoomCamera(Vector2(1.5,1.5))
+do Global.resetCamera()
+do Global.dialogueFlags.shuSpirit1 = true
+#Florist runs off!
+=> END
+
+
+
 ~ shuExplanation
 #Florist lets Makoto and Kite in and explains everything
 Florist: I apologize for being so dodgy and running like that. I assure you there’s a good reason I was hesitant on telling you guys all this.
 Makoto: That’s alright we got it sorted in the end. But now I would like some explanation of what is going on. I suppose we can start with introductions.
 Shu: Well, for starters, you can call me Shu. I’m an Oni, which is a kind of Yokai spirit like your friend the tengu there. 
-Shu: As you know I run Camellia in your realm not really much else to tell. You two are?
+Shu: As you know, I run Camellia in your realm. You two are?
 Makoto: Makoto Satou. Private Investigator.
 Kite: And I am Kite. Agent of Justice!
-Shu: I hope you're both telling the truth because right now Yui is in need of both of those…
+Shu: I hope you're both telling the truth, because right now, Yui is in need of both of those…
 Makoto: So Yui is here then? Can we see her? 
-Shu: Yeah she’s right over here…
+Shu: Yeah... she’s right over there...
 #The dramatic reveal of Yui passed out on da bed!
 Makoto: The photo matches. So, why is she here?
-Shu: It’s a long story so get ready.
+Shu: It’s a long story, so get ready.
 Shu: It all happened two days ago, right around closing time.
 Shu: There was only her order left for the day and I wasn’t in any rush to get home, so I stayed around a couple extra minutes in case she stopped by to pick it up. 
 Shu: And thankfully, there she was – she burst into the shop in a hurry, apologizing over and over for coming by so late.
@@ -128,20 +145,21 @@ Makoto: Do you think that presence you felt was the same individual that attacke
 Shu: No clue. Right before I jumped through the portal, I took a glance back at me and only glimpsed a white streak.
 Shu:  What I know is that whoever attacked her didn’t follow us, but I wouldn’t doubt if they’re still around looking for Yui. 
 Shu: Once I got her back here, I was able to take a look at her. Thankfully, her physical injuries aren’t severe, but…
-Shu: …she hasn’t woken up yet. It’s faint, but I can sense something off about her spirit.
+Shu: ...she hasn’t woken up yet. It’s faint, but I can sense something off about her spirit.
 Shu: I’m no expert on things like this, so I’ve been at a loss for what to do next.
 Makoto: Kite, is this something you’re familiar with?
 Kite: The extent of my knowledge of mortal spirits was simply that I could help them!
 Makoto: So you can’t identify what’s wrong either?
 Kite: I never needed to identify problems before as my pure spirit and love of justice would make swift work of any and all issues! 
 Makoto: So that’s a no then?
-Kite: …
+Kite: ...
 Kite: Indeed…
 Makoto: Miss Shu, would you happen to know anyone who might be able to take a proper look at Yui?
 Shu shakes her head.
 Shu: Many of the yokai here aren’t familiar with anything related to mortals. Some have never even seen a human spirit before.
 Makoto: I understand. Don’t worry, finding information is my job. 
-Shu: I would ask around the village. I know I said most folk around here wouldn’t know about mortals. I have heard rumors of a pretty powerful Yokai settling down here but between the store and Yui I haven’t had a chance to seek them out.
+Shu: I would ask around the village. I know I said most folk around here wouldn’t know about mortals. 
+Shu: I have heard rumors of a pretty powerful Yokai settling down here, but between the store and Yui, I haven’t had a chance to seek them out.
 Makoto: I guess we have our lead. Before we head out, would it be alright if we took a look at Yui as well? There may be some clues as to who attacked her.
 Shu: Do your thing. I’d rather not impede your investigation any more than I already have.
 Makoto: Thank you.

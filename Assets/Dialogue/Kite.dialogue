@@ -85,3 +85,24 @@ Kite: No no, my lady, I'm serious! Something has shifted in this alley! We must 
 Kite: Perhaps there's something we can not see!
 do Global.finishOneShot("ShuConfrontDone")
 => END
+
+~ spiritSightRevealsYokaiRealm
+#Makoto uses spirit sight after losing Shu in the alley way revealing a path to the yokai realm
+Makoto: Kite, explain to me what I’m looking at. [#expression_left=confused][#expression_right=happy][#actor_right=on][#new_actor=kite_right]
+Kite: Of course, Lady Makoto! That appears to be a rift to a realm beyond! I knew I sensed its heavy scent. [#animate_right=enter_convo][#expression_right=happy][#animate_left=exit_convo]
+Makoto: That must be where that blue-haired florist fled to. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=angry]
+Kite: Indeed! Let's go after her! [#animate_right=enter_convo][#animate_left=exit_convo]
+do Global.prepareDialogue("PortalFound", "res://Assets/Dialogue/Kite.dialogue", "firstEnterYokaiRealm", "Yokai")
+=> END
+
+~ firstEnterYokaiRealm
+Makoto: Whoa… [#expression_left=confused][#expression_right=neutral][#actor_right=on][#new_actor=kite_right]
+Kite: Well well! Is this not a joyous sight for these tenured eyes! [#animate_right=enter_convo][#expression_right=happy][#animate_left=exit_convo]
+Makoto: Kite, what are you talking about? Where are we? [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=unimp]
+Kite: Well my lady! Do you feel how the energy flows through the air here? We’ve ended up in the spirit world! The land that was once my home. [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: The spirit realm? Why is there an entrance to the spirit realm here? [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=confused]
+Kite: The mortal realm and spirit realm are ever interconnected. You’re as likely to find a place to cross over in an old alley as a shrine in the woods. [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: There’s a lot I want to ask, but we need to find that florist. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=angry]
+Kite: Well then, onwards, my lady! FOR JUSTICE! [#animate_left=exit_convo][#animate_right=enter_convo]
+do Global.finishOneShot("PortalFound")
+=> END
