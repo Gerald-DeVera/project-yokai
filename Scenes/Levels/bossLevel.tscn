@@ -106,7 +106,7 @@ rotation = -1.5707964
 script = ExtResource("2_hh1ma")
 
 [node name="cooldown" type="Timer" parent="bossStuff/ProjectileSpawners" unique_id=1309767295]
-wait_time = 5.0
+wait_time = 2.0
 autostart = true
 
 [node name="tilemaps" type="Node" parent="." unique_id=1871530816]
