@@ -95,72 +95,199 @@ Florist: Huff huff, I think I lost her… [#animate_left=exit_convo][#animate_ri
 Kite: LADY MAKOTO, THERE SHE IS! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left][#expression_left=neutral]
 Makoto: Stop right there! [do Signals.moveCharacter.emit("ShuSprite", "turn_left")][#animate_left=enter_convo][#new_actor=makoto][#expression_left=angry]
 Kite: The truth shall be revealed madam! There is no running from justice![#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
-Florist: You're allied with a tengu spirit!? [do Signals.moveCharacter.emit("ShuSprite", "yokaiRun")]I’m not letting you catch me! [do Global.moveCamera(Vector2(110,25))][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Florist: You're allied with a tengu spirit!? [do Signals.moveCharacter.emit("ShuSprite", "yokaiRun")][do Global.moveCamera(Vector2(110,25))]I’m not letting you catch me![#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
 do Global.zoomCamera(Vector2(1.5,1.5))
 do Global.resetCamera()
 do Global.dialogueFlags.shuSpirit1 = true
 #Florist runs off!
 => END
 
+~ yokaiRealmShuConfrontation2
+#Makoto follows Florist back to her home in the yokai realm and now this leads to a confrontation
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(70,25))
+do Global.zoomCamera(Vector2(2.5,2.5))
+do Signals.moveCharacter.emit("ShuSprite2", "yokaiHide")
+do Signals.moveCharacter.emit("PlayerCharacter", "chaseShu")
+do Signals.openDoor.emit("ShuHomeDoorSprite")
+Makoto: Miss? We have you cornered! We’d rather you come out and cooperate than have this standoff! [#expression_left=angry][#actor_right=on][#new_actor=shu][#expression_right=angry]
+Kite: Indeed! Justice always comes knocking! [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=neutral]
+Florist: Back off! I’ll have you know I’m an Oni! I could totally put up a fight if you tried anything. [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: An Oni? But you haven’t tried to fight at all. I don’t know your reasons for lying to us, but clearly you know much more than you’re letting on. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused][#new_actor=makoto]
+Makoto: I just want to confirm Yui is ok and to bring her home safely. [#expression_left=neutral]
+Florist: ... [#animate_left=exit_convo][#animate_right=enter_convo]
+Florist: So… you’re not trying to hurt Yui? [#expression_right=confused]
+Makoto: Hurt Yui? Definitely not. We were hired to find her and make sure she’s safe. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+Kite: As those who stride on the path of good, we could not sit idle when we heard tell of the missing Idol. [#animate_left=enter_convo][#expression_left=happy][#new_actor=kite_left]
+Kite: She has many people worried for her, and as agents of justice, it is our duty to save her! [#expression_left=angry]
+Florist: ...Agents of justice? [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: Er… That’s just what he calls us. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp][#new_actor=makoto]
+Florist: Well… I suppose I haven’t sensed any bloodlust from either of you…  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+The florist goes quiet for a moment and eventually unlocks the door.
+Florist: Urgh... Fine. You can come in. But don’t try anything! [#expression_right=neutral]
+do Global.zoomCamera(Vector2(1.5,1.5))
+do Global.resetCamera()
+do Global.dialogueFlags.shuSpirit2 = true
+=> END
 
 
 ~ shuExplanation
 #Florist lets Makoto and Kite in and explains everything
-Florist: I apologize for being so dodgy and running like that. I assure you there’s a good reason I was hesitant on telling you guys all this.
-Makoto: That’s alright we got it sorted in the end. But now I would like some explanation of what is going on. I suppose we can start with introductions.
-Shu: Well, for starters, you can call me Shu. I’m an Oni, which is a kind of Yokai spirit like your friend the tengu there. 
-Shu: As you know, I run Camellia in your realm. You two are?
-Makoto: Makoto Satou. Private Investigator.
-Kite: And I am Kite. Agent of Justice!
-Shu: I hope you're both telling the truth, because right now, Yui is in need of both of those…
-Makoto: So Yui is here then? Can we see her? 
-Shu: Yeah... she’s right over there...
-#The dramatic reveal of Yui passed out on da bed!
-Makoto: The photo matches. So, why is she here?
-Shu: It’s a long story, so get ready.
-Shu: It all happened two days ago, right around closing time.
-Shu: There was only her order left for the day and I wasn’t in any rush to get home, so I stayed around a couple extra minutes in case she stopped by to pick it up. 
-Shu: And thankfully, there she was – she burst into the shop in a hurry, apologizing over and over for coming by so late.
-Shu: Despite how refined and mature she looks, she seemed somewhat nervous.
-Makoto: Nervous? Did she seem afraid of something?
-Shu: Sorry, not that kind of nervous. More like… flustered?
-Makoto: I see. Go on.
-#Add more makoto interjections to make it feel more natural and break up the conversation
-Shu: She mentioned being late for something really important, and as soon as I finished ringing in her order she was practically already halfway through the door. 
-Shu: After that, I closed up as normal and started making my way back here to the spirit realm. 
-Makoto: Do you travel between realms often?
-Shu: Only on days I work… which is most days I guess. But anyway.
-Shu: When I made it to the alleyway, I spotted her from a distance and she was talking to someone. 
-Shu: I thought it was strange because humans rarely go through there, so I hung out by the edge of the alley waiting for them to leave.
-Makoto: There was another person? Did you happen to see what they looked like? Any defining features?
-Shu: Hold on, hold on. One question at a time.
-Shu: As I said, it was already late and the streetlights were dim, so I couldn’t quite make out the other person. Wasn’t really trying to spy on them, either.
-Shu: But then out of nowhere, I heard a scream coming from her direction.
-Shu: I kinda ran in without thinking, worried that something bad might’ve happened.
-Shu: Sadly, I was right. I saw her laying unconscious on the ground, and it seemed as if someone or something had attacked her. 
-Shu: When I went to check if she was ok, I suddenly felt a really weird presence behind me.
-Shu: Now, I might be an Oni, but I left a life of fighting and cursing behind me to open Camellia. But once you’ve felt bloodlust like that, you’d never forget it.
-Shu: My gut told me to grab Yui and run, and so I did. Carried her all the way here to my home here in the spirit realm. 
-Makoto: Do you think that presence you felt was the same individual that attacked Yui?
-Shu: No clue. Right before I jumped through the portal, I took a glance back at me and only glimpsed a white streak.
-Shu:  What I know is that whoever attacked her didn’t follow us, but I wouldn’t doubt if they’re still around looking for Yui. 
-Shu: Once I got her back here, I was able to take a look at her. Thankfully, her physical injuries aren’t severe, but…
-Shu: ...she hasn’t woken up yet. It’s faint, but I can sense something off about her spirit.
-Shu: I’m no expert on things like this, so I’ve been at a loss for what to do next.
-Makoto: Kite, is this something you’re familiar with?
-Kite: The extent of my knowledge of mortal spirits was simply that I could help them!
-Makoto: So you can’t identify what’s wrong either?
-Kite: I never needed to identify problems before as my pure spirit and love of justice would make swift work of any and all issues! 
-Makoto: So that’s a no then?
-Kite: ...
-Kite: Indeed…
-Makoto: Miss Shu, would you happen to know anyone who might be able to take a proper look at Yui?
-Shu shakes her head.
-Shu: Many of the yokai here aren’t familiar with anything related to mortals. Some have never even seen a human spirit before.
-Makoto: I understand. Don’t worry, finding information is my job. 
-Shu: I would ask around the village. I know I said most folk around here wouldn’t know about mortals. 
-Shu: I have heard rumors of a pretty powerful Yokai settling down here, but between the store and Yui, I haven’t had a chance to seek them out.
-Makoto: I guess we have our lead. Before we head out, would it be alright if we took a look at Yui as well? There may be some clues as to who attacked her.
-Shu: Do your thing. I’d rather not impede your investigation any more than I already have.
-Makoto: Thank you.
-=> END 
+if Global.dialogueFlags.shuExplain == false:
+	do Global.grabCameraPos()
+	do Global.moveCamera(Vector2(0,-40))
+	do Global.zoomCamera(Vector2(3.5,3.5))
+	Florist: I apologize for being so dodgy and running like that. I assure you there’s a good reason I was hesitant on telling you guys all this. [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=unimp]
+	Makoto: That’s alright, we got it sorted in the end. But now, I would like a proper explanation of what is going on. I suppose we can start with introductions.[#animate_left=enter_convo][#animate_right=exit_convo]
+	Shu: Well, for starters, you can call me Shu. I’m an Oni, which is a kind of Yokai spirit. Like your friend over there, the tengu. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	Shu: As you know, I run the flower store Camellia in your realm. You two are? [#expression_right=neutral]
+	Makoto: Makoto Satou. Private Investigator. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Kite: And I am Kite. Agent of Justice![#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
+	Shu: I hope you're both telling the truth, because right now, Yui is in need of both of those… [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: So Yui is here, then? Can we see her? [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=makoto][#expression_left=confused]
+	Shu: Yeah... she’s right over there... [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	[do Signals.openDoor.emit("TempHideYui")][do Global.moveCamera(Vector2(90,-20))] Makoto sees Yui resting in a futon, sound asleep.
+	#The dramatic reveal of Yui passed out on da bed!
+	Makoto: [do Global.moveCamera(Vector2(0,-40))]The photo matches. So, why is she here? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Shu: It’s a long story, so get ready. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Shu: It all happened two days ago, right around closing time.
+	Shu: There was only her order left for the day and I wasn’t in any rush to get home, so I stayed around a couple extra minutes in case she stopped by to pick it up. 
+	Shu: And thankfully, there she was – she burst into the shop in a hurry, apologizing over and over for coming by so late.
+	Shu: Despite how refined and mature she looks, she seemed somewhat nervous.
+	Makoto: Nervous? Did she seem afraid of something? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Shu: Sorry, not that kind of nervous. More like… flustered? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	Makoto: I see. Go on. [#animate_left=enter_convo][#animate_right=exit_convo]
+	#Add more makoto interjections to make it feel more natural and break up the conversation
+	Shu: She mentioned being late for something really important, and as soon as I finished ringing in her order she was practically already halfway through the door. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Shu: After that, I closed up as normal and started making my way back here to the spirit realm. 
+	Makoto: Do you travel between realms often? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Shu: Only on days I work… which is most days I guess. But anyway. [#animate_left=exit_convo][#animate_right=enter_convo]
+	Shu: When I made it to the alleyway, I spotted her from a distance and she was talking to someone. 
+	Shu: I thought it was strange because humans rarely go through there, so I hung out by the edge of the alley waiting for them to leave.
+	Makoto: There was another person? Did you happen to see what they looked like? Any defining features? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Shu: Hold on, hold on. One question at a time. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	Shu: As I said, it was already late and the streetlights were dim, so I couldn’t quite make out the other person. Wasn’t really trying to spy on them, either. [#expression_right=unimp]
+	Shu: But then out of nowhere, I heard a scream coming from her direction.
+	Shu: I kinda ran in without thinking, worried that something bad might’ve happened. [#expression_right=neutral]
+	Shu: Sadly, I was right. I saw her laying unconscious on the ground, and it seemed as if someone or something had attacked her. 
+	Shu: When I went to check if she was ok, I suddenly felt a really weird presence behind me.
+	Shu: Now, I might be an Oni, but I left a life of fighting and cursing behind me to open Camellia. But once you’ve felt bloodlust like that, you’d never forget it. [#expression_right=angry]
+	Shu: My gut told me to grab Yui and run, and so I did. Carried her all the way here to my home here in the spirit realm. [#expression_right=neutral]
+	Makoto: Do you think that presence you felt was the same individual that attacked Yui? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+	Shu: No clue. Right before I jumped through the portal, I took a glance back at me and only glimpsed a white streak. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	Shu:  What I know is that whoever attacked her didn’t follow us, but I wouldn’t doubt if they’re still around looking for Yui. 
+	Shu: Once I got her back here, I was able to take a look at her. Thankfully, her physical injuries aren’t severe, but…
+	Shu: ...she hasn’t woken up yet. It’s faint, but I can sense something off about her spirit.
+	Shu: I’m no expert on things like this, so I’ve been at a loss for what to do next.
+	Makoto: Kite, is this something you’re familiar with?  [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Kite: The extent of my knowledge of mortal spirits was simply that I could help them! [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=angry]
+	Makoto: ...So you can’t identify what’s wrong either? [#animate_left=enter_convo][#new_actor=makoto][#expression_left=confused]
+	Kite: I never needed to identify problems before, as my pure spirit and love of justice would make swift work of any and all issues! [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=angry]
+	Makoto: ...So that’s a no then? [#animate_left=enter_convo][#new_actor=makoto][#expression_left=unimp]
+	Kite: ... [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
+	Kite: Indeed… [#expression_left=unimp]
+	Makoto: Miss Shu, would you happen to know anyone who might be able to take a proper look at Yui? [#animate_left=enter_convo][#new_actor=makoto][#expression_left=neutral]
+	Shu shakes her head. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	Shu: Many of the yokai here aren’t familiar with anything related to mortals. Some have never even seen a human spirit before.
+	Makoto: I understand. Don’t worry, finding information is my job. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy]
+	Shu: I would ask around the village. I know I said most folk around here wouldn’t know about mortals, but...  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Shu: ...I have heard rumors of a pretty powerful Yokai settling down here. Between the store and Yui though, I haven’t had a chance to seek them out. [#expression_right=unimp]
+	Makoto: I guess we have our lead. Before we head out, would it be alright if we took a look at Yui as well? There may be some clues as to who attacked her. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Shu: Do your thing. I’d rather not impede your investigation any more than I already have. [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: Thank you. [#animate_left=enter_convo][#animate_right=exit_convo]
+	do Global.zoomCamera(Vector2(2.5,2.5))
+	do Global.resetCamera()
+	do Signals.updateItem.emit(load("res://Assets/InventoryItems/yuiphoto.tres"),load("res://Assets/InventoryItems/yuiphoto2.tres"))
+	do Signals.updateInfoAnimation.emit("inventory")
+	do Global.dialogueFlags.shuExplain = true
+	do Signals.toggleAsset.emit("YuiDialogue", true)
+	=> END 
+elif Global.dialogueFlags.shuExplain == true:
+	=> shuYokaiLore
+	
+~ shuYokaiLore
+#Dialogue where shu talks about being a yokai and give more context, might be optional text might happen b4 yui explained
+Makoto: I had a few questions but they’re not exactly related to the case. Is that okay? [#actor_right=on][#new_actor=shu]
+Shu: Sure, shoot. [#animate_left=exit_convo][#animate_right=enter_convo]
+~ askShu
+- About the realms
+	Makoto: Why do you go between the Mortal Realm and Spirit Realm? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Shu: The mortal realm is super cool! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	Makoto: How so? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Shu: Well, in the Spirit realm, most spirits are super old and traditional. But you mortals are always advancing and changing stuff up. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Shu: We don’t have cool bands like YuYuYu or places like arcades out here. [#expression_right=unimp]
+	Makoto: So you do it for entertainment? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Shu: Yeah. When you live as long as a spirit, you really treasure the little things. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	Makoto: Wait, how old are you? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Shu: We’re ending this discussion. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+	Makoto: Fair enough. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy][#expression_right=neutral]
+	=> askShu
+- About yokai
+	Makoto: So, you’re an Oni, right? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_right=neutral][#expression_left=neutral]
+	Shu: Yeah, that’s right. [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: But you’re also a Florist? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Shu: Correct. [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: Can I ask- [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Shu: I see where you’re going with this. Yes, oni are KNOWN for being rude and angry all the time, but after a while it just gets tiring, you know. [#animate_left=exit_convo][#animate_right=enter_convo]
+	Shu: Sometimes a girl just wants to make bouquets and eat ramen.
+	Makoto: I see. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Shu: Is that all? [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: For now. [#animate_left=enter_convo][#animate_right=exit_convo]
+	=> askShu
+- About Kite
+	Shu: Hey uh, Kite, was it? [#animate_left=exit_convo][#animate_right=enter_convo]
+	Kite: Yes? [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left]
+	Shu: Why Kite? That’s a weird name for a Tengu... [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
+	Kite: Indeed, it is not a traditional name. But it is the name Lady Makoto has bequeathed unto me![#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy]
+	Kite: I believe it encompasses my flying passions for truth and justice!  Although my powers have diminished, my spirit continues to soar in the face of evil! [#expression_left=angry]
+	Makoto: It’s because he floats around like a kite. [#animate_left=enter_convo][#new_actor=makoto][#expression_left=unimp]
+	Kite: Eh? And because of the truth and justice stuff too, surely! . [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=confused]
+	Shu: I didn’t know you could be so cruel, Makoto...  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	Kite: Truly… [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+	Makoto: I prefer the term practical.[#animate_left=enter_convo][#new_actor=makoto][#expression_left=happy]
+	=> askShu
+- Nevermind
+	if Global.YuiExamined != 3
+		Shu: You should go take a look at Yui if you have the time. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+		=> END
+	elif Global.YuiExamined == 3
+		Shu: I hope you can find that expert... [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+		=> END
+	
+~ yuiExamine
+do Signals.moveCharacter.emit("ShuSprite", "turn_right")
+Shu: I didn’t really touch her aside from making sure she didn’t have any major injuries. [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=unimp]
+Makoto: I’ll take a look then. [#animate_left=enter_convo][#animate_right=exit_convo]
+~ yuiExamineOptions
+- Examine Bracelet
+	Makoto: Hmm, this bracelet… it looks exactly like the one we found in the alleyway[do Global.showEvidence("bracelet1")] .
+	do Global.hideEvidence()
+	Shu: That looks like one of those paired bracelets from threads. People come into the flower shop wearing those all the time. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Shu: If I remember, there's a superstition that if you get a pair of matching bracelets and engrave it with your partner's name, you’ll be together forever.
+	Makoto: I see. I think I know who the missing bracelet belongs to then. [#animate_left=enter_convo][#animate_right=exit_convo]
+	if Global.YuiOptions["bracelet"] != true
+		do Global.examineYui("bracelet")
+		do Signals.updateItem.emit(load("res://Assets/InventoryItems/bracelet1.tres"),load("res://Assets/InventoryItems/bracelet2.tres"))
+		do Signals.updateInfoAnimation.emit("inventory")
+		do Signals.updateInventory.emit()
+	=> yuiExamineOptions
+- Examine Pockets
+	Makoto: [do Global.showEvidence("phone")] It looks like she still has her phone. I don’t like snooping around someone’s personal messages, but it’s the best lead we got[do Global.hideEvidence()].
+	if Global.YuiOptions["pockets"] != true
+		do Global.examineYui("pockets")
+		do Signals.collectItem.emit(load("res://Assets/InventoryItems/phone.tres"))
+		do Signals.updateInfoAnimation.emit("inventory")
+	=> yuiExamineOptions
+- Examine Wounds
+	Makoto: Shu’s right, doesn’t look like she has any external injuries. Her timely intervention probably saved Yui from much worse.
+	do Global.examineYui("wounds")
+	=> yuiExamineOptions
+- Finish examination [if Global.YuiExamined == 3]
+	Makoto: I think that’s all there is.
+	Shu: I hope that stuff helps.  [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: It definitely does. I feel we’re nearing the end of this case. But first, we need to find that expert. [#animate_left=enter_convo][#animate_right=exit_convo]
+	do Signals.moveCharacter.emit("ShuSprite", "turn_left")
+	do Global.dialogueFlags.confirmedYui = true
+	do Signals.toggleAsset.emit("YuiDialogue", false)
+	=> END
+=> END

@@ -87,6 +87,9 @@ Old Guy: Hello miss, how can I help you?
 	Old Guy: Ah, well best of luck! She's one of the most caring people I know. 
 	Old Guy: She always makes time to come and help out around her parents shop. I certainly wish my son was half as caring, [wave amp=25 freq=5]gyahaha![/wave]
 	do Global.dialogueFlags.keyWitnessFound = true
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest2.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest1.tres"))
+	do Signals.updateInfoAnimation.emit("notebook")
 	#Set flag for knowing about Ramen shop and Yui
 	=> END
 - Nevermind.

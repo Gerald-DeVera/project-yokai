@@ -12,6 +12,8 @@ signal updateInventory()
 
 signal collectItem(item: InvItem)
 
+signal updateItem(item_old: InvItem, item_new: InvItem)
+
 signal sendQuestDesc(name: String, desc: String)
 
 signal toggleNotebookInput(input: bool)
@@ -39,3 +41,7 @@ signal toggleArea(areaName: String, toggled: bool)
 signal changeDialoguePoint(characterName: String, newstartingPoint: String)
 
 signal moveCharacter(charName: String, event: String)
+
+signal openDoor(doorName: String)
+
+signal updateInteractText(interactName: String, newtooltip: String)

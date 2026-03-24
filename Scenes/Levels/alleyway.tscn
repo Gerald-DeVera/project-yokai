@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://caixoahn8744"]
 
-[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="1_ed5bj"]
 [ext_resource type="PackedScene" uid="uid://b5m0h0n4twj7d" path="res://Scenes/Backgrounds/city_parallax.tscn" id="1_gtl7o"]
 [ext_resource type="Texture2D" uid="uid://deiq4acpd6rmm" path="res://Assets/Environment/bg_overworld/city_overworld_tileset.png" id="2_1qc4y"]
 [ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="2_jvwyf"]
@@ -210,6 +209,44 @@ use_hdr = true
 fill = 2
 fill_from = Vector2(0.7627907, 0.5255814)
 fill_to = Vector2(0.36744186, 0.5023256)
+
+[sub_resource type="Animation" id="Animation_64xah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_fb7ch"]
+resource_name = "flicker"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.27, 0.33333334, 0.53666663, 0.5685458, 0.59333336, 0.64529324, 0.7163093, 0.7907311, 0.8442217, 0.9349232, 0.975961, 1.0317774, 1.0968964, 1.2015519, 1.2425897, 1.2984061, 1.3635252, 1.4527253, 1.4937632, 1.5495795, 1.6146985),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.75, 0.25560716, 0.7, 0.51, 0.65, 1.0, 0.7, 0.51, 0.65, 1.0, 0.7, 0.51, 0.65, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pf5yo"]
+_data = {
+&"RESET": SubResource("Animation_64xah"),
+&"flicker": SubResource("Animation_fb7ch")
+}
 
 [sub_resource type="Gradient" id="Gradient_gia1v"]
 offsets = PackedFloat32Array(0.016806724, 0.5546219, 1)
@@ -535,29 +572,38 @@ color = Color(0.79186064, 0.5415253, 0.48792732, 1)
 energy = 0.85
 blend_mode = 2
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1606030445]
-visible = false
+[node name="LampLight" type="PointLight2D" parent="." unique_id=1606030445]
 position = Vector2(47.999992, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
-color = Color(0.81799215, 0.8183224, 0.8106099, 1)
+color = Color(0.36150822, 0.2655897, 0.1234299, 1)
 texture = SubResource("GradientTexture2D_gia1v")
 
-[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2134199110]
-visible = false
-position = Vector2(290, -60.999996)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LampLight" unique_id=1333709343]
+libraries/ = SubResource("AnimationLibrary_pf5yo")
+autoplay = &"flicker"
+
+[node name="LampLight2" type="PointLight2D" parent="." unique_id=1704631735]
+position = Vector2(295.00003, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
-color = Color(0.6874761, 0.63669235, 0.5901678, 1)
+color = Color(0.36150822, 0.2655897, 0.1234299, 1)
 texture = SubResource("GradientTexture2D_gia1v")
 
-[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1865023061]
-visible = false
-position = Vector2(549, -60.999996)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LampLight2" unique_id=1885564431]
+libraries/ = SubResource("AnimationLibrary_pf5yo")
+autoplay = &"flicker"
+
+[node name="LampLight3" type="PointLight2D" parent="." unique_id=989475702]
+position = Vector2(548, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
-color = Color(0.6874761, 0.63669235, 0.5901678, 1)
+color = Color(0.36150822, 0.2655897, 0.1234299, 1)
 texture = SubResource("GradientTexture2D_gia1v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LampLight3" unique_id=1154587388]
+libraries/ = SubResource("AnimationLibrary_pf5yo")
+autoplay = &"flicker"
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("7_fi4eb")]
 

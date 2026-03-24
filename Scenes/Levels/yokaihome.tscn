@@ -6,9 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://cnss2f3uqfbuh" path="res://Assets/Sprites/yui sprite-Sheet.png" id="3_vm7hy"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="4_7mosq"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="5_4lwr6"]
+[ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="5_7mosq"]
+[ext_resource type="Script" uid="uid://nwoi328xxqbv" path="res://Scenes/Entities/shu_sprite.gd" id="6_4lwr6"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="6_e5v46"]
 [ext_resource type="Texture2D" uid="uid://6bpgw4ajuq86" path="res://Assets/Environment/lightparallel.png" id="6_wvaob"]
+[ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="7_e5v46"]
+[ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="7_xlsub"]
+[ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="8_f8qid"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="9_o8uwm"]
+[ext_resource type="Script" uid="uid://bh187cy8tdkp6" path="res://Scenes/Levels/temp_hide_yui.gd" id="12_4lwr6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_58a5k"]
 
@@ -68,6 +74,154 @@ _data = {
 &"idle_right": SubResource("Animation_7ehg5")
 }
 
+[sub_resource type="Animation" id="Animation_jecex"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_6u22d"]
+resource_name = "idle_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13, 15]
+}
+
+[sub_resource type="Animation" id="Animation_sgi0b"]
+resource_name = "idle_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12, 14]
+}
+
+[sub_resource type="Animation" id="Animation_gl2bf"]
+resource_name = "run_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [17, 19, 21, 23, 25, 27, 29, 31]
+}
+
+[sub_resource type="Animation" id="Animation_yyrmh"]
+resource_name = "run_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 18, 20, 22, 24, 26, 28, 30]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xlsub"]
+_data = {
+&"RESET": SubResource("Animation_jecex"),
+&"idle_left": SubResource("Animation_6u22d"),
+&"idle_right": SubResource("Animation_sgi0b"),
+&"run_left": SubResource("Animation_gl2bf"),
+&"run_right": SubResource("Animation_yyrmh")
+}
+
+[sub_resource type="Animation" id="Animation_dtbgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_m45jl"]
+resource_name = "idle_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13, 15]
+}
+
+[sub_resource type="Animation" id="Animation_jtosk"]
+resource_name = "idle_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o8uwm"]
+_data = {
+&"RESET": SubResource("Animation_dtbgk"),
+&"idle_left": SubResource("Animation_m45jl"),
+&"idle_right": SubResource("Animation_jtosk")
+}
+
 [sub_resource type="Gradient" id="Gradient_eypgt"]
 offsets = PackedFloat32Array(0, 0.6225166)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
@@ -90,6 +244,42 @@ gradient = SubResource("Gradient_t26je")
 fill = 2
 fill_from = Vector2(0.53023255, 0.49302325)
 fill_to = Vector2(0.13953489, 0.90697676)
+
+[sub_resource type="Animation" id="Animation_4lwr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400.99997, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_e5v46"]
+resource_name = "reveal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.143547, 1.0000023),
+"update": 0,
+"values": [Vector2(400.99997, -5), Vector2(517, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f8qid"]
+_data = {
+&"RESET": SubResource("Animation_4lwr6"),
+&"reveal": SubResource("Animation_e5v46")
+}
 
 [sub_resource type="Animation" id="Animation_71phu"]
 length = 0.001
@@ -165,19 +355,19 @@ _data = {
 &"zoom_out": SubResource("Animation_yfdhe")
 }
 
-[node name="RamenShop" type="Node2D" unique_id=416392867]
+[node name="YokaiHome" type="Node2D" unique_id=416392867]
 script = ExtResource("1_wvaob")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2007863621]
 layer = -3
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1088622015]
-offset_left = -86.00001
-offset_top = -6.0000153
-offset_right = -44.420006
-offset_bottom = 38.49498
+offset_left = -85.99999
+offset_top = -4.999999
+offset_right = -44.41999
+offset_bottom = 39.494995
 scale = Vector2(18.819786, 8.988636)
-color = Color(0.03529412, 0.039215688, 0.039215688, 1)
+color = Color(0.039215688, 0.02745098, 0.019607844, 1)
 
 [node name="YokaihomeInteriorBg" type="Sprite2D" parent="." unique_id=2079459472]
 position = Vector2(351, 228)
@@ -206,13 +396,68 @@ position = Vector2(351, 228)
 texture = ExtResource("2_vm7hy")
 
 [node name="YuiSpriteSheet" type="Sprite2D" parent="." unique_id=1433188238]
-position = Vector2(420, 251)
+position = Vector2(454, 266)
+rotation = 1.5707964
 texture = ExtResource("3_vm7hy")
 hframes = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YuiSpriteSheet" unique_id=1398361493]
 libraries/ = SubResource("AnimationLibrary_7mosq")
 autoplay = &"idle_left"
+
+[node name="ShuSprite" type="Sprite2D" parent="." unique_id=1462393563]
+z_index = 1
+position = Vector2(363, 249)
+texture = ExtResource("5_7mosq")
+hframes = 8
+vframes = 4
+frame = 1
+script = ExtResource("6_4lwr6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShuSprite" unique_id=1043567910]
+libraries/ = SubResource("AnimationLibrary_xlsub")
+autoplay = &"idle_left"
+
+[node name="InaSprite" type="Sprite2D" parent="." unique_id=1703937242]
+visible = false
+position = Vector2(333, 249)
+texture = ExtResource("7_xlsub")
+hframes = 16
+frame = 1
+script = ExtResource("8_f8qid")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InaSprite" unique_id=557134891]
+libraries/ = SubResource("AnimationLibrary_o8uwm")
+autoplay = &"idle_left"
+
+[node name="ShuDialogueHome" parent="." unique_id=206299497 instance=ExtResource("7_e5v46")]
+light_mask = 2
+z_index = 10
+position = Vector2(362, 249)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "shuExplanation"
+isDialogue = true
+interactText = "Talk"
+dialoguePath = "res://Assets/Dialogue/Shu.dialogue"
+
+[node name="YuiDialogueHome" parent="." unique_id=254564065 instance=ExtResource("7_e5v46")]
+light_mask = 2
+z_index = 10
+position = Vector2(451, 249)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "yuiExamine"
+isDialogue = true
+interactText = "Examine"
+dialoguePath = "res://Assets/Dialogue/Shu.dialogue"
+
+[node name="InaShuDialogue" parent="." unique_id=1838911866 instance=ExtResource("7_e5v46")]
+position = Vector2(333, 250)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "InaShuHome"
+isDialogue = true
+interactText = "Talk"
+dialoguePath = "res://Assets/Dialogue/Ina.dialogue"
+locked = true
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("4_7mosq")]
 position = Vector2(204, 247)
@@ -224,10 +469,11 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_4lwr6")]
 
-[node name="Door" parent="." unique_id=206299497 instance=ExtResource("6_e5v46")]
+[node name="Door" parent="." unique_id=1587565444 instance=ExtResource("6_e5v46")]
 light_mask = 2
 position = Vector2(187, 249)
 next_scene = "Yokai"
+player_pos = Vector2(2390, 169)
 interactText = "To Spirit Realm"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1594552207]
@@ -336,6 +582,27 @@ scale = Vector2(1.284, -0.09258817)
 color = Color(0.8283081, 0.509076, 0.88042694, 1)
 energy = 0.84
 texture = ExtResource("6_wvaob")
+
+[node name="TempHideYui" type="ColorRect" parent="." unique_id=126299737]
+light_mask = 2
+offset_left = 400.99997
+offset_top = -5.0
+offset_right = 442.58017
+offset_bottom = 39.49501
+scale = Vector2(18.819786, 8.988636)
+color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+script = ExtResource("12_4lwr6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TempHideYui" unique_id=1731134584]
+
+[node name="TempBarrier" type="CollisionShape2D" parent="TempHideYui/StaticBody2D" unique_id=1257082469]
+position = Vector2(-1.6472005, 30.594185)
+rotation = -1.5707964
+scale = Vector2(0.11125159, 0.05313557)
+shape = SubResource("WorldBoundaryShape2D_58a5k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TempHideYui" unique_id=580415151]
+libraries/ = SubResource("AnimationLibrary_f8qid")
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("9_o8uwm")]
 

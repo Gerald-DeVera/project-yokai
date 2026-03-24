@@ -155,3 +155,16 @@ func moveBody(charName: String, event: String):
 		if event == "exitStore":
 			print("im movin")
 			$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(-1,0))
+		elif event == "chaseShu":
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/RunSet/blend_position", Vector2(1,0))
+			movement_state_machine.travel("RunSet")
+			print("im chasin")
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_OUT)
+			tween.set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property(self, "position", Vector2(2325.0,165), 2)
+			await get_tree().create_timer(0.8).timeout
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(1,0))
+			$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 1)
+			$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+			movement_state_machine.travel("IdleSet")

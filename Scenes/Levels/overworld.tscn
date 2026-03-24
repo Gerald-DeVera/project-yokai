@@ -36,7 +36,9 @@
 [ext_resource type="Script" uid="uid://dircb85vodqat" path="res://Scenes/Levels/npc_test.gd" id="33_12d20"]
 [ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="34_57gpc"]
 [ext_resource type="AudioStream" uid="uid://rjqlqlb0w2mk" path="res://Assets/Audio/BackgroundTracks/DayCity.wav" id="35_57gpc"]
+[ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="36_ien3c"]
 [ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="37_fnh4o"]
+[ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="37_otjua"]
 [ext_resource type="Script" uid="uid://dr5p4jg445ckp" path="res://Scenes/Entities/shu_overworld_path.gd" id="39_0urf5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sg6ii"]
@@ -330,6 +332,62 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2854, 289, 0, 0, 0, 0, -774, 297)
 }
 point_count = 2
+
+[sub_resource type="Animation" id="Animation_dtbgk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_m45jl"]
+resource_name = "idle_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13, 15]
+}
+
+[sub_resource type="Animation" id="Animation_jtosk"]
+resource_name = "idle_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dy15f"]
+_data = {
+&"RESET": SubResource("Animation_dtbgk"),
+&"idle_left": SubResource("Animation_m45jl"),
+&"idle_right": SubResource("Animation_jtosk")
+}
 
 [sub_resource type="Curve2D" id="Curve2D_ien3c"]
 _data = {
@@ -835,6 +893,28 @@ isDialogue = true
 interactText = "Ask"
 dialoguePath = "res://Assets/Dialogue/mortalNPCs.dialogue"
 
+[node name="InaSprite" type="Sprite2D" parent="." unique_id=1737006343]
+visible = false
+position = Vector2(1010, 288)
+texture = ExtResource("36_ien3c")
+hframes = 16
+frame = 1
+script = ExtResource("37_otjua")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InaSprite" unique_id=2032588332]
+libraries/ = SubResource("AnimationLibrary_dy15f")
+autoplay = &"idle_left"
+
+[node name="InaDialogueOverworld" parent="." unique_id=206299497 instance=ExtResource("22_pbaho")]
+z_index = 2
+position = Vector2(1011, 292)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "inaGivesBeans"
+isDialogue = true
+interactText = "Ina Rin"
+dialoguePath = "res://Assets/Dialogue/Ina.dialogue"
+locked = true
+
 [node name="ShuRunning" type="Node2D" parent="." unique_id=937069471]
 visible = false
 position = Vector2(1977, 538)
@@ -882,12 +962,8 @@ next_scene = "Alley"
 interactText = "Alleyway"
 locked = true
 
-[node name="OfficeDoor" parent="." unique_id=206299497 instance=ExtResource("22_2j0ao")]
+[node name="OfficeDoor" parent="." unique_id=2047896276 instance=ExtResource("22_2j0ao")]
 position = Vector2(1977, 289)
 next_scene = "Office"
 player_pos = Vector2(224, 246)
 interactText = "Office"
-
-[node name="YokaiWorld" parent="." unique_id=596333177 instance=ExtResource("22_2j0ao")]
-position = Vector2(362, 286)
-next_scene = "Yokai"

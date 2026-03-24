@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://bdm2hk0sec5nr"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_8m81y"]
+
+[resource]
+script = ExtResource("1_8m81y")
+questName = "Search for a Curse Expert"
+fullDescription = "Yui is okay, but she seems to have been cursed. We should ask around the Spirit Realm."

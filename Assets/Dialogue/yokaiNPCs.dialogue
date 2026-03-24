@@ -1,0 +1,44 @@
+~ searchRin1
+#This plays post shu explanation while looking for a yokai curse expert
+if Global.dialogueFlags.confirmedYui == false:
+	Lively Yokai: Hey! You look a lot like a mortal...
+	=> END
+elif Global.dialogueFlags.confirmedYui == true:
+	Lively Yokai: Whoa, are you a real mortal? I’ve only heard stories about you guys. You stink!
+	Kite: Do not speak ill of Lady Makoto if you know what is good for you!
+	Makoto: It’s alright Kite, mission first.
+	Kite: You are lucky this time, small one, but just know you have been spared by a true agent of justice!
+	Lively Yokai: Heh, whatever. So what do you want from me? I’m very busy.
+	Makoto: It’ll only be a second. Do you know any yokai around here that are familiar with curses?
+	Lively Yokai: Erm… I think the kitsune who runs the tea shop to the east knows a thing or two. 
+	Lively Yokai: She’s pretty powerful and really OLD… Please don’t tell her I said that.
+	Makoto: Noted… I’ll let you get back to what you were doing then. Thank you.
+	Lively Yokai: No problem! Now I'm going back to watching beetles fight!
+	do Global.dialogueFlags.keyYokaifound = true
+	do Signals.toggleAsset.emit("InaDialogue", true)
+	do Signals.toggleAsset.emit("InaSprite", true)
+	=> END
+
+
+~ searchRin2
+#Nothing dThis is kinda just throwaway dialogue meant to pad out the searching for ina rin portion of the game to make it feel less linear
+if Global.dialogueFlags.confirmedYui == false:
+	Curious Yokai: Umm... Can I help you?
+	=> END
+elif Global.dialogueFlags.confirmedYui == true:
+	Curious Yokai: Is that a mortal!? Here!?
+	Kite: Indeed, this is Lady Makoto, and you shan’t disrespect her!
+	Curious Yokai: I didn’t mean no disrespect, I've just never seen a mortal in person before!
+	Makoto: It’s alright. Don’t mind Kite.
+	Kite: I would very much like it if you did mind me!
+	Curious Yokai: Uhhh… okay? Um, so what’s a mortal doing here anyway?
+	Makoto: I’m looking for someone who knows a lot about curses. Do you know anyone like that around here?
+	Curious Yokai: Ummmmmmmm… 
+	Curious Yokai: ...
+	Curious Yokai: .......
+	Curious Yokai: ...........
+	Curious Yokai: ................
+	Curious Yokai: Nope!
+	Makoto: I see... Thank you for your time then.
+	Curious Yokai: Whoa, first I saw a mortal, then that mortal thanked me. I gotta tell my friends about this!
+	=> END

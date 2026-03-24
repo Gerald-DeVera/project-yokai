@@ -31,12 +31,83 @@
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="25_rj0db"]
 [ext_resource type="Script" uid="uid://nwoi328xxqbv" path="res://Scenes/Entities/shu_sprite.gd" id="26_rgfmy"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="27_ao21d"]
-[ext_resource type="Script" uid="uid://cja2uvu75861w" path="res://Scripts/interactableItem.gd" id="27_s3t3b"]
-[ext_resource type="Resource" uid="uid://dplukno8ymnfn" path="res://Assets/InventoryItems/foxToy.tres" id="28_s2ptr"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="29_s2ptr"]
+[ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="30_gqjqm"]
+[ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="33_krn6b"]
+[ext_resource type="Texture2D" uid="uid://cgq0p1v7p2r4m" path="res://Assets/Environment/bg_yokai/bg_yokai_doorleft.png" id="35_fvt3n"]
+[ext_resource type="Script" uid="uid://cvnksskr2lo0e" path="res://Scenes/Levels/shu_home_door_sprite.gd" id="35_hki8u"]
+[ext_resource type="AudioStream" uid="uid://d2uiy2diy6rme" path="res://Assets/Audio/BackgroundTracks/Yokai.wav" id="35_rgfmy"]
+[ext_resource type="Texture2D" uid="uid://dlimiw8iweatl" path="res://Assets/Environment/bg_yokai/bg_yokai_doorright.png" id="36_hki8u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8x7c5"]
 distance = 3.0
+
+[sub_resource type="Gradient" id="Gradient_gqjqm"]
+colors = PackedColorArray(0, 0, 0, 1, 0.09620487, 0.096204706, 0.096204795, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_krn6b"]
+gradient = SubResource("Gradient_gqjqm")
+use_hdr = true
+
+[sub_resource type="Animation" id="Animation_ex5xx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BgYokaiDoorleft:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BgYokaiDoorright:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fnxvp"]
+resource_name = "open_doors"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BgYokaiDoorleft:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.68, 0.96666664),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-11.28, 0), Vector2(-11.28, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BgYokaiDoorright:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.68, 0.96666664),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10.12, 0), Vector2(10.12, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ptyjt"]
+_data = {
+&"RESET": SubResource("Animation_ex5xx"),
+&"open_doors": SubResource("Animation_fnxvp")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yxiq"]
 texture = ExtResource("2_0uiui")
@@ -361,7 +432,7 @@ position = Vector2(-251, 124)
 texture = ExtResource("6_rj0db")
 
 [node name="BgYokaiHome" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=866022847]
-position = Vector2(2318, 84)
+position = Vector2(2324, 80)
 texture = ExtResource("7_4h7cc")
 
 [node name="BgYokaiLantern" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=2114157238]
@@ -385,7 +456,7 @@ position = Vector2(-920, 106)
 texture = ExtResource("10_s3t3b")
 
 [node name="BgYokaiShrine" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=1750304303]
-position = Vector2(3664, 96)
+position = Vector2(3140, 96)
 texture = ExtResource("11_s2ptr")
 
 [node name="BgYokaiShrineSmall2" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=178214982]
@@ -413,31 +484,31 @@ position = Vector2(882, 167)
 texture = ExtResource("13_m45jl")
 
 [node name="BgYokaiStatueFox" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=632340859]
-position = Vector2(3518, 164)
+position = Vector2(2994, 164)
 texture = ExtResource("14_jtosk")
 
 [node name="BgYokaiStatueFox2" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=922242541]
-position = Vector2(3819, 164)
+position = Vector2(3295, 164)
 texture = ExtResource("14_jtosk")
 
 [node name="BgYokaiStatueGuy" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=539589835]
-position = Vector2(3447, 171)
+position = Vector2(2923, 171)
 texture = ExtResource("15_nkwmm")
 
 [node name="BgYokaiStatueKomainu" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=162444875]
-position = Vector2(3907, 167)
+position = Vector2(3383, 167)
 texture = ExtResource("16_rgfmy")
 
 [node name="BgYokaiTorii" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=642005571]
-position = Vector2(3352, 105)
+position = Vector2(2828, 105)
 texture = ExtResource("17_fixjv")
 
 [node name="BgYokaiTeahouse" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=369265286]
-position = Vector2(2908, 109)
+position = Vector2(3783, 109)
 texture = ExtResource("18_fvt3n")
 
 [node name="BgYokaiWell" type="Sprite2D" parent="YokaiBuildingContainer" unique_id=1588082737]
-position = Vector2(2738, 143)
+position = Vector2(3613, 143)
 texture = ExtResource("19_hki8u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=490648777]
@@ -457,6 +528,26 @@ position = Vector2(3991, 152)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_8x7c5")
 
+[node name="ShuHomeDoorSprite" type="Node2D" parent="." unique_id=546317357]
+position = Vector2(2402, 161)
+script = ExtResource("35_hki8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShuHomeDoorSprite" unique_id=226167786]
+position = Vector2(-12.881406, 1.3128972)
+rotation = -1.5707964
+scale = Vector2(0.884778, 0.5587863)
+texture = SubResource("GradientTexture2D_krn6b")
+
+[node name="BgYokaiDoorleft" type="Sprite2D" parent="ShuHomeDoorSprite" unique_id=2128438024]
+position = Vector2(-23, 0)
+texture = ExtResource("35_fvt3n")
+
+[node name="BgYokaiDoorright" type="Sprite2D" parent="ShuHomeDoorSprite" unique_id=311990148]
+texture = ExtResource("36_hki8u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShuHomeDoorSprite" unique_id=905556662]
+libraries/ = SubResource("AnimationLibrary_ptyjt")
+
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("3_d3x5n")]
 position = Vector2(-914, 159)
 
@@ -472,8 +563,8 @@ tile_set = SubResource("TileSet_nbfcv")
 
 [node name="ToCity" parent="." unique_id=206299497 instance=ExtResource("22_4r1gn")]
 position = Vector2(-1007, 168)
-next_scene = "City"
-player_pos = Vector2(362, 290)
+next_scene = "Alley"
+player_pos = Vector2(523, 292)
 
 [node name="YokaiShuOneShot" type="Node2D" parent="." unique_id=1203515857]
 position = Vector2(985, 162)
@@ -484,6 +575,17 @@ script = ExtResource("24_m45jl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YokaiShuOneShot/Area2D" unique_id=1170852080]
 position = Vector2(83, -6.999998)
+shape = SubResource("RectangleShape2D_m45jl")
+
+[node name="YokaiShuOneShot2" type="Node2D" parent="." unique_id=1691214155]
+position = Vector2(985, 162)
+rotation = -1.5707964
+script = ExtResource("24_m45jl")
+
+[node name="Area2D" type="Area2D" parent="YokaiShuOneShot2" unique_id=1542314282]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YokaiShuOneShot2/Area2D" unique_id=1953915884]
+position = Vector2(82.99995, 1238)
 shape = SubResource("RectangleShape2D_m45jl")
 
 [node name="ShuSprite" type="Sprite2D" parent="." unique_id=1716690919]
@@ -499,15 +601,64 @@ script = ExtResource("26_rgfmy")
 libraries/ = SubResource("AnimationLibrary_fixjv")
 autoplay = &"idle_right"
 
+[node name="ShuSprite2" type="Sprite2D" parent="." unique_id=1598648499]
+z_index = 1
+position = Vector2(2340, 165)
+texture = ExtResource("25_nkwmm")
+hframes = 8
+vframes = 4
+frame = 1
+script = ExtResource("26_rgfmy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShuSprite2" unique_id=1418979333]
+libraries/ = SubResource("AnimationLibrary_fixjv")
+autoplay = &"idle_right"
+
+[node name="CharPlaceholder" type="Sprite2D" parent="." unique_id=1854546549]
+position = Vector2(117, 165)
+texture = ExtResource("30_gqjqm")
+
+[node name="CharPlaceholder2" type="Sprite2D" parent="." unique_id=1460297976]
+position = Vector2(2754, 165)
+texture = ExtResource("30_gqjqm")
+
+[node name="UselessYokai1Dialogue" parent="." unique_id=826330347 instance=ExtResource("27_ao21d")]
+position = Vector2(2753, 168)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "searchRin2"
+isDialogue = true
+interactText = "Ask"
+dialoguePath = "res://Assets/Dialogue/yokaiNPCs.dialogue"
+
+[node name="KeyYokai1Dialogue2" parent="." unique_id=541350061 instance=ExtResource("27_ao21d")]
+z_index = 1
+position = Vector2(116, 168)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "searchRin1"
+isDialogue = true
+interactText = "Ask"
+dialoguePath = "res://Assets/Dialogue/yokaiNPCs.dialogue"
+
 [node name="InaSprite" type="Sprite2D" parent="." unique_id=868280798]
-position = Vector2(527, 165)
+visible = false
+position = Vector2(3793, 165)
 texture = ExtResource("23_s2ptr")
 hframes = 16
 frame = 1
+script = ExtResource("33_krn6b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InaSprite" unique_id=1992277632]
 libraries/ = SubResource("AnimationLibrary_nkwmm")
 autoplay = &"idle_left"
+
+[node name="InaDialogue" parent="." unique_id=1070122941 instance=ExtResource("27_ao21d")]
+position = Vector2(3793, 168)
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "InaFirstMeeting"
+isDialogue = true
+interactText = "???"
+dialoguePath = "res://Assets/Dialogue/Ina.dialogue"
+locked = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2077677274]
 position = Vector2(304, 64)
@@ -540,7 +691,7 @@ theme_override_constants/outline_size = 7
 theme_override_font_sizes/normal_font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxTexture_ao21d")
 bbcode_enabled = true
-text = "[wave amp=10.0 freq=5.0 connected=1]Place, Japan[/wave]"
+text = "[wave amp=10.0 freq=5.0 connected=1]Yokai Realm[/wave]"
 scroll_active = false
 horizontal_alignment = 1
 visible_characters = 0
@@ -549,21 +700,6 @@ visible_ratio = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TempTitleContainer/RichTextLabel" unique_id=70078979]
 libraries/ = SubResource("AnimationLibrary_s3t3b")
 autoplay = &"play_title"
-
-[node name="Button2" parent="." unique_id=359299384 instance=ExtResource("27_ao21d")]
-position = Vector2(527, 165)
-dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
-dialogueStartingPosition = "functionTest"
-isDialogue = true
-interactText = "Ina Rin"
-dialoguePath = "res://Assets/Dialogue/Test.dialogue"
-
-[node name="Button3" parent="." unique_id=2080578498 instance=ExtResource("27_ao21d")]
-position = Vector2(53, 166)
-script = ExtResource("27_s3t3b")
-item = ExtResource("28_s2ptr")
-interactText = "Toy Store"
-OneShot = false
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("29_s2ptr")]
 
@@ -574,4 +710,9 @@ position = Vector2(2390, 166)
 next_scene = "YokaiHome"
 interactText = "Yokai Home"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1537692408]
+stream = ExtResource("35_rgfmy")
+autoplay = true
+
 [connection signal="body_entered" from="YokaiShuOneShot/Area2D" to="YokaiShuOneShot" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="YokaiShuOneShot2/Area2D" to="YokaiShuOneShot2" method="_on_area_2d_body_entered"]

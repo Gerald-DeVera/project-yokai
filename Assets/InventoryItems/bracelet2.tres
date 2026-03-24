@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://ce0gpvqx54dog"]
+
+[ext_resource type="Texture2D" uid="uid://d0cx7vj62ubm4" path="res://Assets/UI/Items/item_closeup_bracelet2.png" id="1_5a8dc"]
+[ext_resource type="Texture2D" uid="uid://bxputjgrnm2mr" path="res://Assets/UI/Items/item_bracelet2.png" id="1_lmkkp"]
+[ext_resource type="Script" uid="uid://dec4ct7yuknap" path="res://Scripts/InventoryScripts/inventoryItem.gd" id="2_wrsns"]
+
+[resource]
+script = ExtResource("2_wrsns")
+name = "Bracelet"
+texture = ExtResource("1_lmkkp")
+description = "A pair of matching bracelets with the names \"Yui\" and \"Yumi\" engraved on them."
+closeup_texture = ExtResource("1_5a8dc")

@@ -71,6 +71,9 @@ Kite: Of course! With this evidence in hand, any falsehoods will be cleared away
 do Global.dialogueFlags.evidenceFound = true
 do Global.zoomCamera(Vector2(2.5,2.5))
 do Global.resetCamera()
+do Signals.updateInfoAnimation.emit("inventory")
+do Signals.collectItem.emit(load("res://Assets/InventoryItems/id.tres"))
+do Signals.collectItem.emit(load("res://Assets/InventoryItems/receipt.tres"))
 => END
 
 ~ afterShuRuns

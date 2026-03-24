@@ -10,7 +10,12 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("oh yeah")
-		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Shu.dialogue"), "yokaiShuFound", )
-		Global.oneshot_assets[self.name] = true
-		self.queue_free()
+		if self.name == "YokaiShuOneShot":
+			DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Shu.dialogue"), "yokaiShuFound", )
+			Global.oneshot_assets[self.name] = true
+			self.queue_free()
+		elif self.name == "YokaiShuOneShot2":
+			DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Shu.dialogue"), "yokaiRealmShuConfrontation2", )
+			Global.oneshot_assets[self.name] = true
+			self.queue_free()
 	pass # Replace with function body.

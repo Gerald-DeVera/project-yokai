@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPC_Profile" format=3 uid="uid://cg0oj4pitxt0d"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_l2miw"]
+
+[resource]
+script = ExtResource("1_l2miw")
+name = "Yumi Hayashi"
+profilePicPath = "res://Assets/IMPORTANT.png"
+bio = "Occupation: Idol Encountered: Office, 1/18/20XXDescription: A young Idol who asked me to find Yui."
+evidenceQuotes = PackedStringArray("- Claims to be Yui’s BFF", "- Asked me to Investigate Yui’s disappearance", "- Injured her hand during practice")

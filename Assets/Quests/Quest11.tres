@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://d11o8miy61sah"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_18c5v"]
+
+[resource]
+script = ExtResource("1_18c5v")
+questName = "Enter the Portal"
+fullDescription = "Using Spirit Sight, I found a strange portal… It seems to be the only path forward."

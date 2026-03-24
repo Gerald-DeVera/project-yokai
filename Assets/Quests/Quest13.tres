@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://0pbui6hnixp0"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_hfmtc"]
+
+[resource]
+script = ExtResource("1_hfmtc")
+questName = "Learn the Truth"
+fullDescription = "We finally convinced the florist to speak with us. Let’s hear the truth."

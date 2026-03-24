@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://djhxuor13bg38"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_5hfv8"]
+
+[resource]
+script = ExtResource("1_5hfv8")
+questName = "Ask Around The City"
+fullDescription = "According to Yumi, Yui’s parents run a shop in the East River District. Let's ask around."
+metadata/_custom_type_script = "uid://pjdgdolk5h1u"

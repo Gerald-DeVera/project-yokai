@@ -54,6 +54,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_nnb0l")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_tv5lr")
 theme_override_styles/focus = SubResource("StyleBoxTexture_a1v37")
 text = "Quest text goes here"
+autowrap_mode = 3
 
 [node name="checkSprite" type="Sprite2D" parent="." unique_id=834232158]
 position = Vector2(10.565994, 10.565994)

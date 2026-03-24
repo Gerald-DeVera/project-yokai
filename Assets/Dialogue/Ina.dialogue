@@ -1,0 +1,156 @@
+~ InaFirstMeeting
+if Global.dialogueFlags.InaFound == false
+	Makoto: Hello. I’m looking for a kitsune named Ina Rin. I heard she was an expert when it comes to curses. [#actor_right=on][#new_actor=ina][#expression_right=neutral]
+	???: Oh my, such a cute little mortal is asking for me? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+	Makoto: You’re Miss Rin? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	???: Mmm… let’s say… I’ll answer you in exchange for a teensy little favor, sweetheart. How about it? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Makoto: I suppose I’m no stranger to odd jobs. What’ll it be? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+	???: ... [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=confused]
+	???: ....... 
+	???: ............ 
+	???: ...Ahahaha! You’re simply too adorable! So ready to be at the beck and call of a yokai you barely even know! [#expression_right=happy]
+	Makoto: ... [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+	???: My apologies, dear, that was… just an old habit of mine.[#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Ina: You may indeed call me Ina Rin, or Ina, or Miss Rin – I’m sure it’ll all sound cute coming from you. [#expression_right=happy]
+	Makoto: ...Right. To cut to the chase, Miss Rin, we’re seeking your assistance with an unknown curse.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral] 
+	Ina: Oh? And why would a cute mortal like you be dealing with those nasty things? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=confused]
+	Makoto: Well, long story short, a young woman was attacked by some kind of spirit about two days ago. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry] 
+	Makoto: Although her physical injuries are minimal, she won’t wake up. It’s clear there’s something off about her, but we’re not well-versed in spirit based afflictions.
+	Kite: Indeed, if I were not so weak, I could expel the curse instantly with my JUSTICE TORNADO! Alas, we must resort to alternative means, perhaps one that my Lady Makoto can handle.  [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=angry] 
+	Ina: Oh? You’re working with a little tengu spirit? Perhaps there’s more to you than meets the eye, cutie pie. [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+	Makoto: ...C-cutie pie…? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused][#new_actor=makoto]
+	Ina: Mhm! Tell you what, let me close up the shop for a little bit, and you can show me this little friend of yours. I’ll see if I can find anything out. [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Makoto: Wait, you'll help us out just like that? No… strange requests or anything? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Ina: Of course! It's rare for a mortal like you to come to the spirit realm. I can’t pass up an interesting story like that, now can I? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+	Makoto: I suppose I’m in no position to deny you. After all, I did ask for your help.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Ina: Oh, think nothing of it dear. I love lending a helping hand whenever I can. [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Ina: And being able to watch first-hand a cute little human go out on their cute little quest… How amusing, hehe! [#expression_right=happy]
+	Makoto: ...Thank you…? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Ina: Now we’re off to the little Oni’s house, right? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Makoto: Yeah… how did you know that? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Ina: That’s my little secret, cutie. Run along now, I’ll meet you there in a moment. [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+	Makoto: (I really can’t get a read on her.) [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+	do Global.dialogueFlags.InaFound = true
+	do Global.locked_dialogue["ShuDialogueHome"] = true
+	do Global.locked_dialogue["YuiDialogueHome"] = true
+	do Global.unlocked_dialogue["InaShuDialogue"] = true
+	do Signals.updateInteractText.emit("InaDialogue", "Ina Rin")
+	=> END 	
+elif Global.dialogueFlags.InaFound == true
+	Ina: Go on, what are you waiting for? I'll be right there. [#animate_right=enter_convo][#animate_left=exit_convo][#actor_right=on][#new_actor=ina][#expression_right=happy]
+	=> END 
+
+~ InaShuHome
+if Global.dialogueFlags.InaShuPlan == false
+	#This plays after locating Ina and relaying the information to her. She comes to Shu’s place to examine Yui
+	Makoto and Shu explain what has happened so far to Ina. [#actor_left=off]
+	Ina: Oh my, that sounds terrible! Such a sweet-looking girlie being attacked just like that is so sad... [#animate_right=enter_convo][#animate_left=exit_convo][#actor_left=on][#actor_right=on][#new_actor=ina][#expression_right=confused]
+	Makoto: It’s unfortunate, but we have Shu to thank for her safety. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry] 
+	Makoto: Miss Rin, do any spirits come to mind after hearing what occurred? [#expression_left=neutral] 
+	Ina: Well, there’s definitely a few that come to mind...[#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=confused]
+	Ina: ...but to tell you the truth, cutie pie, I already know what spirit cursed your little friend here. [#expression_right=happy]
+	Makoto: Really? How? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused] 
+	Ina: Every gorgeous lady has her secrets? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Ina winks at Makoto. 
+	Makoto: I suppose…? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp] 
+	Ina: Mmm... [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Ina: No, that troubled look on your cute little face won’t do. Just for you, I’ll tell you something about us yokai – but no gossiping about this with your human friends, alright? [#expression_right=happy]
+	Makoto: My lips are sealed. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral] 
+	Ina: Ahaha, what a good girl! I was going to explain regardless. [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+	Ina: You see, all yokai can sense the spirit energy that each living being possesses to a certain degree. [#expression_right=neutral]
+	Ina: We can save the exact details for another time, but for now, let’s just say I’ve been around long enough to know a thing or two about the intricacies of spirit energy. [#expression_right=happy]
+	Ina: Now, the curse afflicting your friend here oozes with resentment and jealousy. [#expression_right=angry]
+	Ina: Normally that can be traced back to a small number of yokai, but after hearing dear little Shu’s testimony, I’m convinced our culprit is a Kijo.[#expression_right=neutral]
+	Makoto: A Kijo? Sorry, I’m not familiar with them. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral] 
+	Shu: Wait, aren't those a type of Oni like me? [#animate_right=enter_convo][#animate_left=exit_convo][#new_actor=shu][#expression_right=confused]
+	Ina: Indeed they are! How insightful – this is why I like you, little Shu. [#animate_right=enter_convo][#new_actor=ina][#expression_right=happy]
+	Ina: Kijos are known for possessing young women overcome with jealousy and anger, and often curse or attack mortals that the possessed woman have issues with. [#expression_right=neutral]
+	Ina: The good news is that the curse isn’t dangerous, but…
+	Ina: ...the bad news is that the only way to get rid of it is to seal the spirit that placed it. [#expression_right=angry]
+	Kite: If I were not but a mere fragment of myself, that too would’ve been a simple wave of my JUSTICE TORNADO: SEALING technique! [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry][#new_actor=kite_left]
+	The room falls silent.[#animate_left=exit_convo]
+	Makoto: Ahem. Moving on. [#animate_left=enter_convo][#expression_left=unimp][#new_actor=makoto]
+	Makoto: How would we go about sealing the Kijo? [#expression_left=angry]
+	Ina: A wonderful question! Perhaps as an oni herself, little Shu here would be able to enlighten us? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy][#expression_left=neutral]
+	Shu: Well… there is a weakness, but… [#animate_right=enter_convo][#new_actor=shu][#expression_right=angry]
+	Makoto: But? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Shu: .... [#animate_right=enter_convo][#animate_left=exit_convo]
+	Shu: ...... 
+	Shu: It’s kinda embarrassing… [#expression_right=unimp]
+	Makoto: Don’t worry, we're not here to judge you. Please Shu, for Yui’s sake.[#animate_left=enter_convo][#animate_right=exit_convo] 
+	Shu: Fine, fine. It’s... [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Shu: The thing is, we’re... 
+	Shu: Uh... we're...
+	Shu: Weak...
+	Shu: Weak to... [font_size=16]b-beans...[/font_size]
+	Makoto: Sorry, I couldn’t quite hear you there. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Shu: ... [font_size=14]beans…[/font_size] [#animate_right=enter_convo][#animate_left=exit_convo]
+	Makoto: Come again? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Shu: [wave amp=25 freq=5]BEANS![/wave] ONI ARE WEAK TO BEANS, OKAY?! [#animate_right=enter_convo][#animate_left=exit_convo]
+	Kite: ... [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp][#new_actor=kite_left]
+	Ina: ... [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=confused][#new_actor=ina]
+	Makoto: ... [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp][#new_actor=makoto]
+	Shu: Well!? I told you our embarrassing weakness, so now what? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=unimp][#new_actor=shu]
+	Ina: Ahem~! That’s correct, we use beans!  [#animate_right=enter_convo][#expression_right=happy][#new_actor=ina]
+	Shu: (You old–) [#animate_right=enter_convo][#expression_right=unimp][#new_actor=shu]
+	Ina: After using beans to weaken the Kijo, Makoto and Kite should be able to seal them. [#animate_right=enter_convo][#expression_right=neutral][#new_actor=ina]
+	Ina: Although, in particularly nasty cases of possession, you may also have to free the heart of the one possessed.
+	Makoto: That sounds rather… ethereal. I’m not sure if I’m equipped for that sort of thing. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+	Ina: Ahaha, you’ll be fine! Just let things happen naturally. I’m sure you’ll understand once you confront the Kijo. [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+	Ina: It may take some effort, but you won’t be in any real danger with Kite by your side. [#expression_right=neutral]
+	Kite: Indeed, my lady! Although I am but a flicker of the flame I once was, my indomitable spirit of justice will protect you![#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy][#new_actor=kite_left]
+	Makoto: Assuming that we can free the heart of the possessed then, how exactly do we seal the Kijo? [#animate_left=enter_convo][#expression_left=neutral][#new_actor=makoto]
+	Ina: Normally, you need a special tool made to contain spirits. As luck would have it, you still carry the one that once held Kite here, no? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=confused]
+	Ina: It’s quite the powerful sealing tool as well. I’m amazed there’s still this much left of you after all these years, hmm Kite? [#expression_right=happy]
+	Kite: Madam Ina, do you perhaps know more about my past? After so many years in the box, my memories are quite hazy. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral][#new_actor=kite_left]
+	Ina: Perhaps another time, Kite~ [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
+	Makoto: Huh. I hadn’t considered this paperweight ever being useful. [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=makoto]
+	Ina: Thankfully those who crafted that paperweight did all the hard work. [#animate_right=enter_convo][#animate_left=exit_convo]
+	Ina: All you have to do is point the open end of it at the Kijo after weakening it, and you have yourself a harmless little sealed spirit! [#expression_right=neutral]
+	Makoto: I understand. Let’s summarize the plan, then. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Makoto: We need to first weaken the Kijo with beans...
+	Shu: Urgh... [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp][#new_actor=shu]
+	Makoto: Then using the box we start the sealing process. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Kite: Urgh... [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp][#new_actor=kite_right]
+	Makoto: And finally we free the victims heart to complete the sealing ritual? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Ina: You got it! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy][#new_actor=ina]
+	Makoto: Since we already have the box, we just need to track down the Kijo and obtain some beans. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Ina: I’ll handle the beans, cutie, don’t you worry. Come meet me at the cafe in your realm after this and I’ll give you as much as you need.  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+	Shu: Urgh... I’ll probably have to sit this part out then. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp][#new_actor=shu]
+	Makoto: That’s fine. Kite and I have it from here. Please continue to monitor Yui’s condition. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Shu: Of course, Makoto. I’ll make sure she remains safe.  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	Ina: Oh, how wonderful! You are all simply so adorable the way you’re all so determined. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy][#new_actor=ina]
+	Ina: I’ll be cheering you all on from the sidelines all the way through! 
+	Makoto: Uh huh… [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+	Makoto: I guess with that, we just need to start getting everything in place. [#expression_left=neutral]
+	Ina: Oh my, do you already have a culprit in mind? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
+	Makoto: Yes. I think I know who did it, but I just need to confirm a few things first. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Ina: Of course. I’ll be waiting for you then!~ [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	do Global.dialogueFlags.InaShuPlan = true
+	do Global.unlocked_dialogue["InaDialogueOverworld"] = true
+	=> END
+elif Global.dialogueFlags.InaShuPlan == true
+	% Ina: See you in a bit! [#animate_right=enter_convo][#animate_left=exit_convo][#actor_right=on][#new_actor=ina][#expression_right=happy]
+	% Ina: Time is of the essence, no? [#animate_right=enter_convo][#animate_left=exit_convo][#actor_right=on][#new_actor=ina][#expression_right=confused]
+	=> END
+
+~ inaGivesBeans
+if Global.dialogueFlags.gotBeans == false
+	#Ina gives beans and speaks more about freeing Yumi from the Kijo’s grasp
+	Ina: Ah, there you are, cutie! I was beginning to think you got lost. [#animate_right=enter_convo][#animate_left=exit_convo][#actor_right=on][#new_actor=ina][#expression_right=happy]
+	Makoto: Wait, how did you get back here so fast when we left before you? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Ina: A woman never reveals her secrets, huhu. I have a bag of [do Global.showEvidence("beans")]coffee beans just for you! [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
+	Ina: [do Global.hideEvidence()]You know, normally, mortals use roasted soy beans for Setsubun. While these aren’t exactly soy, they ARE roasted and they ARE beans so they should serve you just as well! [#expression_right=happy]
+	Makoto: And if they don’t? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+	Ina: They will, cutie. And if you’re worried, I already told you I’ll be cheering on from the sidelines so you don’t have to worry about anything! [#animate_right=enter_convo][#animate_left=exit_convo]
+	Kite: Worry not, Lady Makoto. Miss Ina carries a noble soul! Neither her or I would allow you to come to any danger! [#animate_right=enter_convo][#expression_right=happy][#new_actor=kite_right]
+	Makoto: That’s very reassuring. Thank you both.[#animate_left=enter_convo][#expression_left=happy]
+	Ina: Of course, anything for you dear. [#animate_right=enter_convo][#animate_left=exit_convo]
+	Kite: Think nothing of it, my Lady! [#animate_right=enter_convo][#new_actor=kite_right]
+	Makoto: Well with this, I think we’re ready, Kite. We have a call to make back at the office. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+	do Signals.collectItem.emit(load("res://Assets/InventoryItems/beans.tres"))
+	do Signals.updateInfoAnimation.emit("inventory")
+	=> END
+elif Global.dialogueFlags.gotBeans == true
+	Ina: Good luck! [#animate_right=enter_convo][#animate_left=exit_convo][#actor_right=on][#new_actor=ina][#expression_right=happy]
+	=> END

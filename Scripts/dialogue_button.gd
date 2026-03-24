@@ -21,13 +21,18 @@ var canInteract = false
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
 	Signals.toggleAsset.connect(Callable(self,"toggleLock"))
+	Signals.updateInteractText.connect(Callable(self,"updateTooltip"))
 	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
 		Sprite2.modulate = Color("57e3ff")
+	#old redundant line for one case, might change later but doesnt really matter for this scope
 	if Global.dialogueFlags.shuConfront == true && self.get_parent().name == "FlowerShop":
 		self.locked = true
-
+	if Global.locked_dialogue.has(self.name):
+		self.locked = true
+	elif Global.unlocked_dialogue.has(self.name):
+		self.locked = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if isSpiritButton and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
@@ -66,4 +71,8 @@ func toggleLock(assetName: String, toggled: bool):
 			self.locked = true
 		elif toggled == true:
 			self.locked = false
+			
+func updateTooltip(interactName: String, newtooltip: String):
+	if interactName == self.name:
+		tooltip.text = newtooltip
 		

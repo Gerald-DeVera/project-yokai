@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://bg331vbcb3y7q"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_lv0cq"]
+
+[resource]
+script = ExtResource("1_lv0cq")
+questName = "Investigate at the Ramen Shop"
+fullDescription = "We learned that Yui’s Dad runs S.G. Ramen. Let’s head over."
