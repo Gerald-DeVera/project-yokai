@@ -7,4 +7,4 @@
 
 [resource]
 script = ExtResource("3_aeliy")
-profileInfo = Array[ExtResource("1_c0mau")]([ExtResource("2_8dvat"), ExtResource("3_8dvat")])
+profileInfo = Array[ExtResource("1_c0mau")]([ExtResource("2_8dvat"), ExtResource("3_8dvat"), ExtResource("3_8dvat"), ExtResource("3_8dvat"), ExtResource("3_8dvat")])

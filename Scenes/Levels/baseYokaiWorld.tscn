@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_4r1gn"]
 [ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="23_s2ptr"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="23_wc4nj"]
-[ext_resource type="Script" uid="uid://dxr4en444ru7b" path="res://Scenes/Levels/yokai_shu_one_shot.gd" id="24_m45jl"]
+[ext_resource type="Script" uid="uid://dxr4en444ru7b" path="res://Scenes/Levels/contact_one_shot.gd" id="24_m45jl"]
 [ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="24_wc4nj"]
 [ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="25_nkwmm"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="25_rj0db"]

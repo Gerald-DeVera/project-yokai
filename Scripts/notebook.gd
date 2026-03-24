@@ -2,7 +2,7 @@ extends Control
 
 var runOnce = true
 var pageNumber
-var MAX_PAGES = 2
+var MAX_PAGES = 5
 var questEntryTemplate = preload("res://Scenes/UIandUtil/quest_entry.tscn")
 var inputDisabled = false
 

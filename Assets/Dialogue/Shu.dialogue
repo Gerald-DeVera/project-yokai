@@ -1,10 +1,10 @@
 ~ shuFirstMeeting
 #this dialogue plays when first meeting Shu outside the flower shop post clothing store interview
-if Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.interviewedShu == false
+if Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.interviewedShu == false && Global.dialogueFlags.interviewedClothier == false
 	Florist: Welcome in. Can I grab you anything? [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=happy]
 	Makoto: Just browsing. [#animate_left=enter_convo][#animate_right=exit_convo]
 	=> END
-elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedShu == false
+elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedShu == false && Global.dialogueFlags.interviewedClothier == true
 	Florist: Welcome in. Can I grab you anything? [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=happy]
 	Makoto: No, that won’t be necessary. I just wanted to ask a few questions if you have the time. [#animate_left=enter_convo][#animate_right=exit_convo]
 	Florist: Sure, if it’s about flowers. Otherwise, I may not be any help.  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
@@ -21,6 +21,9 @@ elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.inte
 	Florist: Ah yes, of course… I’m just rambling… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
 	do Global.dialogueFlags.interviewedShu = true
 	do Global.prepareDialogue("Shu1Done", "res://Assets/Dialogue/Kite.dialogue", "unlockSpiritSight", "City")
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest5.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest4.tres"))
+	do Signals.updateInfoAnimation.emit("notebook")
 	=> END
 elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedShu == true && Global.dialogueFlags.evidenceFound == false
 	% Florist: Stay safe out there... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=neutral]
@@ -85,6 +88,9 @@ do Global.zoomCamera(Vector2(2.5,2.5))
 do Global.resetCamera()
 do Global.prepareDialogue("ShuConfrontDone", "res://Assets/Dialogue/Kite.dialogue", "afterShuRuns", "Alley")
 do Global.dialogueFlags.shuConfront = true
+do Global.questsList.quests.append(load("res://Assets/Quests/Quest9.tres"))
+do Global.markPreviousQuest(load("res://Assets/Quests/Quest8.tres"))
+do Signals.updateInfoAnimation.emit("notebook")
 => END
 
 ~ yokaiShuFound
@@ -128,6 +134,9 @@ Florist: Urgh... Fine. You can come in. But don’t try anything! [#expression_r
 do Global.zoomCamera(Vector2(1.5,1.5))
 do Global.resetCamera()
 do Global.dialogueFlags.shuSpirit2 = true
+do Global.questsList.quests.append(load("res://Assets/Quests/Quest13.tres"))
+do Global.markPreviousQuest(load("res://Assets/Quests/Quest12.tres"))
+do Signals.updateInfoAnimation.emit("notebook")
 => END
 
 
@@ -198,9 +207,11 @@ if Global.dialogueFlags.shuExplain == false:
 	do Global.zoomCamera(Vector2(2.5,2.5))
 	do Global.resetCamera()
 	do Signals.updateItem.emit(load("res://Assets/InventoryItems/yuiphoto.tres"),load("res://Assets/InventoryItems/yuiphoto2.tres"))
-	do Signals.updateInfoAnimation.emit("inventory")
 	do Global.dialogueFlags.shuExplain = true
 	do Signals.toggleAsset.emit("YuiDialogue", true)
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest14.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest13.tres"))
+	do Signals.updateInfoAnimation.emit("invnote")
 	=> END 
 elif Global.dialogueFlags.shuExplain == true:
 	=> shuYokaiLore
@@ -289,5 +300,8 @@ Makoto: I’ll take a look then. [#animate_left=enter_convo][#animate_right=exit
 	do Signals.moveCharacter.emit("ShuSprite", "turn_left")
 	do Global.dialogueFlags.confirmedYui = true
 	do Signals.toggleAsset.emit("YuiDialogue", false)
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest15.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest14.tres"))
+	do Signals.updateInfoAnimation.emit("notebook")
 	=> END
 => END

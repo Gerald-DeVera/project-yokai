@@ -17,6 +17,9 @@ elif Global.dialogueFlags.confirmedYui == true:
 	do Global.dialogueFlags.keyYokaifound = true
 	do Signals.toggleAsset.emit("InaDialogue", true)
 	do Signals.toggleAsset.emit("InaSprite", true)
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest16.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest15.tres"))
+	do Signals.updateInfoAnimation.emit("notebook")
 	=> END
 
 

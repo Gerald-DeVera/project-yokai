@@ -3,15 +3,27 @@
 [ext_resource type="Script" uid="uid://dk5n8xw1leeu2" path="res://Scripts/notebook.gd" id="1_lndu6"]
 [ext_resource type="Texture2D" uid="uid://1jye03hwhqbr" path="res://Assets/UI/notebook_bg.png" id="2_tj7at"]
 [ext_resource type="Texture2D" uid="uid://dsb0sd7xqjiw0" path="res://Assets/UI/notebook_arrow_left.png" id="3_j04p5"]
-[ext_resource type="Texture2D" uid="uid://bm52t7d01sxl" path="res://Assets/UI/notebook_containerfull.png" id="3_py0wg"]
 [ext_resource type="Texture2D" uid="uid://dw7j5n3o61wjd" path="res://Assets/UI/notebook_arrow.png" id="4_py0wg"]
+[ext_resource type="FontFile" uid="uid://uf7b4k381gwo" path="res://Assets/Themes and Fonts/Jersey25-Regular.ttf" id="5_6m8k7"]
+[ext_resource type="Texture2D" uid="uid://cktvk62s3m2ic" path="res://Assets/UI/notebook_divider.png" id="5_dae4x"]
 [ext_resource type="PackedScene" uid="uid://biwlt76pymedr" path="res://Scenes/UIandUtil/quest_entry.tscn" id="7_8moud"]
 [ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="7_ccdpy"]
+[ext_resource type="Texture2D" uid="uid://yw4fb8s7u5pu" path="res://Assets/UI/notebook_container9grid.png" id="7_fsr06"]
 [ext_resource type="Texture2D" uid="uid://w3ajeg6np4e8" path="res://Assets/Sprites/placeholderDefaultPFP.png" id="8_8moud"]
+[ext_resource type="Texture2D" uid="uid://uhxxf361gvkk" path="res://Assets/UI/notebook_filler.png" id="8_fsr06"]
+[ext_resource type="FontFile" uid="uid://3cx4kr0motsu" path="res://Assets/Themes and Fonts/Jersey20-Regular.ttf" id="9_fsr06"]
 
 [sub_resource type="FontVariation" id="FontVariation_8moud"]
 base_font = ExtResource("7_ccdpy")
 spacing_top = -7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n07e3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6m8k7"]
+
+[sub_resource type="Theme" id="Theme_fsr06"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_n07e3")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_6m8k7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccdpy"]
 texture = ExtResource("3_j04p5")
@@ -66,11 +78,28 @@ scale = Vector2(1.2142857, 1.2142857)
 texture = ExtResource("2_tj7at")
 
 [node name="ProfilePages" type="Control" parent="." unique_id=1896422438]
+visible = false
 anchors_preset = 0
 offset_left = 69.0
 offset_top = 2.0
 offset_right = 568.0
 offset_bottom = 357.0
+
+[node name="TitleRight" type="RichTextLabel" parent="ProfilePages" unique_id=1483360341]
+clip_contents = false
+layout_mode = 0
+offset_left = 261.0
+offset_top = 47.0
+offset_right = 399.825
+offset_bottom = 73.0
+theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = SubResource("FontVariation_8moud")
+theme_override_font_sizes/normal_font_size = 23
+text = "File Details
+"
+horizontal_alignment = 1
 
 [node name="Bio" type="RichTextLabel" parent="ProfilePages" unique_id=634326576]
 layout_mode = 0
@@ -85,7 +114,7 @@ text = "DefaultText"
 [node name="Info_Quotes" type="RichTextLabel" parent="ProfilePages" unique_id=1256460525]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 34.0
+offset_top = 85.0
 offset_right = 417.0
 offset_bottom = 315.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -101,40 +130,88 @@ texture = ExtResource("8_8moud")
 expand_mode = 1
 
 [node name="QuestPage" type="Control" parent="." unique_id=1561933949]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TitleRight" type="RichTextLabel" parent="QuestPage" unique_id=71895101]
-visible = false
+[node name="Flavor Title" type="RichTextLabel" parent="QuestPage" unique_id=71895101]
 clip_contents = false
 layout_mode = 0
 offset_left = 324.0
-offset_top = 46.0
+offset_top = 62.0
 offset_right = 484.825
-offset_bottom = 102.89
+offset_bottom = 95.0
 theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = SubResource("FontVariation_8moud")
 theme_override_font_sizes/normal_font_size = 20
-text = "Quest Title"
+text = "Objective Description"
 horizontal_alignment = 1
 
-[node name="NotebookContainerfull" type="Sprite2D" parent="QuestPage" unique_id=1233650597]
-position = Vector2(214, 202.45001)
-scale = Vector2(1.205, 1.205)
-texture = ExtResource("3_py0wg")
+[node name="TitleRight" type="RichTextLabel" parent="QuestPage" unique_id=2011343807]
+clip_contents = false
+layout_mode = 0
+offset_left = 322.0
+offset_top = 86.0
+offset_right = 482.825
+offset_bottom = 119.0
+theme_override_colors/default_color = Color(0.29815388, 0.2100316, 0.12450861, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("5_6m8k7")
+theme_override_font_sizes/normal_font_size = 14
+text = "Click on an objective to view its description!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NotebookDivider" type="Sprite2D" parent="QuestPage" unique_id=767319164]
+position = Vector2(213, 86)
+texture = ExtResource("5_dae4x")
+
+[node name="NotebookDivider2" type="Sprite2D" parent="QuestPage" unique_id=458668866]
+position = Vector2(403, 83)
+texture = ExtResource("5_dae4x")
+
+[node name="NotebookContainer" type="NinePatchRect" parent="QuestPage" unique_id=215598639]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 95.0
+offset_right = 293.0
+offset_bottom = 310.0
+texture = ExtResource("7_fsr06")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NotebookContainer2" type="NinePatchRect" parent="QuestPage" unique_id=316380153]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 124.0
+offset_right = 479.0
+offset_bottom = 221.0
+texture = ExtResource("7_fsr06")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NotebookFiller" type="Sprite2D" parent="QuestPage" unique_id=1774290934]
+position = Vector2(402, 268)
+texture = ExtResource("8_fsr06")
 
 [node name="ScrollContainerLeft" type="ScrollContainer" parent="QuestPage" unique_id=1228633504]
 layout_mode = 0
-offset_left = 140.0
+offset_left = 137.0
 offset_top = 102.0
-offset_right = 286.89
-offset_bottom = 306.82
+offset_right = 291.0
+offset_bottom = 309.0
+theme = SubResource("Theme_fsr06")
+theme_override_colors/scroll_hint_vertical_color = Color(1, 1, 1, 1)
 theme_override_constants/scrollbar_h_separation = 4
-tile_scroll_hint = true
+scroll_hint_mode = 3
 
 [node name="QuestEntries" type="VBoxContainer" parent="QuestPage/ScrollContainerLeft" unique_id=1464806730]
 layout_mode = 2
@@ -166,12 +243,32 @@ custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
 size_flags_vertical = 0
 
+[node name="QuestEntry6" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=2142909392 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="QuestEntry7" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=294761862 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="QuestEntry8" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=1710300615 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="QuestEntry9" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=940430397 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
+layout_mode = 2
+size_flags_vertical = 0
+
 [node name="ScrollContainerRight" type="ScrollContainer" parent="QuestPage" unique_id=129799704]
 layout_mode = 0
-offset_left = 324.0
-offset_top = 74.0
-offset_right = 480.0
-offset_bottom = 307.0
+offset_left = 332.0
+offset_top = 131.0
+offset_right = 472.0
+offset_bottom = 210.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="QuestPage/ScrollContainerRight" unique_id=839758837]
 layout_mode = 2
@@ -180,8 +277,10 @@ size_flags_vertical = 3
 
 [node name="QuestDescription" type="RichTextLabel" parent="QuestPage/ScrollContainerRight/VBoxContainer" unique_id=1497027401]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "b"
+theme_override_colors/default_color = Color(0.4492591, 0.3310922, 0.24086243, 1)
+theme_override_fonts/normal_font = ExtResource("9_fsr06")
+theme_override_font_sizes/normal_font_size = 12
+text = "Test text goes here"
 fit_content = true
 
 [node name="Back" type="Button" parent="." unique_id=1221703919]

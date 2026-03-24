@@ -53,6 +53,9 @@ elif Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.key
 	Sagawa: (Please be safe, Yui…) [#animate_left=exit_convo][#animate_right=enter_convo][#camera_animation=zoom_out]
 	do Global.dialogueFlags.interviewedSagawa = true
 	do Global.prepareDialogue("SagawaDone", "res://Assets/Dialogue/Kite.dialogue", "postSagawaInterview", "City")
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest3.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest2.tres"))
+	do Signals.updateInfoAnimation.emit("notebook")
 	#Set flag talked to Sagawa true 
 elif Global.dialogueFlags.interviewedSagawa == true
 	% Sagawa: (Please be safe, Yui...) [#actor_right=on][#new_actor=sagawa][#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
@@ -120,5 +123,9 @@ elif Global.dialogueFlags.interviewedSagawa == true
 	Makoto: I see. That’s all I needed, thank you.
 	Fashion Clerk: Be sure to drop by again! We’ve got a clearance on select dresses!
 	Makoto: Right…
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest4.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest3.tres"))
+	do Signals.updateInfoAnimation.emit("notebook")
+	do Global.dialogueFlags.interviewedClothier = true
 	#Set flag here
 	=> END

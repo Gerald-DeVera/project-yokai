@@ -43,6 +43,7 @@ var unlocked_dialogue = {}
 var dialogueFlags = {
 	keyWitnessfound = false,
 	interviewedSagawa = false,
+	interviewedClothier = false,
 	interviewedShu = false,
 	interviewedYumiStreet = false,
 	evidenceFound = false,

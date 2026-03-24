@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="14_2khwm"]
 [ext_resource type="Script" uid="uid://cja2uvu75861w" path="res://Scripts/interactableItem.gd" id="15_agp84"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="15_pbgbq"]
+[ext_resource type="Script" uid="uid://dxr4en444ru7b" path="res://Scenes/Levels/contact_one_shot.gd" id="15_xin8x"]
 [ext_resource type="Resource" uid="uid://c0i1iinxlvws8" path="res://Assets/InventoryItems/flowers.tres" id="16_57ck1"]
 [ext_resource type="Texture2D" uid="uid://c5feuka7xg2pa" path="res://Assets/UI/Items/item_sparkle-Sheet.png" id="17_57ck1"]
 [ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="18_64xah"]
@@ -161,6 +162,9 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_cdp0l")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_58a5k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcxke"]
+size = Vector2(295, 20)
 
 [sub_resource type="Animation" id="Animation_xin8x"]
 length = 0.001
@@ -500,6 +504,17 @@ next_scene = "City"
 player_pos = Vector2(2755, 290)
 interactText = "To City"
 
+[node name="AlleywayOneShot" type="Node2D" parent="." unique_id=1079375107]
+position = Vector2(69, 259)
+rotation = -1.5707964
+script = ExtResource("15_xin8x")
+
+[node name="Area2D" type="Area2D" parent="AlleywayOneShot" unique_id=396039709]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleywayOneShot/Area2D" unique_id=615668382]
+position = Vector2(83, -6.999998)
+shape = SubResource("RectangleShape2D_wcxke")
+
 [node name="Flowers" parent="." unique_id=456592238 instance=ExtResource("14_2khwm")]
 position = Vector2(135, 290)
 script = ExtResource("15_agp84")
@@ -641,3 +656,5 @@ locked = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="YokaiPortal" unique_id=258561989]
 texture = ExtResource("23_64xah")
+
+[connection signal="body_entered" from="AlleywayOneShot/Area2D" to="AlleywayOneShot" method="_on_area_2d_body_entered"]

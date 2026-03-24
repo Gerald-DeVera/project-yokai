@@ -35,6 +35,9 @@ if Global.dialogueFlags.InaFound == false
 	do Global.locked_dialogue["YuiDialogueHome"] = true
 	do Global.unlocked_dialogue["InaShuDialogue"] = true
 	do Signals.updateInteractText.emit("InaDialogue", "Ina Rin")
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest17.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest16.tres"))
+	do Signals.updateInfoAnimation.emit("notebook")
 	=> END 	
 elif Global.dialogueFlags.InaFound == true
 	Ina: Go on, what are you waiting for? I'll be right there. [#animate_right=enter_convo][#animate_left=exit_convo][#actor_right=on][#new_actor=ina][#expression_right=happy]
@@ -128,6 +131,9 @@ if Global.dialogueFlags.InaShuPlan == false
 	Ina: Of course. I’ll be waiting for you then!~ [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 	do Global.dialogueFlags.InaShuPlan = true
 	do Global.unlocked_dialogue["InaDialogueOverworld"] = true
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest18.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest17.tres"))
+	do Signals.updateInfoAnimation.emit("notebook")
 	=> END
 elif Global.dialogueFlags.InaShuPlan == true
 	% Ina: See you in a bit! [#animate_right=enter_convo][#animate_left=exit_convo][#actor_right=on][#new_actor=ina][#expression_right=happy]
@@ -149,7 +155,9 @@ if Global.dialogueFlags.gotBeans == false
 	Kite: Think nothing of it, my Lady! [#animate_right=enter_convo][#new_actor=kite_right]
 	Makoto: Well with this, I think we’re ready, Kite. We have a call to make back at the office. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
 	do Signals.collectItem.emit(load("res://Assets/InventoryItems/beans.tres"))
-	do Signals.updateInfoAnimation.emit("inventory")
+	do Global.questsList.quests.append(load("res://Assets/Quests/Quest19.tres"))
+	do Global.markPreviousQuest(load("res://Assets/Quests/Quest18.tres"))
+	do Signals.updateInfoAnimation.emit("invnote")
 	=> END
 elif Global.dialogueFlags.gotBeans == true
 	Ina: Good luck! [#animate_right=enter_convo][#animate_left=exit_convo][#actor_right=on][#new_actor=ina][#expression_right=happy]
