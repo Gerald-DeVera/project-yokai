@@ -17,6 +17,7 @@ class_name button
 var minimumDistanceFromPlayer = 35
 var canInteract = false
 var spiritButtonVisibilityDistance = 100
+var turnedVisible = false
 const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
 
 func _ready() -> void:
@@ -33,10 +34,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if isSpiritButton and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
+	if isSpiritButton and !turnedVisible and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
 		self.visible = false
 	else:
 		self.visible = true
+		turnedVisible = true
 	if !self.visible:
 		return
 	

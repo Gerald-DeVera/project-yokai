@@ -10,8 +10,8 @@ var inv: Inv = preload("res://Assets/InventoryItems/playerInventory.tres")
 var playerHasItem: bool
 var evidenceFound = 0 #for alleyway scene
 var YuiExamined = 0
-var spiritTutorial = false
-var hasunlockedSight = false #set to false at beginning of game pls
+var spiritTutorial = true
+var hasunlockedSight = true #set to false at beginning of game pls
 
 #preload a bunch of textures for evidence in cutscenes
 var evidenceTextures = {

@@ -30,14 +30,15 @@ func setup() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if inputDisabled:
-		return
-	
 	if Input.is_action_just_pressed("Notebook") and visible == true:
 		visible = false
 		Signals.togglePlayerInput.emit(true)
 		Signals.toggleInventoryInput.emit(false)
-	elif Input.is_action_just_pressed("Notebook") and visible == false:
+		return
+	if inputDisabled:
+		return
+	
+	if Input.is_action_just_pressed("Notebook") and visible == false:
 		visible = true
 		Signals.togglePlayerInput.emit(false)
 		Signals.toggleInventoryInput.emit(true)
@@ -71,7 +72,9 @@ func flipToPage(page:int) -> void:
 			pageTitle.set_text("Investigation Progress")
 			questPage.visible = true
 			var newQuestEntry
-			for q in Global.questsList.quests.size():
+			for q in range(Global.questsList.quests.size() - 1, -1, -1):
+				if q == Global.questsList.quests.size() - 1:
+					displayQuestDesc(Global.questsList.quests[q].questName,Global.questsList.quests[q].fullDescription)
 				newQuestEntry = questEntryTemplate.instantiate()
 				newQuestEntry._ready()
 				newQuestEntry.questButton.text = Global.questsList.quests[q].questName

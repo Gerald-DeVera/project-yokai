@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="26_x82q5"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="29_sg6ii"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="29_x82q5"]
-[ext_resource type="Script" uid="uid://dircb85vodqat" path="res://Scenes/Levels/npc_test.gd" id="33_12d20"]
+[ext_resource type="Script" path="res://Scenes/Levels/npc_test.gd" id="33_12d20"]
 [ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="34_57gpc"]
 [ext_resource type="AudioStream" uid="uid://rjqlqlb0w2mk" path="res://Assets/Audio/BackgroundTracks/DayCity.wav" id="35_57gpc"]
 [ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="36_ien3c"]

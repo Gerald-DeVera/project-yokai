@@ -84,7 +84,7 @@ position = Vector2(22, -48)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=461871120]
 position = Vector2(-2, -30)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(1.5, 1.5)
 
 [node name="decodecoTile" type="TileMapLayer" parent="." unique_id=1264298232]
 z_index = 4

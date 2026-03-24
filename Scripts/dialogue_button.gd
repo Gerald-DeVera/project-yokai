@@ -15,6 +15,7 @@ extends Node2D
 @export var locked:bool 
 var minimumDistanceFromPlayer = 35
 var spiritButtonVisibilityDistance = 100
+var turnedVisible = false
 var canInteract = false
 #const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
 
@@ -35,11 +36,12 @@ func _ready() -> void:
 		self.locked = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if isSpiritButton and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
+	if isSpiritButton and !turnedVisible and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
 		self.visible = false
 		Sprite1.visible = true
 	else:
 		self.visible = true
+		turnedVisible = true
 	if !self.visible:
 		return
 	
