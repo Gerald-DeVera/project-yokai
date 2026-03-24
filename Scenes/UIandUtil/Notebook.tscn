@@ -12,10 +12,19 @@
 [ext_resource type="Texture2D" uid="uid://w3ajeg6np4e8" path="res://Assets/Sprites/placeholderDefaultPFP.png" id="8_8moud"]
 [ext_resource type="Texture2D" uid="uid://uhxxf361gvkk" path="res://Assets/UI/notebook_filler.png" id="8_fsr06"]
 [ext_resource type="FontFile" uid="uid://3cx4kr0motsu" path="res://Assets/Themes and Fonts/Jersey20-Regular.ttf" id="9_fsr06"]
+[ext_resource type="Texture2D" uid="uid://c1qmad2i3fraa" path="res://Assets/UI/notebook_tape.png" id="9_iwt1m"]
+[ext_resource type="Texture2D" uid="uid://dssfp44il1vp6" path="res://Assets/UI/inventory_pencil2.png" id="13_ui26k"]
 
 [sub_resource type="FontVariation" id="FontVariation_8moud"]
 base_font = ExtResource("7_ccdpy")
 spacing_top = -7
+
+[sub_resource type="FontVariation" id="FontVariation_y6shv"]
+base_font = ExtResource("5_6m8k7")
+spacing_top = -1
+
+[sub_resource type="FontVariation" id="FontVariation_28t4t"]
+base_font = ExtResource("9_fsr06")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n07e3"]
 
@@ -30,7 +39,7 @@ texture = ExtResource("3_j04p5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8moud"]
 texture = ExtResource("3_j04p5")
-modulate_color = Color(0.87058824, 0.8235294, 0.81960785, 1)
+modulate_color = Color(0.7161371, 0.6321842, 0.62546974, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dae4x"]
 texture = ExtResource("3_j04p5")
@@ -49,7 +58,7 @@ texture = ExtResource("4_py0wg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ui26k"]
 texture = ExtResource("4_py0wg")
-modulate_color = Color(0.86952573, 0.8226794, 0.81933963, 1)
+modulate_color = Color(0.7176471, 0.6313726, 0.62352943, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwt1m"]
 texture = ExtResource("4_py0wg")
@@ -78,20 +87,47 @@ scale = Vector2(1.2142857, 1.2142857)
 texture = ExtResource("2_tj7at")
 
 [node name="ProfilePages" type="Control" parent="." unique_id=1896422438]
-visible = false
 anchors_preset = 0
 offset_left = 69.0
 offset_top = 2.0
 offset_right = 568.0
 offset_bottom = 357.0
 
+[node name="NotebookContainer" type="NinePatchRect" parent="ProfilePages" unique_id=967415019]
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 0
+offset_left = 74.0
+offset_top = 219.0
+offset_right = 220.0
+offset_bottom = 306.0
+texture = ExtResource("7_fsr06")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NotebookContainer2" type="NinePatchRect" parent="ProfilePages" unique_id=657559505]
+modulate = Color(1, 1, 1, 0.77254903)
+layout_mode = 0
+offset_left = 254.0
+offset_top = 89.0
+offset_right = 411.0
+offset_bottom = 287.0
+texture = ExtResource("7_fsr06")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
 [node name="TitleRight" type="RichTextLabel" parent="ProfilePages" unique_id=1483360341]
 clip_contents = false
 layout_mode = 0
-offset_left = 261.0
-offset_top = 47.0
-offset_right = 399.825
-offset_bottom = 73.0
+offset_left = 264.0
+offset_top = 55.0
+offset_right = 402.825
+offset_bottom = 81.0
 theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
@@ -103,33 +139,62 @@ horizontal_alignment = 1
 
 [node name="Bio" type="RichTextLabel" parent="ProfilePages" unique_id=634326576]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 249.0
-offset_right = 229.0
-offset_bottom = 311.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+offset_left = 83.0
+offset_top = 225.0
+offset_right = 213.0
+offset_bottom = 292.0
+theme_override_colors/default_color = Color(0.4035181, 0.3074616, 0.22773015, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_y6shv")
 theme_override_font_sizes/normal_font_size = 14
-text = "DefaultText"
+text = "You have not yet talked to this person! Keep investigating to learn more."
 
 [node name="Info_Quotes" type="RichTextLabel" parent="ProfilePages" unique_id=1256460525]
 layout_mode = 0
-offset_left = 251.0
-offset_top = 85.0
-offset_right = 417.0
-offset_bottom = 315.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "DefaultText"
+offset_left = 259.0
+offset_top = 94.0
+offset_right = 406.0
+offset_bottom = 281.0
+theme_override_colors/default_color = Color(0.4635604, 0.35675994, 0.21623918, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_28t4t")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[ul] Point 1
+Point 2 Point 3asd asd asdas dasdasdasdasda asdasd as asdasdasdsadasd asdada da
+Point 4 asdasdasdasdasd[/ul]"
+
+[node name="ColorRect" type="ColorRect" parent="ProfilePages" unique_id=719758328]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 95.0
+offset_right = 198.0
+offset_bottom = 202.0
+color = Color(0.60784316, 0.4117647, 0.25490198, 0.5254902)
 
 [node name="ProfilePicture" type="TextureRect" parent="ProfilePages" unique_id=1130847349]
 layout_mode = 0
-offset_left = 77.0
-offset_top = 87.0
-offset_right = 209.0
-offset_bottom = 219.0
+offset_left = 91.475
+offset_top = 92.0
+offset_right = 199.325
+offset_bottom = 201.0
 texture = ExtResource("8_8moud")
 expand_mode = 1
 
+[node name="NotebookDivider" type="Sprite2D" parent="ProfilePages" unique_id=456314147]
+position = Vector2(333, 80)
+texture = ExtResource("5_dae4x")
+
+[node name="NotebookDivider2" type="Sprite2D" parent="ProfilePages" unique_id=1529690051]
+position = Vector2(148, 73)
+texture = ExtResource("5_dae4x")
+
+[node name="NotebookTape" type="Sprite2D" parent="ProfilePages" unique_id=260909203]
+position = Vector2(144, 146.00002)
+rotation = -0.06581399
+scale = Vector2(1.215371, 1.2153709)
+texture = ExtResource("9_iwt1m")
+
 [node name="QuestPage" type="Control" parent="." unique_id=1561933949]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -310,10 +375,10 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_28t4t")
 [node name="TitleLeft" type="RichTextLabel" parent="." unique_id=1089448922]
 clip_contents = false
 layout_mode = 0
-offset_left = 145.0
-offset_top = 39.0
-offset_right = 283.825
-offset_bottom = 95.89
+offset_left = 147.0
+offset_top = 38.0
+offset_right = 285.825
+offset_bottom = 82.0
 theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
@@ -321,6 +386,13 @@ theme_override_fonts/normal_font = SubResource("FontVariation_8moud")
 theme_override_font_sizes/normal_font_size = 23
 text = "Investigation Progress"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryPencil2" type="Sprite2D" parent="." unique_id=1995875035]
+position = Vector2(489, 306.99997)
+rotation = 1.4421703
+scale = Vector2(1.5377183, 1.5377182)
+texture = ExtResource("13_ui26k")
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Forward" to="." method="_on_forward_pressed"]

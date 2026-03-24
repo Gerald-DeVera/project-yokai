@@ -88,7 +88,7 @@ func flipToPage(page:int) -> void:
 			profileSprite.texture = load(profile.profilePicPath)
 			npcBio.set_text(profile.bio)
 			for q in profile.evidenceQuotes:
-				npcInfo.add_text("- " + q + "\n")
+				npcInfo.add_text("• " + q + "\n")
 	
 
 func _on_back_pressed() -> void:

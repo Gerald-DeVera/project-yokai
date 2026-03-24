@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPC_Profile" format=3 uid="uid://cpiqvjeyhq18g"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_if1e5"]
+
+[resource]
+script = ExtResource("1_if1e5")
+name = "Yui Ogawa"
+profilePicPath = "res://Assets/UI/Items/item_closeup_yui1.png"
+bio = "What does she look like bro"
+evidenceQuotes = PackedStringArray("A member of YuYuYu.", "Went missing two days ago.", "Parents own a shop in the East River District.", "After helping her parents, she visited shops near S.G. Ramen.", "Yui was stepping back from idol work due to her mothers injury.", "She stopped by Camellia before she vanished", "Has a friendship bracelet that matched the one found in the alley. ")

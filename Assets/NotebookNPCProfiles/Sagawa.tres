@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPC_Profile" format=3 uid="uid://brq3inhv7lacm"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_f4ky4"]
+
+[resource]
+script = ExtResource("1_f4ky4")
+name = "Sagawa Ogawa"
+profilePicPath = "res://Assets/UI/Profiles/profile_sagawa.png"
+bio = "Yui's Biggest Fan"
+evidenceQuotes = PackedStringArray("S.G. Ramen Owner", "Yui’s Father", "Claimed Yui visited shops near S.G. Ramen before going home.")

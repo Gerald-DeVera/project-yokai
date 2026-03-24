@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPC_Profile" format=3 uid="uid://dcfgekm6jpnqe"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_6pemf"]
+
+[resource]
+script = ExtResource("1_6pemf")
+name = "Ina Rin "
+profilePicPath = "res://Assets/UI/Profiles/profile_ina.png"
+bio = "MOMMY"
+evidenceQuotes = PackedStringArray("Runs the Tea Shop in the Spirit Realm.", "She is knowledgeable about curses and spiritual ailments", "Claims the culprit is a Kijo and we need to complete a ritual to seal it to save Yui.", "Also owns the coffee shop in the mortal realm. She offered us beans to help seal the Kijo.")
