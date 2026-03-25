@@ -17,12 +17,14 @@ Makoto: That must be them.
 do Global.grabCameraPos()
 Makoto: [do Global.moveCamera(Vector2(-40,-30))]Please, come in.
 #CAMERA PANS TO DOOR HERE
-? ? ?: Yahello! I'm looking for Makoto's office. [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#new_actor=yumi]
+do Signals.moveCharacter.emit("YumiSprite", "enterOffice")
+do Signals.openDoor.emit("OfficeInteriorDoor","open")
+? ? ?: Yahallo! I'm looking for Makoto's office. [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#new_actor=yumi]
 Makoto: Are you here for a consultation? [#animate_right=exit_convo][#animate_left=enter_convo]
 ? ? ?: I am! Geez, it was so hard finding your office, you know!  [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: Uh huh. Yutaka sent me a case file and told me you would stop by. It seems he neglected to mention your name though. [#animate_right=exit_convo][#animate_left=enter_convo]
 ? ? ?: That lame old geezer! Let me introduce myself then! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
-? ? ?: Ahem ahem! I'm Yumi from YuYuYu! [#expression_right=happy]
+? ? ?: Ahem ahem! I'm Yumi from [outline_size=5][color=hot_pink]YuYuYu![/color][/outline_size] [#expression_right=happy]
 Makoto: If I recall, that's the new idol group that everyone is talking about, right? [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: Yuppies! We were pretty underground at first, but we've been topping the charts recently! [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: I see... May I ask what brings you here then? [#animate_right=exit_convo][#animate_left=enter_convo]
@@ -35,9 +37,9 @@ Yumi: It is! It's just that Yui requested to keep her private life and idol life
 Yumi: Something like this would totes blow her cover! As her bestie forever, I CANNOT let that happen. [#expression_right=happy]
 Makoto: I still don't think I'd be the best suited for the job. [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: Nonsense! That old geezer said you're the best of the best! [#animate_left=exit_convo][#animate_right=enter_convo]
-Yumi: He also told me to say, [outline_size=8][color=gold]"Makoto... you still owe me for the last case. Consider this paying it forward... [wave amp=25 freq=5]AHAHAH!!![/wave][/color][/outline_size]"[#expression_right=neutral]
+Yumi: He also told me to say, [outline_size=5][color=orange]"Makoto... you still owe me for the last case. Consider this paying it forward... [wave amp=25 freq=5]AHAHAH!!![/wave][/color][/outline_size]"[#expression_right=neutral]
 Yumi: Exactly like that! [#expression_right=happy]
-Kite: It is almost like Matsu-Sama is here with us! A request from one as noble as he can't be refused, right lady Makoto? [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
+Kite: It is almost like Matsu-sama is here with us! A request from one as noble as he can't be refused, right lady Makoto? [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
 Makoto lets out a sigh. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_right=neutral][#new_actor=makoto][#expression_left=unimp]
 Makoto: Fine. I'll investigate. 
 Yumi: Yippie! Thank you so so much! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
@@ -62,14 +64,19 @@ Yumi: Our manager tried calling her, but it went to voicemail each time. I’ve 
 Makoto: Well, that’s all the questions I have for now. I'll see what I can do. [#animate_right=exit_convo][#animate_left=enter_convo]
 Makoto: Just hang tight and I'll let you know if there are any leads.
 Yumi’s cellphone buzzes. 
-Yumi: Oh yikes! I’m sorry, but I’m late for an appointment! Gotta run for now, ehe! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Yumi: Oh yikes! I’m sorry, but I’m late for an appointment! [do Signals.moveCharacter.emit("YumiSprite", "exitOffice")][do Signals.openDoor.emit("OfficeInteriorDoor","close")]Gotta run for now, ehe! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 Makoto: Take care. [#animate_right=exit_convo][#animate_left=enter_convo]
 Kite: [do Global.resetCamera()]Let us make haste, my lady! Evil waits for no one! [#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=kite_right][#expression_right=neutral]
 Makoto: Nobody said we were fighting evil… [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=unimp][#camera_animation=zoom_out]
 do Global.prepareDialogue("openingDone", "res://Assets/Dialogue/Kite.dialogue", "exitOffice_1", "City")
+do Global.npcProfileList.profileInfo[1] = load("res://Assets/NotebookNPCProfiles/Yumi.tres")
+do Signals.updateInfoAnimation.emit("notebook")
 => END
 
 ~ yumiStreetConvo
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(0,25))
+do Global.zoomCamera(Vector2(2.5,2.5)) 
 #After interviewing Sagawa. Yumi is found in the ERD just kinda chilling. She can be interviewed for more information.
 Yumi: Hello again, Detective! [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#new_actor=yumi][#actor_right=on]
 Makoto: Oh, Yumi. I thought you had an appointment. What are you doing back here? [#animate_right=exit_convo][#animate_left=enter_convo]
@@ -81,11 +88,14 @@ Yumi: Ummm… yesterday, I think? Yeah, yesterday! [#animate_left=exit_convo][#a
 Makoto: Is that so? Well, I wish you a quick recovery. I’m still investigating for any leads on Yui, so I’ll have to get going. [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: Ah, having a true agent of justice on the case really puts my heart at ease, hehe. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 Yumi: Hopefully we talk again soon! 
-Yumi leaves. [#animate_right=exit_convo]
+[do Signals.moveCharacter.emit("YumiSprite", "overworldRun")]Yumi leaves. [#animate_right=exit_convo][#actor_right=off]
 #do an animation of the sprite leaving
 Makoto: ...Agent of justice? [#animate_left=enter_convo][#expression_left=unimp]
 do Signals.collectItem.emit(load("res://Assets/InventoryItems/hand.tres"))
 do Signals.toggleAsset.emit("YumiSprite", false)
 do Signals.updateInfoAnimation.emit("invnote")
 do Global.dialogueFlags.interviewedYumiStreet = true
+do Global.npcProfileList.profileInfo[1].evidenceQuotes.append("Claimed to have injured her hand during practice yesterday.")
+do Global.zoomCamera(Vector2(1.5,1.5))
+do Global.resetCamera()
 => END

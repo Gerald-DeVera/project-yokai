@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const speed = 150.0
-const jump_velocity = -300.0	
+const jump_velocity = -200.0	
 
 
 @export var inventory: Inv
@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canInteract = false
 var interactable = ""
 var inputDisabled = false
-var spiritSightOn = false
+var spiritSightOn = true
 var direction: Vector2
 var hasStopped = true
 var playerHealth : int = 10
@@ -54,7 +54,8 @@ func _physics_process(delta):
 		get_tree().paused = true
 
 	if Input.is_action_just_pressed("Spirit Sight") && Global.hasunlockedSight == true:
-		spiritSightOn = !spiritSightOn
+		#spiritSightOn = !spiritSightOn
+		Signals.PlayerInteractPressed.emit("ShowSpirit")
 		print("Spirit Sight = ", spiritSightOn)
 		domain_expansion.play("spirit_sense")
 		if Global.spiritTutorial == false:

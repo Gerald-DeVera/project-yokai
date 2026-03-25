@@ -5,6 +5,6 @@ extends Node2D
 func _ready() -> void:
 	Signals.openDoor.connect(Callable(self,"animateDoor"))
 	
-func animateDoor(doorName: String):
+func animateDoor(doorName: String, animateName: String):
 	if self.name == doorName:
-		doorAnimate.play("open_doors")
+		doorAnimate.play(animateName)

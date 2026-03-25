@@ -36,12 +36,11 @@ func _ready() -> void:
 		self.locked = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if isSpiritButton and !turnedVisible and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
+	if isSpiritButton and !turnedVisible and playerCharacter and abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance:
 		self.visible = false
 		Sprite1.visible = true
 	else:
-		self.visible = true
-		turnedVisible = true
+		interactable = true
 	if !self.visible:
 		return
 	
@@ -63,8 +62,10 @@ func ButtonPressed(InteractableObject:String):
 	if  InteractableObject == "button" && interactable == true && isDialogue == true && locked == false:
 		print("start dialogue")
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePath), dialogueStartingPosition, )
-		print
 		return
+	elif InteractableObject == "ShowSpirit" && interactable == true:
+		self.visible = true
+		turnedVisible = true
 
 func toggleLock(assetName: String, toggled: bool):
 	print("signal received by:" + str(self.name))

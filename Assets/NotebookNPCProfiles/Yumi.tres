@@ -7,4 +7,4 @@ script = ExtResource("1_l2miw")
 name = "Yumi Hayashi"
 profilePicPath = "res://Assets/UI/Profiles/profile_yumi.png"
 bio = "Holy shit she is moe"
-evidenceQuotes = PackedStringArray("A member of YuYuYu.", "Claims to be Yui’s BFF.", "Asked me to Investigate Yui’s disappearance.", "Claimed to have injured her hand during practice yesterday.")
+evidenceQuotes = PackedStringArray("A member of YuYuYu.", "Claims to be Yui’s BFF.", "Asked me to Investigate Yui’s disappearance.")

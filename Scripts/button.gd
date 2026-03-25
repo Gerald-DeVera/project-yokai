@@ -34,11 +34,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if isSpiritButton and !turnedVisible and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
+	if isSpiritButton and !turnedVisible and playerCharacter and abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance:
 		self.visible = false
 	else:
-		self.visible = true
-		turnedVisible = true
+		interactable = true
 	if !self.visible:
 		return
 	
@@ -73,6 +72,9 @@ func ButtonPressed(InteractableObject:String):
 		# print("scene transition")
 		await get_tree().create_timer(1).timeout
 		sceneManager.transition_to_scene(next_scene)
+	elif InteractableObject == "ShowSpirit" && isSpiritButton == true:
+		self.visible = true
+		turnedVisible = true
 
 func ToggleLock(areaName: String, toggled: bool):
 	if areaName == self.name:

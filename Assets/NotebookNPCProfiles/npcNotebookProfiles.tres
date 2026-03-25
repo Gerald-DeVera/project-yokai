@@ -1,13 +1,10 @@
 [gd_resource type="Resource" script_class="NPC_Profiles" format=3 uid="uid://dwn18hrb2v3cj"]
 
 [ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_c0mau"]
-[ext_resource type="Resource" uid="uid://cg0oj4pitxt0d" path="res://Assets/NotebookNPCProfiles/Yumi.tres" id="2_8dvat"]
 [ext_resource type="Resource" uid="uid://cpiqvjeyhq18g" path="res://Assets/NotebookNPCProfiles/Yui.tres" id="2_n3lpc"]
+[ext_resource type="Resource" uid="uid://dtmdpham8ejii" path="res://Assets/NotebookNPCProfiles/defaultprofile.tres" id="3_8dvat"]
 [ext_resource type="Script" uid="uid://b08d3hejytuhf" path="res://Scripts/NPC_Profiles.gd" id="3_aeliy"]
-[ext_resource type="Resource" uid="uid://brq3inhv7lacm" path="res://Assets/NotebookNPCProfiles/Sagawa.tres" id="4_hwfxr"]
-[ext_resource type="Resource" uid="uid://q8271dct3nc5" path="res://Assets/NotebookNPCProfiles/Shu.tres" id="5_0c56t"]
-[ext_resource type="Resource" uid="uid://dcfgekm6jpnqe" path="res://Assets/NotebookNPCProfiles/Ina.tres" id="6_hanmp"]
 
 [resource]
 script = ExtResource("3_aeliy")
-profileInfo = Array[ExtResource("1_c0mau")]([ExtResource("2_n3lpc"), ExtResource("2_8dvat"), ExtResource("4_hwfxr"), ExtResource("5_0c56t"), ExtResource("6_hanmp")])
+profileInfo = Array[ExtResource("1_c0mau")]([ExtResource("2_n3lpc"), ExtResource("3_8dvat"), ExtResource("3_8dvat"), ExtResource("3_8dvat"), ExtResource("3_8dvat")])

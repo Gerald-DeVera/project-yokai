@@ -15,11 +15,11 @@
 [ext_resource type="StyleBox" uid="uid://cm2lg88dpfmyu" path="res://Assets/Themes and Fonts/text_grad_bg.tres" id="13_t1ull"]
 [ext_resource type="Texture2D" uid="uid://pw5a4fn4v8t" path="res://Assets/UI/tooltip_spirit.png" id="14_6xqmg"]
 
-[sub_resource type="Gradient" id="Gradient_7p7f7"]
+[sub_resource type="Gradient" id="Gradient_6xqmg"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cou8r"]
-gradient = SubResource("Gradient_7p7f7")
+gradient = SubResource("Gradient_6xqmg")
 use_hdr = true
 
 [sub_resource type="Animation" id="Animation_awuwx"]
@@ -794,10 +794,8 @@ offset_bottom = 99.0
 [node name="Notebook" parent="HUD" unique_id=523988141 instance=ExtResource("3_yu4om")]
 visible = false
 layout_mode = 1
-offset_left = 47.0
-offset_top = 24.0
-offset_right = 47.0
-offset_bottom = 24.0
+offset_left = -2.9999924
+offset_right = -2.9999924
 scale = Vector2(0.87999994, 0.87999994)
 
 [node name="PauseMenu" type="NinePatchRect" parent="HUD" unique_id=1316186352]

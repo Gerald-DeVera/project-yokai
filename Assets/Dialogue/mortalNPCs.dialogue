@@ -6,10 +6,10 @@ elif Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.key
 	Makoto: Excuse me. [#camera_animation=zoom_in][#expression_right=confused][#animate_left=enter_convo][#actor_right=on][#new_actor=sagawa]
 	Sagawa: ... [#animate_left=exit_convo][#animate_right=enter_convo]
 	Makoto: Sir? [#animate_left=enter_convo][#animate_right=exit_convo]
-	Sagawa: Oh. My bad miss, I’ve had a lot on my mind lately. I must've tuned you out by accident. What can I get for you? I’d recommend our [wave amp=25 freq=5]house special[/wave] if it’s your first time. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+	Sagawa: Oh. My bad miss, I’ve had a lot on my mind lately. I must've tuned you out by accident. What can I get for you? I’d recommend our [wave amp=20 freq=5]house special[/wave] if it’s your first time. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 	Makoto: It's fine. And sorry, I’m not here to place an order.[#animate_left=enter_convo][#animate_right=exit_convo]
 	Sagawa: That so? Well then, what can I help you with, miss? [#expression_right=confused][#animate_left=exit_convo][#animate_right=enter_convo]
-	Makoto: Are you familiar with Yui from YuYuYu? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Makoto: Are you familiar with Yui from [outline_size=5][color=hot_pink]YuYuYu?[/color][/outline_size] [#animate_left=enter_convo][#animate_right=exit_convo]
 	do Global.showEvidence("yui1")
 	#Sagawa surprise
 	Sagawa: [do Global.hideEvidence()]Ah, are you a fan of hers? I’m a bit too old to be keeping up with the trends, but I’ve heard of her before. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
@@ -22,7 +22,7 @@ elif Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.key
 	Makoto: I was told by Yui’s friend that she was last seen visiting her parent’s shop, and my investigation led me to this very establishment.
 	Sagawa sighs.
 	Sagawa: Well, if it’s Matsu-san… I suppose you’re not here for a cheap tabloid interview then. [#animate_left=exit_convo][#animate_right=enter_convo]
-	Sagawa:  Little Yui was indeed here the day before yesterday, and  yes – the merch is all ours, me and my wife. Yui’s our [wave amp=25 freq=5]dearest daughter[/wave], after all. [#expression_right=unimp]
+	Sagawa:  Little Yui was indeed here the day before yesterday, and  yes – the merch is all ours, me and my wife. Yui’s our [wave amp=20 freq=5]dearest daughter[/wave], after all. [#expression_right=unimp]
 	Sagawa:  If you are working to find her, I’ll try to tell you everything that’s left in this ol’ head of mine. [#expression_right=angry]
 	Makoto: Let’s start with the basics. What was she doing here two days ago? [#animate_left=enter_convo][#animate_right=exit_convo]
 	Sagawa: Yui is usually busy with her idol work, but she’s always made sure to stop by every now and then to help me and her mother out around the shop. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
@@ -32,17 +32,18 @@ elif Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.key
 	Makoto: I see. Was there anything unusual on the day she went missing? [#animate_left=enter_convo][#animate_right=exit_convo]
 	Sagawa: I think everything was the same for the most part… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
 	Sagawa: …
-	Sagawa: Actually, that day was particularly busy. We ended up having to [wave amp=25 freq=5]close late[/wave], and Yui stuck by my side the whole time.[#expression_right=confused]
-	Sagawa: If I remember correctly, she left in a rush once we finished closing up, saying she was in a hurry to [wave amp=25 freq=5]meet up with a friend[/wave].
+	Sagawa: Actually, that day was particularly busy. We ended up having to [wave amp=20 freq=5]close late[/wave], and Yui stuck by my side the whole time.[#expression_right=confused]
+	Sagawa: If I remember correctly, she left in a rush once we finished closing up, saying she was in a hurry to [wave amp=20 freq=5]meet up with a friend[/wave].
 	Sagawa: …And that was the last I saw of her. We thought it was odd when she hadn’t sent her usual morning text the next day... [#expression_right=angry]
-	Sagawa: ...but it wasn’t until last night that we knew something was terribly wrong.
+	Sagawa: ...but it wasn’t until last night that we knew something was [shake rate=20.0 level=5 connected=1]terribly wrong[/shake].
 	Sagawa: She had promised to stop by after practice that day, but we didn’t hear a peep all day and she never showed up.
 	Sagawa: We’ve tried calling her so many times… even the agency said they can’t get a hold of her, and her manager claims she never showed up for practice that day. [#expression_right=unimp]
+	Sagawa: They ended up having to [wave amp=20 freq=5]cancel practice[/wave] later that day...
 	Sagawa’s lip trembles a bit.
-	Makoto: I see. Did she say [wave amp=25 freq=5]who she was meeting[/wave]? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Makoto: I see. Did she say [wave amp=20 freq=5]who she was meeting[/wave]? [#animate_left=enter_convo][#animate_right=exit_convo]
 	Sagawa: No, she left so quickly that before I could even ask, she was gone as if she was spirited away. [#animate_left=exit_convo][#animate_right=enter_convo]
 	Sagawa furrows his brow.
-	Sagawa: Though, I do remember she said something about needing to [wave amp=25 freq=5]pick some things up[/wave] while she was in the area... [#expression_right=angry]
+	Sagawa: Though, I do remember she said something about needing to [wave amp=20 freq=5]pick some things up[/wave] while she was in the area... [#expression_right=angry]
 	Sagawa: ...but for all I know, it could’ve been something for idol practice or a trinket for that friend of hers. 
 	Sagawa: I’m sorry I can’t tell you more than that, but that’s all I can squeeze out of this dwindlin’ memory of mine. [#expression_right=unimp]
 	Makoto: That’s fine. The information you’ve provided so far has been a great help. [#animate_left=enter_convo][#animate_right=exit_convo]
@@ -55,6 +56,9 @@ elif Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.key
 	do Global.prepareDialogue("SagawaDone", "res://Assets/Dialogue/Kite.dialogue", "postSagawaInterview", "City")
 	do Global.questsList.quests.append(load("res://Assets/Quests/Quest3.tres"))
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest2.tres"))
+	do Global.npcProfileList.profileInfo[2] = load("res://Assets/NotebookNPCProfiles/Sagawa.tres")
+	do Global.npcProfileList.profileInfo[0].evidenceQuotes.append("After helping her parents, she visited shops near S.G. Ramen.")
+	do Global.npcProfileList.profileInfo[0].evidenceQuotes.append("Yui was stepping back from idol work due to her mothers injury.")
 	do Signals.updateInfoAnimation.emit("notebook")
 	#Set flag talked to Sagawa true 
 elif Global.dialogueFlags.interviewedSagawa == true
@@ -65,37 +69,46 @@ elif Global.dialogueFlags.interviewedSagawa == true
 => END
 
 ~ uselessWitness1
-Makoto: Excuse me. 
-Athletic Woman: Is there something you need?
-- Ask about Yui
-#CG of Yui here
-	Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?
-	Athletic Woman: Omg! She looks exactly like my oshi Yui from YuYuYu! But Yui looks waaay cuter!
-	Makoto: [do Global.hideEvidence()]Uh huh…. I didn't know they were so popular.
-	Athletic Woman: Huh!? Then why are you asking about this imposter? Are you an anti or something!?
-	Makoto: I'm just going to leave now.
+if Global.dialogueFlags.uselessWitnessasked == false:
+	Makoto: Excuse me. 
+	Athletic Woman: Is there something you need?
+	- Ask about Yui
+	#CG of Yui here
+		Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?
+		Athletic Woman: Oh my gosh! She looks exactly like my oshi Yui from [outline_size=5][color=hot_pink]YuYuYu![/color][/outline_size] But Yui looks [wave amp=20 freq=5]waaay cuter![/wave]
+		Makoto: [do Global.hideEvidence()]Uh huh…. I didn't know they were so popular.
+		Athletic Woman: Huh!? Then why are you asking about this [shake rate=20.0 level=5 connected=1]imposter?[/shake] Are you an [shake rate=20.0 level=5 connected=1]anti[/shake] or something!?
+		Makoto: I'm just going to leave now.
+		do Global.dialogueFlags.uselessWitnessasked = true
+		=> END	
+	- Nevermind.
 	=> END
-- Nevermind.
+elif Global.dialogueFlags.uselessWitnessasked == true:
+	Athletic Woman: Go away!
 	=> END
 
 ~ keyWitness1
-Makoto: Excuse me.
-Old Guy: Hello miss, how can I help you?
-- Ask about Yui
-	Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?
-	#CG of Yui picture
-	Old Guy: Well, that looks like little miss Yui. I think she was helping out her dad, Sagawa-san, at his ramen shop the other day.
-	Old Guy: [do Global.hideEvidence()]Are you a friend of hers?
-	Makoto: Not exactly. But I need to find her.
-	Old Guy: Ah, well best of luck! She's one of the most caring people I know. 
-	Old Guy: She always makes time to come and help out around her parents shop. I certainly wish my son was half as caring, [wave amp=25 freq=5]gyahaha![/wave]
-	do Global.dialogueFlags.keyWitnessFound = true
-	do Global.questsList.quests.append(load("res://Assets/Quests/Quest2.tres"))
-	do Global.markPreviousQuest(load("res://Assets/Quests/Quest1.tres"))
-	do Signals.updateInfoAnimation.emit("notebook")
-	#Set flag for knowing about Ramen shop and Yui
-	=> END
-- Nevermind.
+if Global.dialogueFlags.keyWitnessFound == false:
+	Makoto: Excuse me.
+	Old Guy: Hello miss, how can I help you?
+	- Ask about Yui
+		Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?
+		#CG of Yui picture
+		Old Guy: Well, that looks like little miss Yui. I think she was helping out her dad, Sagawa-san, at his ramen shop the other day.
+		Old Guy: [do Global.hideEvidence()]Are you a friend of hers?
+		Makoto: Not exactly. But I need to find her.
+		Old Guy: Ah, well best of luck! She's one of the most caring people I know. 
+		Old Guy: She always makes time to come and help out around her parents shop. I certainly wish my son was half as caring, [wave amp=20 freq=5]gyahaha![/wave]
+		do Global.dialogueFlags.keyWitnessFound = true
+		do Global.questsList.quests.append(load("res://Assets/Quests/Quest2.tres"))
+		do Global.markPreviousQuest(load("res://Assets/Quests/Quest1.tres"))
+		do Signals.updateInfoAnimation.emit("notebook")
+		#Set flag for knowing about Ramen shop and Yui
+		=> END
+	- Nevermind.
+		=> END
+elif Global.dialogueFlags.keyWitnessFound == true:
+	Old Guy: Now when that hooligan of mine going to visit his old pop...
 	=> END
 
 ~ fashionClerkPostSagawa
@@ -103,20 +116,20 @@ if Global.dialogueFlags.interviewedSagawa == false
 	Fashion Clerk: [#animate_left=exit_convo]Welcome ma’am, looking to expand your wardrobe?
 	Makoto: Sorry, maybe another time. [#animate_left=enter_convo]
 	=> END
-elif Global.dialogueFlags.interviewedSagawa == true
+elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedClothier == false:
 	Makoto: Excuse me.
 	Fashion Clerk: Welcome ma’am, looking to expand your wardrobe?
 	Makoto: No. I just have a few questions, if you have the time.
 	Fashion Clerk: Ah, looking for a style consultation perhaps?
-	Makoto: Sorry, maybe some other time. I want to know… 
+	Makoto: Sorry, maybe some other time.
 	Makoto: I’m looking for this woman[do Global.showEvidence("yui1")]. She was in the area doing some shopping recently. Did she happen to stop by?
 	Fashion Clerk: Hmmm, let me see…
-	Fashion Clerk: Ah! She does look familiar. Hard to forget such a gorgeous face.[do Global.hideEvidence()]
+	Fashion Clerk: Ah! She does look familiar. Hard to forget such a [wave amp=20 freq=5]gorgeous face.[/wave][do Global.hideEvidence()]
 	Fashion Clerk: I think it was about a few days ago now that she stopped by right before closing. 
-	Fashion Clerk: Kept on apologizing for coming in so late, but I didn’t really mind and helped her pick out a gift for a friend. 
+	Fashion Clerk: Kept on apologizing for coming in so late, but I didn’t really mind and helped her [wave amp=20 freq=5]pick out a gift[/wave] for a friend. 
 	Fashion Clerk: After that, she paid and left the store in a rush. 
 	Makoto: I see. Did she happen to say where she was heading next?
-	Fashion Clerk: We chatted about a few things, but I think she did ask when the flower store closed. 
+	Fashion Clerk: We chatted about a few things, but I think she did ask when the [outline_size=5][color=orange]flower store[/color][/outline_size] closed. 
 	Fashion Clerk: It was already late though, so I don’t know if she would’ve made it in time.
 	Makoto: Is there anything else you can recall during that conversation?
 	Fashion Clerk: If you’re trying to look for someone, then I can’t think of anything else.
@@ -127,5 +140,9 @@ elif Global.dialogueFlags.interviewedSagawa == true
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest3.tres"))
 	do Signals.updateInfoAnimation.emit("notebook")
 	do Global.dialogueFlags.interviewedClothier = true
+	do Global.npcProfileList.profileInfo[0].evidenceQuotes.append("She stopped by Camellia before she vanished.")
 	#Set flag here
+	=> END
+elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedClothier == true:
+	Fashion Clerk: [#animate_left=exit_convo]Welcome back, ma’am! Please take a look at our latest collection!
 	=> END

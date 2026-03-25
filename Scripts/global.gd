@@ -42,6 +42,7 @@ var unlocked_dialogue = {}
 #Enums only story ints, so 0 is false, 1 is true
 var dialogueFlags = {
 	keyWitnessfound = false,
+	uselessWitnessasked = false,
 	interviewedSagawa = false,
 	interviewedClothier = false,
 	interviewedShu = false,
@@ -53,6 +54,7 @@ var dialogueFlags = {
 	shuSpirit2 = false,
 	shuExplain = false,
 	confirmedYui = false,
+	uselessYokaifound = false,
 	keyYokaifound = false,
 	InaFound = false,
 	InaShuPlan = false,

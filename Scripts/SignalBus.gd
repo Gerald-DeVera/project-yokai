@@ -42,6 +42,6 @@ signal changeDialoguePoint(characterName: String, newstartingPoint: String)
 
 signal moveCharacter(charName: String, event: String)
 
-signal openDoor(doorName: String)
+signal openDoor(doorName: String, animateName: String)
 
 signal updateInteractText(interactName: String, newtooltip: String)

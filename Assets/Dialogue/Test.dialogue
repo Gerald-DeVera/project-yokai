@@ -27,6 +27,7 @@ Makoto: oh okay :) [#expression_left=neutral][#animate_left=enter_convo][#animat
 Kite: tis i the glorious kite [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy][#new_actor=kite_right]
 Kite: and now i am on the left side [#new_actor=kite_left][#expression_left=happy][#actor_right=off][#animate_left=enter_convo]
 Ina: hello my name is Ina please don't end the convo-- [#actor_right=on][#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#new_actor=ina]
+do Global.npcProfileList.profileInfo[1].evidenceQuotes.append("Claimed to have injured her hand during practice yesterday.")
 => END	
 
 ~ dinoObtained

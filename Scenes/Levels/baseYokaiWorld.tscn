@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="30_gqjqm"]
 [ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="33_krn6b"]
 [ext_resource type="Texture2D" uid="uid://cgq0p1v7p2r4m" path="res://Assets/Environment/bg_yokai/bg_yokai_doorleft.png" id="35_fvt3n"]
-[ext_resource type="Script" uid="uid://cvnksskr2lo0e" path="res://Scenes/Levels/shu_home_door_sprite.gd" id="35_hki8u"]
+[ext_resource type="Script" uid="uid://cvnksskr2lo0e" path="res://Scenes/Levels/open_door_sprite.gd" id="35_hki8u"]
 [ext_resource type="AudioStream" uid="uid://d2uiy2diy6rme" path="res://Assets/Audio/BackgroundTracks/Yokai.wav" id="35_rgfmy"]
 [ext_resource type="Texture2D" uid="uid://dlimiw8iweatl" path="res://Assets/Environment/bg_yokai/bg_yokai_doorright.png" id="36_hki8u"]
 
@@ -562,9 +562,10 @@ tile_map_data = PackedByteArray("AAAZAAwAAAAAAAMAAAAZAAsAAAAAAAMAAAAZAAoAAAAAAAM
 tile_set = SubResource("TileSet_nbfcv")
 
 [node name="ToCity" parent="." unique_id=206299497 instance=ExtResource("22_4r1gn")]
-position = Vector2(-1007, 168)
+position = Vector2(-918, 168)
 next_scene = "Alley"
 player_pos = Vector2(523, 292)
+interactText = "To City"
 
 [node name="YokaiShuOneShot" type="Node2D" parent="." unique_id=1203515857]
 position = Vector2(985, 162)
@@ -627,7 +628,7 @@ position = Vector2(2753, 168)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
 dialogueStartingPosition = "searchRin2"
 isDialogue = true
-interactText = "Ask"
+interactText = "Talk"
 dialoguePath = "res://Assets/Dialogue/yokaiNPCs.dialogue"
 
 [node name="KeyYokai1Dialogue2" parent="." unique_id=541350061 instance=ExtResource("27_ao21d")]
@@ -636,7 +637,7 @@ position = Vector2(116, 168)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
 dialogueStartingPosition = "searchRin1"
 isDialogue = true
-interactText = "Ask"
+interactText = "Talk"
 dialoguePath = "res://Assets/Dialogue/yokaiNPCs.dialogue"
 
 [node name="InaSprite" type="Sprite2D" parent="." unique_id=868280798]

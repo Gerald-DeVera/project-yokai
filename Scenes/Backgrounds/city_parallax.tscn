@@ -39,6 +39,7 @@ position = Vector2(320, 180)
 texture = ExtResource("2_r5620")
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=311238400]
+modulate = Color(0.76802593, 0.8361045, 0.9417539, 1)
 scroll_scale = Vector2(0.56, 1)
 scroll_offset = Vector2(0, 76.765)
 repeat_size = Vector2(640, 0)

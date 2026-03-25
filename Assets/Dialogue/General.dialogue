@@ -1,17 +1,17 @@
 ~ findFlowers
-Makoto: A bouquet? It looks rather ornate. The logo on the ribbon is familiar.
+Makoto: A [outline_size=5][color=orange]bouquet?[/color][/outline_size] It looks rather ornate. The logo on the ribbon is familiar.
 do Signals.updateInfoAnimation.emit("inventory")
 do Global.evidenceCounter()
 => END
 
 ~ findBracelet
-Makoto: A worn bracelet? There’s a name engraved on it.
+Makoto: A [outline_size=5][color=orange]worn bracelet?[/color][/outline_size] There’s a name engraved on it.
 do Signals.updateInfoAnimation.emit("inventory")
 do Global.evidenceCounter()
 => END
 
 ~ findWallet
-Makoto: A wallet? There could be something important inside.
+Makoto: A [outline_size=5][color=orange]wallet?[/color][/outline_size] There could be something important inside.
 do Signals.updateInfoAnimation.emit("inventory")
 do Global.evidenceCounter()
 => END
