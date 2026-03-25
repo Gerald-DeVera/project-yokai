@@ -15,6 +15,7 @@ var timerVal : int
 @export var fallspeed : float
 @export var fallAcceleration : float
 var originalFallSpeed : float
+var checkForPlayerOnFloor = false
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
@@ -23,6 +24,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !beginFalling and !isFalling and checkForPlayerOnFloor and playerCharacter and playerCharacter.velocity.y == 0:
+		beginFalling = true
 	if beginFalling:
 		timerVal += 1
 		if timerVal % 2 == 0:
@@ -52,5 +55,7 @@ func _process(delta: float) -> void:
 		fallspeed = originalFallSpeed
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if playerCharacter and playerCharacter.is_on_floor():
-		beginFalling = true
+	checkForPlayerOnFloor = true
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	checkForPlayerOnFloor = false
