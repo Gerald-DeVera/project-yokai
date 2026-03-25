@@ -45,3 +45,9 @@ signal moveCharacter(charName: String, event: String)
 signal openDoor(doorName: String, animateName: String)
 
 signal updateInteractText(interactName: String, newtooltip: String)
+
+signal forceJump(newVelocity: float)
+
+signal changePlayerVelocity(newVelocity: float)
+
+signal returnToOriginalVelocity()

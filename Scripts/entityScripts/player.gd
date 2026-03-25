@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 const speed = 150.0
-const jump_velocity = -200.0	
+@export var jump_velocity = -200.0	
+var tempVelocity = -200.0
 
 
 @export var inventory: Inv
@@ -29,6 +30,8 @@ func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableInput"))
 	Signals.togglePlayerInput.connect(Callable(self,"toggleInput"))
 	Signals.damagePlayer.connect(Callable(self,"takeDamage"))
+	Signals.changePlayerVelocity.connect(Callable(self,"tempChangeVelocity"))
+	Signals.returnToOriginalVelocity.connect(Callable(self,"returnToOriginalVelocity"))
 	if sceneManager.player_pos:
 		global_position = sceneManager.player_pos
 	inventory.makeReady()
@@ -169,3 +172,11 @@ func moveBody(charName: String, event: String):
 			$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 1)
 			$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 			movement_state_machine.travel("IdleSet")
+			
+func tempChangeVelocity(newVelocity: float):
+	tempVelocity = jump_velocity
+	jump_velocity = newVelocity
+	pass
+	
+func returnToOriginalVelocity():
+	jump_velocity = tempVelocity
