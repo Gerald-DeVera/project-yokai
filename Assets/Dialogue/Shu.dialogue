@@ -1,6 +1,6 @@
 ~ shuFirstMeeting
 #this dialogue plays when first meeting Shu outside the flower shop post clothing store interview
-if Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.interviewedShu == false && Global.dialogueFlags.interviewedClothier == false
+if Global.dialogueFlags.interviewedShu == false && Global.dialogueFlags.interviewedClothier == false
 	Florist: Welcome in. Can I grab you anything? [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=shu][#expression_right=happy]
 	Makoto: Just browsing. [#animate_left=enter_convo][#animate_right=exit_convo]
 	=> END

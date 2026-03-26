@@ -107,7 +107,7 @@ if Global.dialogueFlags.keyWitnessFound == false:
 	- Nevermind.
 		=> END
 elif Global.dialogueFlags.keyWitnessFound == true:
-	Old Guy: Now when that hooligan of mine going to visit his old pop... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=oldguy][#expression_right=neutral]
+	Old Guy: Now when is that hooligan of mine going to visit his old pop... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=oldguy][#expression_right=neutral]
 	=> END
 
 ~ fashionClerkPostSagawa
