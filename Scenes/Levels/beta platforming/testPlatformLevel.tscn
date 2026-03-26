@@ -13,8 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="9_sw76f"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="11_hjoic"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="11_xgn0t"]
-[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
+[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
+[ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="12_fshmo"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="13_xyy84"]
+[ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="17_i6yte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sw76f"]
 texture = ExtResource("2_umi5f")
@@ -95,7 +97,7 @@ texture = ExtResource("7_umi5f")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_cw6rj")]
 z_index = 2
-position = Vector2(22, -48)
+position = Vector2(399, -254)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=461871120]
 position = Vector2(-2, -30)
@@ -167,10 +169,13 @@ position = Vector2(78, -68)
 position = Vector2(-348, 26)
 
 [node name="Hazard2" parent="." unique_id=1902928155 instance=ExtResource("8_rxnno")]
-position = Vector2(-164, -211)
+position = Vector2(-408, -98)
 
 [node name="FallingPlatform" parent="." unique_id=644855615 instance=ExtResource("11_hjoic")]
 position = Vector2(321, -213)
+
+[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("12_fshmo")]
+visible = false
 
 [node name="checkpointManager" type="Node" parent="." unique_id=531586094]
 script = ExtResource("8_hynhp")
@@ -187,3 +192,13 @@ position = Vector2(4, -118)
 position = Vector2(202, -11)
 rotation = -1.5707964
 script = ExtResource("12_80tmh")
+
+[node name="Portal" parent="." unique_id=108987774 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("17_i6yte")]
+position = Vector2(139, -417)
+pairedPortal = NodePath("../Portal2")
+direction = Vector2i(0, 1)
+
+[node name="Portal2" parent="." unique_id=99731313 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("17_i6yte")]
+position = Vector2(139, -130)
+pairedPortal = NodePath("../Portal")
+direction = Vector2i(0, -1)
