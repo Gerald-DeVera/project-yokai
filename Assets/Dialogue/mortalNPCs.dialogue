@@ -9,8 +9,7 @@ elif Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.key
 	Sagawa: Oh. My bad miss, I’ve had a lot on my mind lately. I must've tuned you out by accident. What can I get for you? I’d recommend our [wave amp=20 freq=5]house special[/wave] if it’s your first time. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 	Makoto: It's fine. And sorry, I’m not here to place an order.[#animate_left=enter_convo][#animate_right=exit_convo]
 	Sagawa: That so? Well then, what can I help you with, miss? [#expression_right=confused][#animate_left=exit_convo][#animate_right=enter_convo]
-	Makoto: Are you familiar with Yui from [outline_size=5][color=hot_pink]YuYuYu?[/color][/outline_size] [#animate_left=enter_convo][#animate_right=exit_convo]
-	do Global.showEvidence("yui1")
+	Makoto: Are you familiar with [do Global.showEvidence("yui1")]Yui from [outline_size=5][color=hot_pink]YuYuYu?[/color][/outline_size] [#animate_left=enter_convo][#animate_right=exit_convo]
 	#Sagawa surprise
 	Sagawa: [do Global.hideEvidence()]Ah, are you a fan of hers? I’m a bit too old to be keeping up with the trends, but I’ve heard of her before. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
 	do Global.grabCameraPos()

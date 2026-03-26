@@ -395,13 +395,6 @@ dialogueStartingPosition = "OpeningScene"
 isDialogue = true
 dialoguePath = "res://Assets/Dialogue/Yumi.dialogue"
 
-[node name="RightDoor" parent="." unique_id=1403522223 instance=ExtResource("5_lhiah")]
-position = Vector2(453, 249)
-dialogueStartingPosition = "start3"
-isDialogue = true
-isSpiritButton = true
-dialoguePath = "res://Assets/Dialogue/Test.dialogue"
-
 [node name="ColorRect" type="ColorRect" parent="." unique_id=143729060]
 z_index = -1
 offset_left = 207.99998
@@ -446,6 +439,8 @@ position = Vector2(257, 250)
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=414050316]
 position = Vector2(-2, -30)
 zoom = Vector2(2.5, 2.5)
+process_callback = 0
+position_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=804787415]
 layer = -1

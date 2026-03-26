@@ -89,6 +89,7 @@ do Signals.collectItem.emit(load("res://Assets/InventoryItems/receipt.tres"))
 do Global.questsList.quests.append(load("res://Assets/Quests/Quest8.tres"))
 do Global.markPreviousQuest(load("res://Assets/Quests/Quest7.tres"))
 do Signals.updateInfoAnimation.emit("invnote")
+do Global.TimeOfDay = "Night"
 => END
 
 ~ afterShuRuns

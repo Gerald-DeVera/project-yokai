@@ -13,6 +13,8 @@ var inputDisabled = false
 @onready var questEntries = $Main/QuestPage/ScrollContainerLeft/QuestEntries
 @onready var currentQuestDesc = $Main/QuestPage/ScrollContainerRight/VBoxContainer/QuestDescription
 @onready var notebookAnimate = $AnimationPlayer
+@onready var backKey = $Back
+@onready var forwardKey = $Forward
 
 @onready var npcBio = $Main/ProfilePages/Bio
 @onready var profileSprite = $Main/ProfilePages/ProfilePicture
@@ -28,6 +30,8 @@ func _ready() -> void:
 func setup() -> void:
 	pageNumber = 1
 	flipToPage(pageNumber)
+	forwardKey.visible = true
+	backKey.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -99,15 +103,23 @@ func flipToPage(page:int) -> void:
 
 func _on_back_pressed() -> void:
 	if pageNumber > 1:
+		forwardKey.visible = true
 		pageNumber -= 1
 		flipToPage(pageNumber)
 		notebookAnimate.play("jiggle_left")
+		if pageNumber == 1:
+			backKey.visible = false
 
 func _on_forward_pressed() -> void:
 	if pageNumber < Global.npcProfileList.profileInfo.size() + 1:
+		backKey.visible = true
 		pageNumber += 1
 		flipToPage(pageNumber)
 		notebookAnimate.play("jiggle_right")
+		if pageNumber == Global.npcProfileList.profileInfo.size() + 1:
+			forwardKey.visible = false
+
+		
 
 
 func displayQuestDesc(name, desc) -> void:

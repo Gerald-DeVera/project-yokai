@@ -13,6 +13,9 @@ var YuiExamined = 0
 var spiritTutorial = false
 var hasunlockedSight = false #set to false at beginning of game pls
 
+#time state
+var TimeOfDay: String = "Day"
+
 #preload a bunch of textures for evidence in cutscenes
 var evidenceTextures = {
 	"box": preload("res://Assets/UI/Items/item_closeup_box.png"),

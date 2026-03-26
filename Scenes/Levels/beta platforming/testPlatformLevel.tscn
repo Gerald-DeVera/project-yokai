@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="9_sw76f"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="11_hjoic"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="11_xgn0t"]
-[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
+[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="13_xyy84"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sw76f"]

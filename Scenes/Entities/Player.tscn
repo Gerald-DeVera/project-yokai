@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://d27r272845fef" path="res://Scripts/entityScripts/player.gd" id="1_v402d"]
 [ext_resource type="Resource" uid="uid://bg0mts2rbbb7b" path="res://Assets/InventoryItems/playerInventory.tres" id="2_agccv"]
 [ext_resource type="Texture2D" uid="uid://bsfqeclee1nh4" path="res://Assets/Sprites/mc sprite-Sheet.png" id="2_v402d"]
+[ext_resource type="Texture2D" uid="uid://r4htcjkjow5u" path="res://Assets/Sprites/spirit sight aura.png" id="3_g4oe6"]
+[ext_resource type="Texture2D" uid="uid://gs5qpe4sp2g1" path="res://Assets/Sprites/spirit sight eye-Sheet.png" id="4_86atj"]
+[ext_resource type="AudioStream" uid="uid://b1d40utnl7ywd" path="res://Assets/Audio/SFX/walk_tile.wav" id="6_yu0ev"]
 
 [sub_resource type="Gradient" id="Gradient_g4oe6"]
 offsets = PackedFloat32Array(0.39490446, 0.71672356)
@@ -52,6 +55,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpiritSightAura:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpiritSightEyeSheet:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_0pa8p"]
 resource_name = "spirit_sense"
@@ -62,16 +89,16 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.5069981, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.51),
@@ -90,6 +117,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpiritSightAura:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(-5.9604645e-08, 0.099999934, 0.19999993, 0.29999995, 0.39999992, 0.49999994, 0.5999999, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpiritSightEyeSheet:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.18, 0.27, 0.36, 0.45, 0.54, 0.63),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0hljs"]
@@ -714,6 +765,19 @@ process_material = SubResource("ParticleProcessMaterial_yu0ev")
 [node name="Sprite2D" type="Sprite2D" parent="DomainExpansion" unique_id=901851855]
 texture = SubResource("GradientTexture2D_yu0ev")
 
+[node name="SpiritSightAura" type="Sprite2D" parent="DomainExpansion" unique_id=684611927]
+z_index = 1
+position = Vector2(0, -2.1466906)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("3_g4oe6")
+hframes = 8
+
+[node name="SpiritSightEyeSheet" type="Sprite2D" parent="DomainExpansion" unique_id=376571737]
+position = Vector2(1.9073486e-06, -15.026833)
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("4_86atj")
+hframes = 8
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
 texture = SubResource("CanvasTexture_yu0ev")
 hframes = 10
@@ -752,3 +816,6 @@ collision_mask = 35
 [node name="DoorCollision" type="CollisionShape2D" parent="Area2D" unique_id=1406576169]
 position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_2tapu")
+
+[node name="WalkAudio" type="AudioStreamPlayer" parent="." unique_id=1725559920]
+stream = ExtResource("6_yu0ev")

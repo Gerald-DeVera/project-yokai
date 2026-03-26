@@ -21,6 +21,7 @@ var canWalljump = true
 @onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
 @onready var domain_expansion = $DomainExpansion/AnimationPlayer
 @onready var PlayerUI = $"../PlayerUI"
+@onready var walkingSFX = $WalkAudio
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Player")
@@ -124,6 +125,9 @@ func enableInput(resource):
 func animate(direction):
 	if direction:
 		movement_state_machine.travel("RunSet")
+		#if walkingSFX.playing != true:
+			#walkingSFX.pitch_scale = randf_range(0.9,1.1)
+			#walkingSFX.play()
 		#tween_machine.travel("Windup")
 		$Animations/AnimationTree.set("parameters/MovementStateMachine/RunSet/blend_position", Vector2(direction,0))
 		$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(direction,0))

@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 		interactable = false
 	else:
 		interactable = true
-		if self.visible == true:
+		if self.visible == true and playerCharacter != null:
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)

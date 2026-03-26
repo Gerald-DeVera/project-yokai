@@ -29,13 +29,22 @@ func _ready() -> void:
 	if self.name == "AlleyDoor" && Global.dialogueFlags.interviewedShu == true:
 		locked = false	
 	#update when portal flag integrated
-	#if self.name == "YokaiPortal" && Global.dialogueFlags.shuConfront == true:
-		#locked = false	
+	if self.name == "YokaiPortal" && Global.dialogueFlags.shuConfront == true && Global.dialogueFlags.spiritRealmUnlocked == false:
+		locked = false	
+	elif self.name == "YokaiPortal" && Global.dialogueFlags.shuConfront == true && Global.dialogueFlags.spiritRealmUnlocked == true:
+		locked = false	
+		self.visible = true
+		self.interactText = str("Yokai Realm")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if isSpiritButton and !turnedVisible and playerCharacter and abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance:
+	if isSpiritButton and !turnedVisible and playerCharacter and abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance or locked == true:
 		self.visible = false
+	elif isSpiritButton and turnedVisible and playerCharacter != null:
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(self, "modulate:a", -(pow(((playerCharacter.position.x - position.x)/100),2)) + 1, 1)
 	else:
 		interactable = true
 	if !self.visible:
@@ -49,11 +58,7 @@ func _process(delta: float) -> void:
 	#i just want the portal to work man
 	elif playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer and self.name == "YokaiPortal" and Global.dialogueFlags.shuConfront == true:
 		canInteract = true
-		interactable = true
 		locked = false
-		if Global.dialogueFlags.spiritRealmUnlocked == false:
-			Global.dialogueFlags.spiritRealmUnlocked = true
-			DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Kite.dialogue"), "spiritSightRevealsYokaiRealm", )
 	else:
 		# print("I am not interactable")
 		canInteract = false
@@ -63,7 +68,7 @@ func _process(delta: float) -> void:
 		Signals.PlayerCanInteract.emit("button",canInteract)
 
 func ButtonPressed(InteractableObject:String):
-	if InteractableObject == "button" && interactable == true:
+	if InteractableObject == "button" && interactable == true && self.name != "YokaiPortal":
 		sceneManager.player_pos = player_pos
 		print(next_scene)
 		SceneTransition.play("gradient_up")
@@ -72,10 +77,27 @@ func ButtonPressed(InteractableObject:String):
 		# print("scene transition")
 		await get_tree().create_timer(1).timeout
 		sceneManager.transition_to_scene(next_scene)
-	elif InteractableObject == "ShowSpirit" && isSpiritButton == true:
+	elif InteractableObject == "button" && interactable == true && self.name == "YokaiPortal" && self.visible == true:
+		sceneManager.player_pos = player_pos
+		print(next_scene)
+		SceneTransition.play("gradient_up")
+		await SceneTransition.animation_finished
+		playerCharacter.queue_free()
+		# print("scene transition")
+		await get_tree().create_timer(1).timeout
+		sceneManager.transition_to_scene(next_scene)
+	elif InteractableObject == "ShowSpirit" && isSpiritButton == true && locked == false && abs(playerCharacter.position.x - position.x) < 60:
 		self.visible = true
 		turnedVisible = true
-
+		interactable = true
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(self, "modulate:a", -(pow(((playerCharacter.position.x - position.x)/100),2)) + 1, 1)
+		if Global.dialogueFlags.spiritRealmUnlocked == false && self.name == "YokaiPortal":
+				Global.dialogueFlags.spiritRealmUnlocked = true
+				DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Kite.dialogue"), "spiritSightRevealsYokaiRealm", )
+		
 func ToggleLock(areaName: String, toggled: bool):
 	if areaName == self.name:
 		if toggled == true:

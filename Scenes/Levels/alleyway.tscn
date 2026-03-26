@@ -23,7 +23,7 @@
 [ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="18_64xah"]
 [ext_resource type="Resource" uid="uid://dk7wjvomgtb15" path="res://Assets/InventoryItems/bracelet1.tres" id="18_ed5bj"]
 [ext_resource type="Resource" uid="uid://bnsibo1s6wqps" path="res://Assets/InventoryItems/wallet.tres" id="19_64xah"]
-[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="23_64xah"]
+[ext_resource type="Texture2D" uid="uid://bm04uo137ouv3" path="res://Assets/Environment/portal-Sheet.png" id="24_xin8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5bj"]
 size = Vector2(13.000015, 1)
@@ -323,6 +323,67 @@ _data = {
 &"play_title": SubResource("Animation_x82q5")
 }
 
+[sub_resource type="Animation" id="Animation_krn6b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ptyjt"]
+resource_name = "portal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.085)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcxke"]
+_data = {
+&"RESET": SubResource("Animation_krn6b"),
+&"portal": SubResource("Animation_ptyjt")
+}
+
 [node name="Alleyway" type="Node2D" unique_id=416392867]
 script = ExtResource("18_64xah")
 
@@ -495,6 +556,8 @@ collision_mask = 33
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=397515915]
 position = Vector2(-2, -30)
 zoom = Vector2(2.5, 2.5)
+process_callback = 0
+position_smoothing_enabled = true
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_dvcqd")]
 
@@ -651,10 +714,16 @@ autoplay = &"play_title"
 position = Vector2(523, 289)
 next_scene = "Yokai"
 isSpiritButton = true
-interactText = "???"
+interactText = "Another Realm"
 locked = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="YokaiPortal" unique_id=258561989]
-texture = ExtResource("23_64xah")
+[node name="Portal" type="Sprite2D" parent="YokaiPortal" unique_id=981482473]
+modulate = Color(0.8529948, 0.9792496, 1.3580135, 1)
+texture = ExtResource("24_xin8x")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YokaiPortal/Portal" unique_id=377758099]
+libraries/ = SubResource("AnimationLibrary_wcxke")
+autoplay = &"portal"
 
 [connection signal="body_entered" from="AlleywayOneShot/Area2D" to="AlleywayOneShot" method="_on_area_2d_body_entered"]

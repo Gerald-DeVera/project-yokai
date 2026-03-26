@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="8_f8qid"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="9_o8uwm"]
 [ext_resource type="Script" uid="uid://bh187cy8tdkp6" path="res://Scenes/Levels/temp_hide_yui.gd" id="12_4lwr6"]
+[ext_resource type="Texture2D" uid="uid://c2ihx1b36o5fy" path="res://Assets/Sprites/yui asleep.png" id="13_f8qid"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_58a5k"]
 
@@ -396,6 +397,7 @@ position = Vector2(351, 228)
 texture = ExtResource("2_vm7hy")
 
 [node name="YuiSpriteSheet" type="Sprite2D" parent="." unique_id=1433188238]
+visible = false
 position = Vector2(454, 266)
 rotation = 1.5707964
 texture = ExtResource("3_vm7hy")
@@ -466,6 +468,8 @@ position = Vector2(204, 247)
 position = Vector2(-2, -53)
 offset = Vector2(0, 25)
 zoom = Vector2(2.5, 2.5)
+process_callback = 0
+position_smoothing_enabled = true
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_4lwr6")]
 
@@ -475,6 +479,10 @@ position = Vector2(187, 249)
 next_scene = "Yokai"
 player_pos = Vector2(2390, 169)
 interactText = "To Spirit Realm"
+
+[node name="YuiAsleep" type="Sprite2D" parent="." unique_id=291438840]
+position = Vector2(451, 252)
+texture = ExtResource("13_f8qid")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1594552207]
 color = Color(0.74421954, 0.5467112, 0.445266, 1)

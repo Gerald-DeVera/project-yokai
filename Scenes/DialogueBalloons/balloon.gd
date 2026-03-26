@@ -316,3 +316,9 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+
+func _on_dialogue_label_spoke(letter, letter_index, speed):
+	if not letter in ["."," "]:
+		audio_stream_player.pitch_scale = randf_range(1.0,1.2)
+		audio_stream_player.play()

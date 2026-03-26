@@ -273,6 +273,8 @@ position = Vector2(204, 247)
 position = Vector2(-2, -53)
 offset = Vector2(0, 25)
 zoom = Vector2(2.5, 2.5)
+process_callback = 0
+position_smoothing_enabled = true
 
 [node name="Door" parent="." unique_id=206299497 instance=ExtResource("4_gelyx")]
 light_mask = 2
