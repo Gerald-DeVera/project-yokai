@@ -76,7 +76,7 @@ Makoto: Sorry, but I’ll still have to decline. I do believe that [wave amp=20 
 Florist: ...Yui? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
 Makoto: Right. The girl that you claimed you had never seen before? [#animate_left=enter_convo][#animate_right=exit_convo]
 Florist: What about her? I already said earlier I hadn’t seen her. [#animate_left=exit_convo][#animate_right=enter_convo]
-Makoto: We found this[do Global.showEvidence("flowers")]bouquet along with other items that belonged to her in an alleyway nearby.[#animate_left=enter_convo][#animate_right=exit_convo]
+Makoto: We found this[do Global.showEvidence("flowers")] bouquet along with other items that belonged to her in an alleyway nearby.[#animate_left=enter_convo][#animate_right=exit_convo]
 Florist: [do Global.hideEvidence()]That’s kind of… But why tell me? You think I had something to do with her [shake rate=20.0 level=5 connected=1]going missing?[/shake] [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
 Makoto: Well, according to the[do Global.showEvidence("receipt")] receipt found in her wallet, it was a custom order with a pickup date of two days ago.[#animate_left=enter_convo][#animate_right=exit_convo]
 Makoto: [do Global.hideEvidence()]And by your own admission you do all the consultations in person, start to finish. Which means you should be quite familiar with her! [#expression_left=angry]
@@ -196,7 +196,7 @@ if Global.dialogueFlags.shuExplain == false:
 	Shu: Now, I might be an Oni, but I left a life of fighting and cursing behind me to open Camellia. But once you’ve felt [outline_size=5][color=crimson]bloodlust[/color][/outline_size] like that, you’d never forget it. [#expression_right=angry]
 	Shu: My gut told me to grab Yui and run, and so I did. Carried her all the way here to my home here in the spirit realm. [#expression_right=neutral]
 	Makoto: Do you think that presence you felt was the same individual that attacked Yui? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
-	Shu: No clue. Right before I jumped through the portal, I took a glance back at me and only glimpsed a [outline_size=5][color=orange]white streak.[/color][/outline_size] [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+	Shu: No clue. Right before I jumped through the portal, I took a glance behind me and only glimpsed a [outline_size=5][color=orange]white streak.[/color][/outline_size] [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
 	Shu:  What I know is that whoever attacked her didn’t follow us, but I wouldn’t doubt if they’re still around looking for Yui. 
 	Shu: Once I got her back here, I was able to take a look at her. Thankfully, her physical injuries aren’t severe, but…
 	Shu: ...she hasn’t woken up yet. It’s faint, but I can sense something off about her spirit.
@@ -270,7 +270,7 @@ Shu: Sure, shoot. [#animate_left=exit_convo][#animate_right=enter_convo]
 	Kite: Indeed, it is not a traditional name. But it is the name Lady Makoto has bequeathed unto me![#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy]
 	Kite: I believe it encompasses my flying passions for truth and justice!  Although my powers have diminished, my spirit continues to soar in the face of evil! [#expression_left=angry]
 	Makoto: It’s because he floats around like a kite. [#animate_left=enter_convo][#new_actor=makoto][#expression_left=unimp]
-	Kite: Eh? And because of the truth and justice stuff too, surely! . [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=confused]
+	Kite: Eh? And because of the truth and justice stuff too, surely! [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=confused]
 	Shu: I didn’t know you could be so cruel, Makoto...  [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
 	Kite: Truly… [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
 	Makoto: I prefer the term practical.[#animate_left=enter_convo][#new_actor=makoto][#expression_left=happy]
@@ -323,11 +323,12 @@ Makoto: I’ll take a look then. [#animate_left=enter_convo][#animate_right=exit
 	Shu: I hope that stuff helps.  [#animate_left=exit_convo][#animate_right=enter_convo]
 	Makoto: It definitely does. I feel we’re nearing the end of this case. But first, we need to [wave amp=20 freq=5]find that expert.[/wave] [#animate_left=enter_convo][#animate_right=exit_convo]
 	do Signals.moveCharacter.emit("ShuSprite", "turn_left")
-	do Global.dialogueFlags.confirmedYui = true
-	do Signals.toggleAsset.emit("YuiDialogue", false)
-	do Global.questsList.quests.append(load("res://Assets/Quests/Quest15.tres"))
-	do Global.markPreviousQuest(load("res://Assets/Quests/Quest14.tres"))
-	do Signals.updateInfoAnimation.emit("notebook")
+	if Global.dialogueFlags.confirmedYui == false:
+		do Global.dialogueFlags.confirmedYui = true
+		do Signals.toggleAsset.emit("YuiDialogue", false)
+		do Global.questsList.quests.append(load("res://Assets/Quests/Quest15.tres"))
+		do Global.markPreviousQuest(load("res://Assets/Quests/Quest14.tres"))
+		do Signals.updateInfoAnimation.emit("notebook")
 	do Global.zoomCamera(Vector2(2.5,2.5))
 	do Global.resetCamera()
 	=> END

@@ -22,5 +22,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Global.questsList.quests.append(load("res://Assets/Quests/Quest7.tres"))
 			Global.markPreviousQuest(load("res://Assets/Quests/Quest6.tres"))
 			Signals.updateInfoAnimation.emit("notebook")
+			Global.oneshot_assets[self.name] = true
 			self.queue_free()
 	pass # Replace with function body.

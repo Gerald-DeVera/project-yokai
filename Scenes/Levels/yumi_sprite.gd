@@ -6,10 +6,10 @@ extends Sprite2D
 func _ready() -> void:
 	Signals.toggleAsset.connect(Callable(self,"ToggleVis"))
 	Signals.moveCharacter.connect(Callable(self,"moveBody"))
-	if Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedYumiStreet == false:
+	if Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedYumiStreet == false && self.get_parent().name == "Overworld":
 		self.visible = true
 		interactButton.locked = false
-	elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedYumiStreet == true:
+	elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedYumiStreet == true && self.get_parent().name == "Overworld":
 		self.visible = false
 		interactButton.locked = true
 	
