@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ddy7v8i7hvcyc"]
 
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_cw6rj"]
-[ext_resource type="Script" uid="uid://dbbbcvcck3hrc" path="res://Scripts/test_platform_level.gd" id="1_ywopd"]
+[ext_resource type="Script" uid="uid://dbbbcvcck3hrc" path="res://Scripts/platformLevel.gd" id="1_ywopd"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="2_umi5f"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="3_7ubhb"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="3_hynhp"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="13_xyy84"]
 [ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="17_i6yte"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sw76f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6yte"]
 texture = ExtResource("2_umi5f")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -33,9 +33,9 @@ texture_region_size = Vector2i(24, 24)
 
 [sub_resource type="TileSet" id="TileSet_hynhp"]
 tile_size = Vector2i(24, 24)
-sources/1 = SubResource("TileSetAtlasSource_sw76f")
+sources/1 = SubResource("TileSetAtlasSource_i6yte")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxnno"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtfyn"]
 texture = ExtResource("2_umi5f")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -51,9 +51,9 @@ texture_region_size = Vector2i(24, 24)
 [sub_resource type="TileSet" id="TileSet_umi5f"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_rxnno")
+sources/0 = SubResource("TileSetAtlasSource_qtfyn")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xgn0t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7kd6"]
 texture = ExtResource("3_hynhp")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -83,7 +83,7 @@ texture_region_size = Vector2i(24, 24)
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
-sources/1 = SubResource("TileSetAtlasSource_xgn0t")
+sources/1 = SubResource("TileSetAtlasSource_v7kd6")
 
 [node name="TestPlatformLevel" type="Node2D" unique_id=1959135651]
 script = ExtResource("1_ywopd")
@@ -175,7 +175,6 @@ position = Vector2(-408, -98)
 position = Vector2(321, -213)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("12_fshmo")]
-visible = false
 
 [node name="checkpointManager" type="Node" parent="." unique_id=531586094]
 script = ExtResource("8_hynhp")
@@ -194,11 +193,11 @@ rotation = -1.5707964
 script = ExtResource("12_80tmh")
 
 [node name="Portal" parent="." unique_id=108987774 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("17_i6yte")]
-position = Vector2(139, -417)
+position = Vector2(-200, -276)
 pairedPortal = NodePath("../Portal2")
-direction = Vector2i(0, 1)
+direction = Vector2i(1, 0)
 
 [node name="Portal2" parent="." unique_id=99731313 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("17_i6yte")]
-position = Vector2(139, -130)
+position = Vector2(465, -30)
 pairedPortal = NodePath("../Portal")
 direction = Vector2i(0, -1)
