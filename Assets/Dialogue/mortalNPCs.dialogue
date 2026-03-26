@@ -69,34 +69,34 @@ elif Global.dialogueFlags.interviewedSagawa == true
 
 ~ uselessWitness1
 if Global.dialogueFlags.uselessWitnessasked == false:
-	Makoto: Excuse me. 
-	Athletic Woman: Is there something you need?
+	Makoto: Excuse me. [#actor_right=on][#new_actor=athwoman][#expression_right=neutral]
+	Athletic Woman: Is there something you need? [#animate_left=exit_convo][#animate_right=enter_convo]
 	- Ask about Yui
 	#CG of Yui here
-		Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?
-		Athletic Woman: Oh my gosh! She looks exactly like my oshi Yui from [outline_size=5][color=hot_pink]YuYuYu![/color][/outline_size] But Yui looks [wave amp=20 freq=5]waaay cuter![/wave]
-		Makoto: [do Global.hideEvidence()]Uh huh…. I didn't know they were so popular.
-		Athletic Woman: Huh!? Then why are you asking about this [shake rate=20.0 level=5 connected=1]imposter?[/shake] Are you an [shake rate=20.0 level=5 connected=1]anti[/shake] or something!?
-		Makoto: I'm just going to leave now.
+		Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?[#animate_left=enter_convo][#animate_right=exit_convo]
+		Athletic Woman: Oh my gosh! She looks exactly like my oshi Yui from [outline_size=5][color=hot_pink]YuYuYu![/color][/outline_size] But Yui looks [wave amp=20 freq=5]waaay cuter![/wave][#animate_left=exit_convo][#animate_right=enter_convo]
+		Makoto: [do Global.hideEvidence()]Uh huh…. I didn't know they were so popular. [#animate_left=enter_convo][#animate_right=exit_convo]
+		Athletic Woman: Huh!? Then why are you asking about this [shake rate=20.0 level=5 connected=1]imposter?[/shake] Are you an [shake rate=20.0 level=5 connected=1]anti[/shake] or something!?[#expression_right=angry][#animate_left=exit_convo][#animate_right=enter_convo]
+		Makoto: I'm just going to leave now.[#animate_left=enter_convo][#animate_right=exit_convo]
 		do Global.dialogueFlags.uselessWitnessasked = true
 		=> END	
 	- Nevermind.
 	=> END
 elif Global.dialogueFlags.uselessWitnessasked == true:
-	Athletic Woman: Go away!
+	Athletic Woman: Go away! [#actor_right=on][#new_actor=athwoman][#expression_right=angry][#animate_left=exit_convo][#animate_right=enter_convo]
 	=> END
 
 ~ keyWitness1
 if Global.dialogueFlags.keyWitnessFound == false:
-	Makoto: Excuse me.
-	Old Guy: Hello miss, how can I help you?
+	Makoto: Excuse me. [#actor_right=on][#new_actor=oldguy][#expression_right=neutral]
+	Old Guy: Hello miss, how can I help you? [#animate_left=exit_convo][#animate_right=enter_convo]
 	- Ask about Yui
-		Makoto: [do Global.showEvidence("yui1")]Have you seen this woman?
+		Makoto: [do Global.showEvidence("yui1")]Have you seen this woman? [#animate_left=enter_convo][#animate_right=exit_convo]
 		#CG of Yui picture
-		Old Guy: Well, that looks like little miss Yui. I think she was helping out her dad, Sagawa-san, at his ramen shop the other day.
+		Old Guy: Well, that looks like little miss Yui. I think she was helping out her dad, Sagawa-san, at his ramen shop the other day.[#animate_left=exit_convo][#animate_right=enter_convo]
 		Old Guy: [do Global.hideEvidence()]Are you a friend of hers?
-		Makoto: Not exactly. But I need to find her.
-		Old Guy: Ah, well best of luck! She's one of the most caring people I know. 
+		Makoto: Not exactly. But I need to find her. [#animate_left=enter_convo][#animate_right=exit_convo]
+		Old Guy: Ah, well best of luck! She's one of the most caring people I know. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 		Old Guy: She always makes time to come and help out around her parents shop. I certainly wish my son was half as caring, [wave amp=20 freq=5]gyahaha![/wave]
 		do Global.dialogueFlags.keyWitnessFound = true
 		do Global.questsList.quests.append(load("res://Assets/Quests/Quest2.tres"))
@@ -107,7 +107,7 @@ if Global.dialogueFlags.keyWitnessFound == false:
 	- Nevermind.
 		=> END
 elif Global.dialogueFlags.keyWitnessFound == true:
-	Old Guy: Now when that hooligan of mine going to visit his old pop...
+	Old Guy: Now when that hooligan of mine going to visit his old pop... [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#new_actor=oldguy][#expression_right=neutral]
 	=> END
 
 ~ fashionClerkPostSagawa

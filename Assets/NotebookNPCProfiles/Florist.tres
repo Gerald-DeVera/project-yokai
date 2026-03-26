@@ -6,5 +6,5 @@
 script = ExtResource("1_da5ok")
 name = "The Florist"
 profilePicPath = "res://Assets/UI/Profiles/profile_shu.png"
-bio = "Kinda Sus"
+bio = "The Suspicious Florist."
 evidenceQuotes = PackedStringArray("The Head Florist at Camellia.", "Claims she hasn\'t seen Yui before.", "Seems to be hiding something.")

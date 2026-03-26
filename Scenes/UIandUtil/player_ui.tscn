@@ -12,8 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://div4bqbp01ac1" path="res://Assets/UI/inventory_pencil.png" id="9_ubvsh"]
 [ext_resource type="Texture2D" uid="uid://c4ct5lt0d3ipq" path="res://Assets/UI/Items/item_closeup_yui1.png" id="11_ubvsh"]
 [ext_resource type="FontFile" uid="uid://r05etmmhnxol" path="res://Assets/Themes and Fonts/SOCOND__.ttf" id="12_01cy8"]
+[ext_resource type="Texture2D" uid="uid://cxch6ntei4pqk" path="res://Assets/UI/ui icons inv.png" id="12_toduu"]
 [ext_resource type="StyleBox" uid="uid://cm2lg88dpfmyu" path="res://Assets/Themes and Fonts/text_grad_bg.tres" id="13_t1ull"]
+[ext_resource type="Texture2D" uid="uid://cb617c34kxrff" path="res://Assets/UI/ui icons nte.png" id="13_x27ed"]
 [ext_resource type="Texture2D" uid="uid://pw5a4fn4v8t" path="res://Assets/UI/tooltip_spirit.png" id="14_6xqmg"]
+[ext_resource type="Texture2D" uid="uid://dkd6j56bu6v1l" path="res://Assets/UI/ui icons spirit.png" id="14_8ysew"]
+[ext_resource type="Texture2D" uid="uid://qgxletmhnn1o" path="res://Assets/UI/tooltip_inv.png" id="16_w4a61"]
+[ext_resource type="Texture2D" uid="uid://j20rgqi8rcdy" path="res://Assets/UI/tooltip_note.png" id="17_c7bcr"]
 
 [sub_resource type="Gradient" id="Gradient_6xqmg"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -764,6 +769,48 @@ process_mode = 3
 layer = 100
 script = ExtResource("1_awuwx")
 
+[node name="Hotkeys" type="Control" parent="." unique_id=955015176]
+z_index = -2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 567.0
+offset_top = 26.000002
+offset_right = 645.0
+offset_bottom = 104.0
+scale = Vector2(0.6627775, 0.6627775)
+
+[node name="UiIconsInv" type="Sprite2D" parent="Hotkeys" unique_id=155007024]
+position = Vector2(53, 12)
+texture = ExtResource("12_toduu")
+
+[node name="UiIconsNte" type="Sprite2D" parent="Hotkeys" unique_id=1590324935]
+position = Vector2(9.052826, 13.57922)
+texture = ExtResource("13_x27ed")
+
+[node name="TooltipInv" type="Sprite2D" parent="Hotkeys" unique_id=2077836930]
+position = Vector2(52.8081, 43.755257)
+scale = Vector2(1.0237651, 1.0237651)
+texture = ExtResource("16_w4a61")
+
+[node name="TooltipNote" type="Sprite2D" parent="Hotkeys" unique_id=946774688]
+position = Vector2(9.052818, 43.755257)
+texture = ExtResource("17_c7bcr")
+
+[node name="Spirit" type="Control" parent="Hotkeys" unique_id=130638382]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UiIconsSpirit" type="Sprite2D" parent="Hotkeys/Spirit" unique_id=1202595473]
+position = Vector2(-36.211243, 13.579227)
+texture = ExtResource("14_8ysew")
+
+[node name="TooltipSpirit2" type="Sprite2D" parent="Hotkeys/Spirit" unique_id=365869607]
+position = Vector2(-36.211212, 44.29487)
+scale = Vector2(0.96090114, 0.96090114)
+texture = ExtResource("14_6xqmg")
+
 [node name="PauseGradient" type="Sprite2D" parent="." unique_id=938576595]
 z_index = -1
 position = Vector2(284, 573)
@@ -958,6 +1005,22 @@ texture = ExtResource("5_a008j")
 [node name="Evidence" type="Sprite2D" parent="EvidenceUI/InventoryPolaroid" unique_id=1659430244]
 position = Vector2(-0.5839386, -6.423358)
 texture = ExtResource("11_ubvsh")
+
+[node name="Tutorial" type="Control" parent="." unique_id=1490400742]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial" unique_id=772027015]
+z_index = -2
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 643.0
+offset_bottom = 363.0
+color = Color(0.14044744, 0.14044744, 0.14044744, 1)
 
 [node name="InvUpd" type="RichTextLabel" parent="." unique_id=1689112859]
 modulate = Color(1, 1, 1, 0)

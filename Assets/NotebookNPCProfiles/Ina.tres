@@ -6,5 +6,5 @@
 script = ExtResource("1_6pemf")
 name = "Ina Rin "
 profilePicPath = "res://Assets/UI/Profiles/profile_ina.png"
-bio = "MOMMY"
+bio = "The Kitsune Curse Expert."
 evidenceQuotes = PackedStringArray("Runs the Tea Shop in the Spirit Realm.", "She is knowledgeable about curses and spiritual ailments", "Claims the culprit is a Kijo and we need to complete a ritual to seal it to save Yui.", "Also owns the coffee shop in the mortal realm. She offered us beans to help seal the Kijo.")

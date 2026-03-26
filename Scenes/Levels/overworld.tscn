@@ -709,7 +709,6 @@ tile_map_data = PackedByteArray("AAAaABEAAAAAAAIAAAAaABAAAAAAAAIAAAAaAA8AAAAAAAI
 tile_set = SubResource("TileSet_7vorq")
 
 [node name="AssetContainer" type="Node2D" parent="." unique_id=1451457834]
-modulate = Color(0.8853032, 0.71326804, 0.8514462, 1)
 z_index = -1
 position = Vector2(-419, 212)
 

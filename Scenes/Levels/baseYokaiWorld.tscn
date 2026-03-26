@@ -618,7 +618,7 @@ interactText = "To City"
 
 [node name="Portal" type="Sprite2D" parent="ToCity" unique_id=938615189]
 modulate = Color(0.8529948, 0.9792496, 1.3580135, 1)
-scale = Vector2(-1, -1)
+scale = Vector2(-1, 1)
 texture = ExtResource("25_gqjqm")
 hframes = 5
 
