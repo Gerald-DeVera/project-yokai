@@ -9,6 +9,8 @@ extends CanvasLayer
 
 func _ready() -> void:
 	Signals.updateInfoAnimation.connect(Callable(self,"updateInfo"))
+	DialogueManager.dialogue_started.connect(Callable(self,"disableHotkeys"))
+	DialogueManager.dialogue_ended.connect(Callable(self,"enableHotkeys"))
 	Global.PlayerUIAnimation = UIAnimation
 	Global.PlayerUITexture = Evidence
 	PauseMenu.visible = false
@@ -53,3 +55,16 @@ func updateInfo(infoType: String):
 		await UIAnimation.animation_finished
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Kite.dialogue"), "spiritSightFirstUse", )
 		SpiritHK.visible = true
+	elif infoType == "tutorial":
+		await get_tree().create_timer(1.0).timeout
+		UIAnimation.play("tutorial")
+		Signals.togglePlayerInput.emit(false)
+		await get_tree().create_timer(5.0).timeout
+		UIAnimation.play_backwards("tutorial")
+		await UIAnimation.animation_finished
+		Signals.togglePlayerInput.emit(true)
+		
+func disableHotkeys(resource):
+		$Hotkeys.visible = false
+func enableHotkeys(resource):
+		$Hotkeys.visible = true

@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://be2ffyf1e312c" path="res://Assets/Environment/bg_yokai/bg_yokai_torii.png" id="17_fixjv"]
 [ext_resource type="Texture2D" uid="uid://dgtpmtcs771ax" path="res://Assets/Environment/bg_yokai/bg_yokai_teahouse.png" id="18_fvt3n"]
 [ext_resource type="Texture2D" uid="uid://cam6skqiehvep" path="res://Assets/Environment/bg_yokai/bg_yokai_well.png" id="19_hki8u"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="21_krn6b"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_4r1gn"]
 [ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="23_s2ptr"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="23_wc4nj"]
@@ -39,6 +40,7 @@
 [ext_resource type="Script" uid="uid://cvnksskr2lo0e" path="res://Scenes/Levels/open_door_sprite.gd" id="35_hki8u"]
 [ext_resource type="AudioStream" uid="uid://d2uiy2diy6rme" path="res://Assets/Audio/BackgroundTracks/Yokai.wav" id="35_rgfmy"]
 [ext_resource type="Texture2D" uid="uid://dlimiw8iweatl" path="res://Assets/Environment/bg_yokai/bg_yokai_doorright.png" id="36_hki8u"]
+[ext_resource type="AudioStream" uid="uid://1avkfws0t0pg" path="res://Assets/Audio/SFX/yokai_ambience.wav" id="41_ex5xx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8x7c5"]
 distance = 3.0
@@ -573,6 +575,9 @@ texture = ExtResource("18_fvt3n")
 position = Vector2(3613, 143)
 texture = ExtResource("19_hki8u")
 
+[node name="CharacterBody2D" parent="YokaiBuildingContainer" unique_id=2061426401 instance=ExtResource("21_krn6b")]
+position = Vector2(-888, 143)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=490648777]
 position = Vector2(2, 1)
 
@@ -787,6 +792,11 @@ interactText = "Yokai Home"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1537692408]
 stream = ExtResource("35_rgfmy")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=787626180]
+stream = ExtResource("41_ex5xx")
+volume_db = -1.926
 autoplay = true
 
 [connection signal="body_entered" from="YokaiShuOneShot/Area2D" to="YokaiShuOneShot" method="_on_area_2d_body_entered"]

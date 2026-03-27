@@ -3,11 +3,59 @@
 [ext_resource type="Texture2D" uid="uid://cfycym8ujxmq4" path="res://Assets/Environment/bg_yokai/bg_yokai_mtn.png" id="1_kpi17"]
 [ext_resource type="Texture2D" uid="uid://bqngcy78xundy" path="res://Assets/Environment/bg_yokai/bg_yokai_farbushes.png" id="2_7yvho"]
 [ext_resource type="Texture2D" uid="uid://cbumlhtkdam55" path="res://Assets/Environment/bg_yokai/bg_yokai_clouds.png" id="2_jts0m"]
-[ext_resource type="Texture2D" uid="uid://cygc16tli8ax" path="res://Assets/Environment/bg_yokai/bg_yokai_assets.png" id="3_di1ba"]
+[ext_resource type="Shader" uid="uid://d1c5vm3afwd6j" path="res://Shaders/foliage.tres" id="4_itgy4"]
 [ext_resource type="Texture2D" uid="uid://dl03vd5gi67di" path="res://Assets/Environment/bg_yokai/bg_yokai_bamboo.png" id="4_jts0m"]
 [ext_resource type="Texture2D" uid="uid://dn4ju8cogq4m" path="res://Assets/Environment/bg_yokai/bg_yokai_bushes.png" id="5_2uq6s"]
+[ext_resource type="Texture2D" uid="uid://ccymlr4wh83ov" path="res://Assets/Environment/bg_yokai/bg_yokai_bgtree.png" id="5_laqtn"]
 [ext_resource type="Texture2D" uid="uid://bsrt2ntfky13l" path="res://Assets/Environment/bg_yokai/bg_yokai_fog.png" id="6_7yvho"]
+[ext_resource type="Texture2D" uid="uid://b1bs2imkmbbkw" path="res://Assets/Environment/bg_yokai/bg_yokai_wheel.png" id="6_cx048"]
 [ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="7_di1ba"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_37ngp"]
+shader = ExtResource("4_itgy4")
+shader_parameter/Force = 2.230000010925
+
+[sub_resource type="Animation" id="Animation_enylj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a4w6f"]
+resource_name = "spin"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xvdnm"]
+_data = {
+&"RESET": SubResource("Animation_enylj"),
+&"spin": SubResource("Animation_a4w6f")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82l1r"]
+shader = ExtResource("4_itgy4")
+shader_parameter/Force = 6.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jts0m"]
 particles_animation = true
@@ -69,14 +117,29 @@ scroll_scale = Vector2(0.41, 1)
 repeat_size = Vector2(1200, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=290898966]
+material = SubResource("ShaderMaterial_37ngp")
 position = Vector2(320, 180)
-texture = ExtResource("3_di1ba")
+texture = ExtResource("5_laqtn")
+
+[node name="Parallax2D9" type="Parallax2D" parent="." unique_id=1286919107]
+scroll_scale = Vector2(0.41, 1)
+repeat_size = Vector2(1200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D9" unique_id=1520397871]
+position = Vector2(326, 272)
+texture = ExtResource("6_cx048")
+offset = Vector2(-6, -80)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Parallax2D9/Sprite2D" unique_id=144788669]
+libraries/ = SubResource("AnimationLibrary_xvdnm")
+autoplay = &"spin"
 
 [node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1625058636]
 scroll_scale = Vector2(0.61, 1)
 repeat_size = Vector2(1500, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D5" unique_id=1966824276]
+material = SubResource("ShaderMaterial_82l1r")
 position = Vector2(817, 180)
 texture = ExtResource("4_jts0m")
 

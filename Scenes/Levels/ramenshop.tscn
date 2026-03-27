@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="3_7xk53"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="5_50fp6"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="6_50fp6"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="6_jqh25"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="7_gj7ea"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="8_7mtcg"]
 [ext_resource type="Texture2D" uid="uid://bpyraa42ekbiu" path="res://Assets/Environment/lightcone.png" id="8_71phu"]
@@ -187,6 +188,9 @@ offset = Vector2(0, 25)
 zoom = Vector2(2.5, 2.5)
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("6_jqh25")]
+position = Vector2(222, 224)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_50fp6")]
 

@@ -21,23 +21,31 @@
 [ext_resource type="Texture2D" uid="uid://i74yx7vg1roh" path="res://Assets/Environment/bg_overworld/police_department.png" id="14_sg6ii"]
 [ext_resource type="Texture2D" uid="uid://dldvsy7c70q6j" path="res://Assets/Environment/bg_overworld/hobby.png" id="15_x2dcs"]
 [ext_resource type="Script" uid="uid://c0cr4w0n086fg" path="res://Scenes/Levels/yumi_sprite.gd" id="19_m1tok"]
+[ext_resource type="Texture2D" uid="uid://c3cs7oyxrot5m" path="res://Assets/Sprites/yumi sprite-Sheet.png" id="19_wbupg"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="21_pbaho"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_2j0ao"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="22_pbaho"]
 [ext_resource type="Texture2D" uid="uid://bbuyrkrybp0et" path="res://Assets/Environment/bg_overworld/bg_bush.png" id="24_r8fhl"]
 [ext_resource type="Texture2D" uid="uid://2rjjcvjvkft" path="res://Assets/Environment/bg_overworld/bg_streetlight.png" id="25_onlrw"]
+[ext_resource type="Shader" uid="uid://d1c5vm3afwd6j" path="res://Shaders/foliage.tres" id="25_qjsi7"]
 [ext_resource type="Texture2D" uid="uid://bpyraa42ekbiu" path="res://Assets/Environment/lightcone.png" id="26_fnh4o"]
 [ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="26_x82q5"]
+[ext_resource type="Script" uid="uid://cen8gjqfrar8c" path="res://Scripts/load_shader.gd" id="27_4ig2c"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="29_sg6ii"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="29_x82q5"]
+[ext_resource type="Texture2D" uid="uid://d0v0cpcojup" path="res://Assets/Sprites/pompous girl.png" id="31_w6jw5"]
+[ext_resource type="Texture2D" uid="uid://5aolxdvv8rtq" path="res://Assets/Sprites/normal guy.png" id="32_qjsi7"]
+[ext_resource type="Texture2D" uid="uid://ctw8iyefvgh6q" path="res://Assets/Sprites/red guy.png" id="33_4ig2c"]
 [ext_resource type="Script" uid="uid://dircb85vodqat" path="res://Scenes/Levels/npc_test.gd" id="33_12d20"]
-[ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="34_57gpc"]
 [ext_resource type="AudioStream" uid="uid://rjqlqlb0w2mk" path="res://Assets/Audio/BackgroundTracks/DayCity.wav" id="35_57gpc"]
+[ext_resource type="Texture2D" uid="uid://uvvct8jeg0x8" path="res://Assets/Sprites/athletic girl.png" id="35_wbupg"]
 [ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="36_ien3c"]
+[ext_resource type="Texture2D" uid="uid://ckhxcdwbo7vsh" path="res://Assets/Sprites/old man.png" id="36_kgpk6"]
 [ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="37_fnh4o"]
 [ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="37_otjua"]
 [ext_resource type="Script" uid="uid://dr5p4jg445ckp" path="res://Scenes/Entities/shu_overworld_path.gd" id="39_0urf5"]
 [ext_resource type="Script" uid="uid://cxjfw5nhwxidr" path="res://Scripts/yui_ghost.gd" id="39_ien3c"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="39_otjua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sg6ii"]
 texture = ExtResource("2_21y02")
@@ -137,9 +145,6 @@ terrain_set_0/terrain_1/name = "Block"
 terrain_set_0/terrain_1/color = Color(0.25919905, 0.59566516, 0.5808119, 1)
 sources/0 = SubResource("TileSetAtlasSource_sg6ii")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uk7wx"]
-load_path = "res://.godot/imported/yumi sprite-Sheet.png-d33455aca770fa8f5e0e8207aaf95f96.ctex"
-
 [sub_resource type="Animation" id="Animation_m7okf"]
 length = 0.001
 tracks/0/type = "value"
@@ -157,7 +162,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xjuw7"]
 resource_name = "idle_left"
-length = 0.8
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -166,15 +171,15 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 3, 5, 7, 9, 11, 13, 15]
+"values": [1, 3, 5, 7, 9, 11, 13]
 }
 
 [sub_resource type="Animation" id="Animation_12d20"]
 resource_name = "idle_right"
-length = 0.8
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -183,10 +188,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 2, 4, 6, 8, 10, 12, 14]
+"values": [0, 2, 4, 6, 8, 10, 12]
 }
 
 [sub_resource type="Animation" id="Animation_bn2ya"]
@@ -203,7 +208,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [17, 19, 21, 23, 25]
+"values": [15, 17, 19, 21, 23]
 }
 
 [sub_resource type="Animation" id="Animation_7lf17"]
@@ -220,7 +225,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [16, 18, 20, 22, 24]
+"values": [14, 16, 18, 20, 22]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_57gpc"]
@@ -269,6 +274,14 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Ground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_x2dcs")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ig2c"]
+shader = ExtResource("25_qjsi7")
+shader_parameter/Force = 3.070000050825
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wbupg"]
+shader = ExtResource("25_qjsi7")
+shader_parameter/Force = 2.2910000138225
 
 [sub_resource type="Gradient" id="Gradient_onlrw"]
 offsets = PackedFloat32Array(0.72243345, 0.92395437)
@@ -531,6 +544,10 @@ scale_min = 0.0
 [node name="Overworld" type="Node2D" unique_id=43480892]
 script = ExtResource("1_m7okf")
 
+[node name="CityBGM" type="AudioStreamPlayer" parent="." unique_id=971967141]
+stream = ExtResource("35_57gpc")
+autoplay = true
+
 [node name="CityParallax" parent="." unique_id=1814770720 instance=ExtResource("1_bpa6q")]
 z_index = -2
 
@@ -655,8 +672,9 @@ texture = ExtResource("15_x2dcs")
 [node name="YumiSprite" type="Sprite2D" parent="." unique_id=611435481]
 visible = false
 position = Vector2(1291, 288)
-texture = SubResource("CompressedTexture2D_uk7wx")
-hframes = 26
+texture = ExtResource("19_wbupg")
+hframes = 14
+vframes = 6
 script = ExtResource("19_m1tok")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YumiSprite" unique_id=1309823103]
@@ -721,20 +739,26 @@ position = Vector2(1024, 32)
 texture = ExtResource("25_onlrw")
 
 [node name="BgTree" type="Sprite2D" parent="AssetContainer" unique_id=184871377]
+material = SubResource("ShaderMaterial_4ig2c")
 position = Vector2(959, 20.25)
 scale = Vector2(0.79850745, 0.79850745)
 texture = ExtResource("26_x82q5")
+script = ExtResource("27_4ig2c")
+swayforce = 2.0
 
 [node name="BgTree2" type="Sprite2D" parent="AssetContainer" unique_id=2090033886]
+material = SubResource("ShaderMaterial_4ig2c")
 position = Vector2(328, 0)
 texture = ExtResource("26_x82q5")
 
 [node name="BgTree3" type="Sprite2D" parent="AssetContainer" unique_id=536768826]
 z_index = 1
+material = SubResource("ShaderMaterial_wbupg")
 position = Vector2(1788, 0)
 texture = ExtResource("26_x82q5")
 
 [node name="BgTree4" type="Sprite2D" parent="AssetContainer" unique_id=1549790956]
+material = SubResource("ShaderMaterial_4ig2c")
 position = Vector2(2981, -1)
 texture = ExtResource("26_x82q5")
 
@@ -777,18 +801,22 @@ position = Vector2(286, 30)
 texture = ExtResource("25_onlrw")
 
 [node name="BgBush2" type="Sprite2D" parent="AssetContainer" unique_id=1532530712]
+material = SubResource("ShaderMaterial_4ig2c")
 position = Vector2(1135, 87)
 texture = ExtResource("24_r8fhl")
 
 [node name="BgBush3" type="Sprite2D" parent="AssetContainer" unique_id=154164383]
+material = SubResource("ShaderMaterial_4ig2c")
 position = Vector2(736, 89)
 texture = ExtResource("24_r8fhl")
 
 [node name="BgBush4" type="Sprite2D" parent="AssetContainer" unique_id=1992568590]
+material = SubResource("ShaderMaterial_4ig2c")
 position = Vector2(3134, 89)
 texture = ExtResource("24_r8fhl")
 
 [node name="BgBush5" type="Sprite2D" parent="AssetContainer" unique_id=360954281]
+material = SubResource("ShaderMaterial_4ig2c")
 position = Vector2(3215, 89)
 texture = ExtResource("24_r8fhl")
 
@@ -945,7 +973,9 @@ rotates = false
 [node name="Sprite2D" type="Sprite2D" parent="npc_test/Path2D/PathFollow2D" unique_id=661032041]
 position = Vector2(1.0115715, -5.99806)
 scale = Vector2(-1, 1)
-texture = ExtResource("34_57gpc")
+texture = ExtResource("31_w6jw5")
+hframes = 2
+frame = 1
 
 [node name="npc_test2" type="Node2D" parent="." unique_id=1222966130]
 script = ExtResource("33_12d20")
@@ -961,10 +991,11 @@ progress = 362.9011
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="npc_test2/Path2D/PathFollow2D" unique_id=1121018722]
-modulate = Color(0.9845039, 0.7533648, 0.6036123, 1)
 position = Vector2(1.0115715, -5.99806)
 scale = Vector2(-1, 1)
-texture = ExtResource("34_57gpc")
+texture = ExtResource("32_qjsi7")
+hframes = 2
+frame = 1
 
 [node name="npc_test3" type="Node2D" parent="." unique_id=885701341]
 script = ExtResource("33_12d20")
@@ -980,17 +1011,16 @@ progress = 362.9011
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="npc_test3/Path2D/PathFollow2D" unique_id=1702679279]
-modulate = Color(0.6600497, 0.8329116, 0.97349244, 1)
 position = Vector2(-3.099525, -0.8062124)
-texture = ExtResource("34_57gpc")
-
-[node name="CityBGM" type="AudioStreamPlayer" parent="." unique_id=971967141]
-stream = ExtResource("35_57gpc")
-autoplay = true
+texture = ExtResource("33_4ig2c")
+hframes = 2
+frame = 1
 
 [node name="UselessWitness1" type="Sprite2D" parent="." unique_id=854292885]
 position = Vector2(1730, 288)
-texture = ExtResource("34_57gpc")
+texture = ExtResource("35_wbupg")
+hframes = 2
+frame = 1
 
 [node name="UselessWitness1Dialogue" parent="." unique_id=1266519037 instance=ExtResource("22_pbaho")]
 position = Vector2(1729, 289)
@@ -1002,7 +1032,8 @@ dialoguePath = "res://Assets/Dialogue/mortalNPCs.dialogue"
 
 [node name="KeyWitness1" type="Sprite2D" parent="." unique_id=2015625387]
 position = Vector2(197, 289)
-texture = ExtResource("34_57gpc")
+texture = ExtResource("36_kgpk6")
+hframes = 2
 
 [node name="KeyWitness1Dialogue" parent="." unique_id=721054295 instance=ExtResource("22_pbaho")]
 position = Vector2(196, 293)
@@ -1141,3 +1172,6 @@ script = ExtResource("39_ien3c")
 modulate = Color(0.637089, 0.9511474, 0.9263025, 1)
 amount = 5
 process_material = SubResource("ParticleProcessMaterial_otjua")
+
+[node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("39_otjua")]
+position = Vector2(1647, 273)

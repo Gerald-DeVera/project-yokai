@@ -23,6 +23,8 @@ func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
 	Signals.toggleAsset.connect(Callable(self,"toggleLock"))
 	Signals.updateInteractText.connect(Callable(self,"updateTooltip"))
+	DialogueManager.dialogue_started.connect(Callable(self,"disableVis"))
+	DialogueManager.dialogue_ended.connect(Callable(self,"enableVis"))
 	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
@@ -79,3 +81,9 @@ func updateTooltip(interactName: String, newtooltip: String):
 	if interactName == self.name:
 		tooltip.text = newtooltip
 		
+func disableVis(resource):
+	Sprite2.visible = false
+
+func enableVis(resource):
+	if self.interactable == true:
+		Sprite2.visible = true

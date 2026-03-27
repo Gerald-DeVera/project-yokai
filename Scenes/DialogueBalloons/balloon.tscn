@@ -603,7 +603,7 @@ libraries/ = SubResource("AnimationLibrary_wq6vg")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1890522177]
 unique_name_in_owner = true
 stream = ExtResource("16_rrvrj")
-volume_db = -0.642
+volume_db = -2.568
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Control/DialogueLabel" to="." method="_on_dialogue_label_spoke"]

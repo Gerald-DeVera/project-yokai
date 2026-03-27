@@ -23,6 +23,7 @@ const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
 	Signals.toggleArea.connect(Callable(self,"ToggleLock"))
+	DialogueManager.dialogue_started.connect(Callable(self,"disableVis"))
 	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
@@ -104,3 +105,6 @@ func ToggleLock(areaName: String, toggled: bool):
 			self.locked = false
 		elif toggled == false:
 			self.locked = true
+			
+func disableVis(resource):
+	Sprite2.visible = false

@@ -51,3 +51,11 @@ signal forceJump(newVelocity: float)
 signal changePlayerVelocity(newVelocity: float)
 
 signal returnToOriginalVelocity()
+
+signal transitionToPlatforming()
+
+signal shakeCam(toggle: bool)
+
+signal playBGM(sceneName: String)
+
+signal animateScreenWipe(animationName: String)

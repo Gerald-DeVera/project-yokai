@@ -11,7 +11,8 @@ var scenes : Dictionary = { "City": "res://Scenes/Levels/overworld.tscn" ,
 							"Alley": "res://Scenes/Levels/alleyway.tscn",
 							"Flower": "res://Scenes/Levels/flower_shop.tscn",
 							"Clothing": "res://Scenes/Levels/clothing_shop.tscn",
-							"YokaiHome": "res://Scenes/Levels/yokaihome.tscn"}
+							"YokaiHome": "res://Scenes/Levels/yokaihome.tscn",
+							"PlatformingStage": "res://Scenes/Levels/platformingLevel.tscn"}
 var player_pos: Vector2
 var currentScene = ""
 

@@ -30,7 +30,7 @@ func moveBody(charName: String, event: String):
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
-			tween.tween_property(self, "position", Vector2(257,250), 0.5)
+			tween.tween_property(self, "position", Vector2(257,252), 0.5)
 			print("moving to the spot!")
 			var visfadetween = create_tween()
 			visfadetween.set_ease(Tween.EASE_OUT)
@@ -43,7 +43,7 @@ func moveBody(charName: String, event: String):
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
-			tween.tween_property(self, "position", Vector2(221.0,250), 0.5)
+			tween.tween_property(self, "position", Vector2(221.0,252), 0.5)
 			var visfadetween = create_tween()
 			visfadetween.set_ease(Tween.EASE_OUT)
 			visfadetween.set_trans(Tween.TRANS_CUBIC)
@@ -60,4 +60,28 @@ func moveBody(charName: String, event: String):
 			yumiAnimate.play("idle_left")
 		elif event == "turn_right":
 			yumiAnimate.play("idle_right")
-			
+		elif event == "transform":
+			await get_tree().create_timer(1.0).timeout
+			yumiAnimate.play("transform")
+			await yumiAnimate.animation_finished
+			yumiAnimate.play("transform_idle")
+		elif event == "attack":
+			yumiAnimate.play("attack")
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_OUT)
+			tween.set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property(self, "position", Vector2(280,252), 0.5)
+			await get_tree().create_timer(0.3).timeout
+		#elif event == "hurt":
+			yumiAnimate.play("hurt")
+			var tween2 = create_tween()
+			tween2.set_ease(Tween.EASE_OUT)
+			tween2.set_trans(Tween.TRANS_CUBIC)
+			tween2.tween_property(self, "position", Vector2(221.0,252), 1)
+			await yumiAnimate.animation_finished
+			yumiAnimate.play("hurt_idle")
+		elif event == "dragged":
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN)
+			tween.set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property(self, "position", Vector2(280,252), 7)

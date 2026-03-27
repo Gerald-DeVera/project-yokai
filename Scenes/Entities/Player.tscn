@@ -214,6 +214,55 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_j230w"]
+resource_name = "beans"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [55, 57, 59, 61, 69, 71, 73, 55]
+}
+
+[sub_resource type="Animation" id="Animation_qkam4"]
+resource_name = "box"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [55, 57, 59, 61, 63, 65, 67]
+}
+
+[sub_resource type="Animation" id="Animation_w67ft"]
+resource_name = "box_idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [75, 77, 79, 81, 83, 85, 87, 89]
+}
+
 [sub_resource type="Animation" id="Animation_g4oe6"]
 resource_name = "easeout_left"
 length = 0.4
@@ -270,6 +319,38 @@ tracks/1/keys = {
 "values": [Vector2(1.5, 0), Vector2(2, 0), Vector2(2.25, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_0hljs"]
+resource_name = "fall_left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [47, 49, 51, 53]
+}
+
+[sub_resource type="Animation" id="Animation_crkm8"]
+resource_name = "fall_left"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [46, 48, 50, 52]
+}
+
 [sub_resource type="Animation" id="Animation_yu0ev"]
 resource_name = "idle"
 length = 0.8
@@ -306,7 +387,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ynt0t"]
 resource_name = "jump_left"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -322,7 +402,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_km4ui"]
 resource_name = "jump_right"
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -405,8 +484,13 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46t5s"]
 _data = {
 &"RESET": SubResource("Animation_agccv"),
+&"beans": SubResource("Animation_j230w"),
+&"box": SubResource("Animation_qkam4"),
+&"box_idle": SubResource("Animation_w67ft"),
 &"easeout_left": SubResource("Animation_g4oe6"),
 &"easeout_right": SubResource("Animation_86atj"),
+&"fall_left": SubResource("Animation_0hljs"),
+&"fall_right": SubResource("Animation_crkm8"),
 &"idle_left": SubResource("Animation_yu0ev"),
 &"idle_right": SubResource("Animation_td8ue"),
 &"jump_left": SubResource("Animation_ynt0t"),
@@ -453,6 +537,53 @@ blend_point_5/node = SubResource("AnimationNodeAnimation_ut4d4")
 blend_point_5/pos = Vector2(1, -1)
 blend_point_6/node = SubResource("AnimationNodeAnimation_lc3le")
 blend_point_6/pos = Vector2(0, 0)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6mnmp"]
+animation = &"fall_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l5j1p"]
+animation = &"fall_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vpr8v"]
+animation = &"fall_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3dua5"]
+animation = &"fall_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4047b"]
+animation = &"fall_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ir5o"]
+animation = &"fall_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2pky6"]
+animation = &"fall_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_43ygi"]
+animation = &"fall_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jea02"]
+animation = &"fall_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_dsagi"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_6mnmp")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_l5j1p")
+blend_point_1/pos = Vector2(-1, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_vpr8v")
+blend_point_2/pos = Vector2(-1, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_3dua5")
+blend_point_3/pos = Vector2(0, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_4047b")
+blend_point_4/pos = Vector2(0, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_4ir5o")
+blend_point_5/pos = Vector2(1, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_2pky6")
+blend_point_6/pos = Vector2(1, 0)
+blend_point_7/node = SubResource("AnimationNodeAnimation_43ygi")
+blend_point_7/pos = Vector2(1, -1)
+blend_point_8/node = SubResource("AnimationNodeAnimation_jea02")
+blend_point_8/pos = Vector2(0, -1)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v402d"]
 animation = &"idle_left"
@@ -565,6 +696,15 @@ blend_point_5/pos = Vector2(1, -1)
 blend_point_6/node = SubResource("AnimationNodeAnimation_0pa8p")
 blend_point_6/pos = Vector2(0, 0)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dsagi"]
+animation = &"beans"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fnnns"]
+animation = &"box"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tl5x1"]
+animation = &"box_idle"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v402d"]
 advance_mode = 2
 
@@ -572,23 +712,52 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t6xah"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yheof"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ejhnn"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_agccv"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g4oe6"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fnnns"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tl5x1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4k050"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wlf4d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ix3n3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oc6uo"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bfhyk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qyuss"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gqr4l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a6u5q"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ao7d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hk3yl"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_yu0ev"]
+states/FallSet/node = SubResource("AnimationNodeBlendSpace2D_dsagi")
+states/FallSet/position = Vector2(356, 196)
 states/IdleSet/node = SubResource("AnimationNodeBlendSpace2D_86atj")
-states/IdleSet/position = Vector2(366, 16)
+states/IdleSet/position = Vector2(368, 16)
 states/JumpSet/node = SubResource("AnimationNodeBlendSpace2D_0aity")
-states/JumpSet/position = Vector2(463, 202)
+states/JumpSet/position = Vector2(558, 196)
 states/RunSet/node = SubResource("AnimationNodeBlendSpace2D_4kc40")
 states/RunSet/position = Vector2(558, 16)
-transitions = ["Start", "IdleSet", SubResource("AnimationNodeStateMachineTransition_v402d"), "JumpSet", "RunSet", SubResource("AnimationNodeStateMachineTransition_hgdn8"), "RunSet", "JumpSet", SubResource("AnimationNodeStateMachineTransition_t6xah"), "JumpSet", "IdleSet", SubResource("AnimationNodeStateMachineTransition_yheof"), "IdleSet", "JumpSet", SubResource("AnimationNodeStateMachineTransition_ejhnn"), "IdleSet", "RunSet", SubResource("AnimationNodeStateMachineTransition_agccv"), "RunSet", "IdleSet", SubResource("AnimationNodeStateMachineTransition_g4oe6")]
-graph_offset = Vector2(-127, -19)
+states/Start/position = Vector2(193, 16)
+states/beans/node = SubResource("AnimationNodeAnimation_dsagi")
+states/beans/position = Vector2(304, -81)
+states/box/node = SubResource("AnimationNodeAnimation_fnnns")
+states/box/position = Vector2(445, -81)
+states/box_idle/node = SubResource("AnimationNodeAnimation_tl5x1")
+states/box_idle/position = Vector2(558, -81)
+transitions = ["Start", "IdleSet", SubResource("AnimationNodeStateMachineTransition_v402d"), "JumpSet", "RunSet", SubResource("AnimationNodeStateMachineTransition_hgdn8"), "RunSet", "JumpSet", SubResource("AnimationNodeStateMachineTransition_t6xah"), "IdleSet", "RunSet", SubResource("AnimationNodeStateMachineTransition_agccv"), "RunSet", "IdleSet", SubResource("AnimationNodeStateMachineTransition_g4oe6"), "JumpSet", "FallSet", SubResource("AnimationNodeStateMachineTransition_fnnns"), "FallSet", "IdleSet", SubResource("AnimationNodeStateMachineTransition_tl5x1"), "IdleSet", "JumpSet", SubResource("AnimationNodeStateMachineTransition_4k050"), "IdleSet", "FallSet", SubResource("AnimationNodeStateMachineTransition_wlf4d"), "FallSet", "JumpSet", SubResource("AnimationNodeStateMachineTransition_ix3n3"), "JumpSet", "IdleSet", SubResource("AnimationNodeStateMachineTransition_oc6uo"), "RunSet", "FallSet", SubResource("AnimationNodeStateMachineTransition_bfhyk"), "FallSet", "RunSet", SubResource("AnimationNodeStateMachineTransition_qyuss"), "IdleSet", "beans", SubResource("AnimationNodeStateMachineTransition_gqr4l"), "beans", "IdleSet", SubResource("AnimationNodeStateMachineTransition_a6u5q"), "IdleSet", "box", SubResource("AnimationNodeStateMachineTransition_6ao7d"), "box", "box_idle", SubResource("AnimationNodeStateMachineTransition_hk3yl")]
+graph_offset = Vector2(-78, -110)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_v402d"]
 resource_local_to_scene = true
@@ -725,7 +894,7 @@ blend_point_6/pos = Vector2(0, 0)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_td8ue"]
 resource_local_to_scene = true
-graph_offset = Vector2(-182, 52)
+graph_offset = Vector2(-256.01654, 31.52066)
 nodes/output/position = Vector2(420, 180)
 nodes/MovementStateMachine/node = SubResource("AnimationNodeStateMachine_yu0ev")
 nodes/MovementStateMachine/position = Vector2(-80, 120)
@@ -780,8 +949,8 @@ hframes = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
 texture = SubResource("CanvasTexture_yu0ev")
-hframes = 10
-vframes = 5
+hframes = 14
+vframes = 7
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844248807]
@@ -797,6 +966,7 @@ autoplay = &"idle_right"
 [node name="AnimationTree" type="AnimationTree" parent="Animations" unique_id=1906422581]
 tree_root = SubResource("AnimationNodeBlendTree_td8ue")
 anim_player = NodePath("../AnimationPlayer")
+parameters/MovementStateMachine/FallSet/blend_position = Vector2(0, 0)
 parameters/MovementStateMachine/IdleSet/blend_position = Vector2(0, 0)
 parameters/MovementStateMachine/JumpSet/blend_position = Vector2(0, 0)
 parameters/MovementStateMachine/RunSet/blend_position = Vector2(0, 0)

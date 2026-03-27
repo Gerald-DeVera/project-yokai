@@ -56,8 +56,8 @@ elif Global.dialogueFlags.interviewedSagawa == false && Global.dialogueFlags.key
 	do Global.questsList.quests.append(load("res://Assets/Quests/Quest3.tres"))
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest2.tres"))
 	do Global.npcProfileList.profileInfo[2] = load("res://Assets/NotebookNPCProfiles/Sagawa.tres")
-	do Global.npcProfileList.profileInfo[0].evidenceQuotes.append("After helping her parents, she visited shops near S.G. Ramen.")
-	do Global.npcProfileList.profileInfo[0].evidenceQuotes.append("Yui was stepping back from idol work due to her mothers injury.")
+	do Global.npcProfileList.profileInfo[0].evidenceQuotes.append("After helping her parents, she visited the nearby shops.")
+	do Global.npcProfileList.profileInfo[0].evidenceQuotes.append("Yui never showed up to practice two days ago.")
 	do Signals.updateInfoAnimation.emit("notebook")
 	#Set flag talked to Sagawa true 
 elif Global.dialogueFlags.interviewedSagawa == true

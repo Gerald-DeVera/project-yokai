@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://ddy7v8i7hvcyc"]
 
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_cw6rj"]
-[ext_resource type="Script" uid="uid://dbbbcvcck3hrc" path="res://Scripts/platformLevel.gd" id="1_ywopd"]
+[ext_resource type="Script" path="res://Scripts/platformLevel.gd" id="1_ywopd"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="2_umi5f"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="3_7ubhb"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="3_hynhp"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="4_n3o6x"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="4_qtfyn"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="5_umi5f"]
 [ext_resource type="Texture2D" uid="uid://nl0gx3lchq7s" path="res://Assets/Environment/platforming tiles/parallax beta 2.png" id="7_umi5f"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="8_hynhp"]
@@ -13,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="9_sw76f"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="11_hjoic"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="11_xgn0t"]
-[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
+[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="12_fshmo"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="13_xyy84"]
-[ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="17_i6yte"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/beta platforming/portal.tscn" id="17_i6yte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6yte"]
 texture = ExtResource("2_umi5f")
@@ -102,6 +103,9 @@ position = Vector2(399, -254)
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=461871120]
 position = Vector2(-2, -30)
 zoom = Vector2(1.3, 1.3)
+
+[node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("4_qtfyn")]
+position = Vector2(-155, -193)
 
 [node name="decodecoTile" type="TileMapLayer" parent="." unique_id=1264298232]
 z_index = 4

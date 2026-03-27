@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://blc0clnqvdoqs"]
 
+[ext_resource type="Script" uid="uid://c8st11i2bth6r" path="res://Scripts/scene_transition_script.gd" id="1_ax2sl"]
+
 [sub_resource type="Gradient" id="Gradient_mpcjy"]
 offsets = PackedFloat32Array(0.686747, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
@@ -20,6 +22,30 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1277, -0.0005, 0, 0.0005, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneTransitionAnimation/TextureRect2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SceneTransitionAnimation/TextureRect2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-36, 393)]
 }
 
 [sub_resource type="Animation" id="Animation_wtbpg"]
@@ -52,15 +78,109 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4333)
 }
 
+[sub_resource type="Animation" id="Animation_mpcjy"]
+resource_name = "white_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionAnimation/TextureRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneTransitionAnimation/TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-36, -18)]
+}
+
+[sub_resource type="Animation" id="Animation_4rwhk"]
+resource_name = "white_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionAnimation/TextureRect2:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneTransitionAnimation/TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-36, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_u3gll"]
+resource_name = "white_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SceneTransitionAnimation/TextureRect2:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SceneTransitionAnimation/TextureRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-36, -16)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wtbpg"]
 _data = {
 &"RESET": SubResource("Animation_u4l3x"),
 &"gradient_down": SubResource("Animation_wtbpg"),
-&"gradient_up": SubResource("Animation_ax2sl")
+&"gradient_up": SubResource("Animation_ax2sl"),
+&"white_black": SubResource("Animation_mpcjy"),
+&"white_in": SubResource("Animation_4rwhk"),
+&"white_out": SubResource("Animation_u3gll")
 }
 
+[sub_resource type="Gradient" id="Gradient_dhyi2"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dy64a"]
+gradient = SubResource("Gradient_dhyi2")
+
 [node name="SceneTransitionAnimation" type="CanvasLayer" unique_id=302174458]
-layer = 100
+layer = 1000
+script = ExtResource("1_ax2sl")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=748409655]
 offset_left = -223.0
@@ -76,3 +196,11 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_wtbpg")
 autoplay = &"gradient_down"
 speed_scale = 0.528
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1803079699]
+modulate = Color(1, 1, 1, 0)
+offset_left = -36.0
+offset_top = 393.0
+offset_right = 680.0
+offset_bottom = 794.0
+texture = SubResource("GradientTexture2D_dy64a")

@@ -7,16 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="5_gdkqi"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="5_lhiah"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_sfvug"]
-[ext_resource type="Texture2D" uid="uid://cmr5gdinfmqst" path="res://Assets/Sprites/kite sprite-Sheet.png" id="6_cg16o"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="6_lhiah"]
+[ext_resource type="Texture2D" uid="uid://c3cs7oyxrot5m" path="res://Assets/Sprites/yumi sprite-Sheet.png" id="6_p5ym0"]
 [ext_resource type="Texture2D" uid="uid://cbmg003mbo6lm" path="res://Assets/Environment/office_interior_door.png" id="7_7lf17"]
 [ext_resource type="Script" uid="uid://cvnksskr2lo0e" path="res://Scenes/Levels/open_door_sprite.gd" id="8_p5ym0"]
 [ext_resource type="Script" uid="uid://c0cr4w0n086fg" path="res://Scenes/Levels/yumi_sprite.gd" id="9_7lf17"]
+[ext_resource type="Script" uid="uid://dqdedxqqcua5x" path="res://Scripts/camera_control.gd" id="11_sc7wv"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="12_7lf17"]
+[ext_resource type="Texture2D" uid="uid://0i3rl58d582t" path="res://Assets/Sprites/aura.png" id="14_7mrfc"]
+[ext_resource type="AudioStream" uid="uid://spmb6wek13hx" path="res://Assets/Audio/BackgroundTracks/Plat.wav" id="16_a3lee"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_33gn4"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gba58"]
-load_path = "res://.godot/imported/yumi sprite-Sheet.png-d33455aca770fa8f5e0e8207aaf95f96.ctex"
 
 [sub_resource type="Animation" id="Animation_m7okf"]
 length = 0.001
@@ -33,9 +34,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_xjuw7"]
-resource_name = "idle_left"
-length = 0.8
+[sub_resource type="Animation" id="Animation_fjte1"]
+resource_name = "attack"
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -44,16 +45,82 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 3, 5, 7, 9, 11, 13, 15]
+"values": [52, 54, 56, 58, 60]
+}
+
+[sub_resource type="Animation" id="Animation_npqvw"]
+resource_name = "hurt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [62, 64, 66, 68]
+}
+
+[sub_resource type="Animation" id="Animation_ysn3c"]
+resource_name = "hurt_idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.26666668, 0.43333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [70, 72, 74, 76, 68]
+}
+
+[sub_resource type="Animation" id="Animation_xjuw7"]
+resource_name = "idle_left"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13]
 }
 
 [sub_resource type="Animation" id="Animation_12d20"]
 resource_name = "idle_right"
-length = 0.8
+length = 0.7
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12]
+}
+
+[sub_resource type="Animation" id="Animation_e7owp"]
+resource_name = "transform"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,7 +131,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 2, 4, 6, 8, 10, 12, 14]
+"values": [24, 26, 28, 30, 32, 34, 36, 38]
+}
+
+[sub_resource type="Animation" id="Animation_h8c3v"]
+resource_name = "transform_idle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [38, 40, 42, 44, 46, 48, 50]
 }
 
 [sub_resource type="Animation" id="Animation_bn2ya"]
@@ -78,10 +162,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [17, 19, 21, 23, 25]
+"values": [15, 17, 19, 21, 23]
 }
 
 [sub_resource type="Animation" id="Animation_7lf17"]
@@ -95,17 +179,22 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"times": PackedFloat32Array(0, 0.099999994, 0.20000002, 0.29999998, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [16, 18, 20, 22, 24]
+"values": [14, 16, 18, 20, 22]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p5ym0"]
 _data = {
 &"RESET": SubResource("Animation_m7okf"),
+&"attack": SubResource("Animation_fjte1"),
+&"hurt": SubResource("Animation_npqvw"),
+&"hurt_idle": SubResource("Animation_ysn3c"),
 &"idle_left": SubResource("Animation_xjuw7"),
 &"idle_right": SubResource("Animation_12d20"),
+&"transform": SubResource("Animation_e7owp"),
+&"transform_idle": SubResource("Animation_h8c3v"),
 &"walk_left": SubResource("Animation_bn2ya"),
 &"walk_right": SubResource("Animation_7lf17")
 }
@@ -198,62 +287,6 @@ _data = {
 &"RESET": SubResource("Animation_7mrfc"),
 &"close": SubResource("Animation_sc7wv"),
 &"open": SubResource("Animation_a3lee")
-}
-
-[sub_resource type="Animation" id="Animation_pwkim"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_3638v"]
-resource_name = "idle_left"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [1, 3, 5, 7, 9, 11]
-}
-
-[sub_resource type="Animation" id="Animation_bx3pb"]
-resource_name = "idle_right"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 2, 4, 6, 8, 10]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h66fg"]
-_data = {
-&"RESET": SubResource("Animation_pwkim"),
-&"idle_left": SubResource("Animation_3638v"),
-&"idle_right": SubResource("Animation_bx3pb")
 }
 
 [sub_resource type="Gradient" id="Gradient_l0i5o"]
@@ -352,7 +385,45 @@ _data = {
 &"zoom_out": SubResource("Animation_fbqcr")
 }
 
-[node name="TestLevel" type="Node2D" unique_id=1594793928]
+[sub_resource type="Animation" id="Animation_bjinq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yw2vo"]
+resource_name = "pulse"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5u7j"]
+_data = {
+&"RESET": SubResource("Animation_bjinq"),
+&"pulse": SubResource("Animation_yw2vo")
+}
+
+[node name="Office" type="Node2D" unique_id=1594793928]
 script = ExtResource("1_nmbs0")
 
 [node name="Important" type="Sprite2D" parent="." unique_id=913824143]
@@ -391,7 +462,7 @@ interactText = "To City"
 [node name="Desk" parent="." unique_id=1461815565 instance=ExtResource("5_lhiah")]
 position = Vector2(327, 245)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
-dialogueStartingPosition = "OpeningScene"
+dialogueStartingPosition = "preAccusation"
 isDialogue = true
 dialoguePath = "res://Assets/Dialogue/Yumi.dialogue"
 
@@ -405,9 +476,10 @@ scale = Vector2(18.819786, 8.988636)
 color = Color(0.03529412, 0.039215688, 0.039215688, 1)
 
 [node name="YumiSprite" type="Sprite2D" parent="." unique_id=2098619500]
-position = Vector2(221, 251)
-texture = SubResource("CompressedTexture2D_gba58")
-hframes = 26
+position = Vector2(221, 252)
+texture = ExtResource("6_p5ym0")
+hframes = 14
+vframes = 6
 script = ExtResource("9_7lf17")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YumiSprite" unique_id=1733791792]
@@ -424,15 +496,6 @@ script = ExtResource("8_p5ym0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OfficeInteriorDoor" unique_id=32003024]
 libraries/ = SubResource("AnimationLibrary_fjte1")
 
-[node name="KiteSpriteSheet" type="Sprite2D" parent="." unique_id=1242126631]
-position = Vector2(361, 248)
-texture = ExtResource("6_cg16o")
-hframes = 12
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="KiteSpriteSheet" unique_id=1694476200]
-libraries/ = SubResource("AnimationLibrary_h66fg")
-autoplay = &"idle_left"
-
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_4cjtc")]
 position = Vector2(257, 250)
 
@@ -441,6 +504,7 @@ position = Vector2(-2, -30)
 zoom = Vector2(2.5, 2.5)
 process_callback = 0
 position_smoothing_enabled = true
+script = ExtResource("11_sc7wv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=804787415]
 layer = -1
@@ -472,9 +536,31 @@ position = Vector2(1, 0)
 scale = Vector2(1.0018339, 1)
 color = Color(0.8584622, 0.8855957, 0.9182237, 1)
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=290628610]
+visible = false
+color = Color(0.94851965, 1.4824272e-05, 0.6263497, 1)
+energy = 0.0
+blend_mode = 1
+
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("6_lhiah")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1610618236]
 libraries/ = SubResource("AnimationLibrary_pwkim")
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_sfvug")]
+
+[node name="Kite" parent="." unique_id=2061426401 instance=ExtResource("12_7lf17")]
+position = Vector2(366, 238)
+
+[node name="Aura" type="Sprite2D" parent="." unique_id=771324043]
+visible = false
+position = Vector2(302, 240)
+texture = ExtResource("14_7mrfc")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=30605239]
+libraries/ = SubResource("AnimationLibrary_x5u7j")
+speed_scale = 1.123
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1622607831]
+stream = ExtResource("16_a3lee")

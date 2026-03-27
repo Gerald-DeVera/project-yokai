@@ -24,6 +24,7 @@
 [ext_resource type="Resource" uid="uid://dk7wjvomgtb15" path="res://Assets/InventoryItems/bracelet1.tres" id="18_ed5bj"]
 [ext_resource type="Resource" uid="uid://bnsibo1s6wqps" path="res://Assets/InventoryItems/wallet.tres" id="19_64xah"]
 [ext_resource type="Texture2D" uid="uid://bm04uo137ouv3" path="res://Assets/Environment/portal-Sheet.png" id="24_xin8x"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="25_wcxke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5bj"]
 size = Vector2(13.000015, 1)
@@ -725,5 +726,8 @@ hframes = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YokaiPortal/Portal" unique_id=377758099]
 libraries/ = SubResource("AnimationLibrary_wcxke")
 autoplay = &"portal"
+
+[node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("25_wcxke")]
+position = Vector2(65, 266)
 
 [connection signal="body_entered" from="AlleywayOneShot/Area2D" to="AlleywayOneShot" method="_on_area_2d_body_entered"]

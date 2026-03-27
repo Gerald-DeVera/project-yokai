@@ -1,18 +1,19 @@
-[gd_scene format=4 uid="uid://vvoxuo8gmnba"]
+[gd_scene format=4 uid="uid://oqmpf0juqd3n"]
 
-[ext_resource type="PackedScene" uid="uid://dq8nv7ywkhn1o" path="res://Scenes/Entities/boss.tscn" id="1_kokxh"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/boss.tscn" id="1_kokxh"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_m5b0x"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="1_rf6cf"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="2_bqvk6"]
-[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
+[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="2_mngpy"]
-[ext_resource type="Script" uid="uid://dh88mqpfjao2w" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
+[ext_resource type="Script" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="4_1b4hs"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="5_hh1ma"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_mngpy"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kokxh"]
 texture = ExtResource("1_rf6cf")
@@ -157,5 +158,8 @@ position = Vector2(-57, -12)
 position = Vector2(-2, -30)
 offset = Vector2(0, -25.235)
 zoom = Vector2(1.5, 1.5)
+
+[node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("14_bunke")]
+position = Vector2(-50, -52)
 
 [connection signal="timeout" from="bossStuff/ProjectileSpawners/cooldown" to="bossStuff/ProjectileSpawners" method="_on_cooldown_timeout"]
