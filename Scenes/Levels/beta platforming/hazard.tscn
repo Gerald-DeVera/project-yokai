@@ -7,7 +7,6 @@
 size = Vector2(104, 38)
 
 [node name="Hazard" type="Node2D" unique_id=1809822342]
-visible = false
 script = ExtResource("1_drdsm")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1406447746]

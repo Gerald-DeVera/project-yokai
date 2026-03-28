@@ -6,7 +6,7 @@ func _ready() -> void:
 	Signals.animateScreenWipe.connect(Callable(self,"playTransition"))
 	pass
 
-func playTransition(animationName: String):
+func playTransition(animationName: String):		
 	if animationName == "gradient_up":
 		SceneTransition.play("gradient_up")
 	elif animationName == "gradient_down":
