@@ -1,0 +1,389 @@
+[gd_scene format=3 uid="uid://jhw7s86q1lo2"]
+
+[ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_71fy6"]
+[ext_resource type="Texture2D" uid="uid://cnss2f3uqfbuh" path="res://Assets/Sprites/yui sprite-Sheet.png" id="1_wscot"]
+[ext_resource type="Texture2D" uid="uid://c3cs7oyxrot5m" path="res://Assets/Sprites/yumi sprite-Sheet.png" id="2_5lni0"]
+[ext_resource type="Script" uid="uid://c0cr4w0n086fg" path="res://Scenes/Levels/yumi_sprite.gd" id="3_are0v"]
+[ext_resource type="Shader" uid="uid://wc3gacef1vt1" path="res://Shaders/reflection.gdshader" id="5_tktbf"]
+[ext_resource type="Script" uid="uid://c8jv72423n0jo" path="res://Scripts/reflection.gd" id="6_yjvo7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0u3pq"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_j68j4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4pu8k"]
+gradient = SubResource("Gradient_j68j4")
+width = 4
+height = 3
+
+[sub_resource type="Gradient" id="Gradient_wv0pi"]
+offsets = PackedFloat32Array(0.04918033, 0.22950819, 0.852459, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s2ptr"]
+gradient = SubResource("Gradient_wv0pi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wscot"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 360, 1)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 10, 0)
+scale_min = 0.29999998
+scale_max = 0.79999995
+color_ramp = SubResource("GradientTexture1D_s2ptr")
+anim_offset_max = 1.0
+
+[sub_resource type="Animation" id="Animation_wvaob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eypgt"]
+resource_name = "idle_left"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13]
+}
+
+[sub_resource type="Animation" id="Animation_7ehg5"]
+resource_name = "idle_right"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0m1cu"]
+_data = {
+&"RESET": SubResource("Animation_wvaob"),
+&"idle_left": SubResource("Animation_eypgt"),
+&"idle_right": SubResource("Animation_7ehg5")
+}
+
+[sub_resource type="Animation" id="Animation_m7okf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fjte1"]
+resource_name = "attack"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [52, 54, 56, 58, 60]
+}
+
+[sub_resource type="Animation" id="Animation_npqvw"]
+resource_name = "hurt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [62, 64, 66, 68]
+}
+
+[sub_resource type="Animation" id="Animation_ysn3c"]
+resource_name = "hurt_idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.26666668, 0.43333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [70, 72, 74, 76, 68]
+}
+
+[sub_resource type="Animation" id="Animation_xjuw7"]
+resource_name = "idle_left"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13]
+}
+
+[sub_resource type="Animation" id="Animation_12d20"]
+resource_name = "idle_right"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12]
+}
+
+[sub_resource type="Animation" id="Animation_e7owp"]
+resource_name = "transform"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 26, 28, 30, 32, 34, 36, 38]
+}
+
+[sub_resource type="Animation" id="Animation_h8c3v"]
+resource_name = "transform_idle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [38, 40, 42, 44, 46, 48, 50]
+}
+
+[sub_resource type="Animation" id="Animation_bn2ya"]
+resource_name = "walk_left"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 17, 19, 21, 23]
+}
+
+[sub_resource type="Animation" id="Animation_7lf17"]
+resource_name = "walk_right"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.20000002, 0.29999998, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 16, 18, 20, 22]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qcmgc"]
+_data = {
+&"RESET": SubResource("Animation_m7okf"),
+&"attack": SubResource("Animation_fjte1"),
+&"hurt": SubResource("Animation_npqvw"),
+&"hurt_idle": SubResource("Animation_ysn3c"),
+&"idle_left": SubResource("Animation_xjuw7"),
+&"idle_right": SubResource("Animation_12d20"),
+&"transform": SubResource("Animation_e7owp"),
+&"transform_idle": SubResource("Animation_h8c3v"),
+&"walk_left": SubResource("Animation_bn2ya"),
+&"walk_right": SubResource("Animation_7lf17")
+}
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y14q1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_upvru"]
+noise = SubResource("FastNoiseLite_y14q1")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3330"]
+shader = ExtResource("5_tktbf")
+shader_parameter/CAST_COLOR = Color(0.5822234, 0.60624766, 0.6164926, 0.8901961)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_upvru")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/wave_strength = 1.45
+shader_parameter/scale_y = 974.54
+shader_parameter/y_zoom = 1.85
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bmsx1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5lni0"]
+
+[sub_resource type="Gradient" id="Gradient_wscot"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5lni0"]
+gradient = SubResource("Gradient_wscot")
+use_hdr = true
+
+[node name="Memory" type="Node2D" unique_id=344185053]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1851632716]
+offset_left = 16.0
+offset_top = 7.0
+offset_right = 899.0
+offset_bottom = 469.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1909719329]
+material = SubResource("CanvasItemMaterial_0u3pq")
+position = Vector2(425, 129)
+amount = 100
+texture = SubResource("GradientTexture2D_4pu8k")
+visibility_rect = Rect2(-336.285, -204.975, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_wscot")
+
+[node name="YuiSpriteSheet" type="Sprite2D" parent="." unique_id=1289561455]
+position = Vector2(495, 249)
+texture = ExtResource("1_wscot")
+hframes = 14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YuiSpriteSheet" unique_id=855950396]
+libraries/ = SubResource("AnimationLibrary_0m1cu")
+autoplay = &"idle_left"
+
+[node name="YumiSprite" type="Sprite2D" parent="YuiSpriteSheet" unique_id=2136328668]
+position = Vector2(-42, 0)
+texture = ExtResource("2_5lni0")
+hframes = 14
+vframes = 6
+script = ExtResource("3_are0v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YuiSpriteSheet/YumiSprite" unique_id=1593887346]
+libraries/ = SubResource("AnimationLibrary_qcmgc")
+autoplay = &"idle_right"
+
+[node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_71fy6")]
+position = Vector2(231, 245)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1202654720]
+position = Vector2(-2, -29)
+offset = Vector2(0, 25)
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="Reflection" type="Sprite2D" parent="." unique_id=524478771]
+z_index = 2
+material = SubResource("ShaderMaterial_v3330")
+position = Vector2(459.99997, 391)
+scale = Vector2(886.5, 231.5)
+texture = SubResource("CanvasTexture_bmsx1")
+script = ExtResource("6_yjvo7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1972190872]
+position = Vector2(2, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1092301054]
+position = Vector2(384, 275)
+shape = SubResource("WorldBoundaryShape2D_5lni0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2092557801]
+position = Vector2(186, 275)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_5lni0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2138584173]
+position = Vector2(732, 275)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_5lni0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2041820416]
+z_index = 2
+position = Vector2(113.99999, 240.00002)
+scale = Vector2(3.0937498, 7.765625)
+texture = SubResource("GradientTexture2D_5lni0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1897656517]
+z_index = 2
+position = Vector2(811, 240.00002)
+rotation = 3.1415927
+scale = Vector2(3.0937498, 7.765625)
+texture = SubResource("GradientTexture2D_5lni0")
