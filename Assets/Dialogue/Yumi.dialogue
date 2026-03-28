@@ -113,7 +113,6 @@ do wait(4.0)
 do Global.grabCameraPos()
 do Global.moveCamera(Vector2(-40, 0))
 do Global.zoomCamera(Vector2(3.5,3.5))
-do Signals.moveCharacter.emit("PlayerCharacter", "exitStore")
 do Signals.moveCharacter.emit("YumiSprite", "enterOffice")
 do Signals.openDoor.emit("OfficeInteriorDoor","open")
 Makoto: Thanks for coming in on such short notice, Yumi. [#actor_left=on][#animate_left=enter_convo][#animate_right=exit_convo][#expression_right=neutral][#new_actor=yumi][#actor_right=on]

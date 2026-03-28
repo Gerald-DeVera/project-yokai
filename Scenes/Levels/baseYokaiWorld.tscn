@@ -34,13 +34,16 @@
 [ext_resource type="Script" uid="uid://nwoi328xxqbv" path="res://Scenes/Entities/shu_sprite.gd" id="26_rgfmy"]
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="27_ao21d"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="29_s2ptr"]
-[ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="30_gqjqm"]
+[ext_resource type="Texture2D" uid="uid://b2l2el2k448ak" path="res://Assets/Sprites/chochin obake.png" id="32_3p7q5"]
+[ext_resource type="Texture2D" uid="uid://bd1s1lcsuxa8u" path="res://Assets/Sprites/chochinbi.png" id="33_7ucxd"]
 [ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="33_krn6b"]
 [ext_resource type="Texture2D" uid="uid://cgq0p1v7p2r4m" path="res://Assets/Environment/bg_yokai/bg_yokai_doorleft.png" id="35_fvt3n"]
 [ext_resource type="Script" uid="uid://cvnksskr2lo0e" path="res://Scenes/Levels/open_door_sprite.gd" id="35_hki8u"]
 [ext_resource type="AudioStream" uid="uid://d2uiy2diy6rme" path="res://Assets/Audio/BackgroundTracks/Yokai.wav" id="35_rgfmy"]
 [ext_resource type="Texture2D" uid="uid://dlimiw8iweatl" path="res://Assets/Environment/bg_yokai/bg_yokai_doorright.png" id="36_hki8u"]
 [ext_resource type="AudioStream" uid="uid://1avkfws0t0pg" path="res://Assets/Audio/SFX/yokai_ambience.wav" id="41_ex5xx"]
+[ext_resource type="Texture2D" uid="uid://b8abmhd6bko3w" path="res://Assets/Sprites/bakeneko.png" id="43_yh40u"]
+[ext_resource type="Texture2D" uid="uid://g8ndn82edf8x" path="res://Assets/Sprites/iwana bouzu.png" id="44_sjyt5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8x7c5"]
 distance = 3.0
@@ -696,11 +699,15 @@ autoplay = &"idle_right"
 
 [node name="CharPlaceholder" type="Sprite2D" parent="." unique_id=1854546549]
 position = Vector2(117, 165)
-texture = ExtResource("30_gqjqm")
+texture = ExtResource("32_3p7q5")
+hframes = 2
+frame = 1
 
 [node name="CharPlaceholder2" type="Sprite2D" parent="." unique_id=1460297976]
 position = Vector2(2754, 165)
-texture = ExtResource("30_gqjqm")
+texture = ExtResource("33_7ucxd")
+hframes = 2
+frame = 1
 
 [node name="UselessYokai1Dialogue" parent="." unique_id=826330347 instance=ExtResource("27_ao21d")]
 position = Vector2(2753, 168)
@@ -798,6 +805,16 @@ autoplay = true
 stream = ExtResource("41_ex5xx")
 volume_db = -1.926
 autoplay = true
+
+[node name="Bakeneko" type="Sprite2D" parent="." unique_id=762840585]
+position = Vector2(3099, 164)
+texture = ExtResource("43_yh40u")
+hframes = 2
+
+[node name="IwanaBouzu" type="Sprite2D" parent="." unique_id=1145260208]
+position = Vector2(508, 165)
+texture = ExtResource("44_sjyt5")
+hframes = 2
 
 [connection signal="body_entered" from="YokaiShuOneShot/Area2D" to="YokaiShuOneShot" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="YokaiShuOneShot2/Area2D" to="YokaiShuOneShot2" method="_on_area_2d_body_entered"]

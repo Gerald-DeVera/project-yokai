@@ -52,6 +52,8 @@ var shu_texture = preload("res://Assets/Sprites/shu expressions.png")
 var makoto_texture = preload("res://Assets/Sprites/mc_expressions.png")
 var oldguy_texture = preload("res://Assets/Sprites/old guy expressions.png")
 var athwoman_texture = preload("res://Assets/Sprites/athletic lady expressions.png")
+var clothier_texture = preload("res://Assets/Sprites/clothier expressions.png")
+
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -198,6 +200,8 @@ func apply_dialogue_line() -> void:
 			char_sprite_right.texture = oldguy_texture
 		elif load_sprite == "athwoman":
 			char_sprite_right.texture = athwoman_texture
+		elif load_sprite == "clothier":
+			char_sprite_right.texture = clothier_texture
 
 
 

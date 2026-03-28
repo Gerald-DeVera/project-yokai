@@ -35,10 +35,12 @@ func _ready() -> void:
 	elif self.name == "Office":
 		if Global.TimeOfDay == "Day":
 			print("daytime!")
+			officeModulate.texture = load("res://Assets/Environment/office_interior.png")
 			officeModulate.modulate = Color(0.859, 0.886, 0.918, 1.0)
 			officeLights.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		if Global.TimeOfDay == "Night":
 			print("nighttime!")
+			officeModulate.texture = load("res://Assets/Environment/office_interior_night.png")
 			officeModulate.modulate = Color(0.804, 0.749, 0.875, 1.0)
 			officeLights.modulate = Color(0.694, 0.502, 0.267, 1.0)
 		pass

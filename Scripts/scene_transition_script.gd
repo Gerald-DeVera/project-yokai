@@ -20,6 +20,7 @@ func playTransition(animationName: String):
 	elif animationName == "timeskip":
 		SceneTransition.play("gradient_up")
 		await get_tree().create_timer(3.0).timeout
+		Signals.moveCharacter.emit("PlayerCharacter", "Office")
 		SceneTransition.play("gradient_down")
 		await SceneTransition.animation_finished
 	pass

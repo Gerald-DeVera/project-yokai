@@ -496,8 +496,12 @@ script = ExtResource("8_p5ym0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OfficeInteriorDoor" unique_id=32003024]
 libraries/ = SubResource("AnimationLibrary_fjte1")
 
+[node name="Kite" parent="." unique_id=2061426401 instance=ExtResource("12_7lf17")]
+position = Vector2(366, 238)
+scale = Vector2(0.99999994, 0.99999994)
+
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_4cjtc")]
-position = Vector2(257, 250)
+position = Vector2(315, 250)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=414050316]
 position = Vector2(-2, -30)
@@ -548,9 +552,6 @@ blend_mode = 1
 libraries/ = SubResource("AnimationLibrary_pwkim")
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_sfvug")]
-
-[node name="Kite" parent="." unique_id=2061426401 instance=ExtResource("12_7lf17")]
-position = Vector2(366, 238)
 
 [node name="Aura" type="Sprite2D" parent="." unique_id=771324043]
 visible = false

@@ -22,7 +22,7 @@ signal toggleInventoryInput(input: bool)
 
 signal respawnPlayer()
 
-signal damagePlayer(damage: int)
+signal damagePlayer(damage: int, objectVelocity: Vector2)
 
 signal updatePlayerHealth(health: int)
 

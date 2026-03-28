@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dq8nv7ywkhn1o"]
+[gd_scene format=3 uid="uid://b5lp10dp5sbwu"]
 
 [ext_resource type="Texture2D" uid="uid://cedxorhpdv51h" path="res://Assets/Sprites/char_placeholder.png" id="1_mry3t"]
 
@@ -6,5 +6,6 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1175422153]
 modulate = Color(0.9856376, 0.14786023, 0.22783986, 1)
-scale = Vector2(1, 4.166667)
+position = Vector2(9.536743e-07, 0)
+scale = Vector2(1.5208334, 2.4375)
 texture = ExtResource("1_mry3t")

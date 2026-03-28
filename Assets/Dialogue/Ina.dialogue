@@ -3,9 +3,9 @@ if Global.dialogueFlags.InaFound == false
 	do Global.grabCameraPos()
 	do Global.moveCamera(Vector2(0,25))
 	do Global.zoomCamera(Vector2(2.5,2.5))
-	Makoto: Hello. I’m looking for a kitsune named Ina Rin. I heard she was an expert when it comes to curses. [#actor_right=on][#new_actor=ina][#expression_right=neutral]
+	Makoto: Hello. I’m looking for a kitsune. I heard she was an expert when it comes to curses. [#actor_right=on][#new_actor=ina][#expression_right=neutral]
 	???: Oh my, such a [wave amp=20 freq=5]cute little mortal[/wave] is asking for me? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=happy]
-	Makoto: You’re Miss Rin? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+	Makoto: You’re the kitsune? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
 	???: Mmm… let’s say… I’ll answer you in exchange for a [wave amp=20 freq=5]teensy little favor[/wave], sweetheart. How about it? [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
 	Makoto: I suppose I’m no stranger to odd jobs. What’ll it be? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
 	???: ... [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=confused]
@@ -14,7 +14,7 @@ if Global.dialogueFlags.InaFound == false
 	???: ...[wave amp=20 freq=5]Ahahaha![/wave] You’re simply too adorable! So ready to be at the beck and call of a yokai you barely even know! [#expression_right=happy]
 	Makoto: ... [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
 	???: My apologies, dear, that was… just an old habit of mine.[#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=neutral]
-	Ina: You may indeed call me Ina Rin, or Ina, or Miss Rin – I’m sure it’ll all sound cute coming from you. [#expression_right=happy]
+	Ina: You may call me Ina Rin, or Ina, or Miss Rin – I’m sure it’ll all sound cute coming from you. [#expression_right=happy]
 	Makoto: ...Right. To cut to the chase, Miss Rin, we’re seeking your assistance with an unknown curse.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral] 
 	Ina: Oh? And why would a cute mortal like you be dealing with [wave amp=20 freq=5]those nasty things?[/wave] [#animate_right=enter_convo][#animate_left=exit_convo][#expression_right=confused]
 	Makoto: Well, long story short, a young woman was attacked by some kind of spirit about two days ago. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry] 

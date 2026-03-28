@@ -112,29 +112,29 @@ elif Global.dialogueFlags.keyWitnessFound == true:
 
 ~ fashionClerkPostSagawa
 if Global.dialogueFlags.interviewedSagawa == false
-	Fashion Clerk: [#animate_left=exit_convo]Welcome ma’am, looking to expand your wardrobe?
+	Fashion Clerk: [#animate_left=exit_convo]Welcome ma’am, looking to expand your wardrobe?[#animate_right=enter_convo][#actor_right=on][#new_actor=clothier]
 	Makoto: Sorry, maybe another time. [#animate_left=enter_convo]
 	=> END
 elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedClothier == false:
-	Makoto: Excuse me.
-	Fashion Clerk: Welcome ma’am, looking to expand your wardrobe?
-	Makoto: No. I just have a few questions, if you have the time.
-	Fashion Clerk: Ah, looking for a style consultation perhaps?
-	Makoto: Sorry, maybe some other time.
+	Makoto: Excuse me.[#actor_right=on][#new_actor=clothier]
+	Fashion Clerk: Welcome ma’am, looking to expand your wardrobe? [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: No. I just have a few questions, if you have the time. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Fashion Clerk: Ah, looking for a style consultation perhaps? [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: Sorry, maybe some other time. [#animate_left=enter_convo][#animate_right=exit_convo]
 	Makoto: I’m looking for this woman[do Global.showEvidence("yui1")]. She was in the area doing some shopping recently. Did she happen to stop by?
-	Fashion Clerk: Hmmm, let me see…
+	Fashion Clerk: Hmmm, let me see… [#animate_left=exit_convo][#animate_right=enter_convo]
 	Fashion Clerk: Ah! She does look familiar. Hard to forget such a [wave amp=20 freq=5]gorgeous face.[/wave][do Global.hideEvidence()]
 	Fashion Clerk: I think it was about a few days ago now that she stopped by right before closing. 
 	Fashion Clerk: Kept on apologizing for coming in so late, but I didn’t really mind and helped her [wave amp=20 freq=5]pick out a gift[/wave] for a friend. 
 	Fashion Clerk: After that, she paid and left the store in a rush. 
-	Makoto: I see. Did she happen to say where she was heading next?
-	Fashion Clerk: We chatted about a few things, but I think she did ask when the [outline_size=5][color=orange]flower store[/color][/outline_size] closed. 
+	Makoto: I see. Did she happen to say where she was heading next? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Fashion Clerk: We chatted about a few things, but I think she did ask when the [outline_size=5][color=orange]flower store[/color][/outline_size] closed. [#animate_left=exit_convo][#animate_right=enter_convo]
 	Fashion Clerk: It was already late though, so I don’t know if she would’ve made it in time.
-	Makoto: Is there anything else you can recall during that conversation?
-	Fashion Clerk: If you’re trying to look for someone, then I can’t think of anything else.
-	Makoto: I see. That’s all I needed, thank you.
-	Fashion Clerk: Be sure to drop by again! We’ve got a clearance on select dresses!
-	Makoto: Right…
+	Makoto: Is there anything else you can recall during that conversation? [#animate_left=enter_convo][#animate_right=exit_convo]
+	Fashion Clerk: If you’re trying to look for someone, then I can’t think of anything else. [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: I see. That’s all I needed, thank you.[#animate_left=enter_convo][#animate_right=exit_convo]
+	Fashion Clerk: Be sure to drop by again! We’ve got a clearance on select dresses! [#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: Right…[#animate_left=enter_convo][#animate_right=exit_convo]
 	do Global.questsList.quests.append(load("res://Assets/Quests/Quest4.tres"))
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest3.tres"))
 	do Signals.updateInfoAnimation.emit("notebook")
@@ -143,5 +143,5 @@ elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.inte
 	#Set flag here
 	=> END
 elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedClothier == true:
-	Fashion Clerk: [#animate_left=exit_convo]Welcome back, ma’am! Please take a look at our latest collection!
+	Fashion Clerk: [#animate_left=exit_convo]Welcome back, ma’am! Please take a look at our latest collection![#animate_right=enter_convo][#actor_right=on][#new_actor=clothier]
 	=> END

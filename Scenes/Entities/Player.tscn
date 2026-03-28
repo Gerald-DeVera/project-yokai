@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bsfqeclee1nh4" path="res://Assets/Sprites/mc sprite-Sheet.png" id="2_v402d"]
 [ext_resource type="Texture2D" uid="uid://r4htcjkjow5u" path="res://Assets/Sprites/spirit sight aura.png" id="3_g4oe6"]
 [ext_resource type="Texture2D" uid="uid://gs5qpe4sp2g1" path="res://Assets/Sprites/spirit sight eye-Sheet.png" id="4_86atj"]
+[ext_resource type="Shader" uid="uid://cbawr00jxeodk" path="res://Shaders/hitflash.tres" id="5_td8ue"]
 [ext_resource type="AudioStream" uid="uid://b1d40utnl7ywd" path="res://Assets/Audio/SFX/walk_tile.wav" id="6_yu0ev"]
 
 [sub_resource type="Gradient" id="Gradient_g4oe6"]
@@ -181,6 +182,11 @@ colors = PackedColorArray(1, 1, 1, 0, 0.6431373, 0.8666667, 1, 0.31764707, 0.180
 gradient = SubResource("Gradient_86atj")
 fill = 1
 fill_from = Vector2(0.4957265, 0.45726496)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynt0t"]
+shader = ExtResource("5_td8ue")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_yu0ev"]
 diffuse_texture = ExtResource("2_v402d")
@@ -894,7 +900,6 @@ blend_point_6/pos = Vector2(0, 0)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_td8ue"]
 resource_local_to_scene = true
-graph_offset = Vector2(-256.01654, 31.52066)
 nodes/output/position = Vector2(420, 180)
 nodes/MovementStateMachine/node = SubResource("AnimationNodeStateMachine_yu0ev")
 nodes/MovementStateMachine/position = Vector2(-80, 120)
@@ -909,6 +914,43 @@ nodes/animation_tween/position = Vector2(20, 520)
 nodes/EaseOutSpace/node = SubResource("AnimationNodeBlendSpace2D_6mnmp")
 nodes/EaseOutSpace/position = Vector2(-240, 680)
 node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"MovementStateMachine", &"OneShot", 1, &"animation_tween", &"animation_tween", 0, &"WindupSpace", &"animation_tween", 1, &"EaseOutSpace"]
+
+[sub_resource type="Animation" id="Animation_7n4p1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pid1y"]
+resource_name = "hitflash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0aity"]
+_data = {
+&"RESET": SubResource("Animation_7n4p1"),
+&"hitflash": SubResource("Animation_pid1y")
+}
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=152485545 groups=["Player"]]
 collision_layer = 3
@@ -948,6 +990,7 @@ texture = ExtResource("4_86atj")
 hframes = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=281754169]
+material = SubResource("ShaderMaterial_ynt0t")
 texture = SubResource("CanvasTexture_yu0ev")
 hframes = 14
 vframes = 7
@@ -989,3 +1032,7 @@ shape = SubResource("RectangleShape2D_2tapu")
 
 [node name="WalkAudio" type="AudioStreamPlayer" parent="." unique_id=1725559920]
 stream = ExtResource("6_yu0ev")
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="." unique_id=788173632]
+libraries/ = SubResource("AnimationLibrary_0aity")
+speed_scale = 2.0

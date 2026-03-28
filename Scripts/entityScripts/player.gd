@@ -20,6 +20,7 @@ var canWalljump = true
 
 @onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
 @onready var domain_expansion = $DomainExpansion/AnimationPlayer
+@onready var hitflash = $HitFlashAnimationPlayer
 @onready var PlayerUI = $"../PlayerUI"
 @onready var walkingSFX = $WalkAudio
 # Called when the node enters the scene tree for the first time.
@@ -154,7 +155,7 @@ func animate(direction):
 			hasStopped = true
 		#elif not is_on_floor() && velocity.y > 0:
 			#movement_state_machine.travel("JumpSet")
-		elif not is_on_floor() && velocity.y < 10:
+		elif not is_on_floor():
 			movement_state_machine.travel("FallSet")
 	#Added for redundancy
 	if inputDisabled == true:
@@ -166,8 +167,13 @@ func get_basic_input():
 		$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		hasStopped = false
 
-func takeDamage(damage: int):
+func takeDamage(damage: int, objectVelocity: Vector2):
 	playerHealth -= damage
+	var knockback = (objectVelocity - velocity).normalized() * 500
+	velocity.x = knockback.x
+	velocity.y -= 150
+	move_and_slide()
+	hitflash.play("hitflash")
 	if playerHealth <= 0:
 		print("player should be dead")
 	Signals.updatePlayerHealth.emit(playerHealth)
@@ -196,6 +202,9 @@ func moveBody(charName: String, event: String):
 			$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 1)
 			$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 			movement_state_machine.travel("IdleSet")
+		elif event == "Office":
+			self.position = Vector2(315,250)
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(-1,0))
 		elif event == "beans":
 			movement_state_machine.travel("beans")
 			await $Animations/AnimationTree.animation_finished
