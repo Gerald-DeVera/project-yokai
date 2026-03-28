@@ -92,7 +92,6 @@ position = Vector2(-2, -30)
 zoom = Vector2(1.3, 1.3)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("3_y8vqb")]
-visible = false
 
 [node name="checkpointManager" type="Node" parent="." unique_id=2028239319]
 script = ExtResource("4_qjfmv")
@@ -141,3 +140,6 @@ position = Vector2(1678, -302)
 
 [node name="FallingPlatform2" parent="." unique_id=481942286 instance=ExtResource("12_33qrt")]
 position = Vector2(1779, -302)
+
+[node name="JumpBlock2" parent="." unique_id=760576789 instance=ExtResource("9_y8vqb")]
+position = Vector2(1284, -130)

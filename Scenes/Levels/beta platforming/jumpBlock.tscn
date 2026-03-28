@@ -10,6 +10,7 @@ size = Vector2(24, 25)
 script = ExtResource("1_icax4")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=383194588]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=41785093]
 position = Vector2(0, -0.5)

@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const speed = 150.0
 @export var jump_velocity = -200.0	
-var tempVelocity = -200.0
 
 
 @export var inventory: Inv
@@ -84,7 +83,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	
 	#walljump
-	if Input.is_action_just_pressed("jump") and is_on_wall_only() and canWalljump:
+	if Input.is_action_just_pressed("jump") and is_on_wall_only() and canWalljump and jump_velocity <= -350:
 		velocity.y = jump_velocity
 		canWalljump = false
 			
@@ -218,9 +217,7 @@ func moveBody(charName: String, event: String):
 
 			
 func tempChangeVelocity(newVelocity: float):
-	tempVelocity = jump_velocity
 	jump_velocity = newVelocity
-	pass
 	
 func returnToOriginalVelocity():
-	jump_velocity = tempVelocity
+	jump_velocity = get_parent().levelVelocity
