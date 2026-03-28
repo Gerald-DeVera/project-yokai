@@ -15,7 +15,7 @@ var direction: Vector2
 var hasStopped = true
 var playerHealth : int = 10
 var tempInputDisable = false
-var canWalljump = true
+#var canWalljump = true
 
 @onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
 @onready var domain_expansion = $DomainExpansion/AnimationPlayer
@@ -79,13 +79,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	
-	
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	#walljump
-	if Input.is_action_just_pressed("jump") and is_on_wall_only() and canWalljump and jump_velocity <= -350:
-		velocity.y = jump_velocity
-		canWalljump = false
+	##walljump
+	#if Input.is_action_just_pressed("jump") and is_on_wall_only() and canWalljump and jump_velocity <= -350:
+		#velocity.y = jump_velocity
+		#canWalljump = false
 			
 	#print(direction)
 	if direction:
@@ -96,7 +95,7 @@ func _physics_process(delta):
 	animate(direction)
 	if is_on_floor():
 		move_and_slide()
-		canWalljump = true
+		#canWalljump = true
 	get_basic_input()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
