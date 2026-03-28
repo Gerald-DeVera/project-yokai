@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
 			tween.tween_property(self, "modulate:a", -(pow(((playerCharacter.position.x - position.x)/randf_range(100,200)),2)) + 1, 1)
-	if !self.visible:
+	if  collision.disabled:
 		return
 		
 func ButtonPressed(InteractableObject:String):

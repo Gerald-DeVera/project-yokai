@@ -150,3 +150,12 @@ do Signals.updateInfoAnimation.emit("notebook")
 do Global.zoomCamera(Vector2(1.5,1.5))
 do Global.resetCamera()
 => END
+
+~ enterKijoDomain
+#Makoto and kite are pulled into the kijo domain, a twisted land with the scattered memories of Yumi.
+Kite: Lady Makoto, are you ok!? [#animate_right=enter_convo][#expression_right=angry][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
+Makoto: Ugh... I think so. Where are we? [#animate_right=exit_convo][#animate_left=enter_convo]
+Kite: I believe this is the heart of Madam Yumi. It has been twisted by the Kijo and we must free her of its influence. [#animate_right=enter_convo][#expression_right=neutral][#animate_left=exit_convo]
+Makoto: So this is what Miss Ina was talking about... Alright, let's get moving. [#animate_right=exit_convo][#animate_left=enter_convo]
+do Global.finishOneShot("enterPlatform")
+=> END

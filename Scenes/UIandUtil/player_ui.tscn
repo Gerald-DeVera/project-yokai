@@ -22,6 +22,14 @@
 [ext_resource type="FontFile" uid="uid://uf7b4k381gwo" path="res://Assets/Themes and Fonts/Jersey25-Regular.ttf" id="18_w4a61"]
 [ext_resource type="Texture2D" uid="uid://bukgbln8egy6s" path="res://Assets/Sprites/tooltip_interact.png" id="20_8ysew"]
 [ext_resource type="Texture2D" uid="uid://c0ovb346f15ky" path="res://Assets/Sprites/ramen dad sprite-Sheet.png" id="21_w4a61"]
+[ext_resource type="Shader" uid="uid://cbawr00jxeodk" path="res://Shaders/hitflash.tres" id="23_j47nh"]
+[ext_resource type="Texture2D" uid="uid://cg255dixsn80l" path="res://Assets/UI/health bar bg.png" id="24_v0g4m"]
+[ext_resource type="Texture2D" uid="uid://ofau5re86k1l" path="res://Assets/UI/health bar1.png" id="25_u2lbm"]
+[ext_resource type="Texture2D" uid="uid://ddtkoq8wavdyn" path="res://Assets/UI/health bar2.png" id="26_5wrgq"]
+[ext_resource type="Texture2D" uid="uid://dnxy2hufyk1c7" path="res://Assets/UI/health bar3.png" id="27_70e7q"]
+[ext_resource type="Texture2D" uid="uid://cm3rc2s1i1ok" path="res://Assets/UI/health bar4.png" id="28_wygl5"]
+[ext_resource type="Texture2D" uid="uid://c8owhow2pv5q" path="res://Assets/UI/health bar5.png" id="29_u8ucr"]
+[ext_resource type="Texture2D" uid="uid://cqnilvsj851n6" path="res://Assets/UI/health bar6.png" id="30_q0qj1"]
 
 [sub_resource type="Gradient" id="Gradient_6xqmg"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -872,6 +880,181 @@ _data = {
 &"bounce": SubResource("Animation_ip2ix")
 }
 
+[sub_resource type="Gradient" id="Gradient_v0g4m"]
+offsets = PackedFloat32Array(0.4659864, 0.7823129)
+colors = PackedColorArray(0.58888227, 0.41514176, 0.56589305, 0, 0.7585512, 0, 0.3369708, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u2lbm"]
+gradient = SubResource("Gradient_v0g4m")
+width = 168
+height = 130
+fill = 2
+fill_from = Vector2(0.508547, 0.4957265)
+fill_to = Vector2(0.18376069, 0.8247863)
+
+[sub_resource type="Animation" id="Animation_5wrgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9.299, 5.282)]
+}
+
+[sub_resource type="Animation" id="Animation_70e7q"]
+resource_name = "flashing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.47),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10.234375, 5.8125), Vector2(9.299, 5.282)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wygl5"]
+_data = {
+&"RESET": SubResource("Animation_5wrgq"),
+&"flashing": SubResource("Animation_70e7q")
+}
+
+[sub_resource type="Gradient" id="Gradient_j47nh"]
+offsets = PackedFloat32Array(0.027210884, 1)
+colors = PackedColorArray(0.007187365, 0.079402335, 0.07603081, 1, 0.5220287, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v0g4m"]
+gradient = SubResource("Gradient_j47nh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bq3l6"]
+shader = ExtResource("23_j47nh")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_30gy6"]
+frames = 6
+frame_0/texture = ExtResource("25_u2lbm")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("26_5wrgq")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("27_70e7q")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("28_wygl5")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("29_u8ucr")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("30_q0qj1")
+frame_5/duration = 0.1
+
+[sub_resource type="Animation" id="Animation_77dg8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureProgressBar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ymfje"]
+resource_name = "lifelost"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureProgressBar:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1q3l"]
+_data = {
+&"RESET": SubResource("Animation_77dg8"),
+&"lifelost": SubResource("Animation_ymfje")
+}
+
+[sub_resource type="Animation" id="Animation_j47nh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, 18.91)]
+}
+
+[sub_resource type="Animation" id="Animation_v0g4m"]
+resource_name = "bounce"
+length = 0.93333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.61),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(28, 21), Vector2(28, 18.91), Vector2(28, 23.815)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u2lbm"]
+_data = {
+&"RESET": SubResource("Animation_j47nh"),
+&"bounce": SubResource("Animation_v0g4m")
+}
+
 [node name="PlayerUI" type="CanvasLayer" unique_id=668959072]
 process_mode = 3
 layer = 100
@@ -1287,6 +1470,50 @@ texture = ExtResource("14_6xqmg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TooltipSpirit" unique_id=177547103]
 libraries/ = SubResource("AnimationLibrary_toduu")
+autoplay = &"bounce"
+
+[node name="HealthBar" type="Control" parent="." unique_id=1616923103]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="lowhp" type="Sprite2D" parent="HealthBar" unique_id=926633574]
+visible = false
+modulate = Color(1, 1, 1, 0.24100001)
+position = Vector2(321.5, 181)
+scale = Vector2(9.299, 5.282)
+texture = SubResource("GradientTexture2D_u2lbm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HealthBar/lowhp" unique_id=239506175]
+libraries/ = SubResource("AnimationLibrary_wygl5")
+autoplay = &"flashing"
+
+[node name="Sprite2D" type="Sprite2D" parent="HealthBar" unique_id=433891102]
+visible = false
+position = Vector2(105.5, 41)
+scale = Vector2(3.5156252, 0.68749994)
+texture = SubResource("GradientTexture2D_v0g4m")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar" unique_id=298578611]
+material = SubResource("ShaderMaterial_bq3l6")
+layout_mode = 0
+offset_left = 28.0
+offset_top = 18.91
+offset_right = 204.0
+offset_bottom = 59.910004
+pivot_offset = Vector2(88, 23)
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource("24_v0g4m")
+texture_progress = SubResource("AnimatedTexture_30gy6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HealthBar" unique_id=1075018394]
+libraries/ = SubResource("AnimationLibrary_m1q3l")
+
+[node name="bounce" type="AnimationPlayer" parent="HealthBar" unique_id=255181874]
+libraries/ = SubResource("AnimationLibrary_u2lbm")
 autoplay = &"bounce"
 
 [connection signal="inventoryClose" from="InventoryUi" to="." method="_on_inventory_ui_inventory_close"]

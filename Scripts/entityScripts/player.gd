@@ -13,7 +13,7 @@ var inputDisabled = false
 var spiritSightOn = true
 var direction: Vector2
 var hasStopped = true
-var playerHealth : int = 10
+var playerHealth : int = 5
 var tempInputDisable = false
 #var canWalljump = true
 
@@ -119,7 +119,10 @@ func toggleInput(toggle: bool):
 func disableInput(resource):
 	inputDisabled = true
 	Signals.updateInfoAnimation.emit("hideTips")
-	movement_state_machine.travel("IdleSet")
+	if is_on_floor():
+		movement_state_machine.travel("IdleSet")
+	elif not is_on_floor():
+		movement_state_machine.travel("FallSet")
 
 func enableInput(resource):
 	inputDisabled = false

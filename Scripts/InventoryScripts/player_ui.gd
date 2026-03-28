@@ -6,9 +6,14 @@ extends CanvasLayer
 @onready var Evidence = $EvidenceUI/InventoryPolaroid/Evidence
 @onready var Hotkeys = $Hotkeys
 @onready var SpiritHK = $Hotkeys/Spirit
+@onready var HealthBar = $HealthBar
+@onready var HealthProg = $HealthBar/TextureProgressBar
+@onready var HealthAni = $HealthBar/AnimationPlayer
+@onready var lowhpflash = $HealthBar/lowhp
 
 func _ready() -> void:
 	Signals.updateInfoAnimation.connect(Callable(self,"updateInfo"))
+	Signals.damagePlayer.connect(Callable(self,"takeDamage"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableHotkeys"))
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableHotkeys"))
 	Global.PlayerUIAnimation = UIAnimation
@@ -17,7 +22,8 @@ func _ready() -> void:
 	Notebook.visible = false
 	if Global.hasunlockedSight == true:
 		SpiritHK.visible = true
-		
+	if get_parent().name == "BossLevel" or get_parent().name == "PlatformingLevel":
+		HealthBar.visible = true
 
 func _on_inventory_ui_inventory_close():
 	UIAnimation.play_backwards("move")
@@ -68,3 +74,9 @@ func disableHotkeys(resource):
 		$Hotkeys.visible = false
 func enableHotkeys(resource):
 		$Hotkeys.visible = true
+func takeDamage(damage: int, objectVelocity: Vector2):
+		HealthAni.play("lifelost")
+		if HealthProg.value <= 3:
+			lowhpflash.visible = true
+		await HealthAni.animation_finished
+		HealthProg.value -= damage
