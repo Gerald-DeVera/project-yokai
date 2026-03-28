@@ -11,7 +11,7 @@ var alternator = false
 @onready var collisionBodyOriginalPosition = collisionBody.position
 @onready var originalPosition = position
 var spritePos : Vector2
-var timerVal : int
+var timerVal : float
 @export var fallspeed : float
 @export var fallAcceleration : float
 var originalFallSpeed : float
@@ -27,26 +27,26 @@ func _process(delta: float) -> void:
 	if !beginFalling and !isFalling and checkForPlayerOnFloor and playerCharacter and playerCharacter.velocity.y == 0:
 		beginFalling = true
 	if beginFalling:
-		timerVal += 1
-		if timerVal % 2 == 0:
+		timerVal += delta
+		if (int)(timerVal / delta) % 2 == 0:
 			if alternator:
 				selfSprite.position = spritePos - Vector2(1,0)
 			else:
 				selfSprite.position = spritePos + Vector2(1,0)
 			alternator = !alternator
-		if timerVal > 100:
+		if timerVal > 100 * delta:
 			selfSprite.position = spritePos
 			isFalling = true
 			beginFalling = false
 			timerVal = 0
 		return
 	if isFalling:
-		timerVal += 1
-		self.position += Vector2(0,fallspeed)
-		physicalBody.position += Vector2(0,fallspeed)
-		collisionBody.position += Vector2(0,fallspeed)
-		fallspeed += fallAcceleration
-	if timerVal > 300:
+		timerVal += delta
+		self.position += Vector2(0,fallspeed) * delta
+		physicalBody.position += Vector2(0,fallspeed) * delta
+		collisionBody.position += Vector2(0,fallspeed) * delta
+		fallspeed += fallAcceleration * delta
+	if timerVal > 300 * delta:
 		self.position = originalPosition
 		physicalBody.position = physicalBodyOriginalPosition
 		collisionBody.position = collisionBodyOriginalPosition

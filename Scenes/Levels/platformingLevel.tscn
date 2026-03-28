@@ -118,9 +118,6 @@ physics_quadrant_size = 24
 [node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("8_gnp17")]
 position = Vector2(747, -162)
 
-[node name="JumpBlock" parent="." unique_id=764757466 instance=ExtResource("9_y8vqb")]
-position = Vector2(1260, -130)
-
 [node name="Portal" parent="." unique_id=108987774 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("10_qjfmv")]
 position = Vector2(1578, -446)
 pairedPortal = NodePath("../Portal2")
@@ -141,5 +138,11 @@ position = Vector2(1678, -302)
 [node name="FallingPlatform2" parent="." unique_id=481942286 instance=ExtResource("12_33qrt")]
 position = Vector2(1779, -302)
 
+[node name="JumpBlock" parent="." unique_id=764757466 instance=ExtResource("9_y8vqb")]
+position = Vector2(1260, -130)
+
 [node name="JumpBlock2" parent="." unique_id=760576789 instance=ExtResource("9_y8vqb")]
 position = Vector2(1284, -130)
+
+[node name="JumpBlock3" parent="." unique_id=493298653 instance=ExtResource("9_y8vqb")]
+position = Vector2(1236, -130)
