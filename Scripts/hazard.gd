@@ -15,7 +15,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("argh")
 		respawnPlayer()
-		Signals.damagePlayer.emit(1)
+		Signals.damagePlayer.emit(1, null)
 	pass # Replace with function body.
 
 func respawnPlayer() -> void:

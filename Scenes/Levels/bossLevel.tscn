@@ -1,14 +1,16 @@
 [gd_scene format=4 uid="uid://oqmpf0juqd3n"]
 
-[ext_resource type="PackedScene" uid="uid://b5lp10dp5sbwu" path="res://Scenes/Entities/boss.tscn" id="1_kokxh"]
+[ext_resource type="PackedScene" uid="uid://dq8nv7ywkhn1o" path="res://Scenes/Entities/boss.tscn" id="1_kokxh"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_m5b0x"]
+[ext_resource type="Script" uid="uid://ckgqr6f3stypj" path="res://Scripts/BossLevel.gd" id="1_myua3"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="1_rf6cf"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="2_bqvk6"]
-[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
+[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="2_mngpy"]
 [ext_resource type="Script" uid="uid://dh88mqpfjao2w" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
 [ext_resource type="Script" uid="uid://js6x0gvwqhao" path="res://Scripts/entityScripts/boss.gd" id="2_oq4ni"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="4_1b4hs"]
+[ext_resource type="Script" uid="uid://n7v321bo3ra" path="res://Scripts/boulderSpawnerManager.gd" id="5_3n5q1"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="5_hh1ma"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_mngpy"]
 [ext_resource type="Script" uid="uid://dghx2bvex2g4e" path="res://Scripts/boulderSpawner.gd" id="5_tv0ub"]
@@ -18,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://1ycp8ukf7flq" path="res://Assets/Sprites/boulder.png" id="11_oq4ni"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
 [ext_resource type="AudioStream" uid="uid://cstj3d5vroha5" path="res://Assets/Audio/BackgroundTracks/Art.wav" id="16_tv0ub"]
+[ext_resource type="PackedScene" uid="uid://bmbtupp20w1al" path="res://Scenes/Entities/boulder.tscn" id="19_sqrx0"]
 
 [sub_resource type="Curve2D" id="Curve2D_bunke"]
 _data = {
@@ -92,11 +95,12 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_ch33t")
 
 [node name="BossLevel" type="Node2D" unique_id=99681630]
+script = ExtResource("1_myua3")
 
 [node name="bossStuff" type="Node" parent="." unique_id=74740881]
 
 [node name="Boss" parent="bossStuff" unique_id=1873205114 instance=ExtResource("1_kokxh")]
-position = Vector2(336, -86)
+position = Vector2(342, -35)
 script = ExtResource("2_oq4ni")
 
 [node name="ProjectileSpawners" type="Node" parent="bossStuff" unique_id=905808343]
@@ -122,31 +126,36 @@ wait_time = 2.0
 autostart = true
 
 [node name="BoulderSpawners" type="Node" parent="bossStuff" unique_id=1678200570]
+script = ExtResource("5_3n5q1")
 
 [node name="bls1" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=733635098]
 position = Vector2(-354, -272)
 script = ExtResource("5_tv0ub")
 
 [node name="bls2" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=238563593]
-position = Vector2(-224.5, -272)
+position = Vector2(-241, -272)
 script = ExtResource("5_tv0ub")
 
 [node name="bls3" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=1766207078]
-position = Vector2(-94, -272)
+position = Vector2(-86, -273)
 script = ExtResource("5_tv0ub")
 
 [node name="bls4" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=2024865570]
-position = Vector2(36, -272)
+position = Vector2(50, -270)
+script = ExtResource("5_tv0ub")
 
 [node name="bls5" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=1456415727]
-position = Vector2(166, -272)
+position = Vector2(158, -270)
+script = ExtResource("5_tv0ub")
 
 [node name="bls6" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=2132671496]
-position = Vector2(296, -272)
+position = Vector2(273, -266)
+script = ExtResource("5_tv0ub")
 
 [node name="BossChargePositions" type="Node" parent="bossStuff" unique_id=1022541169]
 
 [node name="Path2D" type="Path2D" parent="bossStuff/BossChargePositions" unique_id=1334360299]
+position = Vector2(6, 51)
 curve = SubResource("Curve2D_bunke")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="bossStuff/BossChargePositions/Path2D" unique_id=548943090]
@@ -201,17 +210,15 @@ position = Vector2(10, 23)
 
 [node name="Boulder" type="Sprite2D" parent="." unique_id=1592226866]
 modulate = Color(0.9733173, 0.41555798, 0.7537728, 1)
-position = Vector2(80, -67)
+position = Vector2(423, -342)
 texture = ExtResource("11_oq4ni")
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
-visible = false
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_mngpy")]
-visible = false
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_m5b0x")]
-position = Vector2(-57, -12)
+position = Vector2(-234, -96)
 jump_velocity = -300.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1904402119]
@@ -227,6 +234,9 @@ position = Vector2(-50, -52)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1415003084]
 stream = ExtResource("16_tv0ub")
 autoplay = true
+
+[node name="Boulder2" parent="." unique_id=2107697425 instance=ExtResource("19_sqrx0")]
+position = Vector2(-584, -223)
 
 [connection signal="timeout" from="bossStuff/ProjectileSpawners/cooldown" to="bossStuff/ProjectileSpawners" method="_on_cooldown_timeout"]
 
