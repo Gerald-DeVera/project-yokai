@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="22_4r1gn"]
 [ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="23_s2ptr"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="23_wc4nj"]
-[ext_resource type="Script" uid="uid://dxr4en444ru7b" path="res://Scenes/Levels/contact_one_shot.gd" id="24_m45jl"]
+[ext_resource type="Script" path="res://Scenes/Levels/contact_one_shot.gd" id="24_m45jl"]
 [ext_resource type="Texture2D" uid="uid://dje7selxkjw0t" path="res://Assets/Environment/bg_yokai/petal particle.png" id="24_wc4nj"]
 [ext_resource type="Texture2D" uid="uid://bm04uo137ouv3" path="res://Assets/Environment/portal-Sheet.png" id="25_gqjqm"]
 [ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="25_nkwmm"]
@@ -36,9 +36,9 @@
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="29_s2ptr"]
 [ext_resource type="Texture2D" uid="uid://b2l2el2k448ak" path="res://Assets/Sprites/chochin obake.png" id="32_3p7q5"]
 [ext_resource type="Texture2D" uid="uid://bd1s1lcsuxa8u" path="res://Assets/Sprites/chochinbi.png" id="33_7ucxd"]
-[ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="33_krn6b"]
+[ext_resource type="Script" path="res://Scenes/Entities/ina_sprite.gd" id="33_krn6b"]
 [ext_resource type="Texture2D" uid="uid://cgq0p1v7p2r4m" path="res://Assets/Environment/bg_yokai/bg_yokai_doorleft.png" id="35_fvt3n"]
-[ext_resource type="Script" uid="uid://cvnksskr2lo0e" path="res://Scenes/Levels/open_door_sprite.gd" id="35_hki8u"]
+[ext_resource type="Script" path="res://Scenes/Levels/open_door_sprite.gd" id="35_hki8u"]
 [ext_resource type="AudioStream" uid="uid://d2uiy2diy6rme" path="res://Assets/Audio/BackgroundTracks/Yokai.wav" id="35_rgfmy"]
 [ext_resource type="Texture2D" uid="uid://dlimiw8iweatl" path="res://Assets/Environment/bg_yokai/bg_yokai_doorright.png" id="36_hki8u"]
 [ext_resource type="AudioStream" uid="uid://1avkfws0t0pg" path="res://Assets/Audio/SFX/yokai_ambience.wav" id="41_ex5xx"]
@@ -799,7 +799,6 @@ interactText = "Yokai Home"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1537692408]
 stream = ExtResource("35_rgfmy")
-autoplay = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=787626180]
 stream = ExtResource("41_ex5xx")

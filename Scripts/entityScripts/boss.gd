@@ -9,10 +9,6 @@ var lastPosition: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if pathFollow:
-		print("not null")
-	else:
-		print("null")
 	#position = pathFollow.global_position
 	#lastPosition = position
 	pass # Replace with function body.

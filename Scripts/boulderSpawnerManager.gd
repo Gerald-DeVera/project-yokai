@@ -30,3 +30,9 @@ func spawnLeftToRight() -> void:
 	for x in spawners:
 		x.shoot()
 		await get_tree().create_timer(0.3).timeout
+
+
+func _on_timer_timeout() -> void:
+	print("do stuff")
+	spawners[3].shoot()
+	pass # Replace with function body.

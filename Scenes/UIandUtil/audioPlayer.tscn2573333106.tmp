@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b7tjiaw07smqg"]
+
+[ext_resource type="AudioStream" uid="uid://cstj3d5vroha5" path="res://Assets/Audio/BackgroundTracks/Art.wav" id="1_0igom"]
+[ext_resource type="Script" uid="uid://rvgdb14pkahq" path="res://Scripts/audioManager.gd" id="2_k6uki"]
+
+[node name="audioManager" type="AudioStreamPlayer" unique_id=997087941]
+stream = ExtResource("1_0igom")
+script = ExtResource("2_k6uki")

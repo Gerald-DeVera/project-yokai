@@ -21,6 +21,7 @@ sceneManager="*uid://b7stl3508tby0"
 Global="*uid://bwrsqbmkc3txv"
 Signals="*uid://clq1e53iq56vh"
 DialogueManager="*uid://c3rodes2l3gxb"
+audioManager="*uid://b7tjiaw07smqg"
 
 [dialogue_manager]
 

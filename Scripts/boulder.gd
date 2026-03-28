@@ -13,13 +13,10 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	print(get_contact_count())
 	if body.is_in_group("Player"):
-		print("player")
 		Signals.damagePlayer.emit(1, self.linear_velocity)
 		queue_free()
 	else:
-		print("not player")
 		numOfContacts += 1
 		if numOfContacts >= 2:
 			#play blow up animation lmao
