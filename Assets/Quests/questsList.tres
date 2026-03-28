@@ -1,10 +1,9 @@
 [gd_resource type="Resource" script_class="QuestsList" format=3 uid="uid://ciq0kyqv5bb15"]
 
 [ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_eh4pc"]
-[ext_resource type="Resource" uid="uid://bg331vbcb3y7q" path="res://Assets/Quests/testQuest.tres" id="2_6cqgr"]
-[ext_resource type="Resource" uid="uid://djhxuor13bg38" path="res://Assets/Quests/testQuest2.tres" id="3_6cqgr"]
 [ext_resource type="Script" uid="uid://dkio648xmkgkh" path="res://Scripts/questsList.gd" id="3_karq6"]
+[ext_resource type="Resource" uid="uid://djhxuor13bg38" path="res://Assets/Quests/Quest1.tres" id="3_riy7w"]
 
 [resource]
 script = ExtResource("3_karq6")
-quests = Array[ExtResource("1_eh4pc")]([ExtResource("2_6cqgr"), ExtResource("3_6cqgr")])
+quests = Array[ExtResource("1_eh4pc")]([ExtResource("3_riy7w")])

@@ -11,7 +11,8 @@ var scenes : Dictionary = { "City": "res://Scenes/Levels/overworld.tscn" ,
 							"Alley": "res://Scenes/Levels/alleyway.tscn",
 							"Flower": "res://Scenes/Levels/flower_shop.tscn",
 							"Clothing": "res://Scenes/Levels/clothing_shop.tscn",
-							"YokaiHome": "res://Scenes/Levels/yokaihome.tscn"}
+							"YokaiHome": "res://Scenes/Levels/yokaihome.tscn",
+							"PlatformingStage": "res://Scenes/Levels/platformingLevel.tscn"}
 var player_pos: Vector2
 var currentScene = ""
 
@@ -25,9 +26,13 @@ func transition_to_scene(level : String):
 		
 
 func sceneLoadCheck():
-	Signals.togglePlayerInput.emit(false)
+	#Signals.togglePlayerInput.emit(false)
+	#Signals.toggleInventoryInput.emit(true)
+	#Signals.toggleNotebookInput.emit(false)
 	await get_tree().create_timer(1.2).timeout
 	if Global.dialoguePrep.dialogueOneShot == true and currentScene == Global.dialoguePrep.dialogueSceneStart:
 		Global.initiateDialogueOneShot()
-	else:
-		Signals.togglePlayerInput.emit(true)
+	#else:
+	#	Signals.togglePlayerInput.emit(true)
+	#	Signals.toggleInventoryInput.emit(false)
+	#	Signals.toggleNotebookInput.emit(true)

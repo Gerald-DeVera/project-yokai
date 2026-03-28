@@ -3,22 +3,55 @@
 [ext_resource type="Script" uid="uid://dk5n8xw1leeu2" path="res://Scripts/notebook.gd" id="1_lndu6"]
 [ext_resource type="Texture2D" uid="uid://1jye03hwhqbr" path="res://Assets/UI/notebook_bg.png" id="2_tj7at"]
 [ext_resource type="Texture2D" uid="uid://dsb0sd7xqjiw0" path="res://Assets/UI/notebook_arrow_left.png" id="3_j04p5"]
-[ext_resource type="Texture2D" uid="uid://bm52t7d01sxl" path="res://Assets/UI/notebook_containerfull.png" id="3_py0wg"]
 [ext_resource type="Texture2D" uid="uid://dw7j5n3o61wjd" path="res://Assets/UI/notebook_arrow.png" id="4_py0wg"]
+[ext_resource type="FontFile" uid="uid://uf7b4k381gwo" path="res://Assets/Themes and Fonts/Jersey25-Regular.ttf" id="5_6m8k7"]
+[ext_resource type="Texture2D" uid="uid://cktvk62s3m2ic" path="res://Assets/UI/notebook_divider.png" id="5_dae4x"]
 [ext_resource type="PackedScene" uid="uid://biwlt76pymedr" path="res://Scenes/UIandUtil/quest_entry.tscn" id="7_8moud"]
 [ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="7_ccdpy"]
+[ext_resource type="Texture2D" uid="uid://yw4fb8s7u5pu" path="res://Assets/UI/notebook_container9grid.png" id="7_fsr06"]
 [ext_resource type="Texture2D" uid="uid://w3ajeg6np4e8" path="res://Assets/Sprites/placeholderDefaultPFP.png" id="8_8moud"]
+[ext_resource type="Texture2D" uid="uid://uhxxf361gvkk" path="res://Assets/UI/notebook_filler.png" id="8_fsr06"]
+[ext_resource type="FontFile" uid="uid://3cx4kr0motsu" path="res://Assets/Themes and Fonts/Jersey20-Regular.ttf" id="9_fsr06"]
+[ext_resource type="Texture2D" uid="uid://c1qmad2i3fraa" path="res://Assets/UI/notebook_tape.png" id="9_iwt1m"]
+[ext_resource type="Texture2D" uid="uid://dssfp44il1vp6" path="res://Assets/UI/inventory_pencil2.png" id="13_ui26k"]
+
+[sub_resource type="Gradient" id="Gradient_7p7f7"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iwt1m"]
+gradient = SubResource("Gradient_7p7f7")
+use_hdr = true
 
 [sub_resource type="FontVariation" id="FontVariation_8moud"]
 base_font = ExtResource("7_ccdpy")
 spacing_top = -7
+
+[sub_resource type="FontVariation" id="FontVariation_y6shv"]
+base_font = ExtResource("5_6m8k7")
+spacing_top = -1
+
+[sub_resource type="FontVariation" id="FontVariation_28t4t"]
+base_font = ExtResource("5_6m8k7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwt1m"]
+bg_color = Color(0.7707236, 0.7085956, 0.6030438, 1)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.67436534, 0.55817604, 0.37259787, 1)
+expand_margin_left = 3.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6m8k7"]
+
+[sub_resource type="Theme" id="Theme_fsr06"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_iwt1m")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_6m8k7")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ccdpy"]
 texture = ExtResource("3_j04p5")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8moud"]
 texture = ExtResource("3_j04p5")
-modulate_color = Color(0.87058824, 0.8235294, 0.81960785, 1)
+modulate_color = Color(0.7161371, 0.6321842, 0.62546974, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dae4x"]
 texture = ExtResource("3_j04p5")
@@ -37,7 +70,7 @@ texture = ExtResource("4_py0wg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ui26k"]
 texture = ExtResource("4_py0wg")
-modulate_color = Color(0.86952573, 0.8226794, 0.81933963, 1)
+modulate_color = Color(0.7176471, 0.6313726, 0.62352943, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iwt1m"]
 texture = ExtResource("4_py0wg")
@@ -50,145 +83,463 @@ modulate_color = Color(0.73300546, 0.7330054, 0.7330054, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28t4t"]
 texture = ExtResource("4_py0wg")
 
+[sub_resource type="Animation" id="Animation_y6shv"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2),
+"points": PackedFloat32Array(375, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Main/InventoryPencil2:rotation")
+tracks/2/interp = 4
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.4421703]
+}
+
+[sub_resource type="Animation" id="Animation_iwt1m"]
+resource_name = "jiggle_left"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.18, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.036651913, -0.033161256, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/InventoryPencil2:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0984, 0.1667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.4416419, 1.1841762, 1.148426647812269, 1.4416419]
+}
+
+[sub_resource type="Animation" id="Animation_ttkfq"]
+resource_name = "jiggle_left"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.18, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.037519988, 0.033471737, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main/InventoryPencil2:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0984, 0.1667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.4421703, 1.1841762, 1.232202451907997, 1.4416419]
+}
+
+[sub_resource type="Animation" id="Animation_28t4t"]
+resource_name = "toggle"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(378, 0, 0, 0.083333336, -63, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.36666667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ttkfq"]
+_data = {
+&"RESET": SubResource("Animation_y6shv"),
+&"jiggle_left": SubResource("Animation_iwt1m"),
+&"jiggle_right": SubResource("Animation_ttkfq"),
+&"toggle": SubResource("Animation_28t4t")
+}
+
 [node name="Notebook" type="Control" unique_id=523988141]
 z_index = 300
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 375.0
+offset_bottom = 375.00018
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(309, 188)
 script = ExtResource("1_lndu6")
 
-[node name="NotebookBg" type="Sprite2D" parent="." unique_id=1961274536]
-position = Vector2(315.00003, 183)
+[node name="Gradient" type="Sprite2D" parent="." unique_id=2063937680]
+position = Vector2(315, 199.42146)
+rotation = -1.5707964
+scale = Vector2(6.7948623, -14.667933)
+texture = SubResource("GradientTexture2D_iwt1m")
+
+[node name="Main" type="Control" parent="." unique_id=2083634535]
+anchors_preset = 0
+offset_left = 109.0
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 351.0
+pivot_offset = Vector2(200, 182)
+
+[node name="NotebookBg" type="Sprite2D" parent="Main" unique_id=1961274536]
+position = Vector2(206.00003, 179)
 scale = Vector2(1.2142857, 1.2142857)
 texture = ExtResource("2_tj7at")
 
-[node name="ProfilePages" type="Control" parent="." unique_id=1896422438]
+[node name="ProfilePages" type="Control" parent="Main" unique_id=1896422438]
 anchors_preset = 0
-offset_left = 69.0
-offset_top = 2.0
-offset_right = 568.0
-offset_bottom = 357.0
+offset_left = -40.0
+offset_top = -2.0
+offset_right = 459.0
+offset_bottom = 353.0
 
-[node name="Bio" type="RichTextLabel" parent="ProfilePages" unique_id=634326576]
+[node name="NotebookContainer" type="NinePatchRect" parent="Main/ProfilePages" unique_id=967415019]
+modulate = Color(1, 1, 1, 0.5019608)
 layout_mode = 0
-offset_left = 61.0
-offset_top = 249.0
-offset_right = 229.0
-offset_bottom = 311.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+offset_left = 74.0
+offset_top = 225.0
+offset_right = 220.0
+offset_bottom = 306.0
+texture = ExtResource("7_fsr06")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NotebookContainer2" type="NinePatchRect" parent="Main/ProfilePages" unique_id=657559505]
+modulate = Color(1, 1, 1, 0.77254903)
+layout_mode = 0
+offset_left = 254.0
+offset_top = 89.0
+offset_right = 411.0
+offset_bottom = 287.0
+texture = ExtResource("7_fsr06")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="TitleRight" type="RichTextLabel" parent="Main/ProfilePages" unique_id=1483360341]
+clip_contents = false
+layout_mode = 0
+offset_left = 264.0
+offset_top = 55.0
+offset_right = 402.825
+offset_bottom = 81.0
+theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = SubResource("FontVariation_8moud")
+theme_override_font_sizes/normal_font_size = 23
+bbcode_enabled = true
+text = "File Details
+"
+horizontal_alignment = 1
+
+[node name="BioHeader" type="RichTextLabel" parent="Main/ProfilePages" unique_id=78267278]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 206.0
+offset_right = 182.0
+offset_bottom = 222.0
+theme_override_colors/default_color = Color(0.37451044, 0.32164916, 0.23042935, 1)
+theme_override_fonts/normal_font = ExtResource("5_6m8k7")
+theme_override_font_sizes/normal_font_size = 15
+text = "Description"
+
+[node name="Bio" type="RichTextLabel" parent="Main/ProfilePages" unique_id=634326576]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 233.0
+offset_right = 213.0
+offset_bottom = 300.0
+theme_override_colors/default_color = Color(0.4035181, 0.3074616, 0.22773015, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_y6shv")
 theme_override_font_sizes/normal_font_size = 14
-text = "DefaultText"
+bbcode_enabled = true
+text = "You have not yet talked to this person! Keep investigating to learn more."
 
-[node name="Info_Quotes" type="RichTextLabel" parent="ProfilePages" unique_id=1256460525]
+[node name="Info_Quotes" type="RichTextLabel" parent="Main/ProfilePages" unique_id=1256460525]
 layout_mode = 0
-offset_left = 251.0
-offset_top = 34.0
-offset_right = 417.0
-offset_bottom = 315.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "DefaultText"
+offset_left = 259.0
+offset_top = 94.0
+offset_right = 406.0
+offset_bottom = 281.0
+theme_override_colors/default_color = Color(0.36144334, 0.2751362, 0.15976232, 1)
+theme_override_constants/table_h_separation = 4
+theme_override_fonts/normal_font = SubResource("FontVariation_28t4t")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[ul] Point 1
+Point 2 Point 3asd asd asdas dasdasdasdasda asdasd as asdasdasdsadasd asdada da
+Point 4 asdasdasdasdasd[/ul]"
 
-[node name="ProfilePicture" type="TextureRect" parent="ProfilePages" unique_id=1130847349]
+[node name="ColorRect" type="ColorRect" parent="Main/ProfilePages" unique_id=719758328]
 layout_mode = 0
-offset_left = 77.0
-offset_top = 87.0
-offset_right = 209.0
-offset_bottom = 219.0
+offset_left = 91.0
+offset_top = 95.0
+offset_right = 198.0
+offset_bottom = 202.0
+color = Color(0.60784316, 0.4117647, 0.25490198, 0.5254902)
+
+[node name="ProfilePicture" type="TextureRect" parent="Main/ProfilePages" unique_id=1130847349]
+layout_mode = 0
+offset_left = 91.475
+offset_top = 92.0
+offset_right = 199.325
+offset_bottom = 201.0
 texture = ExtResource("8_8moud")
 expand_mode = 1
 
-[node name="QuestPage" type="Control" parent="." unique_id=1561933949]
+[node name="NotebookDivider" type="Sprite2D" parent="Main/ProfilePages" unique_id=456314147]
+position = Vector2(333, 80)
+texture = ExtResource("5_dae4x")
+
+[node name="NotebookDivider2" type="Sprite2D" parent="Main/ProfilePages" unique_id=1529690051]
+position = Vector2(148, 73)
+texture = ExtResource("5_dae4x")
+
+[node name="NotebookTape" type="Sprite2D" parent="Main/ProfilePages" unique_id=260909203]
+position = Vector2(144, 146.00002)
+rotation = -0.06581399
+scale = Vector2(1.215371, 1.2153709)
+texture = ExtResource("9_iwt1m")
+
+[node name="QuestPage" type="Control" parent="Main" unique_id=1561933949]
 visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -109.0
+offset_top = -4.0
+offset_right = -69.0
+offset_bottom = 36.0
 
-[node name="TitleRight" type="RichTextLabel" parent="QuestPage" unique_id=71895101]
-visible = false
+[node name="Flavor Title" type="RichTextLabel" parent="Main/QuestPage" unique_id=71895101]
 clip_contents = false
 layout_mode = 0
 offset_left = 324.0
-offset_top = 46.0
+offset_top = 62.0
 offset_right = 484.825
-offset_bottom = 102.89
+offset_bottom = 95.0
 theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = SubResource("FontVariation_8moud")
 theme_override_font_sizes/normal_font_size = 20
-text = "Quest Title"
+text = "Objective Description"
 horizontal_alignment = 1
 
-[node name="NotebookContainerfull" type="Sprite2D" parent="QuestPage" unique_id=1233650597]
-position = Vector2(214, 202.45001)
-scale = Vector2(1.205, 1.205)
-texture = ExtResource("3_py0wg")
-
-[node name="ScrollContainerLeft" type="ScrollContainer" parent="QuestPage" unique_id=1228633504]
+[node name="TitleRight" type="RichTextLabel" parent="Main/QuestPage" unique_id=2011343807]
+clip_contents = false
 layout_mode = 0
-offset_left = 140.0
+offset_left = 322.0
+offset_top = 86.0
+offset_right = 482.825
+offset_bottom = 119.0
+theme_override_colors/default_color = Color(0.29815388, 0.2100316, 0.12450861, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("5_6m8k7")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Click on an objective to view its description!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NotebookDivider" type="Sprite2D" parent="Main/QuestPage" unique_id=767319164]
+position = Vector2(213, 86)
+texture = ExtResource("5_dae4x")
+
+[node name="NotebookDivider2" type="Sprite2D" parent="Main/QuestPage" unique_id=458668866]
+position = Vector2(403, 83)
+texture = ExtResource("5_dae4x")
+
+[node name="NotebookContainer" type="NinePatchRect" parent="Main/QuestPage" unique_id=215598639]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 95.0
+offset_right = 293.0
+offset_bottom = 310.0
+texture = ExtResource("7_fsr06")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NotebookContainer2" type="NinePatchRect" parent="Main/QuestPage" unique_id=316380153]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 124.0
+offset_right = 479.0
+offset_bottom = 221.0
+texture = ExtResource("7_fsr06")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NotebookFiller" type="Sprite2D" parent="Main/QuestPage" unique_id=1774290934]
+position = Vector2(402, 268)
+texture = ExtResource("8_fsr06")
+
+[node name="ScrollContainerLeft" type="ScrollContainer" parent="Main/QuestPage" unique_id=1228633504]
+layout_mode = 0
+offset_left = 137.0
 offset_top = 102.0
-offset_right = 286.89
-offset_bottom = 306.82
+offset_right = 289.0
+offset_bottom = 309.0
+theme = SubResource("Theme_fsr06")
+theme_override_colors/scroll_hint_vertical_color = Color(1, 1, 1, 1)
 theme_override_constants/scrollbar_h_separation = 4
-tile_scroll_hint = true
+scroll_hint_mode = 3
 
-[node name="QuestEntries" type="VBoxContainer" parent="QuestPage/ScrollContainerLeft" unique_id=1464806730]
+[node name="QuestEntries" type="VBoxContainer" parent="Main/QuestPage/ScrollContainerLeft" unique_id=1464806730]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="QuestEntry" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=343606111 instance=ExtResource("7_8moud")]
+[node name="QuestEntry" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=343606111 instance=ExtResource("7_8moud")]
 custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="QuestEntry2" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=284716588 instance=ExtResource("7_8moud")]
+[node name="QuestEntry2" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=284716588 instance=ExtResource("7_8moud")]
 custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="QuestEntry3" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=168716424 instance=ExtResource("7_8moud")]
+[node name="QuestEntry3" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=168716424 instance=ExtResource("7_8moud")]
 custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="QuestEntry4" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=987267144 instance=ExtResource("7_8moud")]
+[node name="QuestEntry4" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=987267144 instance=ExtResource("7_8moud")]
 custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="QuestEntry5" parent="QuestPage/ScrollContainerLeft/QuestEntries" unique_id=33589544 instance=ExtResource("7_8moud")]
+[node name="QuestEntry5" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=33589544 instance=ExtResource("7_8moud")]
 custom_minimum_size = Vector2(27.32, 21.805)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="ScrollContainerRight" type="ScrollContainer" parent="QuestPage" unique_id=129799704]
+[node name="QuestEntry6" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=2142909392 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="QuestEntry7" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=294761862 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="QuestEntry8" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=1710300615 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="QuestEntry9" parent="Main/QuestPage/ScrollContainerLeft/QuestEntries" unique_id=940430397 instance=ExtResource("7_8moud")]
+custom_minimum_size = Vector2(27.32, 21.805)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ScrollContainerRight" type="ScrollContainer" parent="Main/QuestPage" unique_id=129799704]
 layout_mode = 0
-offset_left = 324.0
-offset_top = 74.0
-offset_right = 480.0
-offset_bottom = 307.0
+offset_left = 332.0
+offset_top = 131.0
+offset_right = 472.0
+offset_bottom = 210.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="QuestPage/ScrollContainerRight" unique_id=839758837]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/QuestPage/ScrollContainerRight" unique_id=839758837]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="QuestDescription" type="RichTextLabel" parent="QuestPage/ScrollContainerRight/VBoxContainer" unique_id=1497027401]
+[node name="QuestDescription" type="RichTextLabel" parent="Main/QuestPage/ScrollContainerRight/VBoxContainer" unique_id=1497027401]
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "b"
+theme_override_colors/default_color = Color(0.4492591, 0.3310922, 0.24086243, 1)
+theme_override_fonts/normal_font = ExtResource("9_fsr06")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Test text goes here"
 fit_content = true
 
-[node name="Back" type="Button" parent="." unique_id=1221703919]
+[node name="InventoryPencil2" type="Sprite2D" parent="Main" unique_id=1995875035]
+position = Vector2(380, 302.99997)
+rotation = 1.4421703
+scale = Vector2(1.5377184, 1.5377182)
+texture = ExtResource("13_ui26k")
+
+[node name="TitleLeft" type="RichTextLabel" parent="Main" unique_id=1089448922]
+clip_contents = false
 layout_mode = 0
-offset_left = 83.0
+offset_left = 38.0
+offset_top = 34.0
+offset_right = 176.82501
+offset_bottom = 78.0
+theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = SubResource("FontVariation_8moud")
+theme_override_font_sizes/normal_font_size = 23
+text = "Investigation Progress"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="." unique_id=1221703919]
+visible = false
+layout_mode = 0
+offset_left = 76.0
 offset_top = 165.0
-offset_right = 105.0
+offset_right = 98.0
 offset_bottom = 196.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_ccdpy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8moud")
@@ -208,20 +559,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_iwt1m")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_y6shv")
 theme_override_styles/focus = SubResource("StyleBoxTexture_28t4t")
 
-[node name="TitleLeft" type="RichTextLabel" parent="." unique_id=1089448922]
-clip_contents = false
-layout_mode = 0
-offset_left = 145.0
-offset_top = 39.0
-offset_right = 283.825
-offset_bottom = 95.89
-theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = SubResource("FontVariation_8moud")
-theme_override_font_sizes/normal_font_size = 23
-text = "Investigation Progress"
-horizontal_alignment = 1
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1431595768]
+libraries/ = SubResource("AnimationLibrary_ttkfq")
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Forward" to="." method="_on_forward_pressed"]

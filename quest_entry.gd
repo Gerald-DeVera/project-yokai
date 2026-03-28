@@ -2,7 +2,6 @@ extends Control
 
 @export var isCompleted: bool = false
 @onready var questDescription : String
-
 @onready var checkmark = $checkSprite
 @onready var questButton = $Button
 var checkedSprite = load("res://Assets/Sprites/checked.png")

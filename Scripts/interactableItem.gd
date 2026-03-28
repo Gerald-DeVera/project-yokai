@@ -28,6 +28,8 @@ func _ready() -> void:
 	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
+	if Global.oneshot_assets.has(self.name):
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -58,6 +60,7 @@ func ButtonPressed(InteractableObject:String):
 		Signals.collectItem.emit(item)
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePath), dialogueStartingPosition, )
 		if OneShot:
+			Global.oneshot_assets[self.name] = true
 			self.queue_free()
 	elif InteractableObject == "button" && interactable == true && isDialogue == false && locked == false:
 		Signals.collectItem.emit(item)

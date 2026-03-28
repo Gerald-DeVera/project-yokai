@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://y3xn07wo35xh"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_o7ail"]
+
+[resource]
+script = ExtResource("1_o7ail")
+questName = "Use Spirit Sight To Find Clues"
+fullDescription = "Kite has given me a new ability. Using it should let me find where Yui went."

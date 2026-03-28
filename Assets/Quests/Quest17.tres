@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://b8y1yssl8wcmd"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_415hq"]
+
+[resource]
+script = ExtResource("1_415hq")
+questName = "Return to Shu’s Place"
+fullDescription = "Ina Rin the Kitsune has agreed to help us. We agreed to meet back at Shu’s place so she could examine Yui."

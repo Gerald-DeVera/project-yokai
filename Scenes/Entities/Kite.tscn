@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://dt0w5nvoacytm"]
+
+[ext_resource type="Script" uid="uid://c3bf4bke5g0ic" path="res://Scripts/entityScripts/kite.gd" id="1_uohtg"]
+[ext_resource type="Texture2D" uid="uid://cmr5gdinfmqst" path="res://Assets/Sprites/kite sprite-Sheet.png" id="1_yhsnk"]
+
+[sub_resource type="Animation" id="Animation_pwkim"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3638v"]
+resource_name = "idle_left"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11]
+}
+
+[sub_resource type="Animation" id="Animation_bx3pb"]
+resource_name = "idle_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uohtg"]
+_data = {
+&"RESET": SubResource("Animation_pwkim"),
+&"idle_left": SubResource("Animation_3638v"),
+&"idle_right": SubResource("Animation_bx3pb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1mbm"]
+radius = 2.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2061426401]
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_uohtg")
+
+[node name="KiteSpriteSheet" type="Sprite2D" parent="." unique_id=623380336]
+position = Vector2(8, 8)
+texture = ExtResource("1_yhsnk")
+hframes = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KiteSpriteSheet" unique_id=1476496113]
+libraries/ = SubResource("AnimationLibrary_uohtg")
+autoplay = &"idle_left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1014212671]
+light_mask = 0
+visibility_layer = 0
+position = Vector2(8, 7)
+shape = SubResource("CircleShape2D_t1mbm")
+disabled = true

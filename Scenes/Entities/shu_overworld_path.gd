@@ -4,6 +4,8 @@ extends Node2D
 @export var speed = 100
 
 func _process(delta: float) -> void:
+	if Global.oneshot_assets.has(self.name):
+		queue_free()
 	path.progress += speed*delta
 
 func _ready() -> void:
@@ -11,4 +13,5 @@ func _ready() -> void:
 	if Global.dialogueFlags.shuConfront == true:
 		self.visible = true
 		await get_tree().create_timer(10.0).timeout
-		self.queue_free()
+		Global.oneshot_assets[self.name] = true
+		self.queue_free()	

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://dsfwrj0dj324a"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_cprei"]
+
+[resource]
+script = ExtResource("1_cprei")
+questName = "Return to the Office"
+fullDescription = "Now that we have the beans, we can return to the office and make the call. Let’s do this."

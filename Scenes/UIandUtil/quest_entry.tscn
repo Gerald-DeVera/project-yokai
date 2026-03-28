@@ -2,33 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cpwhqblrgpovq" path="res://quest_entry.gd" id="1_xpj5d"]
 [ext_resource type="FontFile" uid="uid://uf7b4k381gwo" path="res://Assets/Themes and Fonts/Jersey25-Regular.ttf" id="2_l4bia"]
-[ext_resource type="Texture2D" uid="uid://c5r6gyr0d8cva" path="res://Assets/UI/notebook_item.png" id="3_x1h2n"]
+[ext_resource type="Texture2D" uid="uid://cudlqxsgovag5" path="res://Assets/UI/notebook_item-9grid.png" id="3_l4bia"]
+[ext_resource type="StyleBox" uid="uid://wg2ukxwwq0oy" path="res://Assets/Themes and Fonts/notebook_quest_texture.tres" id="3_xpj5d"]
 [ext_resource type="Texture2D" uid="uid://bsatgcxpaw7xr" path="res://Assets/Sprites/unchecked.png" id="4_eluju"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xpj5d"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4rcma"]
-texture = ExtResource("3_x1h2n")
-texture_margin_left = 12.8401165
-texture_margin_right = 10.446197
-texture_margin_bottom = 4.3525815
-region_rect = Rect2(3, 15.666, 42, 17.364)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yog37"]
-texture = ExtResource("3_x1h2n")
-region_rect = Rect2(3, 15.666, 42, 17.364)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nnb0l"]
-texture = ExtResource("3_x1h2n")
-region_rect = Rect2(3, 15.666, 42, 17.364)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tv5lr"]
-texture = ExtResource("3_x1h2n")
-region_rect = Rect2(3, 15.666, 42, 17.364)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1v37"]
-texture = ExtResource("3_x1h2n")
-region_rect = Rect2(3, 15.666, 42, 17.364)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1h2n"]
+texture = ExtResource("3_l4bia")
+texture_margin_left = 6.746502
+texture_margin_top = 0.87051636
+texture_margin_right = 3.4820657
+texture_margin_bottom = 3.0468068
+region_rect = Rect2(0, 0, 48, 48)
 
 [node name="QuestEntry" type="Panel" unique_id=2142909392]
 custom_minimum_size = Vector2(27, 21)
@@ -42,22 +28,27 @@ script = ExtResource("1_xpj5d")
 layout_mode = 0
 offset_left = 21.132
 offset_top = 1.667
-offset_right = 191.168
+offset_right = 212.24814
 offset_bottom = 29.928999
 scale = Vector2(0.645, 0.645)
-theme_override_colors/font_color = Color(0.3573182, 0.24859068, 0.13751814, 1)
+theme_override_colors/font_color = Color(0.35686275, 0.24705882, 0.13725491, 1)
+theme_override_colors/font_focus_color = Color(0.48235294, 0.34117648, 0.2, 1)
+theme_override_colors/font_pressed_color = Color(0.88561267, 0.7190876, 0.56166154, 1)
+theme_override_colors/font_hover_color = Color(0.48235294, 0.34117648, 0.2, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.48235294, 0.34117648, 0.2, 1)
 theme_override_fonts/font = ExtResource("2_l4bia")
 theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxTexture_4rcma")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_yog37")
-theme_override_styles/hover = SubResource("StyleBoxTexture_nnb0l")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_tv5lr")
-theme_override_styles/focus = SubResource("StyleBoxTexture_a1v37")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x1h2n")
+theme_override_styles/pressed = ExtResource("3_xpj5d")
+theme_override_styles/hover = ExtResource("3_xpj5d")
+theme_override_styles/disabled = ExtResource("3_xpj5d")
+theme_override_styles/focus = ExtResource("3_xpj5d")
 text = "Quest text goes here"
+autowrap_mode = 3
 
 [node name="checkSprite" type="Sprite2D" parent="." unique_id=834232158]
 position = Vector2(10.565994, 10.565994)
-scale = Vector2(0.572, 0.572)
+scale = Vector2(0.51373667, 0.51373667)
 texture = ExtResource("4_eluju")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

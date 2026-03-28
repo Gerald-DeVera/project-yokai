@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func makeReady():
 	Signals.collectItem.connect(Callable(self, "insert"))
+	Signals.updateItem.connect(Callable(self, "update"))
 
 func insert(item: InvItem):
 	for index in items.size():
@@ -18,5 +19,7 @@ func insert(item: InvItem):
 			return
 		else:
 			continue
-	
-		
+
+func update(item_old: InvItem, item_new: InvItem):
+	var index = items.find(item_old)
+	items[index] = item_new

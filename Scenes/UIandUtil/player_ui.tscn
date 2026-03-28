@@ -12,14 +12,22 @@
 [ext_resource type="Texture2D" uid="uid://div4bqbp01ac1" path="res://Assets/UI/inventory_pencil.png" id="9_ubvsh"]
 [ext_resource type="Texture2D" uid="uid://c4ct5lt0d3ipq" path="res://Assets/UI/Items/item_closeup_yui1.png" id="11_ubvsh"]
 [ext_resource type="FontFile" uid="uid://r05etmmhnxol" path="res://Assets/Themes and Fonts/SOCOND__.ttf" id="12_01cy8"]
+[ext_resource type="Texture2D" uid="uid://cxch6ntei4pqk" path="res://Assets/UI/ui icons inv.png" id="12_toduu"]
 [ext_resource type="StyleBox" uid="uid://cm2lg88dpfmyu" path="res://Assets/Themes and Fonts/text_grad_bg.tres" id="13_t1ull"]
+[ext_resource type="Texture2D" uid="uid://cb617c34kxrff" path="res://Assets/UI/ui icons nte.png" id="13_x27ed"]
 [ext_resource type="Texture2D" uid="uid://pw5a4fn4v8t" path="res://Assets/UI/tooltip_spirit.png" id="14_6xqmg"]
+[ext_resource type="Texture2D" uid="uid://dkd6j56bu6v1l" path="res://Assets/UI/ui icons spirit.png" id="14_8ysew"]
+[ext_resource type="Texture2D" uid="uid://qgxletmhnn1o" path="res://Assets/UI/tooltip_inv.png" id="16_w4a61"]
+[ext_resource type="Texture2D" uid="uid://j20rgqi8rcdy" path="res://Assets/UI/tooltip_note.png" id="17_c7bcr"]
+[ext_resource type="FontFile" uid="uid://uf7b4k381gwo" path="res://Assets/Themes and Fonts/Jersey25-Regular.ttf" id="18_w4a61"]
+[ext_resource type="Texture2D" uid="uid://bukgbln8egy6s" path="res://Assets/Sprites/tooltip_interact.png" id="20_8ysew"]
+[ext_resource type="Texture2D" uid="uid://c0ovb346f15ky" path="res://Assets/Sprites/ramen dad sprite-Sheet.png" id="21_w4a61"]
 
-[sub_resource type="Gradient" id="Gradient_7p7f7"]
+[sub_resource type="Gradient" id="Gradient_6xqmg"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cou8r"]
-gradient = SubResource("Gradient_7p7f7")
+gradient = SubResource("Gradient_6xqmg")
 use_hdr = true
 
 [sub_resource type="Animation" id="Animation_awuwx"]
@@ -313,6 +321,54 @@ tracks/24/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(331, 262.35)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Tutorial/ColorRect:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Tutorial/Control:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -321)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Tutorial:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Hotkeys:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(567, 26.000002)]
 }
 
 [sub_resource type="Animation" id="Animation_t1ull"]
@@ -644,6 +700,61 @@ tracks/3/keys = {
 "values": [Vector2(326, 409.00003), Vector2(326, 278.00003)]
 }
 
+[sub_resource type="Animation" id="Animation_w4a61"]
+resource_name = "toggle_tips"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hotkeys:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(567, 26.000002), Vector2(567, -48)]
+}
+
+[sub_resource type="Animation" id="Animation_c7bcr"]
+resource_name = "tutorial"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tutorial/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tutorial/Control:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -299), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tutorial:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_53qiu"]
 _data = {
 &"RESET": SubResource("Animation_awuwx"),
@@ -653,7 +764,9 @@ _data = {
 &"move_depr": SubResource("Animation_yu4om"),
 &"nte_upd": SubResource("Animation_6frnm"),
 &"pause_move": SubResource("Animation_a008j"),
-&"spiritsight": SubResource("Animation_0ugji")
+&"spiritsight": SubResource("Animation_0ugji"),
+&"toggle_tips": SubResource("Animation_w4a61"),
+&"tutorial": SubResource("Animation_c7bcr")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cou8r"]
@@ -714,11 +827,11 @@ _data = {
 &"bounce": SubResource("Animation_01cy8")
 }
 
-[sub_resource type="FontVariation" id="FontVariation_t1ull"]
+[sub_resource type="FontVariation" id="FontVariation_6xqmg"]
 base_font = ExtResource("12_01cy8")
 spacing_top = 2
 
-[sub_resource type="FontVariation" id="FontVariation_6xqmg"]
+[sub_resource type="FontVariation" id="FontVariation_t1ull"]
 base_font = ExtResource("12_01cy8")
 spacing_top = 2
 
@@ -764,6 +877,48 @@ process_mode = 3
 layer = 100
 script = ExtResource("1_awuwx")
 
+[node name="Hotkeys" type="Control" parent="." unique_id=955015176]
+z_index = -2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 567.0
+offset_top = 26.000002
+offset_right = 645.0
+offset_bottom = 104.0
+scale = Vector2(0.6627775, 0.6627775)
+
+[node name="UiIconsInv" type="Sprite2D" parent="Hotkeys" unique_id=155007024]
+position = Vector2(53, 12)
+texture = ExtResource("12_toduu")
+
+[node name="UiIconsNte" type="Sprite2D" parent="Hotkeys" unique_id=1590324935]
+position = Vector2(9.052826, 13.57922)
+texture = ExtResource("13_x27ed")
+
+[node name="TooltipInv" type="Sprite2D" parent="Hotkeys" unique_id=2077836930]
+position = Vector2(52.8081, 43.755257)
+scale = Vector2(1.0237651, 1.0237651)
+texture = ExtResource("16_w4a61")
+
+[node name="TooltipNote" type="Sprite2D" parent="Hotkeys" unique_id=946774688]
+position = Vector2(9.052818, 43.755257)
+texture = ExtResource("17_c7bcr")
+
+[node name="Spirit" type="Control" parent="Hotkeys" unique_id=130638382]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UiIconsSpirit" type="Sprite2D" parent="Hotkeys/Spirit" unique_id=1202595473]
+position = Vector2(-36.211243, 13.579227)
+texture = ExtResource("14_8ysew")
+
+[node name="TooltipSpirit2" type="Sprite2D" parent="Hotkeys/Spirit" unique_id=365869607]
+position = Vector2(-36.211212, 44.29487)
+scale = Vector2(0.96090114, 0.96090114)
+texture = ExtResource("14_6xqmg")
+
 [node name="PauseGradient" type="Sprite2D" parent="." unique_id=938576595]
 z_index = -1
 position = Vector2(284, 573)
@@ -792,12 +947,10 @@ offset_right = 122.0
 offset_bottom = 99.0
 
 [node name="Notebook" parent="HUD" unique_id=523988141 instance=ExtResource("3_yu4om")]
-visible = false
+process_mode = 1
 layout_mode = 1
-offset_left = 47.0
-offset_top = 24.0
-offset_right = 47.0
-offset_bottom = 24.0
+offset_left = -2.9999924
+offset_right = -2.9999924
 scale = Vector2(0.87999994, 0.87999994)
 
 [node name="PauseMenu" type="NinePatchRect" parent="HUD" unique_id=1316186352]
@@ -960,6 +1113,126 @@ texture = ExtResource("5_a008j")
 [node name="Evidence" type="Sprite2D" parent="EvidenceUI/InventoryPolaroid" unique_id=1659430244]
 position = Vector2(-0.5839386, -6.423358)
 texture = ExtResource("11_ubvsh")
+
+[node name="Tutorial" type="Control" parent="." unique_id=1490400742]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial" unique_id=772027015]
+modulate = Color(1, 1, 1, 0)
+z_index = -2
+layout_mode = 0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 643.0
+offset_bottom = 363.0
+color = Color(0.07, 0.07, 0.07, 0.48235294)
+
+[node name="Control" type="Control" parent="Tutorial" unique_id=1511782259]
+anchors_preset = 0
+offset_top = -321.0
+offset_right = 40.0
+offset_bottom = -281.0
+
+[node name="TutorialText" type="RichTextLabel" parent="Tutorial/Control" unique_id=440044269]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 111.253784
+offset_right = 179.27347
+offset_bottom = 138.64877
+scale = Vector2(1.7033439, 1.7033439)
+pivot_offset = Vector2(34.461197, 13.156845)
+theme_override_colors/font_outline_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("18_w4a61")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Interact"
+horizontal_alignment = 1
+
+[node name="TutorialText4" type="RichTextLabel" parent="Tutorial/Control" unique_id=942128536]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 42.0
+offset_right = 362.1936
+offset_bottom = 69.39499
+scale = Vector2(1.7033439, 1.7033439)
+pivot_offset = Vector2(34.461197, 13.156845)
+theme_override_colors/font_outline_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = SubResource("FontVariation_6xqmg")
+theme_override_font_sizes/normal_font_size = 19
+theme_override_styles/normal = ExtResource("13_t1ull")
+bbcode_enabled = true
+text = "Investigation Routine"
+horizontal_alignment = 1
+
+[node name="TutorialText2" type="RichTextLabel" parent="Tutorial/Control" unique_id=817254727]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 111.253784
+offset_right = 348.26642
+offset_bottom = 138.64877
+scale = Vector2(1.7033439, 1.7033439)
+pivot_offset = Vector2(34.461197, 13.156845)
+theme_override_colors/font_outline_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("18_w4a61")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Check Info"
+horizontal_alignment = 1
+
+[node name="TutorialText3" type="RichTextLabel" parent="Tutorial/Control" unique_id=1111046306]
+layout_mode = 0
+offset_left = 439.00003
+offset_top = 111.253784
+offset_right = 524.2665
+offset_bottom = 138.64877
+scale = Vector2(1.7033439, 1.7033439)
+pivot_offset = Vector2(34.461197, 13.156845)
+theme_override_colors/font_outline_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("18_w4a61")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "See Evidence"
+horizontal_alignment = 1
+
+[node name="TooltipInteract" type="Sprite2D" parent="Tutorial/Control" unique_id=778161875]
+position = Vector2(144.00002, 152.2538)
+scale = Vector2(1.8045058, 1.8045058)
+texture = ExtResource("20_8ysew")
+
+[node name="TooltipInv" type="Sprite2D" parent="Tutorial/Control" unique_id=1504116768]
+position = Vector2(489, 153.25377)
+scale = Vector2(1.8045058, 1.8045058)
+texture = ExtResource("16_w4a61")
+
+[node name="TooltipNote" type="Sprite2D" parent="Tutorial/Control" unique_id=1105166018]
+position = Vector2(312, 151.90785)
+scale = Vector2(1.8045058, 1.8045058)
+texture = ExtResource("17_c7bcr")
+
+[node name="UiIconsInv" type="Sprite2D" parent="Tutorial/Control" unique_id=336570110]
+position = Vector2(490, 235.25378)
+scale = Vector2(2.3125, 2.3125)
+texture = ExtResource("12_toduu")
+
+[node name="UiIconsNte" type="Sprite2D" parent="Tutorial/Control" unique_id=1744004314]
+position = Vector2(312.00003, 236.25378)
+scale = Vector2(2.1249995, 2.1249995)
+texture = ExtResource("13_x27ed")
+
+[node name="RamenDadSpriteSheet" type="Sprite2D" parent="Tutorial/Control" unique_id=2131005222]
+position = Vector2(141, 235.25378)
+scale = Vector2(2.0416667, 2.0416667)
+texture = ExtResource("21_w4a61")
+hframes = 16
+frame = 1
 
 [node name="InvUpd" type="RichTextLabel" parent="." unique_id=1689112859]
 modulate = Color(1, 1, 1, 0)

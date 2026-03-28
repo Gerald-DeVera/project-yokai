@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPC_Profile" format=3 uid="uid://cpiqvjeyhq18g"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_if1e5"]
+
+[resource]
+script = ExtResource("1_if1e5")
+name = "Yui Ogawa"
+profilePicPath = "res://Assets/UI/Items/item_closeup_yui1.png"
+bio = "The missing lead of YuYuYu."
+evidenceQuotes = PackedStringArray("A member of YuYuYu.", "Went missing two days ago.", "Parents own a shop in the East River District.")

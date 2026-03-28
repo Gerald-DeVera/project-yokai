@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://cx5bqpfvqatij"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_ecm7t"]
+
+[resource]
+script = ExtResource("1_ecm7t")
+questName = "Resume Chasing the Florist"
+fullDescription = "According to Kite, we’re in the spirit realm. The Florist should be somewhere nearby."

@@ -9,8 +9,12 @@ var inv: Inv = preload("res://Assets/InventoryItems/playerInventory.tres")
 
 var playerHasItem: bool
 var evidenceFound = 0 #for alleyway scene
+var YuiExamined = 0
 var spiritTutorial = false
 var hasunlockedSight = false #set to false at beginning of game pls
+
+#time state
+var TimeOfDay: String = "Night"
 
 #preload a bunch of textures for evidence in cutscenes
 var evidenceTextures = {
@@ -28,18 +32,44 @@ var evidenceTextures = {
 	"wallet": preload("res://Assets/UI/Items/item_closeup_wallet.png")
 }
 
+#stuff to queue free
+var oneshot_assets = {}
+
+#locked dialogue
+var locked_dialogue = {}
+#unlocked dialogue
+var unlocked_dialogue = {}
+
 #List of NPC Dialogue Flags
 #We also use these for one shots
 #Enums only story ints, so 0 is false, 1 is true
 var dialogueFlags = {
 	keyWitnessfound = false,
-	interviewedSagawa = true,
-	interviewedShu = true,
-	interviewedYumiStreet = true,
-	evidenceFound = true,
+	uselessWitnessasked = false,
+	interviewedSagawa = false,
+	interviewedClothier = false,
+	interviewedShu = false,
+	interviewedYumiStreet = false,
+	evidenceFound = false,
 	shuConfront = false,
-	testFlag = false
+	spiritRealmUnlocked = false,
+	shuSpirit1 = false,
+	shuSpirit2 = false,
+	shuExplain = false,
+	confirmedYui = false,
+	uselessYokaifound = false,
+	keyYokaifound = false,
+	InaFound = false,
+	InaShuPlan = false,
+	gotBeans = false,
 }
+
+var YuiOptions = {
+	bracelet = false,
+	pockets = false,
+	wounds = false
+}
+
 var dialoguePrep = {
 	dialogueOneShot = false,
 	dialogueFilePath = "",
@@ -134,3 +164,12 @@ func evidenceCounter():
 	if evidenceFound == 3:
 		#await get_tree().create_timer(1.0).timeout
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load("res://Assets/Dialogue/Kite.dialogue"), "allEvidenceFoundAlley")
+
+func examineYui(option: String):
+	if YuiOptions[option] != true:
+		YuiExamined += 1	
+		YuiOptions[option] = true
+
+func markPreviousQuest(questName: QuestItem):
+	var index = questsList.quests.find(questName)
+	questsList.quests[index].completionStatus = true

@@ -15,26 +15,34 @@ extends Node2D
 @export var locked:bool 
 var minimumDistanceFromPlayer = 35
 var spiritButtonVisibilityDistance = 100
+var turnedVisible = false
 var canInteract = false
 #const dialogueBalloon = preload("res://Scenes/DialogueBalloons/balloon.tscn")
 
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
 	Signals.toggleAsset.connect(Callable(self,"toggleLock"))
+	Signals.updateInteractText.connect(Callable(self,"updateTooltip"))
+	DialogueManager.dialogue_started.connect(Callable(self,"disableVis"))
+	DialogueManager.dialogue_ended.connect(Callable(self,"enableVis"))
 	tooltip.text = (interactText)
 	if isSpiritButton:
 		self.visible = false
 		Sprite2.modulate = Color("57e3ff")
+	#old redundant line for one case, might change later but doesnt really matter for this scope
 	if Global.dialogueFlags.shuConfront == true && self.get_parent().name == "FlowerShop":
 		self.locked = true
-
+	if Global.locked_dialogue.has(self.name):
+		self.locked = true
+	elif Global.unlocked_dialogue.has(self.name):
+		self.locked = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if isSpiritButton and playerCharacter and (!playerCharacter.spiritSightOn or abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance):
+	if isSpiritButton and !turnedVisible and playerCharacter and abs(playerCharacter.position.x - position.x) > spiritButtonVisibilityDistance:
 		self.visible = false
 		Sprite1.visible = true
 	else:
-		self.visible = true
+		interactable = true
 	if !self.visible:
 		return
 	
@@ -56,8 +64,10 @@ func ButtonPressed(InteractableObject:String):
 	if  InteractableObject == "button" && interactable == true && isDialogue == true && locked == false:
 		print("start dialogue")
 		DialogueManager.show_dialogue_balloon_scene(load("res://Scenes/DialogueBalloons/balloon.tscn"), load(dialoguePath), dialogueStartingPosition, )
-		print
 		return
+	elif InteractableObject == "ShowSpirit" && interactable == true:
+		self.visible = true
+		turnedVisible = true
 
 func toggleLock(assetName: String, toggled: bool):
 	print("signal received by:" + str(self.name))
@@ -66,4 +76,14 @@ func toggleLock(assetName: String, toggled: bool):
 			self.locked = true
 		elif toggled == true:
 			self.locked = false
+			
+func updateTooltip(interactName: String, newtooltip: String):
+	if interactName == self.name:
+		tooltip.text = newtooltip
 		
+func disableVis(resource):
+	Sprite2.visible = false
+
+func enableVis(resource):
+	if self.interactable == true:
+		Sprite2.visible = true

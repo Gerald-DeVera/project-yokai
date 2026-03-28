@@ -17,6 +17,6 @@ func _process(delta: float) -> void:
 
 
 func _on_cooldown_timeout() -> void:
-	spawners[rng.randf_range(0, spawners.size()-1)].shoot()
-	print("random lmao")
+	var myNum = rng.randi_range(0, spawners.size()-1)
+	spawners[myNum].shoot()
 	pass # Replace with function body.

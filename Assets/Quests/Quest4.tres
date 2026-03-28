@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://byhvluip6n6q0"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_iuiei"]
+
+[resource]
+script = ExtResource("1_iuiei")
+questName = "Speak with the Florist"
+fullDescription = "The clerk at threads told us Yui wanted to stop by Camellia. Let’s check it out."

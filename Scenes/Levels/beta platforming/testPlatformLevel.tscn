@@ -1,19 +1,25 @@
 [gd_scene format=4 uid="uid://ddy7v8i7hvcyc"]
 
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_cw6rj"]
+[ext_resource type="Script" path="res://Scripts/platformLevel.gd" id="1_ywopd"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="2_umi5f"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="3_7ubhb"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="3_hynhp"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="4_n3o6x"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="4_qtfyn"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="5_umi5f"]
 [ext_resource type="Texture2D" uid="uid://nl0gx3lchq7s" path="res://Assets/Environment/platforming tiles/parallax beta 2.png" id="7_umi5f"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="8_hynhp"]
 [ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="8_rxnno"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="9_sw76f"]
+[ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="11_hjoic"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="11_xgn0t"]
-[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
+[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="12_80tmh"]
+[ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="12_fshmo"]
+[ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="13_xyy84"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/beta platforming/portal.tscn" id="17_i6yte"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sw76f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6yte"]
 texture = ExtResource("2_umi5f")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -28,9 +34,9 @@ texture_region_size = Vector2i(24, 24)
 
 [sub_resource type="TileSet" id="TileSet_hynhp"]
 tile_size = Vector2i(24, 24)
-sources/1 = SubResource("TileSetAtlasSource_sw76f")
+sources/1 = SubResource("TileSetAtlasSource_i6yte")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxnno"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qtfyn"]
 texture = ExtResource("2_umi5f")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -46,9 +52,9 @@ texture_region_size = Vector2i(24, 24)
 [sub_resource type="TileSet" id="TileSet_umi5f"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_rxnno")
+sources/0 = SubResource("TileSetAtlasSource_qtfyn")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xgn0t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7kd6"]
 texture = ExtResource("3_hynhp")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
@@ -60,31 +66,46 @@ texture_region_size = Vector2i(24, 24)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [sub_resource type="TileSet" id="TileSet_e78cg"]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
-sources/1 = SubResource("TileSetAtlasSource_xgn0t")
+sources/1 = SubResource("TileSetAtlasSource_v7kd6")
 
 [node name="TestPlatformLevel" type="Node2D" unique_id=1959135651]
+script = ExtResource("1_ywopd")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=676130504]
+z_index = -5
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=828040437]
+position = Vector2(94, -146)
+texture = ExtResource("7_umi5f")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_cw6rj")]
 z_index = 2
-position = Vector2(22, -48)
+position = Vector2(399, -254)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=461871120]
 position = Vector2(-2, -30)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(1.3, 1.3)
+
+[node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("4_qtfyn")]
+position = Vector2(-155, -193)
 
 [node name="decodecoTile" type="TileMapLayer" parent="." unique_id=1264298232]
 z_index = 4
@@ -102,6 +123,9 @@ tile_map_data = PackedByteArray("AAAGAAAAAQABAAAAAAAFAAAAAQABAAAAAAAEAAAAAQABAAA
 tile_set = SubResource("TileSet_e78cg")
 rendering_quadrant_size = 24
 physics_quadrant_size = 24
+
+[node name="JumpBlock" parent="." unique_id=764757466 instance=ExtResource("13_xyy84")]
+position = Vector2(300, -84)
 
 [node name="Platforms" parent="." unique_id=447349731 instance=ExtResource("3_7ubhb")]
 position = Vector2(205, -80)
@@ -149,14 +173,12 @@ position = Vector2(78, -68)
 position = Vector2(-348, 26)
 
 [node name="Hazard2" parent="." unique_id=1902928155 instance=ExtResource("8_rxnno")]
-position = Vector2(194, -212)
+position = Vector2(-408, -98)
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=676130504]
-z_index = -5
+[node name="FallingPlatform" parent="." unique_id=644855615 instance=ExtResource("11_hjoic")]
+position = Vector2(321, -213)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=828040437]
-position = Vector2(94, -146)
-texture = ExtResource("7_umi5f")
+[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("12_fshmo")]
 
 [node name="checkpointManager" type="Node" parent="." unique_id=531586094]
 script = ExtResource("8_hynhp")
@@ -173,3 +195,13 @@ position = Vector2(4, -118)
 position = Vector2(202, -11)
 rotation = -1.5707964
 script = ExtResource("12_80tmh")
+
+[node name="Portal" parent="." unique_id=108987774 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("17_i6yte")]
+position = Vector2(-200, -276)
+pairedPortal = NodePath("../Portal2")
+direction = Vector2i(1, 0)
+
+[node name="Portal2" parent="." unique_id=99731313 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("17_i6yte")]
+position = Vector2(465, -30)
+pairedPortal = NodePath("../Portal")
+direction = Vector2i(0, -1)

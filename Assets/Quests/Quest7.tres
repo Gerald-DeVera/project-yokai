@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://okki7sahkuiu"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_2fifx"]
+
+[resource]
+script = ExtResource("1_2fifx")
+questName = "Investigate the Alley"
+fullDescription = "Spirit Sight led us to a nearby alley way. Let’s investigate for clues."

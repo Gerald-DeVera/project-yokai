@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://5s5lkv3qj58"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_bfsmt"]
+
+[resource]
+script = ExtResource("1_bfsmt")
+questName = "Look Around the Alley"
+fullDescription = "She ran into the alley and disappeared. She couldn’t have gone far though. Maybe there’s something I can’t see?"

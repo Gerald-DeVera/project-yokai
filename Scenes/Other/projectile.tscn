@@ -1,34 +1,51 @@
-[gd_scene format=3 uid="uid://u5xhvaww2uy8"]
+[gd_scene format=3 uid="uid://dshhx163h1q6j"]
 
 [ext_resource type="Script" uid="uid://dr734vf5uu6cq" path="res://Scripts/projectile.gd" id="1_pmpp7"]
-[ext_resource type="Texture2D" uid="uid://bpxkm3k05j1kl" path="res://Assets/Sprites/kite expressions left.png" id="1_u7efs"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pmpp7"]
-atlas = ExtResource("1_u7efs")
-region = Rect2(0, 0, 150, 150)
+[ext_resource type="Texture2D" uid="uid://cbx6fwsta6vu7" path="res://Assets/Sprites/boss projectile-Sheet.png" id="2_pmpp7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lif6c"]
-atlas = ExtResource("1_u7efs")
-region = Rect2(150, 0, 150, 150)
+atlas = ExtResource("2_pmpp7")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jvrg6"]
-atlas = ExtResource("1_u7efs")
-region = Rect2(300, 0, 150, 150)
+atlas = ExtResource("2_pmpp7")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f30kp"]
-atlas = ExtResource("1_u7efs")
-region = Rect2(450, 0, 150, 150)
+atlas = ExtResource("2_pmpp7")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4b7j"]
-atlas = ExtResource("1_u7efs")
-region = Rect2(600, 0, 150, 150)
+atlas = ExtResource("2_pmpp7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnh5r"]
+atlas = ExtResource("2_pmpp7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceum4"]
+atlas = ExtResource("2_pmpp7")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsgia"]
+atlas = ExtResource("2_pmpp7")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1hcd"]
+atlas = ExtResource("2_pmpp7")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdg8d"]
+atlas = ExtResource("2_pmpp7")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex41m"]
+atlas = ExtResource("2_pmpp7")
+region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dnh5r"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pmpp7")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lif6c")
 }, {
@@ -40,24 +57,55 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k4b7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnh5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceum4")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"fly",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsgia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1hcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdg8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex41m")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u7efs"]
-radius = 30.066593
+radius = 8.0
 
 [node name="Projectile" type="CharacterBody2D" unique_id=1684877166]
 script = ExtResource("1_pmpp7")
+speed = 150
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1857531541]
+position = Vector2(-8, 7)
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_dnh5r")
+animation = &"fly"
+autoplay = "fly"
+frame = 2
+frame_progress = 0.6355634
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1970101697]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2021155551]
+position = Vector2(-8, 0)
 shape = SubResource("CircleShape2D_u7efs")
 
 [node name="Timer" type="Timer" parent="." unique_id=147654955]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://cimb6wsxanjwm"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_hs4ob"]
+
+[resource]
+script = ExtResource("1_hs4ob")
+questName = "Examine Yui"
+fullDescription = "Shu explained her side of things and we know Yui is ok. We should examine her to confirm and find any clues."

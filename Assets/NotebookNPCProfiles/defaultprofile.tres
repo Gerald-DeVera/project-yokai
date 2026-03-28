@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPC_Profile" format=3 uid="uid://dtmdpham8ejii"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_j28td"]
+
+[resource]
+script = ExtResource("1_j28td")
+name = "???"
+profilePicPath = "res://Assets/Sprites/placeholderDefaultPFP.png"
+bio = "You have not yet met this person! Keep investigating to learn more."
+evidenceQuotes = PackedStringArray("This information has yet to be learned.")

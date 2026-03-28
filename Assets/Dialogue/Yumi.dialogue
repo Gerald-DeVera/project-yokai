@@ -17,12 +17,14 @@ Makoto: That must be them.
 do Global.grabCameraPos()
 Makoto: [do Global.moveCamera(Vector2(-40,-30))]Please, come in.
 #CAMERA PANS TO DOOR HERE
-? ? ?: Yahello! I'm looking for Makoto's office. [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#new_actor=yumi]
+do Signals.moveCharacter.emit("YumiSprite", "enterOffice")
+do Signals.openDoor.emit("OfficeInteriorDoor","open")
+? ? ?: Yahallo! I'm looking for Makoto's office. [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#new_actor=yumi]
 Makoto: Are you here for a consultation? [#animate_right=exit_convo][#animate_left=enter_convo]
 ? ? ?: I am! Geez, it was so hard finding your office, you know!  [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: Uh huh. Yutaka sent me a case file and told me you would stop by. It seems he neglected to mention your name though. [#animate_right=exit_convo][#animate_left=enter_convo]
 ? ? ?: That lame old geezer! Let me introduce myself then! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
-? ? ?: Ahem ahem! I'm Yumi from YuYuYu! [#expression_right=happy]
+? ? ?: Ahem ahem! I'm Yumi from [outline_size=5][color=hot_pink]YuYuYu![/color][/outline_size] [#expression_right=happy]
 Makoto: If I recall, that's the new idol group that everyone is talking about, right? [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: Yuppies! We were pretty underground at first, but we've been topping the charts recently! [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: I see... May I ask what brings you here then? [#animate_right=exit_convo][#animate_left=enter_convo]
@@ -35,9 +37,9 @@ Yumi: It is! It's just that Yui requested to keep her private life and idol life
 Yumi: Something like this would totes blow her cover! As her bestie forever, I CANNOT let that happen. [#expression_right=happy]
 Makoto: I still don't think I'd be the best suited for the job. [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: Nonsense! That old geezer said you're the best of the best! [#animate_left=exit_convo][#animate_right=enter_convo]
-Yumi: He also told me to say, [outline_size=8][color=gold]"Makoto... you still owe me for the last case. Consider this paying it forward... [wave amp=25 freq=5]AHAHAH!!![/wave][/color][/outline_size]"[#expression_right=neutral]
+Yumi: He also told me to say, [outline_size=5][color=orange]"Makoto... you still owe me for the last case. Consider this paying it forward... [wave amp=25 freq=5]AHAHAH!!![/wave][/color][/outline_size]"[#expression_right=neutral]
 Yumi: Exactly like that! [#expression_right=happy]
-Kite: It is almost like Matsu-Sama is here with us! A request from one as noble as he can't be refused, right lady Makoto? [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
+Kite: It is almost like Matsu-sama is here with us! A request from one as noble as he can't be refused, right lady Makoto? [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
 Makoto lets out a sigh. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_right=neutral][#new_actor=makoto][#expression_left=unimp]
 Makoto: Fine. I'll investigate. 
 Yumi: Yippie! Thank you so so much! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
@@ -62,14 +64,19 @@ Yumi: Our manager tried calling her, but it went to voicemail each time. I’ve 
 Makoto: Well, that’s all the questions I have for now. I'll see what I can do. [#animate_right=exit_convo][#animate_left=enter_convo]
 Makoto: Just hang tight and I'll let you know if there are any leads.
 Yumi’s cellphone buzzes. 
-Yumi: Oh yikes! I’m sorry, but I’m late for an appointment! Gotta run for now, ehe! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Yumi: Oh yikes! I’m sorry, but I’m late for an appointment! [do Signals.moveCharacter.emit("YumiSprite", "exitOffice")][do Signals.openDoor.emit("OfficeInteriorDoor","close")]Gotta run for now, ehe! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 Makoto: Take care. [#animate_right=exit_convo][#animate_left=enter_convo]
 Kite: [do Global.resetCamera()]Let us make haste, my lady! Evil waits for no one! [#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=kite_right][#expression_right=neutral]
 Makoto: Nobody said we were fighting evil… [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=unimp][#camera_animation=zoom_out]
 do Global.prepareDialogue("openingDone", "res://Assets/Dialogue/Kite.dialogue", "exitOffice_1", "City")
+do Global.npcProfileList.profileInfo[1] = load("res://Assets/NotebookNPCProfiles/Yumi.tres")
+do Signals.updateInfoAnimation.emit("tutorial")
 => END
 
 ~ yumiStreetConvo
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(0,25))
+do Global.zoomCamera(Vector2(2.5,2.5)) 
 #After interviewing Sagawa. Yumi is found in the ERD just kinda chilling. She can be interviewed for more information.
 Yumi: Hello again, Detective! [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#new_actor=yumi][#actor_right=on]
 Makoto: Oh, Yumi. I thought you had an appointment. What are you doing back here? [#animate_right=exit_convo][#animate_left=enter_convo]
@@ -81,11 +88,190 @@ Yumi: Ummm… yesterday, I think? Yeah, yesterday! [#animate_left=exit_convo][#a
 Makoto: Is that so? Well, I wish you a quick recovery. I’m still investigating for any leads on Yui, so I’ll have to get going. [#animate_right=exit_convo][#animate_left=enter_convo]
 Yumi: Ah, having a true agent of justice on the case really puts my heart at ease, hehe. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 Yumi: Hopefully we talk again soon! 
-Yumi leaves. [#animate_right=exit_convo]
+[do Signals.moveCharacter.emit("YumiSprite", "overworldRun")]Yumi leaves. [#animate_right=exit_convo][#actor_right=off]
 #do an animation of the sprite leaving
 Makoto: ...Agent of justice? [#animate_left=enter_convo][#expression_left=unimp]
 do Signals.collectItem.emit(load("res://Assets/InventoryItems/hand.tres"))
 do Signals.toggleAsset.emit("YumiSprite", false)
 do Signals.updateInfoAnimation.emit("invnote")
 do Global.dialogueFlags.interviewedYumiStreet = true
+do Global.npcProfileList.profileInfo[1].evidenceQuotes.append("Claimed to have injured her hand during practice yesterday.")
+do Global.zoomCamera(Vector2(1.5,1.5))
+do Global.resetCamera()
+=> END
+
+~ preAccusation
+Make the call? [#actor_left=off]
+- Yes
+	=> yumiAccusation
+- I need some time.
+	=> END
+
+~ yumiAccusation
+do Signals.animateScreenWipe.emit("timeskip")
+do wait(4.0)
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(-40, 0))
+do Global.zoomCamera(Vector2(3.5,3.5))
+do Signals.moveCharacter.emit("YumiSprite", "enterOffice")
+do Signals.openDoor.emit("OfficeInteriorDoor","open")
+Makoto: Thanks for coming in on such short notice, Yumi. [#actor_left=on][#animate_left=enter_convo][#animate_right=exit_convo][#expression_right=neutral][#new_actor=yumi][#actor_right=on]
+Yumi: Of course! Anything for the agents of justice looking for Yui, hehe~ [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Yumi: I hope you have some good news! [#expression_right=neutral]
+Makoto: I think I have a culprit, but I wanted to align some things before I made the call. Could I ask you a few questions to help confirm a few things? [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: That sounds good to me! Ask me anything! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Makoto: To begin with, you said the last time you spoke with Yui was [outline_size=5][color=orange]two days ago,[/color][/outline_size] correct? [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: Yup! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Makoto: I see… and you said you had practice [outline_size=5][color=orange]yesterday[/color][/outline_size] as well, and that’s when you learned Yui was missing? [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: That’s correct. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+#buh bing sfx
+Makoto: Strange. I heard from Yui’s dad that practice was actually [wave amp=20 freq=5]cancelled[/wave] that day after her manager called him, looking for Yui. [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: Ah – sorry, I misspoke! I did go in for practice that day, but after Yui didn’t show up it got officially cancelled… sorry for not clarifying![#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: In that case, how did you manage to [outline_size=5][color=orange]injure your hand[/color][/outline_size][do Global.showEvidence("hand")] yesterday at practice if it was cancelled? [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: Did I say that…? I meant to say I got injured during practice two days ago! [#animate_left=exit_convo][#animate_right=enter_convo]
+Yumi: [do Global.hideEvidence()]Sorry… it feels like my head’s been all jumbled up since Yui went missing. I’ve had a hard time organizing my thoughts...[#expression_right=angry]
+Makoto: I understand. In that case, after injuring your hand at practice two days ago, what did you do next? [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: I  wanted to hang out with Yui but I went home alone and stayed in since, y'know, I got hurt… haha… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Makoto: So you stayed home the rest of the day?[#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: Yeah, I stayed home all day! An idol’s gotta rest properly, you know?[#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Makoto: Hmm. So you wouldn’t know anything about who Yui was meeting that evening? [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: Huh? Yui was meeting someone that night…? I totally thought she was going straight home when she was done helping her Dad! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+Makoto: Well, so far we know that someone was meeting with Yui. It must have been someone familiar. Someone really close… a best friend perhaps? [#animate_left=enter_convo][#animate_right=exit_convo]
+Makoto: Maybe even someone closer based on the gifts she picked up – [#expression_left=angry]
+Yumi: I'M HER BEST FR- [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
+Yumi: –ahem– [#expression_right=neutral]
+Yumi: …I’m her best friend! No one's closer to her than me! [#expression_right=happy]
+Makoto: Is that so? But you said you had no clue she was meeting someone. Maybe she didn’t always tell you everything then. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+Yumi: Nonono! We’ve always told each other everything! We’re besties forever! Look, we even have matching bracelets with each other's names! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+Yumi raises her injured hand as if to show off a bracelet, but there was nothing there.
+Yumi: Oh… that’s right… I lost it… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Yumi: But that doesn’t mean anything at all! We’ll always be together no matter what! [#expression_right=happy]
+Makoto: Oh don’t worry, I believe you. I spoke with the clerk at Threads, and they told me Yui bought engraved bracelets from them before. [#animate_left=enter_convo][#animate_right=exit_convo]
+Makoto: Not only that, I actually found [do Global.showEvidence("bracelet1")]your lost bracelet. 
+Yumi: Really?! [shake rate=20.0 level=5 connected=1]Ohmygodthankyousomuch![/shake] I’ll have it back now! [#animate_left=exit_convo][#animate_right=enter_convo]
+Yumi: [do Global.hideEvidence()](But… how? And where?) [#expression_right=angry]
+Makoto: You’re probably wondering where I found it, right? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy]
+Yumi: …! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+Makoto: Well, if you must know, it was at the exact scene where Yui went missing. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+Yumi: HUH!? That has to be a coincidence! Yui must have had it and planned to return it! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
+Makoto: That’s a possibility. But I have proof you were there last night. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+Yumi: No way… There’s no possible way you could know that! I was home all day, I swear! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Makoto: So these [do Global.showEvidence("phone")]texts in Yui’s phone must be from a different Yumi? [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: [do Global.hideEvidence()]Wh- What..? [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: According to these texts exchanged between you and Yui, you were supposed to meet by the alley on the night of her disappearance.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+Makoto: Furthermore, it’s exactly where an eyewitness claimed to see someone attack Yui. 
+Makoto: And everything I’ve seen thus far… proves it was you.
+Yumi: You’re crazy! I- I would never hurt Yui! What kind of agent of justice would accuse an innocent girl of hurting her best friend!? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=confused]
+Makoto: Heh. It’s funny you keep calling me an ‘agent of justice’, you know. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy]
+Yumi: What are you talking about? [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: I’ve never once claimed to be an agent of justice.[#animate_left=enter_convo][#animate_right=exit_convo]
+Makoto: Only someone who could hear a particularly justice-crazy spirit would know that name. 
+Makoto: Isn’t that right, PARTNER?
+Kite: INDEED! Only those with special eyes and spirits themselves may lay eyes and lend ears to my JUSTICE! [#animate_left=enter_convo][#expression_left=happy][#new_actor=kite_left]
+Makoto: You’ve outed yourself, Kijo, and you didn’t even realize it. [#animate_left=enter_convo][#expression_left=angry][#new_actor=makoto]
+Yumi: ... [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Yumi?: [do Signals.playBGM.emit("Office")]Ah… so it’s like that… huh.
+Yumi?: [shake rate=20.0 level=5 connected=1]Hahaha...[/shake] [shake rate=40.0 level=10 connected=1]HAHAHAHAHAHA![/shake]
+do Global.moveCamera(Vector2(-50,0))
+do Global.zoomCamera(Vector2(4,4))
+do Signals.moveCharacter.emit("YumiSprite", "transform")
+Kijo: [outline_size=5][color=crimson][shake rate=20.0 level=5 connected=1]That’s right! I took this mortal's body! I was just helping her reach the end of that sordid affair![/shake][/color][/outline_size] [#expression_right=unimp]
+Makoto: [do Global.zoomCamera(Vector2(3.5,3.5))][do Global.moveCamera(Vector2(-40,0))]...! [#animate_left=enter_convo][#animate_right=exit_convo]
+Makoto: This is the end of the line for you, spirit! We’re going to seal you and save both Yumi and Yui!
+Kite: Your rage ends here, evil-doer! [#animate_left=enter_convo][#expression_left=angry][#new_actor=kite_left]
+Kijo: [outline_size=5][color=crimson][shake rate=20.0 level=5 connected=1]Try me, you masquerading agents of justice![/shake][/color][/outline_size] [#animate_left=exit_convo][#animate_right=enter_convo]
+[do Signals.moveCharacter.emit("YumiSprite", "attack")][do Signals.moveCharacter.emit("PlayerCharacter", "beans")]Makoto throws the Oni-repelling beans at the Kijo.
+Kijo: [outline_size=5][color=crimson][shake rate=20.0 level=5 connected=1]AHHHH!!![/shake][/color][/outline_size]
+Kite: Now, Lady Makoto! The sealing box! [#animate_left=enter_convo][#expression_left=neutral]
+[do Signals.moveCharacter.emit("PlayerCharacter", "box")] Makoto pulls out the box. An unsettling aura [do Signals.transitionToPlatforming.emit()]begins to fill the small office. [#actor_left=off][#actor_right=off]
+#cutscene continues makoto points the box at the kijo and it brings them all into the domain
+do wait(10.0)
+=> END
+
+
+
+~ yumiMemoryFragment1
+# the first memory of yumi and yui, Yui promises they’ll be friends forever at the start of the band
+As you reach out, you feel memories rush into your mind…
+Yumi: I don’t know… I’m still a little nervous. I’ve never performed in front of this many people before.
+Yui: It’ll all be ok Yumi. I’ll be on the stage right there with you! We got this!
+Yumi: You’re right! 
+Yumi lets out a deep breath.
+Yumi: When I’m with you, I feel like I can do anything… hehe.
+The memory fades.
+Kite: My lady, are you alright? You touched that shard and stood there frozen.
+The memory fades but Yumi remains. She turns to you.
+Yumi: I meant it when I said I could do anything with her around y’know… It was always kinda like that ever since we were kids. I wouldn’t be who I am today if it wasn’t for her.
+Yumi too fades.
+Makoto: Yumi showed me one of her memories and she spoke to me... I think we’re going the right way. Let’s keep moving.
+Kite: Of course, my lady!
+A new way forward has been opened.
+=> END
+
+
+~ yumiMemoryFragment2
+#Yui is soaring in popularity and becoming more busy and can't spend more time with Yumi due to her more busy schedule
+As you reach out you feel memories rush into your mind…
+Yumi: Hey Yui! Did you see there’s a new cafe opening on West Street? Did you wanna check it out later after practice?
+Yui: Ah! I would love to, but… I have an interview later… The manager really insisted I do it.
+Yumi: Oh yeah… Well, how about tomorrow?
+Yui: Ah… I have to head back home tomorrow to help out my parents.
+Yumi: Oh… how about the weekend then!
+Yui: I have that fan meet up on Saturday. I’m really sorry, Yumi. 
+Yumi: Ah… that’s ok. Just don’t overwork yourself…
+The memory fades.
+The memory fades but Yumi remains. She turns to you.
+Yumi: It felt like she was leaving me behind. Now that the whole world knew how amazing she is. How kind she is. How wonderful she is... She was shining brighter than ever… and it felt like I was standing alone in her shadow…
+Yumi too fades.
+Kite: My lady, it happened again! Are you ok?
+Makoto: I am.
+A new way forward has been opened.
+=> END
+
+
+~ yumiMemoryFragment3
+#The scene in the alley, Yui tells Yumi she’s going to be taking a step away from the band to take care of her parents. Yumi’s heart is broken and the kijo possesses her.
+As you reach out you feel memories rush into your mind…
+This place looks familiar. It’s that alley way. Yumi looks… worse for wear. She looks tired but she doesn’t want to show it. Her face lights up when Yui turns the corner.
+Yumi: YUI! I’m so glad to see you!
+Yui: We saw each other this morning, did you forget?
+Yumi: I know but… it feels like we never hang out anymore you know?
+Yui: Yeah… I’ve been busy. There’s just been a lot going on.
+Yumi: I know but… I looked at the schedule and it looks like after this week we’re free so we can finally do stuff together!
+Yui: Actually… that’s what I wanted to talk to you about…
+Yumi: It’s so great right! We can go to that cafe, we could get brunch,  we could have sleep overs! Think of the possibilities.
+Yui: Yumi…
+Yumi: What’s up! You look pretty gloomy. Is everything alright?
+Yui: Yumi, I’m leaving the band.
+Yumi: What…
+It’s like time has stopped.
+The memory fades but Yumi remains. She turns to you.
+Yumi: It was selfish of me. I realize it now. I so desperately wanted to be the only one that she shined on. Yet, I didn’t even hear her out. The choice was made for me when the SHE took over… I never would’ve done anything to hurt Yui… Please help me detective…
+Yumi too fades.
+Makoto: …
+Kite: Lady Makoto…?
+Makoto: Let’s finish this Kite.
+Kite: Lady Makoto, wait! Before we move forward I must let you know. The Kijo is weak and losing her grip on Yumi’s heart. However we can not seal her yet. We need her to expel more of her cursed energy.
+Makoto: So what do you suggest then?
+Kite: We simply need to burn her own energy away! It will be dangerous but you will need to endure an onslaught of her rage. But fear not with me by your side, harm shall not befall you!
+Makoto: So I just need to avoid her attacks for a little while… For Yumi and Yui’s sake I’ll do it. That’s what agents of justice do. Right?
+Kite: Indeed!
+=> END
+
+
+~ kijoConfrontation
+#The kijo speaks with Makoto and Kite after they see Yumi’s memories. 
+Kijo: You’ve finally made your way into my domain.
+Makoto: It’s over, Kijo!
+Kijo: Hah! Don’t make me laugh, as if a mere mortal and tengu shade could scare me. You don’t stand a chance against me!
+Kite: Empty threats will get you nowhere villain! Weakened and cornered, justice shall prevail against you!
+Kijo: Justice? Are my actions not in line with this so-called justice you won’t stop droning on about!? 
+Kijo: Yumi was forgotten! Abandoned by the one she cared most for! 
+Kijo: I was simply trying to free her from her own torment!
+Makoto: That’s no excuse for the pain and suffering you’ve caused!
+Kijo: I don’t need excuses, I simply want retribution! 
+Kijo: We’ve been deemed unimportant by the ones we cared most about. We’re forced to push our feelings, our pain, our very BEING into a box. 
+Kijo: We’re shoved into the closet to collect dust only to be pulled out when we’re considered useful! 
+Kijo: No longer will we be cast to the side! Forced to watch as others revel in the spotlight as we vie for second place! 
+Kijo: I’ll crush you, detective, and claim my revenge!
 => END

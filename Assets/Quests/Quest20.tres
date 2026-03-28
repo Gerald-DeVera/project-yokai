@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://cxusif4snmfcu"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_4ldm0"]
+
+[resource]
+script = ExtResource("1_4ldm0")
+questName = "Navigate Yumi’s Heart"
+fullDescription = "The Kijo has retreated into its domain in Yumi’s heart. Let’s find a way to free Yumi and seal the Kijo."

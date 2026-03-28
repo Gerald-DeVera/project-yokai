@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://ddpqd1ucqtnup"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_xrt8q"]
+
+[resource]
+script = ExtResource("1_xrt8q")
+questName = "Check Out Other Shops for Information"
+fullDescription = "Sagawa told us Yui planned on stopping at some shops nearby. Let’s ask around."

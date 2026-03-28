@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPC_Profile" format=3 uid="uid://b6r5dmig2t8o6"]
+
+[ext_resource type="Script" uid="uid://dyqlt6f5ja2nd" path="res://Scripts/npcNotebookProfile.gd" id="1_da5ok"]
+
+[resource]
+script = ExtResource("1_da5ok")
+name = "Shu"
+profilePicPath = "res://Assets/UI/Profiles/profile_shu.png"
+bio = "The Oni who protected Yui."
+evidenceQuotes = PackedStringArray("The Head Florist at Camellia.", "An oni who has been protecting Yui.", "Claims Yui was attacked by something while meeting with a friend.", "Claims Yui is afflicted by a curse of unknown origin.", "According to her, Oni are weak to beans.")

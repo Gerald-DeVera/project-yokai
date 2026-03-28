@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://caixoahn8744"]
 
-[ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="1_ed5bj"]
 [ext_resource type="PackedScene" uid="uid://b5m0h0n4twj7d" path="res://Scenes/Backgrounds/city_parallax.tscn" id="1_gtl7o"]
 [ext_resource type="Texture2D" uid="uid://deiq4acpd6rmm" path="res://Assets/Environment/bg_overworld/city_overworld_tileset.png" id="2_1qc4y"]
 [ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="2_jvwyf"]
@@ -18,12 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="14_2khwm"]
 [ext_resource type="Script" uid="uid://cja2uvu75861w" path="res://Scripts/interactableItem.gd" id="15_agp84"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="15_pbgbq"]
+[ext_resource type="Script" uid="uid://dxr4en444ru7b" path="res://Scenes/Levels/contact_one_shot.gd" id="15_xin8x"]
 [ext_resource type="Resource" uid="uid://c0i1iinxlvws8" path="res://Assets/InventoryItems/flowers.tres" id="16_57ck1"]
 [ext_resource type="Texture2D" uid="uid://c5feuka7xg2pa" path="res://Assets/UI/Items/item_sparkle-Sheet.png" id="17_57ck1"]
 [ext_resource type="Script" uid="uid://dgotmvgbw7wpu" path="res://Scripts/baseLevelScript.gd" id="18_64xah"]
 [ext_resource type="Resource" uid="uid://dk7wjvomgtb15" path="res://Assets/InventoryItems/bracelet1.tres" id="18_ed5bj"]
 [ext_resource type="Resource" uid="uid://bnsibo1s6wqps" path="res://Assets/InventoryItems/wallet.tres" id="19_64xah"]
-[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="23_64xah"]
+[ext_resource type="Texture2D" uid="uid://bm04uo137ouv3" path="res://Assets/Environment/portal-Sheet.png" id="24_xin8x"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="25_wcxke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ed5bj"]
 size = Vector2(13.000015, 1)
@@ -163,6 +164,9 @@ sources/0 = SubResource("TileSetAtlasSource_cdp0l")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_58a5k"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcxke"]
+size = Vector2(295, 20)
+
 [sub_resource type="Animation" id="Animation_xin8x"]
 length = 0.001
 tracks/0/type = "value"
@@ -210,6 +214,44 @@ use_hdr = true
 fill = 2
 fill_from = Vector2(0.7627907, 0.5255814)
 fill_to = Vector2(0.36744186, 0.5023256)
+
+[sub_resource type="Animation" id="Animation_64xah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_fb7ch"]
+resource_name = "flicker"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.27, 0.33333334, 0.53666663, 0.5685458, 0.59333336, 0.64529324, 0.7163093, 0.7907311, 0.8442217, 0.9349232, 0.975961, 1.0317774, 1.0968964, 1.2015519, 1.2425897, 1.2984061, 1.3635252, 1.4527253, 1.4937632, 1.5495795, 1.6146985),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.75, 0.25560716, 0.7, 0.51, 0.65, 1.0, 0.7, 0.51, 0.65, 1.0, 0.7, 0.51, 0.65, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pf5yo"]
+_data = {
+&"RESET": SubResource("Animation_64xah"),
+&"flicker": SubResource("Animation_fb7ch")
+}
 
 [sub_resource type="Gradient" id="Gradient_gia1v"]
 offsets = PackedFloat32Array(0.016806724, 0.5546219, 1)
@@ -280,6 +322,67 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_onlrw"),
 &"play_title": SubResource("Animation_x82q5")
+}
+
+[sub_resource type="Animation" id="Animation_krn6b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ptyjt"]
+resource_name = "portal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.085)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcxke"]
+_data = {
+&"RESET": SubResource("Animation_krn6b"),
+&"portal": SubResource("Animation_ptyjt")
 }
 
 [node name="Alleyway" type="Node2D" unique_id=416392867]
@@ -454,6 +557,8 @@ collision_mask = 33
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=397515915]
 position = Vector2(-2, -30)
 zoom = Vector2(2.5, 2.5)
+process_callback = 0
+position_smoothing_enabled = true
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_dvcqd")]
 
@@ -462,6 +567,17 @@ position = Vector2(20, 284)
 next_scene = "City"
 player_pos = Vector2(2755, 290)
 interactText = "To City"
+
+[node name="AlleywayOneShot" type="Node2D" parent="." unique_id=1079375107]
+position = Vector2(69, 259)
+rotation = -1.5707964
+script = ExtResource("15_xin8x")
+
+[node name="Area2D" type="Area2D" parent="AlleywayOneShot" unique_id=396039709]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlleywayOneShot/Area2D" unique_id=615668382]
+position = Vector2(83, -6.999998)
+shape = SubResource("RectangleShape2D_wcxke")
 
 [node name="Flowers" parent="." unique_id=456592238 instance=ExtResource("14_2khwm")]
 position = Vector2(135, 290)
@@ -535,29 +651,38 @@ color = Color(0.79186064, 0.5415253, 0.48792732, 1)
 energy = 0.85
 blend_mode = 2
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1606030445]
-visible = false
+[node name="LampLight" type="PointLight2D" parent="." unique_id=1606030445]
 position = Vector2(47.999992, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
-color = Color(0.81799215, 0.8183224, 0.8106099, 1)
+color = Color(0.36150822, 0.2655897, 0.1234299, 1)
 texture = SubResource("GradientTexture2D_gia1v")
 
-[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=2134199110]
-visible = false
-position = Vector2(290, -60.999996)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LampLight" unique_id=1333709343]
+libraries/ = SubResource("AnimationLibrary_pf5yo")
+autoplay = &"flicker"
+
+[node name="LampLight2" type="PointLight2D" parent="." unique_id=1704631735]
+position = Vector2(295.00003, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
-color = Color(0.6874761, 0.63669235, 0.5901678, 1)
+color = Color(0.36150822, 0.2655897, 0.1234299, 1)
 texture = SubResource("GradientTexture2D_gia1v")
 
-[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1865023061]
-visible = false
-position = Vector2(549, -60.999996)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LampLight2" unique_id=1885564431]
+libraries/ = SubResource("AnimationLibrary_pf5yo")
+autoplay = &"flicker"
+
+[node name="LampLight3" type="PointLight2D" parent="." unique_id=989475702]
+position = Vector2(548, -60.999996)
 rotation = 1.5707964
 scale = Vector2(11.743967, 2.6629012)
-color = Color(0.6874761, 0.63669235, 0.5901678, 1)
+color = Color(0.36150822, 0.2655897, 0.1234299, 1)
 texture = SubResource("GradientTexture2D_gia1v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LampLight3" unique_id=1154587388]
+libraries/ = SubResource("AnimationLibrary_pf5yo")
+autoplay = &"flicker"
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("7_fi4eb")]
 
@@ -590,8 +715,19 @@ autoplay = &"play_title"
 position = Vector2(523, 289)
 next_scene = "Yokai"
 isSpiritButton = true
-interactText = "???"
+interactText = "Another Realm"
 locked = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="YokaiPortal" unique_id=258561989]
-texture = ExtResource("23_64xah")
+[node name="Portal" type="Sprite2D" parent="YokaiPortal" unique_id=981482473]
+modulate = Color(0.8529948, 0.9792496, 1.3580135, 1)
+texture = ExtResource("24_xin8x")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YokaiPortal/Portal" unique_id=377758099]
+libraries/ = SubResource("AnimationLibrary_wcxke")
+autoplay = &"portal"
+
+[node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("25_wcxke")]
+position = Vector2(65, 266)
+
+[connection signal="body_entered" from="AlleywayOneShot/Area2D" to="AlleywayOneShot" method="_on_area_2d_body_entered"]

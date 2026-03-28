@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://bs7emqfi6sixp"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_rvses"]
+
+[resource]
+script = ExtResource("1_rvses")
+questName = "Confront The Florist"
+fullDescription = "Based on the evidence we found, Yui had indeed stopped by Camellia. Let’s head back and confront the Florist."

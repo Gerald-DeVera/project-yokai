@@ -2,20 +2,23 @@ extends Control
 
 var runOnce = true
 var pageNumber
-var MAX_PAGES = 2
+var MAX_PAGES = 5
 var questEntryTemplate = preload("res://Scenes/UIandUtil/quest_entry.tscn")
 var inputDisabled = false
 
-@onready var pageTitle = $TitleLeft
-@onready var questPage = $QuestPage
-@onready var profilePages = $ProfilePages
-@onready var questTitle = $QuestPage/TitleRight
-@onready var questEntries = $QuestPage/ScrollContainerLeft/QuestEntries
-@onready var currentQuestDesc = $QuestPage/ScrollContainerRight/VBoxContainer/QuestDescription
+@onready var pageTitle = $Main/TitleLeft
+@onready var questPage = $Main/QuestPage
+@onready var profilePages = $Main/ProfilePages
+@onready var questTitle = $Main/QuestPage/TitleRight
+@onready var questEntries = $Main/QuestPage/ScrollContainerLeft/QuestEntries
+@onready var currentQuestDesc = $Main/QuestPage/ScrollContainerRight/VBoxContainer/QuestDescription
+@onready var notebookAnimate = $AnimationPlayer
+@onready var backKey = $Back
+@onready var forwardKey = $Forward
 
-@onready var npcBio = $ProfilePages/Bio
-@onready var profileSprite = $ProfilePages/ProfilePicture
-@onready var npcInfo = $ProfilePages/Info_Quotes
+@onready var npcBio = $Main/ProfilePages/Bio
+@onready var profileSprite = $Main/ProfilePages/ProfilePicture
+@onready var npcInfo = $Main/ProfilePages/Info_Quotes
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,18 +30,26 @@ func _ready() -> void:
 func setup() -> void:
 	pageNumber = 1
 	flipToPage(pageNumber)
+	forwardKey.visible = true
+	backKey.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Notebook") and visible == true:
+		Signals.togglePlayerInput.emit(true)
+		Signals.toggleInventoryInput.emit(false)
+		notebookAnimate.play_backwards("toggle")
+		await notebookAnimate.animation_finished
+		visible = false
+		return
 	if inputDisabled:
 		return
 	
-	if Input.is_action_just_pressed("Notebook") and visible == true:
-		visible = false
-		Signals.togglePlayerInput.emit(true)
-		Signals.toggleInventoryInput.emit(false)
-	elif Input.is_action_just_pressed("Notebook") and visible == false:
+	if Input.is_action_just_pressed("Notebook") and visible == false:
+		notebookAnimate.play("RESET")
+		await notebookAnimate.animation_finished
 		visible = true
+		notebookAnimate.play("toggle")
 		Signals.togglePlayerInput.emit(false)
 		Signals.toggleInventoryInput.emit(true)
 		setup()
@@ -71,7 +82,9 @@ func flipToPage(page:int) -> void:
 			pageTitle.set_text("Investigation Progress")
 			questPage.visible = true
 			var newQuestEntry
-			for q in Global.questsList.quests.size():
+			for q in range(Global.questsList.quests.size() - 1, -1, -1):
+				if q == Global.questsList.quests.size() - 1:
+					displayQuestDesc(Global.questsList.quests[q].questName,Global.questsList.quests[q].fullDescription)
 				newQuestEntry = questEntryTemplate.instantiate()
 				newQuestEntry._ready()
 				newQuestEntry.questButton.text = Global.questsList.quests[q].questName
@@ -85,18 +98,29 @@ func flipToPage(page:int) -> void:
 			profileSprite.texture = load(profile.profilePicPath)
 			npcBio.set_text(profile.bio)
 			for q in profile.evidenceQuotes:
-				npcInfo.add_text("- " + q + "\n")
+				npcInfo.add_text("• " + q + "\n")
 	
 
 func _on_back_pressed() -> void:
 	if pageNumber > 1:
+		forwardKey.visible = true
 		pageNumber -= 1
 		flipToPage(pageNumber)
+		notebookAnimate.play("jiggle_left")
+		if pageNumber == 1:
+			backKey.visible = false
 
 func _on_forward_pressed() -> void:
 	if pageNumber < Global.npcProfileList.profileInfo.size() + 1:
+		backKey.visible = true
 		pageNumber += 1
 		flipToPage(pageNumber)
+		notebookAnimate.play("jiggle_right")
+		if pageNumber == Global.npcProfileList.profileInfo.size() + 1:
+			forwardKey.visible = false
+
+		
+
 
 func displayQuestDesc(name, desc) -> void:
 	currentQuestDesc.set_text(desc)

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://bdw6id42fdy4m"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_y47f7"]
+
+[resource]
+script = ExtResource("1_y47f7")
+questName = "Chase the Florist"
+fullDescription = "The Florist made a run for it! We have to go after her."

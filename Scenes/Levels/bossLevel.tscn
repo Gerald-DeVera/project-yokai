@@ -1,10 +1,10 @@
-[gd_scene format=4 uid="uid://vvoxuo8gmnba"]
+[gd_scene format=4 uid="uid://oqmpf0juqd3n"]
 
-[ext_resource type="PackedScene" uid="uid://dq8nv7ywkhn1o" path="res://Scenes/Entities/boss.tscn" id="1_kokxh"]
+[ext_resource type="PackedScene" uid="uid://b5lp10dp5sbwu" path="res://Scenes/Entities/boss.tscn" id="1_kokxh"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_m5b0x"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="1_rf6cf"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="2_bqvk6"]
-[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
+[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="2_mngpy"]
 [ext_resource type="Script" uid="uid://dh88mqpfjao2w" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
 [ext_resource type="Script" uid="uid://js6x0gvwqhao" path="res://Scripts/entityScripts/boss.gd" id="2_oq4ni"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
+[ext_resource type="Texture2D" uid="uid://1ycp8ukf7flq" path="res://Assets/Sprites/boulder.png" id="11_oq4ni"]
+[ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
+[ext_resource type="AudioStream" uid="uid://cstj3d5vroha5" path="res://Assets/Audio/BackgroundTracks/Art.wav" id="16_tv0ub"]
 
 [sub_resource type="Curve2D" id="Curve2D_bunke"]
 _data = {
@@ -115,7 +118,7 @@ rotation = -1.5707964
 script = ExtResource("2_hh1ma")
 
 [node name="cooldown" type="Timer" parent="bossStuff/ProjectileSpawners" unique_id=1309767295]
-wait_time = 5.0
+wait_time = 2.0
 autostart = true
 
 [node name="BoulderSpawners" type="Node" parent="bossStuff" unique_id=1678200570]
@@ -196,6 +199,11 @@ script = ExtResource("7_bunke")
 [node name="Checkpoint" parent="checkpointManager" unique_id=703634066 instance=ExtResource("7_ddmpi")]
 position = Vector2(10, 23)
 
+[node name="Boulder" type="Sprite2D" parent="." unique_id=1592226866]
+modulate = Color(0.9733173, 0.41555798, 0.7537728, 1)
+position = Vector2(80, -67)
+texture = ExtResource("11_oq4ni")
+
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
 visible = false
 
@@ -203,12 +211,22 @@ visible = false
 visible = false
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_m5b0x")]
-position = Vector2(-243, -100)
+position = Vector2(-57, -12)
+jump_velocity = -300.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1904402119]
 position = Vector2(-2, -30)
 offset = Vector2(0, -25.235)
 zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.815
+
+[node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("14_bunke")]
+position = Vector2(-50, -52)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1415003084]
+stream = ExtResource("16_tv0ub")
+autoplay = true
 
 [connection signal="timeout" from="bossStuff/ProjectileSpawners/cooldown" to="bossStuff/ProjectileSpawners" method="_on_cooldown_timeout"]
 

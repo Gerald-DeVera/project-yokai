@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestItem" format=3 uid="uid://djhla4vvm8fih"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_ars2w"]
+
+[resource]
+script = ExtResource("1_ars2w")
+questName = "Exit Camellia"
+fullDescription = "The Florist claimed Yui never stopped by. Back to square one."
