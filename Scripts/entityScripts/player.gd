@@ -175,6 +175,7 @@ func takeDamage(damage: int, objectVelocity: Vector2):
 	hitflash.play("hitflash")
 	if playerHealth <= 0:
 		print("player should be dead")
+		Signals.reloadScene.emit()
 	Signals.updatePlayerHealth.emit(playerHealth)
 	return
 	
