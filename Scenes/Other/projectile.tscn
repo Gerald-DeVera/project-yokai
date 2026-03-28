@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dshhx163h1q6j"]
+[gd_scene format=3 uid="uid://u5xhvaww2uy8"]
 
 [ext_resource type="Script" uid="uid://dr734vf5uu6cq" path="res://Scripts/projectile.gd" id="1_pmpp7"]
 [ext_resource type="Texture2D" uid="uid://cbx6fwsta6vu7" path="res://Assets/Sprites/boss projectile-Sheet.png" id="2_pmpp7"]
@@ -109,7 +109,7 @@ position = Vector2(-8, 0)
 shape = SubResource("CircleShape2D_u7efs")
 
 [node name="Timer" type="Timer" parent="." unique_id=147654955]
-wait_time = 3.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

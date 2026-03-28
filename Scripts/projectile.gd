@@ -29,7 +29,6 @@ func _on_timer_timeout() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") && hitbox.disabled != true:
-		print("hit!")
 		hitbox.disabled = true
 		Signals.damagePlayer.emit(1,self.velocity)
 		sprite.play("hit")

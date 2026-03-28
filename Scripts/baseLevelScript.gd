@@ -29,8 +29,8 @@ func _ready() -> void:
 			CityBG.modulate = Color(0.765, 0.467, 0.502, 1.0)
 			Buildings.modulate = Color(0.659, 0.635, 0.749, 1.0)
 			assets.modulate = Color(0.886, 0.714, 0.851, 1.0)
-			BGM.stream = load("res://Assets/Audio/BackgroundTracks/NightCity.wav")
-			BGM.play()
+			#BGM.stream = load("res://Assets/Audio/BackgroundTracks/NightCity.wav")
+			#BGM.play()
 		pass
 	elif self.name == "Office":
 		if Global.TimeOfDay == "Day":
