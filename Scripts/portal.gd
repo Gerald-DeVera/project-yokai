@@ -45,7 +45,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			if direction == Vector2i.LEFT || direction == Vector2i.RIGHT:
 				var tempVal = playerCharacter.velocity.y
 				playerCharacter.velocity.y = abs(playerCharacter.velocity.x) * velocityMultiplier
-				playerCharacter.velocity.x = tempVal
+				playerCharacter.velocity.x = 0
 			elif direction == Vector2i.DOWN:
 				playerCharacter.velocity.y *= -1 * velocityMultiplier
 			return
