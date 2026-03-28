@@ -6,10 +6,10 @@ var alternator = false
 @onready var selfSprite = $Sprite2D
 @onready var playerCharacter = $"../PlayerCharacter"
 @onready var physicalBody = $AnimatableBody2D
-@onready var physicalBodyOriginalPosition = physicalBody.position
+@onready var physicalBodyOriginalPosition = physicalBody.global_position
 @onready var collisionBody = $Area2D
-@onready var collisionBodyOriginalPosition = collisionBody.position
-@onready var originalPosition = position
+@onready var collisionBodyOriginalPosition = collisionBody.global_position
+@onready var originalPosition = global_position
 var spritePos : Vector2
 var timerVal : float
 @export var fallspeed : float
@@ -42,14 +42,14 @@ func _process(delta: float) -> void:
 		return
 	if isFalling:
 		timerVal += delta
-		self.position += Vector2(0,fallspeed) * delta
-		physicalBody.position += Vector2(0,fallspeed) * delta
-		collisionBody.position += Vector2(0,fallspeed) * delta
+		self.global_position += Vector2(0,fallspeed) * delta
+		physicalBody.global_position += Vector2(0,fallspeed) * delta
+		collisionBody.global_position += Vector2(0,fallspeed) * delta
 		fallspeed += fallAcceleration * delta
 	if timerVal > 4.5:
-		self.position = originalPosition
-		physicalBody.position = physicalBodyOriginalPosition
-		collisionBody.position = collisionBodyOriginalPosition
+		self.global_position = originalPosition
+		physicalBody.global_position = physicalBodyOriginalPosition
+		collisionBody.global_position = collisionBodyOriginalPosition
 		isFalling = false
 		timerVal = 0
 		fallspeed = originalFallSpeed
