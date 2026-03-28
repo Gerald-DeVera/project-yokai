@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bmbtupp20w1al"]
+
+[ext_resource type="Script" uid="uid://0udb1afrmyew" path="res://Scripts/boulder.gd" id="1_j1vit"]
+[ext_resource type="Texture2D" uid="uid://bpxkm3k05j1kl" path="res://Assets/Sprites/kite expressions left.png" id="1_p85ks"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j1vit"]
+friction = 0.4
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p85ks"]
+radius = 19.026299
+
+[node name="Boulder" type="RigidBody2D" unique_id=2107697425]
+physics_material_override = SubResource("PhysicsMaterial_j1vit")
+center_of_mass_mode = 1
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_j1vit")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=301498066]
+position = Vector2(0, 1)
+scale = Vector2(0.50666666, 0.54)
+texture = ExtResource("1_p85ks")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=619925573]
+shape = SubResource("CircleShape2D_p85ks")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
