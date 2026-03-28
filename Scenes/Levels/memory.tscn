@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://jhw7s86q1lo2"]
 
+[ext_resource type="Texture2D" uid="uid://ce2q4x7epdacu" path="res://Assets/Environment/memory_alleyway.png" id="1_5lni0"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_71fy6"]
 [ext_resource type="Texture2D" uid="uid://cnss2f3uqfbuh" path="res://Assets/Sprites/yui sprite-Sheet.png" id="1_wscot"]
 [ext_resource type="Texture2D" uid="uid://c3cs7oyxrot5m" path="res://Assets/Sprites/yumi sprite-Sheet.png" id="2_5lni0"]
@@ -320,6 +321,12 @@ texture = SubResource("GradientTexture2D_4pu8k")
 visibility_rect = Rect2(-336.285, -204.975, 700, 400)
 process_material = SubResource("ParticleProcessMaterial_wscot")
 
+[node name="MemoryBG" type="Sprite2D" parent="." unique_id=638350322]
+modulate = Color(1, 1, 1, 0.83137256)
+position = Vector2(469, 228.00002)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("1_5lni0")
+
 [node name="YuiSpriteSheet" type="Sprite2D" parent="." unique_id=1289561455]
 position = Vector2(495, 249)
 texture = ExtResource("1_wscot")
@@ -353,7 +360,7 @@ position_smoothing_enabled = true
 [node name="Reflection" type="Sprite2D" parent="." unique_id=524478771]
 z_index = 2
 material = SubResource("ShaderMaterial_v3330")
-position = Vector2(459.99997, 391)
+position = Vector2(460.00003, 404)
 scale = Vector2(886.5, 231.5)
 texture = SubResource("CanvasTexture_bmsx1")
 script = ExtResource("6_yjvo7")
