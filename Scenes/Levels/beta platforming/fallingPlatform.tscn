@@ -11,8 +11,8 @@ size = Vector2(72, 1)
 
 [node name="FallingPlatform" type="Node2D" unique_id=644855615]
 script = ExtResource("1_skqvl")
-fallspeed = 100.0
-fallAcceleration = 5.0
+fallspeed = 130.0
+fallAcceleration = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1076130367]
 texture = ExtResource("2_nxj01")

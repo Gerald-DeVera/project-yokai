@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 			else:
 				selfSprite.position = spritePos + Vector2(1,0)
 			alternator = !alternator
-		if timerVal > 100 * delta:
+		if timerVal > 1.5:
 			selfSprite.position = spritePos
 			isFalling = true
 			beginFalling = false
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 		physicalBody.position += Vector2(0,fallspeed) * delta
 		collisionBody.position += Vector2(0,fallspeed) * delta
 		fallspeed += fallAcceleration * delta
-	if timerVal > 300 * delta:
+	if timerVal > 4.5:
 		self.position = originalPosition
 		physicalBody.position = physicalBodyOriginalPosition
 		collisionBody.position = collisionBodyOriginalPosition
