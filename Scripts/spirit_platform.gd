@@ -10,6 +10,8 @@ var turnedVisible = false
 
 func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
+	collision.disabled = true
+	interactable = false
 	pass # Replace with function body.
 			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
