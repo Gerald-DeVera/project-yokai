@@ -7,12 +7,20 @@
 [ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="2_mngpy"]
 [ext_resource type="Script" uid="uid://dh88mqpfjao2w" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
+[ext_resource type="Script" uid="uid://js6x0gvwqhao" path="res://Scripts/entityScripts/boss.gd" id="2_oq4ni"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="4_1b4hs"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="5_hh1ma"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_mngpy"]
+[ext_resource type="Script" uid="uid://dghx2bvex2g4e" path="res://Scripts/boulderSpawner.gd" id="5_tv0ub"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
+
+[sub_resource type="Curve2D" id="Curve2D_bunke"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 335, -87, 0, 0, 0, 0, -408, -87)
+}
+point_count = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kokxh"]
 texture = ExtResource("1_rf6cf")
@@ -86,6 +94,7 @@ sources/1 = SubResource("TileSetAtlasSource_ch33t")
 
 [node name="Boss" parent="bossStuff" unique_id=1873205114 instance=ExtResource("1_kokxh")]
 position = Vector2(336, -86)
+script = ExtResource("2_oq4ni")
 
 [node name="ProjectileSpawners" type="Node" parent="bossStuff" unique_id=905808343]
 script = ExtResource("2_om0u7")
@@ -109,6 +118,39 @@ script = ExtResource("2_hh1ma")
 wait_time = 5.0
 autostart = true
 
+[node name="BoulderSpawners" type="Node" parent="bossStuff" unique_id=1678200570]
+
+[node name="bls1" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=733635098]
+position = Vector2(-354, -272)
+script = ExtResource("5_tv0ub")
+
+[node name="bls2" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=238563593]
+position = Vector2(-224.5, -272)
+script = ExtResource("5_tv0ub")
+
+[node name="bls3" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=1766207078]
+position = Vector2(-94, -272)
+script = ExtResource("5_tv0ub")
+
+[node name="bls4" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=2024865570]
+position = Vector2(36, -272)
+
+[node name="bls5" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=1456415727]
+position = Vector2(166, -272)
+
+[node name="bls6" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=2132671496]
+position = Vector2(296, -272)
+
+[node name="BossChargePositions" type="Node" parent="bossStuff" unique_id=1022541169]
+
+[node name="Path2D" type="Path2D" parent="bossStuff/BossChargePositions" unique_id=1334360299]
+curve = SubResource("Curve2D_bunke")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="bossStuff/BossChargePositions/Path2D" unique_id=548943090]
+position = Vector2(335, -87)
+rotation = 3.1415927
+cubic_interp = false
+
 [node name="tilemaps" type="Node" parent="." unique_id=1871530816]
 
 [node name="decodecoTile" type="TileMapLayer" parent="tilemaps" unique_id=2099867354]
@@ -123,7 +165,7 @@ tile_set = SubResource("TileSet_ude81")
 
 [node name="floorTiles" type="TileMapLayer" parent="tilemaps" unique_id=1095251704]
 z_index = 1
-tile_map_data = PackedByteArray("AAD+/wEAAQABAAAAAAD//wEAAQABAAAAAAAAAAEAAQABAAAAAAABAAEAAQABAAAAAAACAAEAAQABAAAAAAADAAEAAQABAAAAAAAEAAEAAQABAAAAAAAFAAEAAQABAAAAAAAGAAEAAQABAAAAAAAHAAEAAQABAAAAAAAIAAEAAQABAAAAAAAJAAEAAQABAAAAAAAKAAEAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAANAAEAAQABAAAAAAAOAAEAAQABAAAAAAD+/wIAAQABAAEAAAD//wIAAQABAAEAAAAAAAIAAQABAAEAAAABAAIAAQABAAEAAAACAAIAAQABAAEAAAADAAIAAQABAAEAAAAEAAIAAQABAAEAAAAFAAIAAQABAAEAAAAGAAIAAQABAAEAAAAHAAIAAQABAAEAAAAIAAIAAQABAAEAAAAJAAIAAQABAAEAAAAKAAIAAQABAAEAAAALAAIAAQABAAEAAAAMAAIAAQABAAEAAAANAAIAAQABAAEAAAAOAAIAAQABAAIAAAD9/wEAAQAAAAAAAAAPAAEAAQACAAAAAAD9/wIAAQAAAAEAAAAPAAIAAQACAAEAAAD8/wEAAQABAAMAAAD8/wAAAQABAAMAAAD8////AQABAAMAAAD8//7/AQABAAMAAAD8//3/AQABAAMAAAD8//z/AQABAAMAAAD8//v/AQABAAMAAAD8//r/AQABAAMAAAD8//n/AQABAAMAAAD8//j/AQABAAMAAAD8//f/AQABAAMAAAAQAAAAAQABAAMAADAQAP//AQABAAMAADAQAP7/AQABAAMAADAQAP3/AQABAAMAADAQAPz/AQABAAMAADAQAPv/AQABAAMAADAQAPr/AQABAAMAADAQAPj/AQABAAMAADAQAPn/AQABAAMAADAQAPf/AQABAAMAADAPAAMAAQACAAIAAAD9/wMAAQAAAAIAAAD+/wMAAQABAAIAAAD//wMAAQABAAIAAAAAAAMAAQABAAIAAAABAAMAAQABAAIAAAACAAMAAQABAAIAAAADAAMAAQABAAIAAAAEAAMAAQABAAIAAAAFAAMAAQABAAIAAAAGAAMAAQABAAIAAAAHAAMAAQABAAIAAAAIAAMAAQABAAIAAAAJAAMAAQABAAIAAAAKAAMAAQABAAIAAAALAAMAAQABAAIAAAAMAAMAAQABAAIAAAANAAMAAQABAAIAAAAOAAMAAQABAAIAAAA=")
+tile_map_data = PackedByteArray("AAD+/wEAAQABAAAAAAD//wEAAQABAAAAAAAAAAEAAQABAAAAAAABAAEAAQABAAAAAAACAAEAAQABAAAAAAADAAEAAQABAAAAAAAEAAEAAQABAAAAAAAFAAEAAQABAAAAAAAGAAEAAQABAAAAAAAHAAEAAQABAAAAAAAIAAEAAQABAAAAAAAJAAEAAQABAAAAAAAKAAEAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAANAAEAAQABAAAAAAAOAAEAAQABAAAAAAD+/wIAAQABAAEAAAD//wIAAQABAAEAAAAAAAIAAQABAAEAAAABAAIAAQABAAEAAAACAAIAAQABAAEAAAADAAIAAQABAAEAAAAEAAIAAQABAAEAAAAFAAIAAQABAAEAAAAGAAIAAQABAAEAAAAHAAIAAQABAAEAAAAIAAIAAQABAAEAAAAJAAIAAQABAAEAAAAKAAIAAQABAAEAAAALAAIAAQABAAEAAAAMAAIAAQABAAEAAAANAAIAAQABAAEAAAAOAAIAAQABAAIAAAD9/wEAAQABAAAAAAAPAAEAAQACAAAAAAD9/wIAAQABAAEAAAAPAAIAAQACAAEAAAD8/wEAAQABAAAAAAAQAAAAAQABAAMAADAQAP//AQABAAMAADAQAP7/AQABAAMAADAQAP3/AQABAAMAADAQAPz/AQABAAMAADAQAPv/AQABAAMAADAQAPr/AQABAAMAADAQAPj/AQABAAMAADAQAPn/AQABAAMAADAQAPf/AQABAAMAADAPAAMAAQACAAEAAAD9/wMAAQABAAEAAAD+/wMAAQABAAEAAAD//wMAAQABAAIAAAAAAAMAAQABAAIAAAABAAMAAQABAAIAAAACAAMAAQABAAIAAAADAAMAAQABAAIAAAAEAAMAAQABAAIAAAAFAAMAAQABAAIAAAAGAAMAAQABAAIAAAAHAAMAAQABAAIAAAAIAAMAAQABAAIAAAAJAAMAAQABAAIAAAAKAAMAAQABAAIAAAALAAMAAQABAAIAAAAMAAMAAQABAAIAAAANAAMAAQABAAIAAAAOAAMAAQABAAIAAAD7/wEAAQABAAAAAAD6/wEAAQABAAAAAAD5/wEAAQABAAAAAAD4/wEAAQABAAAAAAD3/wEAAQABAAAAAAD2/wEAAQABAAAAAAD1/wEAAQABAAAAAAD0/wEAAQABAAAAAADz/wEAAQABAAAAAADy/wEAAQABAAAAAADx/wEAAQABAAAAAADw/wEAAQABAAAAAADv/wEAAQABAAAAAADu/wEAAQAAAAAAAADu/wIAAQAAAAEAAADu/wMAAQAAAAEAAADv/wIAAQABAAEAAADv/wMAAQABAAEAAADw/wMAAQABAAEAAADx/wMAAQABAAEAAADy/wMAAQABAAEAAADz/wMAAQABAAEAAAD0/wMAAQABAAEAAAD1/wMAAQABAAEAAAD2/wMAAQABAAEAAAD3/wMAAQABAAEAAAD4/wMAAQABAAEAAAD5/wMAAQABAAEAAAD6/wMAAQABAAEAAAD6/wIAAQABAAEAAAD7/wIAAQABAAEAAAD8/wIAAQABAAEAAAD8/wMAAQABAAEAAAD7/wMAAQABAAEAAADy/wIAAQABAAEAAADx/wIAAQABAAEAAADw/wIAAQABAAEAAADz/wIAAQABAAEAAAD0/wIAAQABAAEAAAD1/wIAAQABAAEAAAD2/wIAAQABAAEAAAD3/wIAAQABAAEAAAD4/wIAAQABAAEAAAD5/wIAAQABAAEAAADu/wQAAQAAAAIAAAAPAAQAAQACAAIAAADv/wQAAQABAAEAAADw/wQAAQABAAEAAADx/wQAAQABAAEAAADy/wQAAQABAAEAAADz/wQAAQABAAEAAAD0/wQAAQABAAEAAAD1/wQAAQABAAEAAAD2/wQAAQABAAEAAAD3/wQAAQABAAEAAAD4/wQAAQABAAEAAAD5/wQAAQABAAEAAAD6/wQAAQABAAEAAAD7/wQAAQABAAEAAAD8/wQAAQABAAEAAAD9/wQAAQABAAEAAAD+/wQAAQABAAEAAAD//wQAAQABAAEAAAAAAAQAAQABAAEAAAABAAQAAQABAAEAAAACAAQAAQABAAEAAAADAAQAAQABAAEAAAAEAAQAAQABAAEAAAAFAAQAAQABAAEAAAAGAAQAAQABAAEAAAAHAAQAAQABAAEAAAAIAAQAAQABAAEAAAAJAAQAAQABAAEAAAAKAAQAAQABAAEAAAALAAQAAQABAAEAAAAMAAQAAQABAAEAAAANAAQAAQABAAEAAAAOAAQAAQABAAEAAADt/wAAAQABAAMAAADt////AQABAAMAAADt//7/AQABAAMAAADt//3/AQABAAMAAADt//z/AQABAAMAAADt//v/AQABAAMAAADt//r/AQABAAMAAADt//n/AQABAAMAAADt//j/AQABAAMAAADt//f/AQABAAMAAADt//b/AQABAAMAAADt//X/AQABAAMAAADt//T/AQABAAMAAAA=")
 tile_set = SubResource("TileSet_1b4hs")
 rendering_quadrant_size = 24
 physics_quadrant_size = 24
@@ -131,27 +173,37 @@ physics_quadrant_size = 24
 [node name="platforms" type="Node" parent="." unique_id=1533969794]
 
 [node name="LeafPlatform" parent="platforms" unique_id=133722252 instance=ExtResource("4_1b4hs")]
-position = Vector2(80, -35)
+position = Vector2(-237, -46)
 
 [node name="TreePlatform" parent="platforms" unique_id=1564068842 instance=ExtResource("5_hh1ma")]
-position = Vector2(-6, -6)
+position = Vector2(-321, -4)
 
 [node name="Platforms" parent="platforms" unique_id=447349731 instance=ExtResource("6_om0u7")]
-position = Vector2(168, -12)
+position = Vector2(-179, -10)
+
+[node name="Platforms2" parent="platforms" unique_id=1143560199 instance=ExtResource("6_om0u7")]
+position = Vector2(-54, -58)
+
+[node name="TreePlatform2" parent="platforms" unique_id=2082174460 instance=ExtResource("5_hh1ma")]
+position = Vector2(66, -7)
+
+[node name="LeafPlatform2" parent="platforms" unique_id=1560043993 instance=ExtResource("4_1b4hs")]
+position = Vector2(130, -52)
 
 [node name="checkpointManager" type="Node" parent="." unique_id=429831263]
 script = ExtResource("7_bunke")
 
 [node name="Checkpoint" parent="checkpointManager" unique_id=703634066 instance=ExtResource("7_ddmpi")]
-position = Vector2(-27, 23)
+position = Vector2(10, 23)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
 visible = false
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_mngpy")]
+visible = false
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_m5b0x")]
-position = Vector2(-57, -12)
+position = Vector2(-243, -100)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1904402119]
 position = Vector2(-2, -30)
@@ -159,3 +211,5 @@ offset = Vector2(0, -25.235)
 zoom = Vector2(1.5, 1.5)
 
 [connection signal="timeout" from="bossStuff/ProjectileSpawners/cooldown" to="bossStuff/ProjectileSpawners" method="_on_cooldown_timeout"]
+
+[editable path="bossStuff/Boss"]
