@@ -1,5 +1,6 @@
 #This is a conversaton that plays when the palyer interacts with Yumi at the start.
 ~ OpeningScene
+do Global.finishOneShot("StartGame")
 Kite: [#camera_animation=zoom_in]Ah, Lady Makoto! Beginning work at dawn's break as per usual, I see. [#animate_left=exit_convo][#expression_right=happy][#animate_right=enter_convo][#actor_right=on][#new_actor=kite_right]
 Makoto: Yes. Just some paperwork. [#animate_right=exit_convo][#animate_left=enter_convo]
 Kite: Wonderous! The joys of modern busywork seem to have you in high spirits, my lady! [#animate_left=exit_convo][#animate_right=enter_convo]
@@ -13,7 +14,7 @@ Kite: Wonderful! Shall we be expecting him? [#animate_left=exit_convo][#animate_
 Makoto: Not this time. He said someone would come to us. [#animate_right=exit_convo][#animate_left=enter_convo]
 #add door knock sound here
 There is a knock at the door.
-Makoto: That must be them.
+Makoto: That must be them. [do Signals.moveCharacter.emit("PlayerCharacter", "exitStore")]
 do Global.grabCameraPos()
 Makoto: [do Global.moveCamera(Vector2(-40,-30))]Please, come in.
 #CAMERA PANS TO DOOR HERE

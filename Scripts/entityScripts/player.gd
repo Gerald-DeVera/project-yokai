@@ -220,6 +220,8 @@ func moveBody(charName: String, event: String):
 			movement_state_machine.travel("box_idle")
 		elif event == "box_idle":
 			movement_state_machine.travel("box_idle")
+		elif event == "idleLoad":
+			movement_state_machine.travel("IdleSet")
 
 			
 func tempChangeVelocity(newVelocity: float):

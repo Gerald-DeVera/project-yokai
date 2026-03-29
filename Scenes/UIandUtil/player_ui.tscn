@@ -1123,6 +1123,7 @@ scale = Vector2(0.955, 0.955)
 libraries/ = SubResource("AnimationLibrary_53qiu")
 
 [node name="HUD" type="Control" parent="." unique_id=1181559438]
+visible = false
 top_level = true
 z_index = 1
 layout_mode = 3

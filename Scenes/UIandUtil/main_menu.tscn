@@ -1,0 +1,543 @@
+[gd_scene format=3 uid="uid://cu8431wkxyxpp"]
+
+[ext_resource type="Script" uid="uid://chp3s3dvcf1ev" path="res://Scenes/UIandUtil/main_menu.gd" id="1_rhxkt"]
+[ext_resource type="Texture2D" uid="uid://e0yp0ivwoh00" path="res://Assets/UI/menu_bg.png" id="2_8kfdy"]
+[ext_resource type="StyleBox" uid="uid://cbv3qss5nqtmi" path="res://Assets/Themes and Fonts/dialog_choice_default.tres" id="2_hd1h2"]
+[ext_resource type="Texture2D" uid="uid://cy0wxwljw68c8" path="res://Assets/dialog_ui_stringasset.png" id="2_irntl"]
+[ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="2_xc7e4"]
+[ext_resource type="FontFile" uid="uid://b6jdat4l5binh" path="res://Assets/Themes and Fonts/Jersey10-Regular.ttf" id="3_irntl"]
+[ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="4_ptmrj"]
+[ext_resource type="Script" uid="uid://dea1ln61gjcce" path="res://Scenes/UIandUtil/buttonhover.gd" id="5_86wuk"]
+[ext_resource type="FontFile" uid="uid://uf7b4k381gwo" path="res://Assets/Themes and Fonts/Jersey25-Regular.ttf" id="5_qq230"]
+[ext_resource type="Texture2D" uid="uid://div4bqbp01ac1" path="res://Assets/UI/inventory_pencil.png" id="6_8kfdy"]
+[ext_resource type="Texture2D" uid="uid://cyi03makeinfs" path="res://Assets/UI/pin animation-Sheet.png" id="6_axic5"]
+[ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="8_86wuk"]
+[ext_resource type="Texture2D" uid="uid://cv2n6e7tnk1yk" path="res://Assets/UI/inventory_paper.png" id="9_17odb"]
+[ext_resource type="Texture2D" uid="uid://yw4fb8s7u5pu" path="res://Assets/UI/notebook_container9grid.png" id="10_dsxpm"]
+[ext_resource type="Texture2D" uid="uid://fucyfubce8bi" path="res://Assets/UI/inventory_label.png" id="13_qq230"]
+
+[sub_resource type="FontVariation" id="FontVariation_65hqi"]
+base_font = ExtResource("4_ptmrj")
+spacing_top = -7
+
+[sub_resource type="FontVariation" id="FontVariation_38s4d"]
+base_font = ExtResource("5_qq230")
+spacing_top = -1
+
+[sub_resource type="Animation" id="Animation_2y3n7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryPaper:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(520, 199)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryPaper:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.18854326]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryPaper2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(406.99997, 185.00002)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InventoryPaper2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.3722955]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NotebookContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(339, 39)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("InventoryPencil:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(578, 264)]
+}
+
+[sub_resource type="Animation" id="Animation_xey5l"]
+resource_name = "toggle"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryPaper:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(717, 457), Vector2(520, 199)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryPaper:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.1938052, 0.18854326]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryPaper2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(97.000015, 477), Vector2(406.99997, 185.00002)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InventoryPaper2:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.4800392, -0.3722955]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NotebookContainer:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(339, 383), Vector2(339, 39)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("InventoryPencil:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(700.00006, -14), Vector2(578, 264)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0nqgj"]
+_data = {
+&"RESET": SubResource("Animation_2y3n7"),
+&"toggle": SubResource("Animation_xey5l")
+}
+
+[sub_resource type="Animation" id="Animation_d4akc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bsd0q"]
+resource_name = "pin"
+length = 0.31
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17odb"]
+_data = {
+&"RESET": SubResource("Animation_d4akc"),
+&"pin": SubResource("Animation_bsd0q")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kfdy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65hqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38s4d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2y3n7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xey5l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nqgj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lb8la"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io67a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bo2bv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro8q7"]
+
+[node name="MainMenu" type="Control" unique_id=2093124144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rhxkt")
+
+[node name="MenuBg" type="Sprite2D" parent="." unique_id=29591602]
+position = Vector2(320, 181)
+texture = ExtResource("2_8kfdy")
+
+[node name="CreditsUI" type="Control" parent="." unique_id=1058927295]
+visible = false
+anchors_preset = 0
+offset_left = -17.0
+offset_top = -6.0
+offset_right = 23.0
+offset_bottom = 34.0
+
+[node name="InventoryPaper" type="Sprite2D" parent="CreditsUI" unique_id=75941052]
+position = Vector2(520, 199)
+rotation = 0.18854326
+scale = Vector2(2.39557, 2.3955703)
+texture = ExtResource("9_17odb")
+
+[node name="InventoryPaper2" type="Sprite2D" parent="CreditsUI" unique_id=1127283707]
+position = Vector2(406.99997, 185.00002)
+rotation = -0.3722955
+scale = Vector2(2.437759, 2.4377594)
+texture = ExtResource("9_17odb")
+flip_h = true
+
+[node name="NotebookContainer" type="NinePatchRect" parent="CreditsUI" unique_id=1562531844]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 39.0
+offset_right = 584.0
+offset_bottom = 315.62415
+texture = ExtResource("10_dsxpm")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="CreditTitle" type="RichTextLabel" parent="CreditsUI/NotebookContainer" unique_id=1646002041]
+clip_contents = false
+layout_mode = 0
+offset_left = 57.0
+offset_top = 13.0
+offset_right = 195.82501
+offset_bottom = 39.0
+theme_override_colors/default_color = Color(0.43814006, 0.31600127, 0.19817123, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = SubResource("FontVariation_65hqi")
+theme_override_font_sizes/normal_font_size = 23
+bbcode_enabled = true
+text = "Credits
+"
+horizontal_alignment = 1
+
+[node name="CreditInfo" type="RichTextLabel" parent="CreditsUI/NotebookContainer" unique_id=2129122428]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 38.0
+offset_right = 233.0
+offset_bottom = 262.0
+theme_override_colors/default_color = Color(0.4035181, 0.3074616, 0.22773015, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_38s4d")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Programming -  badabingbadaboom
+Art - pee pee poo poo
+Music - Balalal
+Story - Pissman123
+
+dialogue manager
+sfx
+etcetc"
+horizontal_alignment = 1
+
+[node name="InventoryPencil" type="Sprite2D" parent="CreditsUI" unique_id=215407841]
+position = Vector2(578, 264)
+rotation = 0.35383716
+scale = Vector2(1.8999999, 1.9)
+texture = ExtResource("6_8kfdy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CreditsUI" unique_id=1432181847]
+libraries/ = SubResource("AnimationLibrary_0nqgj")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1519546187]
+z_index = -1
+layout_mode = 0
+offset_left = 51.0
+offset_top = 184.0
+offset_right = 64.0
+offset_bottom = 330.0
+texture = ExtResource("2_irntl")
+region_rect = Rect2(5, 1, 14, 62)
+patch_margin_top = 15
+patch_margin_bottom = 23
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Start" type="Button" parent="." unique_id=1964027619]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 190.0
+offset_right = 225.31302
+offset_bottom = 228.10254
+theme = ExtResource("2_xc7e4")
+theme_override_colors/font_color = Color(0.31764707, 0.15686275, 0.050980393, 1)
+theme_override_colors/font_focus_color = Color(0.6039216, 0.32156864, 0.13725491, 1)
+theme_override_colors/font_pressed_color = Color(0.16470589, 0.07058824, 0.015686275, 1)
+theme_override_colors/font_hover_color = Color(0.6039216, 0.32156864, 0.13725491, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.16470589, 0.07058824, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("3_irntl")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("2_hd1h2")
+theme_override_styles/pressed = ExtResource("2_hd1h2")
+theme_override_styles/hover = ExtResource("2_hd1h2")
+theme_override_styles/disabled = ExtResource("2_hd1h2")
+theme_override_styles/focus = ExtResource("2_hd1h2")
+text = "New Investigation"
+script = ExtResource("5_86wuk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Start" unique_id=194857914]
+visible = false
+z_index = 3
+position = Vector2(-5, 5)
+texture = ExtResource("6_axic5")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Start/Sprite2D" unique_id=1782109533]
+libraries/ = SubResource("AnimationLibrary_17odb")
+
+[node name="Credits" type="Button" parent="." unique_id=1109529948]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 235.0
+offset_right = 225.31302
+offset_bottom = 273.10254
+theme = ExtResource("2_xc7e4")
+theme_override_colors/font_color = Color(0.31764707, 0.15686275, 0.050980393, 1)
+theme_override_colors/font_focus_color = Color(0.6039216, 0.32156864, 0.13725491, 1)
+theme_override_colors/font_pressed_color = Color(0.16470589, 0.07058824, 0.015686275, 1)
+theme_override_colors/font_hover_color = Color(0.6039216, 0.32156864, 0.13725491, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.16470589, 0.07058824, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("3_irntl")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("2_hd1h2")
+theme_override_styles/pressed = ExtResource("2_hd1h2")
+theme_override_styles/hover = ExtResource("2_hd1h2")
+theme_override_styles/disabled = ExtResource("2_hd1h2")
+theme_override_styles/focus = ExtResource("2_hd1h2")
+text = "Credits"
+script = ExtResource("5_86wuk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Credits" unique_id=1453514630]
+visible = false
+z_index = 3
+position = Vector2(-5, 5)
+texture = ExtResource("6_axic5")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Credits/Sprite2D" unique_id=1534982153]
+libraries/ = SubResource("AnimationLibrary_17odb")
+
+[node name="Quit" type="Button" parent="." unique_id=1278721904]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 281.0
+offset_right = 225.31302
+offset_bottom = 319.10254
+theme = ExtResource("2_xc7e4")
+theme_override_colors/font_color = Color(0.31764707, 0.15686275, 0.050980393, 1)
+theme_override_colors/font_focus_color = Color(0.6039216, 0.32156864, 0.13725491, 1)
+theme_override_colors/font_pressed_color = Color(0.16470589, 0.07058824, 0.015686275, 1)
+theme_override_colors/font_hover_color = Color(0.6039216, 0.32156864, 0.13725491, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.16470589, 0.07058824, 0.015686275, 1)
+theme_override_fonts/font = ExtResource("3_irntl")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("2_hd1h2")
+theme_override_styles/pressed = ExtResource("2_hd1h2")
+theme_override_styles/hover = ExtResource("2_hd1h2")
+theme_override_styles/disabled = ExtResource("2_hd1h2")
+theme_override_styles/focus = ExtResource("2_hd1h2")
+text = "Quit
+"
+script = ExtResource("5_86wuk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Quit" unique_id=1228036375]
+visible = false
+z_index = 3
+position = Vector2(-5, 5)
+texture = ExtResource("6_axic5")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Quit/Sprite2D" unique_id=1925336410]
+libraries/ = SubResource("AnimationLibrary_17odb")
+
+[node name="QuitConfirm" type="NinePatchRect" parent="." unique_id=667974468]
+visible = false
+layout_mode = 0
+offset_left = 228.0
+offset_top = 172.0
+offset_right = 433.0
+offset_bottom = 305.99988
+
+[node name="ColorRect" type="ColorRect" parent="QuitConfirm" unique_id=147532943]
+layout_mode = 0
+offset_left = -234.0
+offset_top = -176.0
+offset_right = 421.0
+offset_bottom = 198.0
+color = Color(0, 0, 0, 0.57900006)
+
+[node name="InventoryLabel" type="Sprite2D" parent="QuitConfirm" unique_id=175078872]
+position = Vector2(11.204544, 18.5)
+scale = Vector2(1.6818181, 1.6818181)
+texture = ExtResource("13_qq230")
+
+[node name="InventoryLabel2" type="Sprite2D" parent="QuitConfirm" unique_id=792886442]
+position = Vector2(182.20454, 18.5)
+scale = Vector2(1.6818181, 1.6818181)
+texture = ExtResource("13_qq230")
+
+[node name="ResumeButton" type="Button" parent="QuitConfirm" unique_id=192192675]
+layout_mode = 0
+offset_left = -27.795456
+offset_top = 2.5
+offset_right = 53.204544
+offset_bottom = 33.5
+theme_override_colors/font_color = Color(0.3840039, 0.33983007, 0.23864725, 1)
+theme_override_colors/font_focus_color = Color(0.54901963, 0.49411765, 0.36078432, 1)
+theme_override_colors/font_pressed_color = Color(0.32669014, 0.28874084, 0.19899759, 1)
+theme_override_colors/font_hover_color = Color(0.54806864, 0.49267465, 0.36203638, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3254902, 0.2901961, 0.2, 1)
+theme_override_colors/font_disabled_color = Color(0.38431373, 0.34117648, 0.23921569, 1)
+theme_override_fonts/font = ExtResource("4_ptmrj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8kfdy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_65hqi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_38s4d")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2y3n7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xey5l")
+disabled = true
+text = "No"
+
+[node name="QuitButton" type="Button" parent="QuitConfirm" unique_id=513611197]
+layout_mode = 0
+offset_left = 148.20454
+offset_top = 3.5
+offset_right = 218.20454
+offset_bottom = 34.5
+theme_override_colors/font_color = Color(0.38431373, 0.34117648, 0.23921569, 1)
+theme_override_colors/font_focus_color = Color(0.54901963, 0.49411765, 0.36078432, 1)
+theme_override_colors/font_pressed_color = Color(0.3254902, 0.2901961, 0.2, 1)
+theme_override_colors/font_hover_color = Color(0.54901963, 0.49411765, 0.36078432, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3254902, 0.2901961, 0.2, 1)
+theme_override_colors/font_disabled_color = Color(0.38431373, 0.34117648, 0.23921569, 1)
+theme_override_fonts/font = ExtResource("4_ptmrj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0nqgj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lb8la")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_io67a")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bo2bv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ro8q7")
+disabled = true
+text = "Yes"
+
+[node name="PauseLabel" type="RichTextLabel" parent="QuitConfirm" unique_id=2145491055]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -41.0
+offset_right = 261.0
+offset_bottom = -5.0699997
+theme_override_colors/font_outline_color = Color(0.41899908, 0.3001572, 0.1343289, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("4_ptmrj")
+theme_override_font_sizes/normal_font_size = 29
+text = "Are you sure you want to quit?"
+
+[node name="PauseLabel" type="RichTextLabel" parent="." unique_id=1776177743]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 47.0
+offset_right = 298.0
+offset_bottom = 153.0
+theme_override_colors/font_outline_color = Color(0.41899908, 0.3001572, 0.1343289, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("4_ptmrj")
+theme_override_font_sizes/normal_font_size = 79
+text = "YOKAI P.I."
+
+[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("8_86wuk")]
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -17,6 +17,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(Global.dialoguePrep.dialogueOneShot)
 	sceneManager.sceneLoadCheck()
 	Signals.transitionToPlatforming.connect(Callable(self,"openTheBox"))
 	#Signals.animateScreenWipe.connect(Callable(self,"playTransition"))
