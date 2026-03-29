@@ -47,11 +47,11 @@ func _process(delta: float) -> void:
 		collisionBody.global_position += Vector2(0,fallspeed) * delta
 		fallspeed += fallAcceleration * delta
 	if timerVal > 4.5:
+		timerVal = 0
 		self.global_position = originalPosition
 		physicalBody.global_position = physicalBodyOriginalPosition
 		collisionBody.global_position = collisionBodyOriginalPosition
 		isFalling = false
-		timerVal = 0
 		fallspeed = originalFallSpeed
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
