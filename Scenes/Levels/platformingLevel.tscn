@@ -288,7 +288,7 @@ next_scene = "Memory"
 interactText = "View"
 
 [node name="MemoryShard3" type="Sprite2D" parent="." unique_id=494167662]
-position = Vector2(2915, -914)
+position = Vector2(3001, -906)
 scale = Vector2(0.5416667, 0.5416667)
 texture = ExtResource("14_wvfhf")
 hframes = 10
@@ -304,7 +304,7 @@ libraries/ = SubResource("AnimationLibrary_8xvl0")
 autoplay = &"idle"
 
 [node name="MemoryDoor3" parent="." unique_id=1559478239 instance=ExtResource("15_jc5y5")]
-position = Vector2(2914, -916)
+position = Vector2(3000, -908)
 next_scene = "Memory"
 interactText = "View"
 
