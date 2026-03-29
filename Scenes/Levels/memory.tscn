@@ -3,10 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://ce2q4x7epdacu" path="res://Assets/Environment/memory_alleyway.png" id="1_5lni0"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="1_71fy6"]
 [ext_resource type="Texture2D" uid="uid://cnss2f3uqfbuh" path="res://Assets/Sprites/yui sprite-Sheet.png" id="1_wscot"]
+[ext_resource type="Script" uid="uid://dekwxgdca14ko" path="res://Scripts/memory.gd" id="1_y14q1"]
 [ext_resource type="Texture2D" uid="uid://c3cs7oyxrot5m" path="res://Assets/Sprites/yumi sprite-Sheet.png" id="2_5lni0"]
 [ext_resource type="Script" uid="uid://c0cr4w0n086fg" path="res://Scenes/Levels/yumi_sprite.gd" id="3_are0v"]
 [ext_resource type="Shader" uid="uid://wc3gacef1vt1" path="res://Shaders/reflection.gdshader" id="5_tktbf"]
+[ext_resource type="PackedScene" uid="uid://bgtb1xxbcsj6c" path="res://Scenes/Levels/CoreFunctionalThings/dialogue_button.tscn" id="5_yjvo7"]
+[ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="6_0m1cu"]
 [ext_resource type="Script" uid="uid://c8jv72423n0jo" path="res://Scripts/reflection.gd" id="6_yjvo7"]
+[ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="8_tktbf"]
+[ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="9_yjvo7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0u3pq"]
 particles_animation = true
@@ -279,6 +284,83 @@ _data = {
 &"walk_right": SubResource("Animation_7lf17")
 }
 
+[sub_resource type="GDScript" id="GDScript_0m1cu"]
+script/source = "extends Node2D
+
+@export var dialogueBalloon :String
+@export var dialogueStartingPosition :String
+@export var interactable :bool
+@export var isDialogue :bool 
+@onready var playerCharacter = $\"../PlayerCharacter\"
+@onready var Sprite1 = $Sprite2D
+@onready var Sprite2 = $Sprite2D2
+@onready var SceneTransition = $\"../SceneTransitionAnimation/AnimationPlayer\"
+@onready var tooltip = $Sprite2D2/RichTextLabel
+@export var isSpiritButton:bool
+@export var interactText: String
+@export var dialoguePath: String
+@export var locked:bool 
+var minimumDistanceFromPlayer = 35
+var spiritButtonVisibilityDistance = 100
+var turnedVisible = false
+var canInteract = false
+#const dialogueBalloon = preload(\"res://Scenes/DialogueBalloons/balloon.tscn\")
+
+func _ready() -> void:
+	dialogueStartingPosition = Global.MemoryStarting
+	Signals.PlayerInteractPressed.connect(Callable(self,\"ButtonPressed\"))
+	Signals.toggleAsset.connect(Callable(self,\"toggleLock\"))
+	Signals.updateInteractText.connect(Callable(self,\"updateTooltip\"))
+	DialogueManager.dialogue_started.connect(Callable(self,\"disableVis\"))
+	DialogueManager.dialogue_ended.connect(Callable(self,\"enableVis\"))
+	tooltip.text = (interactText)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+
+	
+	var temp = canInteract
+	if playerCharacter and abs(playerCharacter.position.x - position.x) < minimumDistanceFromPlayer and locked == false:
+		# print(\"I go to %s\" %next_scene)
+		canInteract = true
+		interactable = true
+	else:
+		# print(\"I am not interactable\")
+		canInteract = false
+		interactable = false
+	if temp != canInteract:
+		Sprite2.visible = !Sprite2.visible
+		Signals.PlayerCanInteract.emit(\"button\",canInteract)
+
+func ButtonPressed(InteractableObject:String):
+	print(\"interact\")
+	if  InteractableObject == \"button\" && interactable == true && isDialogue == true && locked == false:
+		print(\"start dialogue\")
+		DialogueManager.show_dialogue_balloon_scene(load(\"res://Scenes/DialogueBalloons/balloon.tscn\"), load(dialoguePath), dialogueStartingPosition, )
+		return
+	elif InteractableObject == \"ShowSpirit\" && interactable == true:
+		self.visible = true
+		turnedVisible = true
+
+func toggleLock(assetName: String, toggled: bool):
+	print(\"signal received by:\" + str(self.name))
+	if assetName == self.name:
+		if toggled == false:
+			self.locked = true
+		elif toggled == true:
+			self.locked = false
+			
+func updateTooltip(interactName: String, newtooltip: String):
+	if interactName == self.name:
+		tooltip.text = newtooltip
+		
+func disableVis(resource):
+	Sprite2.visible = false
+
+func enableVis(resource):
+	if self.interactable == true:
+		Sprite2.visible = true
+"
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_y14q1"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_upvru"]
@@ -306,6 +388,7 @@ gradient = SubResource("Gradient_wscot")
 use_hdr = true
 
 [node name="Memory" type="Node2D" unique_id=344185053]
+script = ExtResource("1_y14q1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1851632716]
 offset_left = 16.0
@@ -328,24 +411,39 @@ scale = Vector2(0.165, 0.165)
 texture = ExtResource("1_5lni0")
 
 [node name="YuiSpriteSheet" type="Sprite2D" parent="." unique_id=1289561455]
-position = Vector2(495, 249)
+position = Vector2(452, 249)
 texture = ExtResource("1_wscot")
 hframes = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YuiSpriteSheet" unique_id=855950396]
 libraries/ = SubResource("AnimationLibrary_0m1cu")
-autoplay = &"idle_left"
+autoplay = &"idle_right"
 
-[node name="YumiSprite" type="Sprite2D" parent="YuiSpriteSheet" unique_id=2136328668]
-position = Vector2(-42, 0)
+[node name="YumiSprite" type="Sprite2D" parent="." unique_id=2136328668]
+position = Vector2(495, 249)
 texture = ExtResource("2_5lni0")
 hframes = 14
 vframes = 6
 script = ExtResource("3_are0v")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="YuiSpriteSheet/YumiSprite" unique_id=1593887346]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YumiSprite" unique_id=1593887346]
 libraries/ = SubResource("AnimationLibrary_qcmgc")
-autoplay = &"idle_right"
+autoplay = &"idle_left"
+
+[node name="MemoryTalk" parent="." unique_id=206299497 instance=ExtResource("5_yjvo7")]
+position = Vector2(473, 245)
+script = SubResource("GDScript_0m1cu")
+dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
+dialogueStartingPosition = "yumiMemoryFragment1"
+isDialogue = true
+interactText = "Listen"
+dialoguePath = "res://Assets/Dialogue/Yumi.dialogue"
+
+[node name="ExitMemory" parent="." unique_id=1905584040 instance=ExtResource("6_0m1cu")]
+position = Vector2(678, 248)
+next_scene = "PlatformingStage"
+interactText = "Leave"
+locked = true
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_71fy6")]
 position = Vector2(231, 245)
@@ -394,3 +492,7 @@ position = Vector2(811, 240.00002)
 rotation = 3.1415927
 scale = Vector2(3.0937498, 7.765625)
 texture = SubResource("GradientTexture2D_5lni0")
+
+[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("8_tktbf")]
+
+[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("9_yjvo7")]

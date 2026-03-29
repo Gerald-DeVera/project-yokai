@@ -121,7 +121,7 @@ elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.inte
 	Makoto: No. I just have a few questions, if you have the time. [#animate_left=enter_convo][#animate_right=exit_convo]
 	Fashion Clerk: Ah, looking for a style consultation perhaps? [#animate_left=exit_convo][#animate_right=enter_convo]
 	Makoto: Sorry, maybe some other time. [#animate_left=enter_convo][#animate_right=exit_convo]
-	Makoto: I’m looking for this woman[do Global.showEvidence("yui1")]. She was in the area doing some shopping recently. Did she happen to stop by?
+	Makoto: [do Global.showEvidence("yui1")]I’m looking for this woman. She was in the area doing some shopping recently. Did she happen to stop by?
 	Fashion Clerk: Hmmm, let me see… [#animate_left=exit_convo][#animate_right=enter_convo]
 	Fashion Clerk: Ah! She does look familiar. Hard to forget such a [wave amp=20 freq=5]gorgeous face.[/wave][do Global.hideEvidence()]
 	Fashion Clerk: I think it was about a few days ago now that she stopped by right before closing. 

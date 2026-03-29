@@ -67,10 +67,20 @@ func _process(delta: float) -> void:
 	if temp != canInteract:
 		Sprite2.visible = !Sprite2.visible
 		Signals.PlayerCanInteract.emit("button",canInteract)
-
+		
 func ButtonPressed(InteractableObject:String):
-	if InteractableObject == "button" && interactable == true && self.name != "YokaiPortal":
+	if InteractableObject == "button" && interactable == true && self.name != "YokaiPortal" && self.get_parent().name != "PlatformingLevel":
 		sceneManager.player_pos = player_pos
+		print(next_scene)
+		SceneTransition.play("gradient_up")
+		await SceneTransition.animation_finished
+		playerCharacter.queue_free()
+		# print("scene transition")
+		await get_tree().create_timer(1).timeout
+		sceneManager.transition_to_scene(next_scene)
+	elif InteractableObject == "button" && interactable == true && self.get_parent().name == "PlatformingLevel":
+		Global.player_pos = playerCharacter.position
+		print(sceneManager.player_pos)
 		print(next_scene)
 		SceneTransition.play("gradient_up")
 		await SceneTransition.animation_finished
@@ -103,6 +113,7 @@ func ToggleLock(areaName: String, toggled: bool):
 	if areaName == self.name:
 		if toggled == true:
 			self.locked = false
+			self.visible = true
 		elif toggled == false:
 			self.locked = true
 			

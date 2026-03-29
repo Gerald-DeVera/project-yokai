@@ -53,6 +53,7 @@ var makoto_texture = preload("res://Assets/Sprites/mc_expressions.png")
 var oldguy_texture = preload("res://Assets/Sprites/old guy expressions.png")
 var athwoman_texture = preload("res://Assets/Sprites/athletic lady expressions.png")
 var clothier_texture = preload("res://Assets/Sprites/clothier expressions.png")
+var yui_texture_left = preload("res://Assets/Sprites/yui expressions left.png")
 
 
 ## Temporary game states
@@ -202,6 +203,8 @@ func apply_dialogue_line() -> void:
 			char_sprite_right.texture = athwoman_texture
 		elif load_sprite == "clothier":
 			char_sprite_right.texture = clothier_texture
+		elif load_sprite == "yui_left":
+			char_sprite_left.texture = yui_texture_left
 
 
 

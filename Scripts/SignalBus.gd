@@ -61,3 +61,5 @@ signal playBGM(sceneName: String)
 signal animateScreenWipe(animationName: String)
 
 signal reloadScene()
+
+signal memoryUpdate(updateAction: String)

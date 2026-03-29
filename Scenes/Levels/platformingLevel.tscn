@@ -9,10 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="7_33qrt"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="8_gnp17"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="9_y8vqb"]
-[ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="10_qjfmv"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/beta platforming/portal.tscn" id="10_qjfmv"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="11_blihi"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="12_33qrt"]
 [ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="13_33qrt"]
+[ext_resource type="Texture2D" uid="uid://b14qpja4l7alm" path="res://Assets/Sprites/memoryfragment-Sheet.png" id="14_wvfhf"]
+[ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="15_jc5y5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvfhf"]
 texture = ExtResource("6_blihi")
@@ -81,12 +83,73 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 sources/1 = SubResource("TileSetAtlasSource_wy1h3")
 
+[sub_resource type="Animation" id="Animation_jc5y5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xxyo8"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -3.14)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8xvl0"]
+_data = {
+&"RESET": SubResource("Animation_jc5y5"),
+&"idle": SubResource("Animation_xxyo8")
+}
+
 [node name="PlatformingLevel" type="Node2D" unique_id=1291507279]
 script = ExtResource("1_3agdf")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("2_gnp17")]
 z_index = 2
-position = Vector2(1938, -342)
+position = Vector2(741, -145)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=242642598]
 position = Vector2(-2, -30)
@@ -166,3 +229,18 @@ position = Vector2(2388, -665)
 
 [node name="Hazard2" parent="." unique_id=1150999947 instance=ExtResource("13_33qrt")]
 position = Vector2(2321, -378)
+
+[node name="MemoryShard1" type="Sprite2D" parent="." unique_id=2067163025]
+position = Vector2(836.00006, -143.00002)
+scale = Vector2(0.5416667, 0.5416667)
+texture = ExtResource("14_wvfhf")
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MemoryShard1" unique_id=1953172898]
+libraries/ = SubResource("AnimationLibrary_8xvl0")
+autoplay = &"idle"
+
+[node name="MemoryDoor1" parent="." unique_id=206299497 instance=ExtResource("15_jc5y5")]
+position = Vector2(835, -145)
+next_scene = "Memory"
+interactText = "View"

@@ -13,7 +13,8 @@ var scenes : Dictionary = { "City": "res://Scenes/Levels/overworld.tscn" ,
 							"Clothing": "res://Scenes/Levels/clothing_shop.tscn",
 							"YokaiHome": "res://Scenes/Levels/yokaihome.tscn",
 							"PlatformingStage": "res://Scenes/Levels/platformingLevel.tscn",
-							"BossLevel": "res://Scenes/Levels/bossLevel.tscn"
+							"BossLevel": "res://Scenes/Levels/bossLevel.tscn",
+							"Memory": "res://Scenes/Levels/memory.tscn"
 							}
 var player_pos: Vector2
 var currentScene = ""
@@ -27,7 +28,7 @@ func transition_to_scene(level : String):
 		get_tree().change_scene_to_file(scene_path)
 		currentScene = level
 		match currentScene:
-			"City", "Office", "Ramen", "Alley", "Flower", "Clothing":
+			"City", "Office", "Ramen", "Flower", "Clothing": #exclude alley for now
 				if Global.TimeOfDay == "Day":
 					audioManager.playLevelMusic("cityDay")
 				else:

@@ -15,6 +15,7 @@ var direction: Vector2
 var hasStopped = true
 var playerHealth : int = 5
 var tempInputDisable = false
+var accel: float = 0.2
 #var canWalljump = true
 
 @onready var movement_state_machine = $Animations/AnimationTree.get("parameters/MovementStateMachine/playback")
@@ -88,8 +89,11 @@ func _physics_process(delta):
 			
 	#print(direction)
 	if direction:
-		velocity.x = direction * speed
+		if accel < 1.0:
+			accel += 0.05
+		velocity.x = direction * speed * accel
 	else:
+		accel = 0.2
 		velocity.x = move_toward(velocity.x,0, speed)
 	
 	animate(direction)

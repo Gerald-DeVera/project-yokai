@@ -193,72 +193,106 @@ do wait(10.0)
 
 ~ yumiMemoryFragment1
 # the first memory of yumi and yui, Yui promises they’ll be friends forever at the start of the band
-As you reach out, you feel memories rush into your mind…
-Yumi: I don’t know… I’m still a little nervous. I’ve never performed in front of this many people before.
-Yui: It’ll all be ok Yumi. I’ll be on the stage right there with you! We got this!
-Yumi: You’re right! 
+As you reach out, you feel memories rush into your mind… [#actor_left=off][#new_actor=yui_left]
+Yumi: I don’t know… I’m still a little nervous. I’ve never performed in front of this many people before. [#animate_left=exit_convo][#animate_right=enter_convo][#actor_left=on][#actor_right=on][#new_actor=yumi]
+Yui: It’ll all be ok Yumi. I’ll be on the stage right there with you! We got this! [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: You’re right! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 Yumi lets out a deep breath.
-Yumi: When I’m with you, I feel like I can do anything… hehe.
-The memory fades.
-Kite: My lady, are you alright? You touched that shard and stood there frozen.
-The memory fades but Yumi remains. She turns to you.
-Yumi: I meant it when I said I could do anything with her around y’know… It was always kinda like that ever since we were kids. I wouldn’t be who I am today if it wasn’t for her.
-Yumi too fades.
-Makoto: Yumi showed me one of her memories and she spoke to me... I think we’re going the right way. Let’s keep moving.
-Kite: Of course, my lady!
-A new way forward has been opened.
+Yumi: When I’m with you, I feel like I can do anything… hehe. [#expression_right=neutral]
+Yui fades away. [#animate_right=exit_convo][#actor_left=off][do Signals.memoryUpdate.emit("YuiFade")]
+Yumi: I meant it when I said I could do anything with her around, y’know... [#expression_right=angry][#animate_right=enter_convo]
+Yumi: It was always kinda like that ever since we were kids. I wouldn’t be who I am today if it wasn’t for her.
+Yumi too fades. [#actor_right=off][do Signals.memoryUpdate.emit("YumiFade")]
+do Signals.memoryUpdate.emit("BGFade")
+do Signals.toggleAsset.emit("MemoryTalk",false)
+do Signals.toggleArea.emit("ExitMemory",true)
+do Global.MemoryStarting = "yumiMemoryFragment2"
+do Global.MemoriesEncountered += 1
+do Global.prepareDialogue("Memory1Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment1", "PlatformingStage")
 => END
 
+~ postMemoryFragment1
+Kite: My lady, are you alright? You touched that shard and stood there frozen. [#animate_right=enter_convo][#expression_right=angry][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
+Makoto: Yumi showed me one of her memories and she spoke to me... I think we’re going the right way. Let’s keep moving. [#animate_right=exit_convo][#animate_left=enter_convo]
+Kite: Of course, my lady! [#animate_right=enter_convo][#expression_right=neutral][#animate_left=exit_convo]
+do Global.finishOneShot("Memory1Done")
+=> END
 
 ~ yumiMemoryFragment2
 #Yui is soaring in popularity and becoming more busy and can't spend more time with Yumi due to her more busy schedule
-As you reach out you feel memories rush into your mind…
-Yumi: Hey Yui! Did you see there’s a new cafe opening on West Street? Did you wanna check it out later after practice?
-Yui: Ah! I would love to, but… I have an interview later… The manager really insisted I do it.
-Yumi: Oh yeah… Well, how about tomorrow?
-Yui: Ah… I have to head back home tomorrow to help out my parents.
-Yumi: Oh… how about the weekend then!
-Yui: I have that fan meet up on Saturday. I’m really sorry, Yumi. 
-Yumi: Ah… that’s ok. Just don’t overwork yourself…
-The memory fades.
-The memory fades but Yumi remains. She turns to you.
-Yumi: It felt like she was leaving me behind. Now that the whole world knew how amazing she is. How kind she is. How wonderful she is... She was shining brighter than ever… and it felt like I was standing alone in her shadow…
-Yumi too fades.
-Kite: My lady, it happened again! Are you ok?
-Makoto: I am.
-A new way forward has been opened.
+As you reach out, you feel memories rush into your mind… [#actor_left=off][#new_actor=yui_left]
+Yumi: Hey Yui! Did you see there’s a new cafe opening on West Street? Did you wanna check it out later after practice?  [#animate_left=exit_convo][#animate_right=enter_convo][#actor_left=on][#actor_right=on][#new_actor=yumi]
+Yui: Ah! I would love to, but… I have an interview later… The manager really insisted I do it. [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: Oh yeah? Well, how about tomorrow? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Yui: Ah... I have to head back home tomorrow to help out my parents. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+Yumi: Oh... how about the weekend then? [#animate_left=exit_convo][#animate_right=enter_convo]
+Yui: I have that fan meet up on Saturday. I’m really sorry, Yumi. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+Yumi: Ah… that’s ok. Just don’t overwork yourself… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+Yui fades. [#animate_right=exit_convo][#actor_left=off][do Signals.memoryUpdate.emit("YuiFade")]
+Yumi: It felt like she was leaving me behind. Now that the whole world knew how amazing she is... [#animate_right=enter_convo][#expression_right=angry]
+Yumi: How kind she is... 
+Yumi: How wonderful she is... 
+Yumi: She was shining brighter than ever... and it felt like I was standing alone in her shadow...
+Yumi too fades. [#actor_right=off][do Signals.memoryUpdate.emit("YumiFade")]
+do Signals.memoryUpdate.emit("BGFade")
+do Signals.toggleAsset.emit("MemoryTalk",false)
+do Signals.toggleArea.emit("ExitMemory",true)
+do Global.MemoryStarting = "yumiMemoryFragment3"
+do Global.MemoriesEncountered += 1
+do Global.prepareDialogue("Memory2Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment2", "PlatformingStage")
 => END
 
+~ postMemoryFragment2
+Kite: My lady, it happened again! Are you ok? [#animate_right=enter_convo][#expression_right=angry][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
+Makoto: I am. [#animate_right=exit_convo][#animate_left=enter_convo]
+A new way forward has been opened.
+do Global.finishOneShot("Memory2Done")
+=> END
 
 ~ yumiMemoryFragment3
 #The scene in the alley, Yui tells Yumi she’s going to be taking a step away from the band to take care of her parents. Yumi’s heart is broken and the kijo possesses her.
-As you reach out you feel memories rush into your mind…
-This place looks familiar. It’s that alley way. Yumi looks… worse for wear. She looks tired but she doesn’t want to show it. Her face lights up when Yui turns the corner.
-Yumi: YUI! I’m so glad to see you!
-Yui: We saw each other this morning, did you forget?
-Yumi: I know but… it feels like we never hang out anymore you know?
-Yui: Yeah… I’ve been busy. There’s just been a lot going on.
-Yumi: I know but… I looked at the schedule and it looks like after this week we’re free so we can finally do stuff together!
-Yui: Actually… that’s what I wanted to talk to you about…
-Yumi: It’s so great right! We can go to that cafe, we could get brunch,  we could have sleep overs! Think of the possibilities.
-Yui: Yumi…
-Yumi: What’s up! You look pretty gloomy. Is everything alright?
-Yui: Yumi, I’m leaving the band.
-Yumi: What…
-It’s like time has stopped.
-The memory fades but Yumi remains. She turns to you.
-Yumi: It was selfish of me. I realize it now. I so desperately wanted to be the only one that she shined on. Yet, I didn’t even hear her out. The choice was made for me when the SHE took over… I never would’ve done anything to hurt Yui… Please help me detective…
-Yumi too fades.
-Makoto: …
-Kite: Lady Makoto…?
-Makoto: Let’s finish this Kite.
-Kite: Lady Makoto, wait! Before we move forward I must let you know. The Kijo is weak and losing her grip on Yumi’s heart. However we can not seal her yet. We need her to expel more of her cursed energy.
-Makoto: So what do you suggest then?
-Kite: We simply need to burn her own energy away! It will be dangerous but you will need to endure an onslaught of her rage. But fear not with me by your side, harm shall not befall you!
-Makoto: So I just need to avoid her attacks for a little while… For Yumi and Yui’s sake I’ll do it. That’s what agents of justice do. Right?
-Kite: Indeed!
+As you reach out you, feel memories rush into your mind… [#actor_left=off][#new_actor=yui_left]
+This place looks familiar. It’s that alleyway. Yumi looks... worse for wear. 
+She looks tired, but she doesn’t want to show it. Her face lights up when Yui turns the corner.
+Yumi: YUI! I’m so glad to see you! [#animate_left=exit_convo][#animate_right=enter_convo][#actor_left=on][#actor_right=on][#new_actor=yumi][#expression_right=happy]
+Yui: We saw each other this morning, did you forget?  [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy]
+Yumi: I know but… it feels like we never hang out anymore you know?[#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+Yui: Yeah… I’ve been busy. There’s just been a lot going on. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+Yumi: I know, but… I talked with our manager, and it looks like after this week we’re free! We can finally do stuff together![#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Yui: Actually… that’s what I wanted to talk to you about… [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+Yumi: It’s so great, right? We can go to that cafe, we could get brunch, we could have sleepovers...! Think of the possibilities![#animate_left=exit_convo][#animate_right=enter_convo]
+Yui: Yumi...[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+Yumi: What’s up? You look pretty gloomy. Is everything alright? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+Yui: Yumi, I’m leaving the group. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+Yumi: What...? [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+It’s like time has stopped. [#animate_right=exit_convo]
+Yui fades. [#actor_left=off][do Signals.memoryUpdate.emit("YuiFade")]
+Yumi: It was selfish of me. I realize it now. I so desperately wanted to be the only one that she shined on. 
+Yumi: Yet, I didn’t even hear her out. The choice was made for me when [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]SHE[/color][/outline_size] [/shake] took over… I never would’ve done anything to hurt Yui… 
+Yumi: Please help me, detective…
+Yumi too fades.[#actor_right=off][do Signals.memoryUpdate.emit("YumiFade")]
+do Signals.memoryUpdate.emit("BGFade")
+do Signals.toggleAsset.emit("MemoryTalk",false)
+do Signals.toggleArea.emit("ExitMemory",true)
+do Global.MemoryStarting = "yumiMemoryFragment3"
+do Global.MemoriesEncountered += 1
+do Global.prepareDialogue("Memory2Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment3", "PlatformingStage")
 => END
 
+~ postMemoryFragment3
+Makoto: ... [#expression_right=neutral][#expression_left=angry][#actor_right=on][#new_actor=kite_right]
+Kite: Lady Makoto…? [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: Let’s finish this, Kite. [#animate_left=enter_convo][#animate_right=exit_convo]
+Kite: Lady Makoto, wait! Before we move forward, I must let you know. The Kijo is weak and losing her grip on Yumi’s heart. 
+Kite: However, we cannot seal her yet. We need her to expel more of her cursed energy.
+Makoto: So what do you suggest, then? [#animate_left=enter_convo][#animate_right=exit_convo]
+Kite: We simply need to burn her own energy away! It will be dangerous, but you will need to endure an onslaught of her rage. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Kite: But fear not -- with me by your side, harm shall not befall you! [#expression_right=happy]
+Makoto: So I just need to avoid her attacks for a little while… For Yumi and Yui’s, sake I’ll do it. [#animate_left=enter_convo][#animate_right=exit_convo]
+Makoto: That’s what agents of justice do. Right? [#expression_left=happy]
+Kite: Indeed! [#animate_left=exit_convo][#animate_right=enter_convo]
+do Global.finishOneShot("Memory3Done")
+=> END
 
 ~ kijoConfrontation
 #The kijo speaks with Makoto and Kite after they see Yumi’s memories. 
