@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://3cx4kr0motsu" path="res://Assets/Themes and Fonts/Jersey20-Regular.ttf" id="9_fsr06"]
 [ext_resource type="Texture2D" uid="uid://c1qmad2i3fraa" path="res://Assets/UI/notebook_tape.png" id="9_iwt1m"]
 [ext_resource type="Texture2D" uid="uid://dssfp44il1vp6" path="res://Assets/UI/inventory_pencil2.png" id="13_ui26k"]
+[ext_resource type="AudioStream" uid="uid://dg40q7fvdpyjs" path="res://Assets/Audio/SFX/page_flip.mp3" id="15_y6shv"]
 
 [sub_resource type="Gradient" id="Gradient_7p7f7"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -561,6 +562,9 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_28t4t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1431595768]
 libraries/ = SubResource("AnimationLibrary_ttkfq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1256622507]
+stream = ExtResource("15_y6shv")
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Forward" to="." method="_on_forward_pressed"]

@@ -101,7 +101,7 @@ script = ExtResource("1_myua3")
 [node name="bossStuff" type="Node" parent="." unique_id=74740881]
 
 [node name="Boss" parent="bossStuff" unique_id=1873205114 instance=ExtResource("1_kokxh")]
-position = Vector2(342, -35)
+position = Vector2(216, -68)
 script = ExtResource("2_oq4ni")
 
 [node name="ProjectileSpawners" type="Node" parent="bossStuff" unique_id=905808343]

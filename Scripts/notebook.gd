@@ -20,6 +20,8 @@ var inputDisabled = false
 @onready var profileSprite = $Main/ProfilePages/ProfilePicture
 @onready var npcInfo = $Main/ProfilePages/Info_Quotes
 
+@onready var flipSound = $AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.sendQuestDesc.connect(Callable(self, "displayQuestDesc"))
@@ -107,6 +109,8 @@ func _on_back_pressed() -> void:
 		pageNumber -= 1
 		flipToPage(pageNumber)
 		notebookAnimate.play("jiggle_left")
+		flipSound.pitch_scale = randf_range(0.9,1.1)
+		flipSound.play()
 		if pageNumber == 1:
 			backKey.visible = false
 
@@ -116,6 +120,8 @@ func _on_forward_pressed() -> void:
 		pageNumber += 1
 		flipToPage(pageNumber)
 		notebookAnimate.play("jiggle_right")
+		flipSound.pitch_scale = randf_range(0.9,1.1)
+		flipSound.play()
 		if pageNumber == Global.npcProfileList.profileInfo.size() + 1:
 			forwardKey.visible = false
 

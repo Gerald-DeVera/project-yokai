@@ -25,6 +25,8 @@ func _ready() -> void:
 	Signals.toggleArea.connect(Callable(self,"ToggleLock"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableVis"))
 	tooltip.text = (interactText)
+	if Global.oneshot_assets.has(self.name):
+		queue_free()
 	if isSpiritButton:
 		self.visible = false
 	if self.name == "AlleyDoor" && Global.dialogueFlags.interviewedShu == true:
@@ -80,7 +82,7 @@ func ButtonPressed(InteractableObject:String):
 		sceneManager.transition_to_scene(next_scene)
 	elif InteractableObject == "button" && interactable == true && self.get_parent().name == "PlatformingLevel":
 		Global.player_pos = playerCharacter.position
-		print(sceneManager.player_pos)
+		sceneManager.player_pos = player_pos
 		print(next_scene)
 		SceneTransition.play("gradient_up")
 		await SceneTransition.animation_finished

@@ -28,11 +28,17 @@ func transition_to_scene(level : String):
 		get_tree().change_scene_to_file(scene_path)
 		currentScene = level
 		match currentScene:
-			"City", "Office", "Ramen", "Flower", "Clothing": #exclude alley for now
+			"City", "Office": #exclude alley for now
 				if Global.TimeOfDay == "Day":
 					audioManager.playLevelMusic("cityDay")
 				else:
 					audioManager.playLevelMusic("cityNight")
+			"Clothing":
+					audioManager.playLevelMusic("clothing")
+			"Ramen":
+					audioManager.playLevelMusic("ramen")
+			"Memory":
+					audioManager.playLevelMusic("memory")
 			"Yokai", "YokaiHome":
 				audioManager.playLevelMusic("yokai")
 			"PlatformingStage":

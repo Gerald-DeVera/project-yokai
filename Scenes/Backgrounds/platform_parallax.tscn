@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://c3jufhstqbgjl"]
+
+[ext_resource type="Texture2D" uid="uid://bvo8ly0cpg46c" path="res://Assets/Environment/bg_yokai/platform parallax sky.png" id="1_t1u56"]
+[ext_resource type="Texture2D" uid="uid://wsiyc0clrchc" path="res://Assets/Environment/bg_yokai/platform parallax mtn.png" id="2_kehib"]
+[ext_resource type="Texture2D" uid="uid://c4op7ip76cewi" path="res://Assets/Environment/bg_yokai/platform parallax cld.png" id="3_3p73l"]
+[ext_resource type="Texture2D" uid="uid://b7a2ut4umnto3" path="res://Assets/Environment/bg_yokai/platform parallax mtnfg.png" id="4_nvt7l"]
+[ext_resource type="Shader" uid="uid://d1c5vm3afwd6j" path="res://Shaders/foliage.tres" id="5_hlb07"]
+[ext_resource type="Texture2D" uid="uid://ohlb34clpp85" path="res://Assets/Environment/bg_yokai/platform parallax tree.png" id="6_l5i0v"]
+[ext_resource type="Texture2D" uid="uid://bocewlqom2drn" path="res://Assets/Environment/bg_yokai/platform parallax fol.png" id="7_xmx1g"]
+[ext_resource type="Texture2D" uid="uid://brgrq1n1fjyay" path="res://Assets/Environment/bg_yokai/platform parallax rock.png" id="8_vbmle"]
+[ext_resource type="Texture2D" uid="uid://d012mri22k5dm" path="res://Assets/Environment/bg_yokai/platform parallax fog.png" id="9_0g6ql"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uv8of"]
+shader = ExtResource("5_hlb07")
+shader_parameter/Force = 6.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7r4ns"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_j68j4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hldv1"]
+gradient = SubResource("Gradient_j68j4")
+width = 4
+height = 3
+
+[sub_resource type="Gradient" id="Gradient_cr7eb"]
+offsets = PackedFloat32Array(0.04918033, 0.22950819, 0.852459, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s2ptr"]
+gradient = SubResource("Gradient_cr7eb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_67j8v"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(640, 360, 1)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 10, 0)
+scale_min = 0.29999998
+scale_max = 0.79999995
+color_ramp = SubResource("GradientTexture1D_s2ptr")
+anim_offset_max = 1.0
+
+[node name="PlatformParallax" type="Node2D" unique_id=1214220624]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=621597341]
+scroll_offset = Vector2(0, 16)
+repeat_size = Vector2(640, 585)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1026242007]
+position = Vector2(320, 180)
+texture = ExtResource("1_t1u56")
+
+[node name="Parallax2D8" type="Parallax2D" parent="." unique_id=611548908]
+scroll_scale = Vector2(0.035, 0.5)
+scroll_offset = Vector2(0, 22)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D8" unique_id=73855976]
+position = Vector2(320, 180)
+texture = ExtResource("2_kehib")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1100315184]
+scroll_scale = Vector2(0.26, 0.75)
+scroll_offset = Vector2(0, 19)
+repeat_size = Vector2(640, 585)
+autoscroll = Vector2(3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=760013356]
+position = Vector2(320, 180)
+texture = ExtResource("3_3p73l")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=163742168]
+scroll_scale = Vector2(0.41, 0.75)
+scroll_offset = Vector2(0, 64)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=554821513]
+position = Vector2(320, 180)
+texture = ExtResource("4_nvt7l")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=2133384832]
+scroll_scale = Vector2(0.61, 1)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D5" unique_id=1238109938]
+material = SubResource("ShaderMaterial_uv8of")
+position = Vector2(817, 180)
+texture = ExtResource("6_l5i0v")
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1463287957]
+scroll_scale = Vector2(0.875, 1)
+scroll_offset = Vector2(0, 10)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=352965521]
+position = Vector2(320, 180)
+texture = ExtResource("7_xmx1g")
+
+[node name="Parallax2D9" type="Parallax2D" parent="." unique_id=309463016]
+scroll_scale = Vector2(0.95, 1)
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D9" unique_id=1323188450]
+position = Vector2(320, 180)
+texture = ExtResource("8_vbmle")
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=93124608]
+repeat_size = Vector2(640, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D6" unique_id=1597901692]
+position = Vector2(320, 180)
+texture = ExtResource("9_0g6ql")
+
+[node name="Parallax2D7" type="Parallax2D" parent="." unique_id=352488184]
+z_index = 1
+repeat_size = Vector2(640, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Parallax2D7" unique_id=1924086145]
+material = SubResource("CanvasItemMaterial_7r4ns")
+position = Vector2(425, 129)
+amount = 100
+texture = SubResource("GradientTexture2D_hldv1")
+visibility_rect = Rect2(-336.285, -204.975, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_67j8v")

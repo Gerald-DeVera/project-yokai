@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://blc0clnqvdoqs"]
 
 [ext_resource type="Script" uid="uid://c8st11i2bth6r" path="res://Scripts/scene_transition_script.gd" id="1_ax2sl"]
+[ext_resource type="AudioStream" uid="uid://dyyfq0h5v4io2" path="res://Assets/Audio/SFX/bellring.mp3" id="2_wtbpg"]
 
 [sub_resource type="Gradient" id="Gradient_mpcjy"]
 offsets = PackedFloat32Array(0.686747, 1)
@@ -204,3 +205,6 @@ offset_top = 393.0
 offset_right = 680.0
 offset_bottom = 794.0
 texture = SubResource("GradientTexture2D_dy64a")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=285410432]
+stream = ExtResource("2_wtbpg")

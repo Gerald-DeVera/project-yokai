@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cm3rc2s1i1ok" path="res://Assets/UI/health bar4.png" id="28_wygl5"]
 [ext_resource type="Texture2D" uid="uid://c8owhow2pv5q" path="res://Assets/UI/health bar5.png" id="29_u8ucr"]
 [ext_resource type="Texture2D" uid="uid://cqnilvsj851n6" path="res://Assets/UI/health bar6.png" id="30_q0qj1"]
+[ext_resource type="AudioStream" uid="uid://dj74aam3f7ln3" path="res://Assets/Audio/SFX/scribble.mp3" id="31_v0g4m"]
 
 [sub_resource type="Gradient" id="Gradient_6xqmg"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -1515,6 +1516,9 @@ libraries/ = SubResource("AnimationLibrary_m1q3l")
 [node name="bounce" type="AnimationPlayer" parent="HealthBar" unique_id=255181874]
 libraries/ = SubResource("AnimationLibrary_u2lbm")
 autoplay = &"bounce"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1209188248]
+stream = ExtResource("31_v0g4m")
 
 [connection signal="inventoryClose" from="InventoryUi" to="." method="_on_inventory_ui_inventory_close"]
 [connection signal="inventoryOpen" from="InventoryUi" to="." method="_on_inventory_ui_inventory_open"]

@@ -209,6 +209,8 @@ do Signals.toggleArea.emit("ExitMemory",true)
 do Global.MemoryStarting = "yumiMemoryFragment2"
 do Global.MemoriesEncountered += 1
 do Global.prepareDialogue("Memory1Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment1", "PlatformingStage")
+do Global.oneshot_assets["MemoryShard1"] = true
+do Global.oneshot_assets["MemoryDoor1"] = true
 => END
 
 ~ postMemoryFragment1
@@ -240,6 +242,8 @@ do Signals.toggleArea.emit("ExitMemory",true)
 do Global.MemoryStarting = "yumiMemoryFragment3"
 do Global.MemoriesEncountered += 1
 do Global.prepareDialogue("Memory2Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment2", "PlatformingStage")
+do Global.oneshot_assets["MemoryShard2"] = true
+do Global.oneshot_assets["MemoryDoor2"] = true
 => END
 
 ~ postMemoryFragment2
@@ -277,6 +281,8 @@ do Signals.toggleArea.emit("ExitMemory",true)
 do Global.MemoryStarting = "yumiMemoryFragment3"
 do Global.MemoriesEncountered += 1
 do Global.prepareDialogue("Memory2Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment3", "PlatformingStage")
+do Global.oneshot_assets["MemoryShard3"] = true
+do Global.oneshot_assets["MemoryDoor3"] = true
 => END
 
 ~ postMemoryFragment3

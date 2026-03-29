@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var HealthProg = $HealthBar/TextureProgressBar
 @onready var HealthAni = $HealthBar/AnimationPlayer
 @onready var lowhpflash = $HealthBar/lowhp
+@onready var writeSFX = $AudioStreamPlayer
 
 func _ready() -> void:
 	Signals.updateInfoAnimation.connect(Callable(self,"updateInfo"))
@@ -46,12 +47,16 @@ func _on_quit_button_pressed() -> void:
 func updateInfo(infoType: String):
 	if infoType == "inventory":
 		UIAnimation.play("inv_upd")
+		writeSFX.play()
 	elif infoType == "notebook":
 		UIAnimation.play("nte_upd")
+		writeSFX.play()
 	elif infoType == "invnote":
 		UIAnimation.play("nte_upd")
+		writeSFX.play()
 		await UIAnimation.animation_finished
 		UIAnimation.play("inv_upd")
+		writeSFX.play()
 	elif infoType == "spirit":
 		UIAnimation.play("spiritsight")
 		await UIAnimation.animation_finished

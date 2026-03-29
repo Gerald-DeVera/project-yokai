@@ -7,6 +7,7 @@ extends Control
 @onready var imageSwap = $Control/AnimationPlayer
 @onready var nextImage = $Control/PolLeft/NextImage
 @onready var currentImage = $Control/ItemImageDisplay/CurrentImage
+@onready var selectSound = $AudioStreamPlayer
 
 signal inventoryClose
 signal inventoryOpen
@@ -61,6 +62,7 @@ func _process(delta: float) -> void:
 
 	if is_open:
 		if Input.is_action_just_pressed("move_left"):
+			selectSound.play()
 			var prevSlot = curSlotIndex
 			if curSlotIndex == 0:
 				curSlotIndex = slots.size()-1
@@ -68,6 +70,7 @@ func _process(delta: float) -> void:
 				curSlotIndex -= 1
 			itemAnimation(prevSlot)
 		elif Input.is_action_just_pressed("move_right"):
+			selectSound.play()
 			var prevSlot = curSlotIndex
 			if curSlotIndex == slots.size()-1:
 				curSlotIndex = 0
@@ -75,11 +78,13 @@ func _process(delta: float) -> void:
 				curSlotIndex += 1
 			itemAnimation(prevSlot)
 		elif Input.is_action_just_pressed("move_down"):
+			selectSound.play()
 			var prevSlot = curSlotIndex
 			curSlotIndex += int((slots.size()/numRows))
 			curSlotIndex = curSlotIndex % slots.size()
 			itemAnimation(prevSlot)
 		elif Input.is_action_just_pressed("move_up"):
+			selectSound.play()
 			var prevSlot = curSlotIndex
 			if curSlotIndex > 3:
 				curSlotIndex -= int(slots.size()/numRows)

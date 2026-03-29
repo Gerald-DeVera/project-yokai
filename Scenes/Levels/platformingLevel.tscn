@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dd1yd2pib1j2u"]
 
 [ext_resource type="Script" uid="uid://dbbbcvcck3hrc" path="res://Scripts/platformLevel.gd" id="1_3agdf"]
+[ext_resource type="PackedScene" uid="uid://c3jufhstqbgjl" path="res://Scenes/Backgrounds/platform_parallax.tscn" id="2_8xvl0"]
 [ext_resource type="PackedScene" uid="uid://cpikplq3do4tn" path="res://Scenes/Entities/Player.tscn" id="2_gnp17"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="3_y8vqb"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="4_qjfmv"]
@@ -9,12 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="7_33qrt"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="8_gnp17"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="9_y8vqb"]
-[ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="10_qjfmv"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/beta platforming/portal.tscn" id="10_qjfmv"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="11_blihi"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="12_33qrt"]
 [ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="13_33qrt"]
 [ext_resource type="Texture2D" uid="uid://b14qpja4l7alm" path="res://Assets/Sprites/memoryfragment-Sheet.png" id="14_wvfhf"]
 [ext_resource type="PackedScene" uid="uid://dq0ga3oci1o5s" path="res://Scenes/Levels/CoreFunctionalThings/scenechange_button.tscn" id="15_jc5y5"]
+[ext_resource type="Script" uid="uid://3b34fox0u4yj" path="res://Scripts/memory_shard.gd" id="16_wy1h3"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="16_xxyo8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvfhf"]
@@ -84,6 +86,15 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 sources/1 = SubResource("TileSetAtlasSource_wy1h3")
 
+[sub_resource type="Gradient" id="Gradient_jc5y5"]
+colors = PackedColorArray(0.6706895, 0.6706895, 0.6706895, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xxyo8"]
+gradient = SubResource("Gradient_jc5y5")
+fill = 1
+fill_from = Vector2(0.517094, 0.47008547)
+fill_to = Vector2(0.7905983, 0.18803419)
+
 [sub_resource type="Animation" id="Animation_jc5y5"]
 length = 0.001
 tracks/0/type = "value"
@@ -148,9 +159,18 @@ _data = {
 [node name="PlatformingLevel" type="Node2D" unique_id=1291507279]
 script = ExtResource("1_3agdf")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1833414164]
+offset_top = -3108.0
+offset_right = 4576.0
+offset_bottom = 40.0
+color = Color(1, 0.63529414, 0.8784314, 1)
+
+[node name="PlatformParallax" parent="." unique_id=1214220624 instance=ExtResource("2_8xvl0")]
+position = Vector2(20, -571)
+
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("2_gnp17")]
 z_index = 2
-position = Vector2(2606, -410)
+position = Vector2(858, -189)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=242642598]
 position = Vector2(-2, -30)
@@ -231,6 +251,11 @@ position = Vector2(836.00006, -143.00002)
 scale = Vector2(0.5416667, 0.5416667)
 texture = ExtResource("14_wvfhf")
 hframes = 10
+script = ExtResource("16_wy1h3")
+
+[node name="PointLight2D" type="PointLight2D" parent="MemoryShard1" unique_id=719425464]
+energy = 0.72
+texture = SubResource("GradientTexture2D_xxyo8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MemoryShard1" unique_id=1953172898]
 libraries/ = SubResource("AnimationLibrary_8xvl0")
@@ -238,6 +263,48 @@ autoplay = &"idle"
 
 [node name="MemoryDoor1" parent="." unique_id=206299497 instance=ExtResource("15_jc5y5")]
 position = Vector2(835, -145)
+next_scene = "Memory"
+interactText = "View"
+
+[node name="MemoryShard2" type="Sprite2D" parent="." unique_id=775720611]
+position = Vector2(2648, -410)
+scale = Vector2(0.5416667, 0.5416667)
+texture = ExtResource("14_wvfhf")
+hframes = 10
+script = ExtResource("16_wy1h3")
+
+[node name="PointLight2D" type="PointLight2D" parent="MemoryShard2" unique_id=201212970]
+energy = 0.72
+texture = SubResource("GradientTexture2D_xxyo8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MemoryShard2" unique_id=395766677]
+root_node = NodePath("../../MemoryShard2")
+libraries/ = SubResource("AnimationLibrary_8xvl0")
+autoplay = &"idle"
+
+[node name="MemoryDoor2" parent="." unique_id=1008970149 instance=ExtResource("15_jc5y5")]
+position = Vector2(2647, -412)
+next_scene = "Memory"
+interactText = "View"
+
+[node name="MemoryShard3" type="Sprite2D" parent="." unique_id=494167662]
+position = Vector2(2652, -1927)
+scale = Vector2(0.5416667, 0.5416667)
+texture = ExtResource("14_wvfhf")
+hframes = 10
+script = ExtResource("16_wy1h3")
+
+[node name="PointLight2D" type="PointLight2D" parent="MemoryShard3" unique_id=1266155350]
+energy = 0.72
+texture = SubResource("GradientTexture2D_xxyo8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MemoryShard3" unique_id=1343246202]
+root_node = NodePath("../../MemoryShard3")
+libraries/ = SubResource("AnimationLibrary_8xvl0")
+autoplay = &"idle"
+
+[node name="MemoryDoor3" parent="." unique_id=1559478239 instance=ExtResource("15_jc5y5")]
+position = Vector2(2651, -1929)
 next_scene = "Memory"
 interactText = "View"
 
