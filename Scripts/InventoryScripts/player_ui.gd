@@ -67,6 +67,7 @@ func _on_quit_button_pressed() -> void:
 		"Windows", "macOS", "Linux":
 			get_tree().quit()
 		"Web":
+			get_tree().paused = false
 			sceneManager.transition_to_scene("MainMenu")
 	
 func updateInfo(infoType: String):
