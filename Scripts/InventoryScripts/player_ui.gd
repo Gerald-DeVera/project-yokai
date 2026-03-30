@@ -68,6 +68,8 @@ func _on_quit_button_pressed() -> void:
 			get_tree().quit()
 		"Web":
 			get_tree().paused = false
+			Signals.animateScreenWipe.emit("gradient_up")
+			await get_tree().create_timer(1.0).timeout
 			sceneManager.transition_to_scene("MainMenu")
 	
 func updateInfo(infoType: String):
