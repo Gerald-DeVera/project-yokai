@@ -5,26 +5,26 @@
 [ext_resource type="Script" uid="uid://ckgqr6f3stypj" path="res://Scripts/BossLevel.gd" id="1_myua3"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="1_rf6cf"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="2_bqvk6"]
-[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
+[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="2_mngpy"]
 [ext_resource type="Script" uid="uid://dh88mqpfjao2w" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="4_1b4hs"]
-[ext_resource type="Script" path="res://Scripts/boulderSpawnerManager.gd" id="5_3n5q1"]
+[ext_resource type="Script" uid="uid://n7v321bo3ra" path="res://Scripts/boulderSpawnerManager.gd" id="5_3n5q1"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="5_hh1ma"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_mngpy"]
 [ext_resource type="Script" uid="uid://dghx2bvex2g4e" path="res://Scripts/boulderSpawner.gd" id="5_tv0ub"]
 [ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="6_7xje2"]
-[ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="6_nltor"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/beta platforming/portal.tscn" id="6_nltor"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
-[ext_resource type="PackedScene" uid="uid://5ccoo2ajgtkf" path="res://Scenes/Levels/beta platforming/spirit platform.tscn" id="11_sqrx0"]
+[ext_resource type="Script" uid="uid://dq1plli07gu3g" path="res://Scripts/kijoBoss.gd" id="12_37m20"]
 [ext_resource type="Script" uid="uid://dwoqqnscpn0yt" path="res://Scenes/Entities/boss.gd" id="12_86gf6"]
 [ext_resource type="Script" uid="uid://dqdedxqqcua5x" path="res://Scripts/camera_control.gd" id="14_37m20"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
 [ext_resource type="Texture2D" uid="uid://0i3rl58d582t" path="res://Assets/Sprites/aura.png" id="14_sneht"]
 [ext_resource type="AudioStream" uid="uid://cstj3d5vroha5" path="res://Assets/Audio/BackgroundTracks/Art.wav" id="16_tv0ub"]
-[ext_resource type="PackedScene" uid="uid://bmbtupp20w1al" path="res://Scenes/Entities/boulder.tscn" id="19_sqrx0"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/boulder.tscn" id="19_sqrx0"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="20_5mk18"]
 [ext_resource type="Script" uid="uid://bgpmils1d4tpk" path="res://Scripts/kijo_one_shot.gd" id="26_5mk18"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="26_sneht"]
@@ -256,29 +256,38 @@ physics_quadrant_size = 24
 script = ExtResource("7_bunke")
 
 [node name="Checkpoint2" parent="checkpointManager" unique_id=703634066 instance=ExtResource("7_ddmpi")]
-position = Vector2(1608, -33)
+position = Vector2(1649, -34)
+
+[node name="Checkpoint3" parent="checkpointManager" unique_id=901724550 instance=ExtResource("7_ddmpi")]
+position = Vector2(3840, -51)
 
 [node name="Checkpoint" parent="checkpointManager" unique_id=2097986206 instance=ExtResource("7_ddmpi")]
-position = Vector2(-382, 38)
+position = Vector2(-482, 38)
 
-[node name="Boss2" parent="." unique_id=1873205114 instance=ExtResource("1_kokxh")]
-position = Vector2(1962, -256)
+[node name="Boss" parent="." unique_id=1873205114 instance=ExtResource("1_kokxh")]
+position = Vector2(-322, -90)
+script = ExtResource("12_37m20")
+
+[node name="Boss2" parent="." unique_id=599791948 instance=ExtResource("1_kokxh")]
+position = Vector2(1862, -136)
+script = ExtResource("12_37m20")
 
 [node name="Boss3" parent="." unique_id=273761071 instance=ExtResource("1_kokxh")]
-position = Vector2(3980, -165)
+position = Vector2(4042, -119)
+script = ExtResource("12_37m20")
 
 [node name="Boss4" parent="." unique_id=574207675 instance=ExtResource("1_kokxh")]
 position = Vector2(6354, -202)
 script = ExtResource("12_86gf6")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_m5b0x")]
-position = Vector2(-521, 9)
+position = Vector2(-482, 13)
 jump_velocity = -300.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1904402119]
 position = Vector2(-2, 2)
 offset = Vector2(0, -25.235)
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.815
 script = ExtResource("14_37m20")
@@ -528,9 +537,6 @@ scale = Vector2(4.13, 1)
 [node name="JumpBlock2" parent="." unique_id=1443456910 instance=ExtResource("26_sneht")]
 position = Vector2(4381, -169)
 
-[node name="Checkpoint" parent="." unique_id=1465774527 instance=ExtResource("7_ddmpi")]
-position = Vector2(3840, -58)
-
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
 visible = false
 
@@ -545,6 +551,28 @@ color = Color(0.94851965, 1.4824272e-05, 0.6263497, 1)
 energy = 0.0
 blend_mode = 1
 
+[node name="KijoOneShot1" type="Node2D" parent="." unique_id=313893035]
+position = Vector2(1730, -11)
+rotation = -1.5707964
+script = ExtResource("26_5mk18")
+
+[node name="Area2D" type="Area2D" parent="KijoOneShot1" unique_id=1127408493]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KijoOneShot1/Area2D" unique_id=288311414]
+position = Vector2(127.749985, -7)
+shape = SubResource("RectangleShape2D_sneht")
+
+[node name="KijoOneShot2" type="Node2D" parent="." unique_id=1378861923]
+position = Vector2(3847, -9)
+rotation = -1.5707964
+script = ExtResource("26_5mk18")
+
+[node name="Area2D" type="Area2D" parent="KijoOneShot2" unique_id=480606786]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KijoOneShot2/Area2D" unique_id=223898132]
+position = Vector2(125, -7)
+shape = SubResource("RectangleShape2D_sneht")
+
 [node name="KijoOneShotEnd" type="Node2D" parent="." unique_id=494121741]
 position = Vector2(6275, -168)
 rotation = -1.5707964
@@ -558,4 +586,6 @@ shape = SubResource("RectangleShape2D_sneht")
 
 [connection signal="timeout" from="bossStuff/ProjectileSpawners/cooldown" to="bossStuff/ProjectileSpawners" method="_on_cooldown_timeout"]
 [connection signal="timeout" from="bossStuff/BoulderSpawners/Timer" to="bossStuff/BoulderSpawners" method="_on_timer_timeout"]
+[connection signal="body_entered" from="KijoOneShot1/Area2D" to="KijoOneShot1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="KijoOneShot2/Area2D" to="KijoOneShot2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="KijoOneShotEnd/Area2D" to="KijoOneShotEnd" method="_on_area_2d_body_entered"]

@@ -308,6 +308,8 @@ do Global.prepareDialogue("confrontBoss", "res://Assets/Dialogue/Yumi.dialogue",
 
 ~ kijoConfrontation
 #The kijo speaks with Makoto and Kite after they see Yumi’s memories. 
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(50, -30))
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]You’ve finally made your way into my domain.[/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo][#expression_left=angry][#actor_right=on][#new_actor=kijo]
 Makoto: It’s over, Kijo! [#animate_left=enter_convo][#animate_right=exit_convo]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Hah! Don’t make me laugh, as if a mere mortal and tengu shade could scare me. You don’t stand a chance against me![/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo]
@@ -316,23 +318,43 @@ Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Justic
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Yumi was forgotten! Abandoned by the one she cared most for![/color][/outline_size][/shake]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]I was simply trying to free her from her own torment![/color][/outline_size][/shake]
 Makoto: That’s no excuse for the pain and suffering you’ve caused! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=makoto][#expression_left=angry]
-Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]I don’t need excuses, I simply want retribution! [/color][/outline_size][/shake]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]I don’t need excuses, I simply want retribution! [/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]We’ve been deemed unimportant by the ones we cared most about. We’re forced to push our feelings, our pain, our very BEING into a box. [/color][/outline_size][/shake]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]We’re shoved into the closet to collect dust only to be pulled out when we’re considered useful! [/color][/outline_size][/shake]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]No longer will we be cast to the side! Forced to watch as others revel in the spotlight as we vie for second place! [/color][/outline_size][/shake]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]I’ll crush you, detective, and claim my revenge![/color][/outline_size][/shake]
 do Global.finishOneShot("confrontBoss")
+do Signals.moveCharacter.emit("Boss", "flyAway1")
+do Global.resetCamera()
+do Global.oneshot_assets["Boss"] = true
 => END
 
 ~ kijoTaunt1
-Kijo: AHHAHAH!
-Makoto: You won't get away with this.
+do Signals.moveCharacter.emit("PlayerCharacter", "idleLoad")
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(70, -60))
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Your efforts are futile! I will crush you under my strength![/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo][#expression_left=angry][#actor_right=on][#new_actor=kijo]
+Makoto: [do Global.moveCamera(Vector2(20, -10))]You won't get away with this.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+do Global.resetCamera()
+do Signals.moveCharacter.emit("Boss2", "flyAway2")
+do Global.oneshot_assets["KijoOneShot1"] = true
+do Global.oneshot_assets["Boss2"] = true
+=> END
 
 ~ kijoTaunt2
-Kijo: Huff... TRY MY MALEVOLENT MAZE!
-Makoto: I've been through worse.
+do Signals.moveCharacter.emit("PlayerCharacter", "idleLoad")
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(50, -40))
+Kijo:  [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Huff... You're persistent... BUT YOU WON'T GET PAST MY MALEVOLENT MAZE! AHAHAHAHA![/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo][#expression_left=angry][#actor_right=on][#new_actor=kijo]
+Makoto: I've been through worse.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+do Global.resetCamera()
+do Signals.moveCharacter.emit("Boss3", "flyAway3")
+do Global.oneshot_assets["KijoOneShot2"] = true
+do Global.oneshot_assets["Boss3"] = true
+=> END
 
 ~ kijoSealed
+do Signals.moveCharacter.emit("PlayerCharacter", "idleLoad")
 do Global.moveCamera(Vector2(40, 0))
 do Global.zoomCamera(Vector2(1.5,1.5))
 Makoto: It looks like you’re out of steam, Kijo. It’s time you get sealed for good! [#expression_left=angry][#actor_right=on][#new_actor=kijo]
