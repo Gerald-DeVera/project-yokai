@@ -192,6 +192,7 @@ shader_parameter/tint = Color(1, 1, 1, 1)
 diffuse_texture = ExtResource("2_v402d")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tapu"]
+size = Vector2(19, 42)
 
 [sub_resource type="Animation" id="Animation_agccv"]
 length = 0.001
@@ -1106,7 +1107,7 @@ vframes = 7
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1844248807]
-position = Vector2(0, 14)
+position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_2tapu")
 
 [node name="Animations" type="Node" parent="." unique_id=1922377365]
@@ -1138,7 +1139,7 @@ collision_layer = 3
 collision_mask = 35
 
 [node name="DoorCollision" type="CollisionShape2D" parent="Area2D" unique_id=1406576169]
-position = Vector2(0, 14)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_2tapu")
 
 [node name="WalkAudio" type="AudioStreamPlayer" parent="." unique_id=1725559920]
