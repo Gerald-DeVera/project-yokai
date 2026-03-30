@@ -53,11 +53,6 @@ func _physics_process(delta):
 	#Do not continue if we do not allow input for the player
 	if inputDisabled:
 		return
-		
-	if Input.is_action_just_pressed("PauseMenu"):
-		print("am i paused?")
-		PlayerUI.UIAnimation.play("pause_move")
-		get_tree().paused = true
 
 	if Input.is_action_just_pressed("Spirit Sight") && Global.hasunlockedSight == true:
 		#spiritSightOn = !spiritSightOn

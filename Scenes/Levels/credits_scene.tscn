@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dkrt4v88hv1cg"]
+
+[ext_resource type="Script" uid="uid://so4np03y5gd5" path="res://Scenes/Levels/credits_scene.gd" id="1_nrkn6"]
+[ext_resource type="Texture2D" uid="uid://kgnbw81g1nai" path="res://Assets/UI/teamlogo.png" id="2_cddww"]
+
+[node name="CreditsScene" type="Node2D" unique_id=1413110712]
+script = ExtResource("1_nrkn6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1996933992]
+offset_left = -5.0
+offset_top = -4.0
+offset_right = 646.0
+offset_bottom = 368.0
+color = Color(0, 0, 0, 1)
+
+[node name="Teamlogo" type="Sprite2D" parent="." unique_id=18572296]
+visible = false
+position = Vector2(318, 186)
+texture = ExtResource("2_cddww")

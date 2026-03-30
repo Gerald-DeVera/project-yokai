@@ -63,3 +63,5 @@ signal animateScreenWipe(animationName: String)
 signal reloadScene()
 
 signal memoryUpdate(updateAction: String)
+
+signal playCredits()

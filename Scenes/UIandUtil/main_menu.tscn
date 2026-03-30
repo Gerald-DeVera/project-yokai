@@ -5,6 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://cbv3qss5nqtmi" path="res://Assets/Themes and Fonts/dialog_choice_default.tres" id="2_hd1h2"]
 [ext_resource type="Texture2D" uid="uid://cy0wxwljw68c8" path="res://Assets/dialog_ui_stringasset.png" id="2_irntl"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="2_xc7e4"]
+[ext_resource type="Texture2D" uid="uid://bs17scqqlydw8" path="res://Assets/UI/menu_bg light.png" id="3_38s4d"]
 [ext_resource type="FontFile" uid="uid://b6jdat4l5binh" path="res://Assets/Themes and Fonts/Jersey10-Regular.ttf" id="3_irntl"]
 [ext_resource type="FontFile" uid="uid://rr8avncgxiub" path="res://Assets/Themes and Fonts/SOBAD___.ttf" id="4_ptmrj"]
 [ext_resource type="Script" uid="uid://dea1ln61gjcce" path="res://Scenes/UIandUtil/buttonhover.gd" id="5_86wuk"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cv2n6e7tnk1yk" path="res://Assets/UI/inventory_paper.png" id="9_17odb"]
 [ext_resource type="Texture2D" uid="uid://yw4fb8s7u5pu" path="res://Assets/UI/notebook_container9grid.png" id="10_dsxpm"]
 [ext_resource type="Texture2D" uid="uid://fucyfubce8bi" path="res://Assets/UI/inventory_label.png" id="13_qq230"]
+[ext_resource type="AudioStream" uid="uid://wg11sye6jtb1" path="res://Assets/Audio/BackgroundTracks/NightCity.wav" id="17_2y3n7"]
 
 [sub_resource type="FontVariation" id="FontVariation_65hqi"]
 base_font = ExtResource("4_ptmrj")
@@ -250,6 +252,11 @@ script = ExtResource("1_rhxkt")
 [node name="MenuBg" type="Sprite2D" parent="." unique_id=29591602]
 position = Vector2(320, 181)
 texture = ExtResource("2_8kfdy")
+
+[node name="MenuBgLight" type="Sprite2D" parent="." unique_id=778725122]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(320, 180)
+texture = ExtResource("3_38s4d")
 
 [node name="CreditsUI" type="Control" parent="." unique_id=1058927295]
 visible = false
@@ -524,19 +531,25 @@ theme_override_fonts/normal_font = ExtResource("4_ptmrj")
 theme_override_font_sizes/normal_font_size = 29
 text = "Are you sure you want to quit?"
 
-[node name="PauseLabel" type="RichTextLabel" parent="." unique_id=1776177743]
+[node name="TitleLogo" type="RichTextLabel" parent="." unique_id=1776177743]
 layout_mode = 0
 offset_left = 41.0
 offset_top = 47.0
 offset_right = 298.0
-offset_bottom = 153.0
+offset_bottom = 152.99974
 theme_override_colors/font_outline_color = Color(0.41899908, 0.3001572, 0.1343289, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("4_ptmrj")
 theme_override_font_sizes/normal_font_size = 79
 text = "YOKAI P.I."
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TitleLogo" unique_id=287730503]
+
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("8_86wuk")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1345224047]
+stream = ExtResource("17_2y3n7")
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

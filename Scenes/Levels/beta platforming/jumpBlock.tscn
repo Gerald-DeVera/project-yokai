@@ -1,13 +1,143 @@
 [gd_scene format=3 uid="uid://c5y1rx0iuaxx1"]
 
-[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="1_7oxof"]
 [ext_resource type="Script" uid="uid://cka2h2usjf3xt" path="res://Scripts/jump_block.gd" id="1_icax4"]
+[ext_resource type="Texture2D" uid="uid://oeogqbpaclrx" path="res://Assets/Environment/platforming tiles/jump pad.png" id="2_icax4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icax4"]
 size = Vector2(24, 25)
 
+[sub_resource type="Animation" id="Animation_rxdw1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D/JumpPadIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r4yam"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D/JumpPadIdle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6, 8, 10, 12, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_notdk"]
+_data = {
+&"RESET": SubResource("Animation_rxdw1"),
+&"idle": SubResource("Animation_r4yam")
+}
+
+[sub_resource type="Animation" id="Animation_pdd5a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D/JumpPadBounce:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatableBody2D/JumpPadBounce:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody2D/JumpPadBounce:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6c84w"]
+resource_name = "bounce"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D/JumpPadBounce:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatableBody2D/JumpPadBounce:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9, 11, 13, 15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody2D/JumpPadBounce:offset")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.30892557, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -21.68)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5onug"]
+_data = {
+&"RESET": SubResource("Animation_pdd5a"),
+&"bounce": SubResource("Animation_6c84w")
+}
+
 [node name="JumpBlock" type="Node2D" unique_id=764757466]
 script = ExtResource("1_icax4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1204446690]
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 12.0
+offset_bottom = 12.0
+color = Color(0.9084394, 0.7107937, 0.79625815, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=383194588]
 collision_mask = 2
@@ -18,13 +148,31 @@ shape = SubResource("RectangleShape2D_icax4")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=557078051]
 
-[node name="Important" type="Sprite2D" parent="AnimatableBody2D" unique_id=636989756]
-position = Vector2(0, -3.8146973e-06)
-scale = Vector2(0.1874999, 0.3076924)
-texture = ExtResource("1_7oxof")
+[node name="JumpPadBounce" type="Sprite2D" parent="AnimatableBody2D" unique_id=1112820192]
+visible = false
+position = Vector2(0, -19)
+texture = ExtResource("2_icax4")
+hframes = 2
+vframes = 8
+frame = 1
+
+[node name="JumpPadIdle" type="Sprite2D" parent="AnimatableBody2D" unique_id=767655467]
+position = Vector2(0, -20)
+texture = ExtResource("2_icax4")
+hframes = 2
+vframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D/JumpPadIdle" unique_id=529931662]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_notdk")
+autoplay = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=907804274]
 shape = SubResource("RectangleShape2D_icax4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=902052923]
+libraries/ = SubResource("AnimationLibrary_5onug")
+speed_scale = 1.79
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
