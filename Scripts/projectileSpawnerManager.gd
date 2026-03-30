@@ -1,14 +1,11 @@
 extends Node
 
-@onready var spawners = [
-	$spawner1,
-	$spawner2,
-	$spawner3,
-	$spawner4
-]
+var spawners
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	spawners = get_children()
+	spawners.pop_back()
 	pass # Replace with function body.
 
 

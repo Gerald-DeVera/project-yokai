@@ -1,19 +1,14 @@
 extends Node
 
-@onready var spawners = [
-	$bls1,
-	$bls2,
-	$bls3,
-	$bls4,
-	$bls5,
-	$bls6,
-]
+var spawners
 
 var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawnLeftToRight()
+	spawners = get_children()
+	spawners.pop_back()
+	#spawnLeftToRight()
 	pass # Replace with function body.
 
 
@@ -33,6 +28,6 @@ func spawnLeftToRight() -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("do stuff")
-	spawners[3].shoot()
+	for x in spawners:
+		x.shoot()
 	pass # Replace with function body.
