@@ -20,7 +20,6 @@
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
 [ext_resource type="Texture2D" uid="uid://1ycp8ukf7flq" path="res://Assets/Sprites/boulder.png" id="11_oq4ni"]
-[ext_resource type="PackedScene" uid="uid://5ccoo2ajgtkf" path="res://Scenes/Levels/beta platforming/spirit platform.tscn" id="11_sqrx0"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
 [ext_resource type="AudioStream" uid="uid://cstj3d5vroha5" path="res://Assets/Audio/BackgroundTracks/Art.wav" id="16_tv0ub"]
 [ext_resource type="PackedScene" uid="uid://bmbtupp20w1al" path="res://Scenes/Entities/boulder.tscn" id="19_sqrx0"]
@@ -118,6 +117,7 @@ position = Vector2(16, -414)
 [node name="bossStuff" type="Node" parent="." unique_id=74740881]
 
 [node name="Boss" parent="bossStuff" unique_id=1873205114 instance=ExtResource("1_kokxh")]
+visible = false
 position = Vector2(216, -68)
 script = ExtResource("2_oq4ni")
 
@@ -130,17 +130,17 @@ rotation = -1.5707964
 script = ExtResource("2_hh1ma")
 
 [node name="spawner2" type="Node2D" parent="bossStuff/ProjectileSpawners" unique_id=1244158965]
-position = Vector2(1250, -43)
+position = Vector2(1250, -34)
 rotation = -1.5707964
 script = ExtResource("2_hh1ma")
 
 [node name="spawner3" type="Node2D" parent="bossStuff/ProjectileSpawners" unique_id=432361407]
-position = Vector2(1250, 29)
+position = Vector2(1250, 25)
 rotation = -1.5707964
 script = ExtResource("2_hh1ma")
 
 [node name="spawner4" type="Node2D" parent="bossStuff/ProjectileSpawners" unique_id=1902058866]
-position = Vector2(1250, -79)
+position = Vector2(1250, -62)
 rotation = -1.5707964
 script = ExtResource("2_hh1ma")
 
@@ -148,49 +148,31 @@ script = ExtResource("2_hh1ma")
 wait_time = 1.5
 autostart = true
 
-[node name="Hazard" parent="bossStuff/ProjectileSpawners" unique_id=1809822342 instance=ExtResource("6_7xje2")]
-position = Vector2(1952, 3)
-
-[node name="Hazard2" parent="bossStuff/ProjectileSpawners" unique_id=1824541870 instance=ExtResource("6_7xje2")]
-position = Vector2(2082, 4)
-
-[node name="Hazard3" parent="bossStuff/ProjectileSpawners" unique_id=732360547 instance=ExtResource("6_7xje2")]
-position = Vector2(2186, 2)
-
-[node name="Hazard4" parent="bossStuff/ProjectileSpawners" unique_id=1592221274 instance=ExtResource("6_7xje2")]
-position = Vector2(2320, 6)
-
-[node name="Hazard5" parent="bossStuff/ProjectileSpawners" unique_id=1826310017 instance=ExtResource("6_7xje2")]
-position = Vector2(2472, 1)
-
-[node name="Hazard6" parent="bossStuff/ProjectileSpawners" unique_id=183618589 instance=ExtResource("6_7xje2")]
-position = Vector2(2637, 1)
-
 [node name="BoulderSpawners" type="Node" parent="bossStuff" unique_id=1678200570]
 script = ExtResource("5_3n5q1")
 
 [node name="bls1" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=733635098]
-position = Vector2(2060, -370)
+position = Vector2(2020, -372)
 script = ExtResource("5_tv0ub")
 
 [node name="bls2" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=238563593]
-position = Vector2(2185, -367)
+position = Vector2(2137, -369)
 script = ExtResource("5_tv0ub")
 
 [node name="bls3" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=1766207078]
-position = Vector2(3207, -458)
+position = Vector2(3196, -533)
 script = ExtResource("5_tv0ub")
 
 [node name="bls4" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=2024865570]
-position = Vector2(2606, -359)
+position = Vector2(2541, -362)
 script = ExtResource("5_tv0ub")
 
 [node name="bls5" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=1456415727]
-position = Vector2(2310, -368)
+position = Vector2(2256, -368)
 script = ExtResource("5_tv0ub")
 
 [node name="bls6" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=2132671496]
-position = Vector2(2447, -369)
+position = Vector2(2383, -366)
 script = ExtResource("5_tv0ub")
 
 [node name="Timer" type="Timer" parent="bossStuff/BoulderSpawners" unique_id=796087013]
@@ -280,10 +262,10 @@ position = Vector2(-1218, -352)
 [node name="Leaf" type="Node" parent="platforms" unique_id=1221868753]
 
 [node name="LeafPlatform6" parent="platforms/Leaf" unique_id=72009936 instance=ExtResource("4_1b4hs")]
-position = Vector2(-48, -40)
+position = Vector2(-103, -48)
 
 [node name="LeafPlatform5" parent="platforms/Leaf" unique_id=133722252 instance=ExtResource("4_1b4hs")]
-position = Vector2(682, -29)
+position = Vector2(689, -38)
 
 [node name="LeafPlatform4" parent="platforms/Leaf" unique_id=811937227 instance=ExtResource("4_1b4hs")]
 position = Vector2(514, -33)
@@ -295,32 +277,26 @@ position = Vector2(328, -40)
 position = Vector2(135, -40)
 
 [node name="LeafPlatform" parent="platforms/Leaf" unique_id=1044546769 instance=ExtResource("4_1b4hs")]
-position = Vector2(-237, -46)
+position = Vector2(-246, -47)
 
 [node name="Falling" type="Node" parent="platforms" unique_id=1226900021]
 
 [node name="FallingPlatform" parent="platforms/Falling" unique_id=644855615 instance=ExtResource("20_5mk18")]
-position = Vector2(229, -68)
+position = Vector2(230, -11)
 
 [node name="FallingPlatform2" parent="platforms/Falling" unique_id=2128767725 instance=ExtResource("20_5mk18")]
-position = Vector2(416, -68)
+position = Vector2(419, -13)
 
 [node name="FallingPlatform3" parent="platforms/Falling" unique_id=383809167 instance=ExtResource("20_5mk18")]
-position = Vector2(592, -69)
+position = Vector2(596, -14)
 
 [node name="Stone" type="Node" parent="platforms" unique_id=717365560]
 
 [node name="Platforms" parent="platforms/Stone" unique_id=447349731 instance=ExtResource("6_om0u7")]
-position = Vector2(-179, -10)
-
-[node name="Platforms2" parent="platforms/Stone" unique_id=1143560199 instance=ExtResource("6_om0u7")]
-position = Vector2(-122, -71)
+position = Vector2(-179, -13)
 
 [node name="Platforms4" parent="platforms/Stone" unique_id=2036555707 instance=ExtResource("6_om0u7")]
 position = Vector2(1560, -26)
-
-[node name="Platforms3" parent="platforms/Stone" unique_id=1833377479 instance=ExtResource("6_om0u7")]
-position = Vector2(130, -213)
 
 [node name="Platforms5" parent="platforms/Stone" unique_id=344117856 instance=ExtResource("6_om0u7")]
 position = Vector2(3130, 15)
@@ -371,9 +347,6 @@ position = Vector2(3779, -45)
 scale = Vector2(1.395, 1)
 
 [node name="Spirit" type="Node" parent="platforms" unique_id=1184179420]
-
-[node name="SpiritPlatform" parent="platforms/Spirit" unique_id=1136455364 instance=ExtResource("11_sqrx0")]
-position = Vector2(-319, -70)
 
 [node name="Portals" type="Node" parent="." unique_id=1324805676]
 
@@ -483,11 +456,23 @@ pairedPortal = NodePath("../Portal21I")
 
 [node name="Hazards" type="Node" parent="." unique_id=1379060054]
 
-[node name="Hazard2" parent="Hazards" unique_id=888548475 instance=ExtResource("6_7xje2")]
-position = Vector2(225, 0)
+[node name="Hazard" parent="Hazards" unique_id=1809822342 instance=ExtResource("6_7xje2")]
+position = Vector2(1952, 3)
 
-[node name="Hazard" parent="Hazards" unique_id=537821791 instance=ExtResource("6_7xje2")]
-position = Vector2(117, 0)
+[node name="Hazard2" parent="Hazards" unique_id=1824541870 instance=ExtResource("6_7xje2")]
+position = Vector2(2082, 4)
+
+[node name="Hazard3" parent="Hazards" unique_id=732360547 instance=ExtResource("6_7xje2")]
+position = Vector2(2186, 2)
+
+[node name="Hazard4" parent="Hazards" unique_id=1592221274 instance=ExtResource("6_7xje2")]
+position = Vector2(2320, 6)
+
+[node name="Hazard5" parent="Hazards" unique_id=1826310017 instance=ExtResource("6_7xje2")]
+position = Vector2(2472, 1)
+
+[node name="Hazard6" parent="Hazards" unique_id=183618589 instance=ExtResource("6_7xje2")]
+position = Vector2(2637, 1)
 
 [node name="JumpBlock" parent="." unique_id=764757466 instance=ExtResource("26_sneht")]
 position = Vector2(1076, 47)
