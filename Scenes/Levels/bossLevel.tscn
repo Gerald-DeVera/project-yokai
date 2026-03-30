@@ -198,7 +198,7 @@ autostart = true
 script = ExtResource("5_3n5q1")
 
 [node name="bls1" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=733635098]
-position = Vector2(2020, -372)
+position = Vector2(2007, -372)
 script = ExtResource("5_tv0ub")
 
 [node name="bls2" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=238563593]
@@ -221,7 +221,16 @@ script = ExtResource("5_tv0ub")
 position = Vector2(2383, -366)
 script = ExtResource("5_tv0ub")
 
-[node name="Timer" type="Timer" parent="bossStuff/BoulderSpawners" unique_id=796087013]
+[node name="bls7" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=1893734055]
+position = Vector2(2688, -359)
+script = ExtResource("5_tv0ub")
+
+[node name="bls8" type="Node2D" parent="bossStuff/BoulderSpawners" unique_id=296614934]
+position = Vector2(3352, -559)
+script = ExtResource("5_tv0ub")
+
+[node name="cooldown" type="Timer" parent="bossStuff/BoulderSpawners" unique_id=796087013]
+wait_time = 2.0
 autostart = true
 
 [node name="BossChargePositions" type="Node" parent="bossStuff" unique_id=1022541169]
@@ -596,10 +605,8 @@ position = Vector2(675, -10)
 position = Vector2(3547, 46)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
-visible = false
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_mngpy")]
-visible = false
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=79019867]
 visible = false
@@ -643,7 +650,7 @@ position = Vector2(127.749985, -7)
 shape = SubResource("RectangleShape2D_sneht")
 
 [connection signal="timeout" from="bossStuff/ProjectileSpawners/cooldown" to="bossStuff/ProjectileSpawners" method="_on_cooldown_timeout"]
-[connection signal="timeout" from="bossStuff/BoulderSpawners/Timer" to="bossStuff/BoulderSpawners" method="_on_timer_timeout"]
+[connection signal="timeout" from="bossStuff/BoulderSpawners/cooldown" to="bossStuff/BoulderSpawners" method="_on_timer_timeout"]
 [connection signal="body_entered" from="KijoOneShot1/Area2D" to="KijoOneShot1" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="KijoOneShot2/Area2D" to="KijoOneShot2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="KijoOneShotEnd/Area2D" to="KijoOneShotEnd" method="_on_area_2d_body_entered"]
