@@ -13,9 +13,8 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		print("argh")
 		respawnPlayer()
-		Signals.damagePlayer.emit(1, null)
+		Signals.damagePlayer.emit(1, Vector2(0,0))
 	pass # Replace with function body.
 
 func respawnPlayer() -> void:
