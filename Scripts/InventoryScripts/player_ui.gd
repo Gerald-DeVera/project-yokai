@@ -89,6 +89,7 @@ func disableHotkeys(resource):
 		$Hotkeys.visible = false
 func enableHotkeys(resource):
 		$Hotkeys.visible = true
+
 func takeDamage(damage: int, objectVelocity: Vector2):
 		HealthAni.play("lifelost")
 		if HealthProg.value <= 3:

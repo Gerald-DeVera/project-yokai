@@ -31,7 +31,8 @@ func playMusic(music: AudioStream, volume = 0.0):
 	pass
 	
 func stopMusic():
-	#stop()
+	stop()
+	stream = null
 	pass
 
 func playLevelMusic(level: String = "cityDay"):
