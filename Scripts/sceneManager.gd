@@ -51,6 +51,8 @@ func transition_to_scene(level : String):
 				audioManager.playLevelMusic("boss")
 			"MainMenu":
 				audioManager.playLevelMusic("cityNight")
+			"Credits":
+				audioManager.playLevelMusic("credits")
 			"Alleyway", "Flower", "Office":
 				audioManager.stopMusic()
 
