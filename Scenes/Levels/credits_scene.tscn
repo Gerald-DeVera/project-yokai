@@ -2,6 +2,120 @@
 
 [ext_resource type="Script" uid="uid://so4np03y5gd5" path="res://Scenes/Levels/credits_scene.gd" id="1_nrkn6"]
 [ext_resource type="Texture2D" uid="uid://kgnbw81g1nai" path="res://Assets/UI/teamlogo.png" id="2_cddww"]
+[ext_resource type="FontFile" uid="uid://uf7b4k381gwo" path="res://Assets/Themes and Fonts/Jersey25-Regular.ttf" id="3_rquqo"]
+
+[sub_resource type="FontVariation" id="FontVariation_1ybls"]
+base_font = ExtResource("3_rquqo")
+spacing_top = -1
+
+[sub_resource type="Animation" id="Animation_rquqo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CreditInfo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(192, 47)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CreditInfo:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.97633153, 0.9565546, 0.94195384, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Teamlogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TY:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1ybls"]
+resource_name = "credit_play"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CreditInfo:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(192, 382), Vector2(192, 47)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CreditInfo:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.4989612, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.9761382, 0.9567118, 0.9420039, 1), Color(0.97633153, 0.9565546, 0.94195384, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Teamlogo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.002985, 6.022329, 7.405662, 8.330498),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TY:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8.998343, 9.994253, 11.233334, 12.0476675),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqb8p"]
+_data = {
+&"RESET": SubResource("Animation_rquqo"),
+&"credit_play": SubResource("Animation_1ybls")
+}
 
 [node name="CreditsScene" type="Node2D" unique_id=1413110712]
 script = ExtResource("1_nrkn6")
@@ -14,6 +128,50 @@ offset_bottom = 368.0
 color = Color(0, 0, 0, 1)
 
 [node name="Teamlogo" type="Sprite2D" parent="." unique_id=18572296]
-visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(318, 186)
 texture = ExtResource("2_cddww")
+
+[node name="CreditInfo" type="RichTextLabel" parent="." unique_id=942757161]
+offset_left = 192.0
+offset_top = 47.0
+offset_right = 456.0
+offset_bottom = 350.99988
+theme_override_colors/default_color = Color(0.97633153, 0.9565546, 0.94195384, 0)
+theme_override_fonts/normal_font = SubResource("FontVariation_1ybls")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "[b]Story and Narrative:[/b]
+Tenafe
+Shinyao
+
+[b]Visual Design and Art Direction:[/b]
+Shinyao
+
+[b]Art:[/b]
+Shinyao
+Beaversrock
+
+[b]Lead Programming: [/b]
+Raikkuma
+TwinShadeless
+
+[b]Music:[/b]
+Pixelee"
+horizontal_alignment = 1
+
+[node name="TY" type="RichTextLabel" parent="." unique_id=2147469947]
+modulate = Color(1, 1, 1, 0)
+offset_left = 170.0
+offset_top = 165.0
+offset_right = 480.0
+offset_bottom = 218.0
+theme_override_fonts/normal_font = SubResource("FontVariation_1ybls")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Thank you for Playing!"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1169320560]
+libraries/ = SubResource("AnimationLibrary_bqb8p")

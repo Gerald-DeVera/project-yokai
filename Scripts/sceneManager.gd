@@ -15,7 +15,8 @@ var scenes : Dictionary = { "City": "res://Scenes/Levels/overworld.tscn" ,
 							"PlatformingStage": "res://Scenes/Levels/platformingLevel.tscn",
 							"BossLevel": "res://Scenes/Levels/bossLevel.tscn",
 							"Memory": "res://Scenes/Levels/memory.tscn",
-							"Credits": "res://Scenes/Levels/credits_scene.tscn"
+							"Credits": "res://Scenes/Levels/credits_scene.tscn",
+							"MainMenu": "res://Scenes/UIandUtil/main_menu.tscn"
 							}
 var player_pos: Vector2
 var currentScene = ""
@@ -44,7 +45,10 @@ func transition_to_scene(level : String):
 				audioManager.playLevelMusic("yokai")
 			"PlatformingStage":
 				audioManager.playLevelMusic("platforming")
-		
+			"BossLevel":
+				audioManager.playLevelMusic("boss")
+			"MainMenu":
+				audioManager.playLevelMusic("cityNight")
 
 func sceneLoadCheck():
 	Signals.togglePlayerInput.emit(false)

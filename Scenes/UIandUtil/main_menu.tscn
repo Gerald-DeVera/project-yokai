@@ -317,16 +317,28 @@ offset_right = 233.0
 offset_bottom = 262.0
 theme_override_colors/default_color = Color(0.4035181, 0.3074616, 0.22773015, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_38s4d")
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/bold_font_size = 9
 bbcode_enabled = true
-text = "Programming -  badabingbadaboom
-Art - pee pee poo poo
-Music - Balalal
-Story - Pissman123
+text = "[b]Story and Narrative:[/b]
+Tenafe
+Shinyao
 
-dialogue manager
-sfx
-etcetc"
+[b]Visual Design and Art Direction:[/b]
+Shinyao
+
+[b]Art:[/b]
+Shinyao
+Beaversrock
+
+[b]Lead Programming: [/b]
+Raikkuma
+TwinShadeless
+
+[b]Music:[/b]
+Pixelee
+
+Made By Dino Nuggie Studios"
 horizontal_alignment = 1
 
 [node name="InventoryPencil" type="Sprite2D" parent="CreditsUI" unique_id=215407841]
@@ -549,7 +561,6 @@ text = "YOKAI P.I."
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1345224047]
 stream = ExtResource("17_2y3n7")
-autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

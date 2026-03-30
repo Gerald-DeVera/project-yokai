@@ -184,6 +184,7 @@ if Global.dialogueFlags.gotBeans == false
 	do Signals.updateInfoAnimation.emit("invnote")
 	do Global.zoomCamera(Vector2(1.5,1.5))
 	do Global.resetCamera()
+	do Global.unlocked_dialogue["Desk"] = true
 	=> END
 elif Global.dialogueFlags.gotBeans == true
 	do Global.grabCameraPos()

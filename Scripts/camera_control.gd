@@ -4,14 +4,17 @@ extends Camera2D
 @export var fadeout: float = 30.0
 @export var isShaking: bool = false
 
+
 var randNum = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
+var originalOffset: Vector2
 
 func shake_Camera():
 	shake_strength = randShake
 
 func _ready() -> void:
 	Signals.shakeCam.connect(Callable(self,"toggleShake"))
+	originalOffset = offset
 	randShake = 0.1
 
 func _process(delta):
@@ -21,7 +24,7 @@ func _process(delta):
 		shake_Camera()
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength,0,fadeout * delta)
-		offset = randomOffset()
+		offset = randomOffset()+originalOffset
 	
 func randomOffset() -> Vector2:
 	return Vector2(randNum.randf_range(-shake_strength,shake_strength), randNum.randf_range(-shake_strength,shake_strength))
