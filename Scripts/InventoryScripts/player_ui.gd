@@ -104,8 +104,10 @@ func updateInfo(infoType: String):
 		
 func disableHotkeys(resource):
 		$Hotkeys.visible = false
+		escapeInputDisabled = true
 func enableHotkeys(resource):
 		$Hotkeys.visible = true
+		escapeInputDisabled = false
 
 func takeDamage(damage: int, objectVelocity: Vector2):
 		HealthAni.play("lifelost")

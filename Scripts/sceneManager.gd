@@ -63,7 +63,7 @@ func sceneLoadCheck():
 	if Global.dialoguePrep.dialogueOneShot == true and currentScene == Global.dialoguePrep.dialogueSceneStart:
 		Global.initiateDialogueOneShot()
 	else:
-		print("scene manager emit true")
 		Signals.togglePlayerInput.emit(true)
-	#	Signals.toggleInventoryInput.emit(false)
-	#	Signals.toggleNotebookInput.emit(true)
+		Signals.toggleInventoryInput.emit(false)
+		Signals.toggleNotebookInput.emit(false)
+		Signals.toggleEscapeInput.emit(false)
