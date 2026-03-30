@@ -69,7 +69,7 @@ tracks/0/path = NodePath("CreditInfo:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2.9333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(192, 382), Vector2(192, 47)]
@@ -81,7 +81,7 @@ tracks/1/path = NodePath("CreditInfo:theme_override_colors/default_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.4989612, 3.5),
+"times": PackedFloat32Array(4.766667, 5.767706),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.9761382, 0.9567118, 0.9420039, 1), Color(0.97633153, 0.9565546, 0.94195384, 0)]
@@ -93,7 +93,7 @@ tracks/2/path = NodePath("Teamlogo:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(5.002985, 6.022329, 7.405662, 8.330498),
+"times": PackedFloat32Array(7.270691, 8.290034, 9.6733675, 10.598204),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -105,7 +105,7 @@ tracks/3/path = NodePath("TY:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(8.998343, 9.994253, 11.233334, 12.0476675),
+"times": PackedFloat32Array(11.266049, 12.261959, 13.5010395, 14.315373),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -136,7 +136,7 @@ texture = ExtResource("2_cddww")
 offset_left = 192.0
 offset_top = 47.0
 offset_right = 456.0
-offset_bottom = 350.99988
+offset_bottom = 351.0
 theme_override_colors/default_color = Color(0.97633153, 0.9565546, 0.94195384, 0)
 theme_override_fonts/normal_font = SubResource("FontVariation_1ybls")
 theme_override_font_sizes/normal_font_size = 14

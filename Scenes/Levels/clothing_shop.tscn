@@ -12,6 +12,44 @@
 [ext_resource type="Texture2D" uid="uid://6bpgw4ajuq86" path="res://Assets/Environment/lightparallel.png" id="10_fj5wa"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="11_fqbdn"]
 
+[sub_resource type="Animation" id="Animation_fqbdn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_u2ouw"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 7, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gw6pd"]
+_data = {
+&"RESET": SubResource("Animation_fqbdn"),
+&"idle": SubResource("Animation_u2ouw")
+}
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hc7ey"]
 
 [sub_resource type="Animation" id="Animation_71phu"]
@@ -125,7 +163,13 @@ texture = ExtResource("1_ata4p")
 position = Vector2(319, 249)
 texture = ExtResource("3_fqbdn")
 hframes = 2
+vframes = 5
 frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharPlaceholder" unique_id=508583860]
+libraries/ = SubResource("AnimationLibrary_gw6pd")
+autoplay = &"idle"
+speed_scale = 0.794
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1883024677]
 position = Vector2(2, -1)

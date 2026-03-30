@@ -23,6 +23,12 @@ var accel: float = 0.2
 @onready var hitflash = $HitFlashAnimationPlayer
 @onready var PlayerUI = $"../PlayerUI"
 @onready var walkingSFX = $WalkAudio
+@onready var sfxDB = -9.576
+
+@onready var tile = preload("res://Assets/Audio/SFX/walk_tile.mp3")
+@onready var grass = preload("res://Assets/Audio/SFX/walk_grass.wav")
+@onready var mem = preload("res://Assets/Audio/SFX/walk_memory.wav")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Player")
@@ -35,6 +41,12 @@ func _ready() -> void:
 	Signals.damagePlayer.connect(Callable(self,"takeDamage"))
 	Signals.changePlayerVelocity.connect(Callable(self,"tempChangeVelocity"))
 	Signals.returnToOriginalVelocity.connect(Callable(self,"returnToOriginalVelocity"))
+	if self.get_parent().name == "BaseYokaiWorld":
+		walkingSFX.stream = grass
+	elif self.get_parent().name == "Memory":
+		walkingSFX.stream = mem
+	else:
+		walkingSFX.stream = tile
 	if sceneManager.player_pos:
 		global_position = sceneManager.player_pos
 	inventory.makeReady()
@@ -136,8 +148,9 @@ func animate(direction):
 		if is_on_floor():
 			movement_state_machine.travel("RunSet")
 			if walkingSFX.playing != true:
-				walkingSFX.pitch_scale = randf_range(0.9,1.1)
+				walkingSFX.volume_db = sfxDB
 				walkingSFX.play()
+				walkingSFX.pitch_scale = randf_range(0.9,1.1)
 			$Animations/AnimationTree.set("parameters/MovementStateMachine/RunSet/blend_position", Vector2(direction,0))
 			$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(direction,0))
 			$Animations/AnimationTree.set("parameters/WindupSpace/blend_position",Vector2(direction,0))
@@ -150,6 +163,7 @@ func animate(direction):
 	else:
 		if is_on_floor():
 			movement_state_machine.travel("IdleSet")
+			var tween = create_tween()
 			walkingSFX.stop()
 			if hasStopped != true && Input.is_action_just_pressed("move_left") or hasStopped != true && Input.is_action_just_pressed("move_right"):
 				$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 1)

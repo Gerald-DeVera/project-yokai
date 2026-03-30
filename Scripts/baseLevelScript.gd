@@ -14,7 +14,6 @@ extends Node
 @onready var kijoBoxLight = $DirectionalLight2D
 #@onready var SceneTransition = $"../SceneTransitionAnimation/AnimationPlayer"
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sceneManager.sceneLoadCheck()
