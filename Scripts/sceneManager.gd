@@ -14,7 +14,8 @@ var scenes : Dictionary = { "City": "res://Scenes/Levels/overworld.tscn" ,
 							"YokaiHome": "res://Scenes/Levels/yokaihome.tscn",
 							"PlatformingStage": "res://Scenes/Levels/platformingLevel.tscn",
 							"BossLevel": "res://Scenes/Levels/bossLevel.tscn",
-							"Memory": "res://Scenes/Levels/memory.tscn"
+							"Memory": "res://Scenes/Levels/memory.tscn",
+							"Credits": "res://Scenes/Levels/credits_scene.tscn"
 							}
 var player_pos: Vector2
 var currentScene = ""

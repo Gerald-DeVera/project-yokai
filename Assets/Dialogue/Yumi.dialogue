@@ -273,7 +273,7 @@ Yumi: What...? [#animate_left=exit_convo][#animate_right=enter_convo][#expressio
 It’s like time has stopped. [#animate_right=exit_convo]
 Yui fades. [#actor_left=off][do Signals.memoryUpdate.emit("YuiFade")]
 Yumi: It was selfish of me. I realize it now. I so desperately wanted to be the only one that she shined on. 
-Yumi: Yet, I didn’t even hear her out. The choice was made for me when [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]SHE[/color][/outline_size] [/shake] took over… I never would’ve done anything to hurt Yui… 
+Yumi: Yet, I didn’t even hear her out. The choice was made for me when [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]SHE[/color][/outline_size][/shake] took over… I never would’ve done anything to hurt Yui… 
 Yumi: Please help me, detective…
 Yumi too fades.[#actor_right=off][do Signals.memoryUpdate.emit("YumiFade")]
 do Signals.memoryUpdate.emit("BGFade")
@@ -299,21 +299,109 @@ Makoto: So I just need to avoid her attacks for a little while… For Yumi and Y
 Makoto: That’s what agents of justice do. Right? [#expression_left=happy]
 Kite: Indeed! [#animate_left=exit_convo][#animate_right=enter_convo]
 do Global.finishOneShot("Memory3Done")
+do Global.questsList.quests.append(load("res://Assets/Quests/Quest21.tres"))
+do Global.markPreviousQuest(load("res://Assets/Quests/Quest20.tres"))
+do Signals.updateInfoAnimation.emit("notebook")
 => END
 
 ~ kijoConfrontation
 #The kijo speaks with Makoto and Kite after they see Yumi’s memories. 
-Kijo: You’ve finally made your way into my domain.
-Makoto: It’s over, Kijo!
-Kijo: Hah! Don’t make me laugh, as if a mere mortal and tengu shade could scare me. You don’t stand a chance against me!
-Kite: Empty threats will get you nowhere villain! Weakened and cornered, justice shall prevail against you!
-Kijo: Justice? Are my actions not in line with this so-called justice you won’t stop droning on about!? 
-Kijo: Yumi was forgotten! Abandoned by the one she cared most for! 
-Kijo: I was simply trying to free her from her own torment!
-Makoto: That’s no excuse for the pain and suffering you’ve caused!
-Kijo: I don’t need excuses, I simply want retribution! 
-Kijo: We’ve been deemed unimportant by the ones we cared most about. We’re forced to push our feelings, our pain, our very BEING into a box. 
-Kijo: We’re shoved into the closet to collect dust only to be pulled out when we’re considered useful! 
-Kijo: No longer will we be cast to the side! Forced to watch as others revel in the spotlight as we vie for second place! 
-Kijo: I’ll crush you, detective, and claim my revenge!
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]You’ve finally made your way into my domain.[/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo][#expression_left=angry][#actor_right=on][#new_actor=kijo]
+Makoto: It’s over, Kijo! [#animate_left=enter_convo][#animate_right=exit_convo]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Hah! Don’t make me laugh, as if a mere mortal and tengu shade could scare me. You don’t stand a chance against me![/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo]
+Kite: Empty threats will get you nowhere villain! Weakened and cornered, justice shall prevail against you! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left][#expression_left=happy]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Justice? Are my actions not in line with this so-called justice you won’t stop droning on about!?[/color][/outline_size][/shake]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Yumi was forgotten! Abandoned by the one she cared most for![/color][/outline_size][/shake]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]I was simply trying to free her from her own torment![/color][/outline_size][/shake]
+Makoto: That’s no excuse for the pain and suffering you’ve caused! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=makoto][#expression_left=angry]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]I don’t need excuses, I simply want retribution! [/color][/outline_size][/shake]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]We’ve been deemed unimportant by the ones we cared most about. We’re forced to push our feelings, our pain, our very BEING into a box. [/color][/outline_size][/shake]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]We’re shoved into the closet to collect dust only to be pulled out when we’re considered useful! [/color][/outline_size][/shake]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]No longer will we be cast to the side! Forced to watch as others revel in the spotlight as we vie for second place! [/color][/outline_size][/shake]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]I’ll crush you, detective, and claim my revenge![/color][/outline_size][/shake]
+=> END
+
+~ kijoSealed
+Makoto: It looks like you’re out of steam, Kijo. It’s time you get sealed for good! [#expression_left=angry][#actor_right=on][#new_actor=kijo]
+Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]NO NO NO! Yumi was the perfect host! How could this be happening!? How could she reject ME!?[/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: Because mortal hearts aren’t that simple, Spirit. Yumi never wanted any of this. She may have been hurt, but she cared for Yui far more than she could ever hate this world you claim abandoned her.[#animate_left=enter_convo][#animate_right=exit_convo]
+Kite: Indeed! Humans are much more complex and kind than you could ever hope to understand Kijo! Perhaps one day you may see it with your own eyes. Lady Makoto, use the box to seal her![#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
+Makoto opens the spirit box. [#actor_left=off][#actor_right=off]
+As the last of the Kijo's spirit is pulled into the box, it seals itself and the world fades into darkness.
+#load one shot for ending scene
+do Global.dialogueFlags.defeatedKijo == true
+=> END
+
+~ endingScene
+do Global.grabCameraPos()
+do Global.moveCamera(Vector2(0, 0))
+do Global.zoomCamera(Vector2(3.5,3.5))
+You reawaken in the real world.
+Kite: Lady Makoto, you’re awake! [#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=kite_right][#expression_right=angry][#actor_right=on]
+Makoto: Ugh… What happened? Did we succeed? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+Kite: Yes, you did it my Lady! After you sealed the Kijo, its domain unraveled and both you and Miss Yumi were returned to the mortal realm.[#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Kite: When you returned, you had passed out! I could do naught but wait and hope for your recovery to be swift. [#expression_right=angry]
+Makoto: I see… [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+Makoto: Well, we still have a job to finish. [#expression_left=neutral]
+Makoto: Yumi was forced by the Kijo to attack Yui, so I can’t in good conscience let her get arrested for this... We’ll need to figure something out. [#expression_left=angry]
+#pan camera to yumi
+Yumi: ... [#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=yumi][#expression_right=angry]
+Yumi: No…
+Makoto: [do Signals.moveCharacter.emit("PlayerCharacter", "exitStore")]Yumi? Yumi, are you ok? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+Yumi: I am… [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: Do you remember what happened? [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: I remember everything… I can’t believe I did that to Yui… [#animate_left=exit_convo][#animate_right=enter_convo]
+Makoto: In this case, you’re just as much a victim as her. We can figure something out. [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: No… It’s all my fault. I’ll turn myself in. I need to make this right.[#animate_left=exit_convo][#animate_right=enter_convo]
+[do Global.moveCamera(Vector2(-40,0))][do Signals.openDoor.emit("OfficeInteriorDoor","open")][do Signals.moveCharacter.emit("YumiSprite", "turn_left")][do Signals.moveCharacter.emit("YuiSprite", "enterOffice")][do Signals.moveCharacter.emit("ShuSprite", "enterOffice")]At that moment, the door bursts open and some familiar faces rush through.
+#play door open animation w/ shu and yui running in, shu stays behind yui and yui runs towards yumi
+Yui: No you will not, [shake rate=20.0 level=5 connected=1]Yumi!!![/shake] [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry][#new_actor=yui_left]
+Shu: Miss Yui, please calm down! You just woke up. If you exert yourself, you might go right back under! [#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=shu][#expression_right=unimp]
+Yumi: [shake rate=20.0 level=5 connected=1]Yui!?[/shake] What are you doing here?  [#animate_right=enter_convo][#new_actor=yumi][#expression_right=neutral]
+Yui: Shu told me everything! I was so worried I ran here to make sure you were okay! [#animate_left=enter_convo][#animate_right=exit_convo]
+Yumi: You’re checking if I’m okay!? I’m the one who hurt you and made you go [shake rate=20.0 level=5 connected=1]missing![/shake] I don’t deserve your concern… [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Yui: That’s not true. Yumi, I know it wasn’t your fault.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+Yumi: But it is! If I wasn’t so [shake rate=20.0 level=5 connected=1]selfish[/shake] then this never would’ve happened! [#animate_left=exit_convo][#animate_right=enter_convo]
+Yui: Yumi… you’re allowed to be selfish. You’re [wave amp=20 freq=5]allowed to worry.[/wave] [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+Yumi: But you never do! You help everyone and [shake rate=20.0 level=5 connected=1]expect nothing in return![/shake]  [shake rate=20.0 level=5 connected=1]I attacked[/shake] you and you [wave amp=20 freq=5]forgave me[/wave] without a second thought! You're too kind for your own good![#animate_left=exit_convo][#animate_right=enter_convo]
+Yui: That’s not true Yumi… I try so hard because of you. Everything I do is because I never wanted you to worry about me! [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+Yui: I wanted to act like the perfect idol because this was OUR dream. [#expression_left=happy]
+Yui: We’re best friends! I never wanted to drag you down with my own problems! [#expression_left=neutral]
+Yui: But now I know all I did was shut you out and make you feel worse. I should’ve treated you the way I respected you. [wave amp=20 freq=5]I care about you so much, Yumi...[/wave][#expression_left=unimp]
+Yumi: I care about you a lot too Yui… [wave amp=20 freq=5]Our friendship is so important to me…[/wave] [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+Yumi and Yui make up in front of you… [#animate_right=exit_convo][#expression_right=happy][#expression_left=happy]
+The rest of you all feel a little awkward.
+do Signals.animateScreenWipe.emit("gradient_up")
+do wait(1.0)
+do Signals.moveCharacter.emit("YumiSprite", "hide")
+do Signals.moveCharacter.emit("YuiSprite", "hide")
+do Signals.animateScreenWipe.emit("gradient_down")
+After a bit of time, the idols go home and leave the three of you in the office. [#new_actor=makoto][#actor_left=off][#actor_right=off]
+Shu: So all's well that ends well I guess. Are you really alright just letting them leave like that?[#actor_left=on][#actor_right=on][#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=shu][#expression_right=neutral]
+Makoto: I think they’ll be fine. I need to decide what I’m going to tell Uncle Yutaka later. But I’ll figure something out.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy]
+Kite: Simply tell him justice prevailed and he will understand! [#animate_left=enter_convo][#new_actor=kite_left]
+Shu: I somehow doubt that. Well, honestly, I think that Yumi doesn’t really deserve to be punished. It sounded like she was gonna be beating herself up over this for [wave amp=20 freq=5]a long time.[/wave] [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=unimp]
+Shu: And in the end, Yui forgave her and she wasn’t exactly in control of her actions. [#expression_right=neutral]
+Makoto: Agreed. I’ll speak with my Uncle in the morning. I’ll probably have something figured out by then. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral][#new_actor=makoto]
+Shu: I guess I’ll head home too then. There’s been way too much excitement going on these past few days and I want to sleep. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
+Makoto: Have a good night, Shu. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=happy]
+Shu: You too Makoto. Later Kite. [#animate_left=exit_convo][#animate_right=enter_convo]
+Kite: Have a wondrous night, Miss Shu! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left]
+do Signals.animateScreenWipe.emit("gradient_up")
+do wait(1.0)
+do Signals.moveCharacter.emit("ShuSprite", "hide")
+do Signals.animateScreenWipe.emit("gradient_down")
+[do Global.moveCamera(Vector2(0, 0))]Shu leaves, and only Kite and Makoto remain in the office. [#actor_right=off][#actor_left=off][#new_actor=makoto]
+#shu running out animation
+Kite: How are you feeling after everything, Lady Makoto? [#animate_left=exit_convo][#animate_right=enter_convo][#actor_right=on][#actor_left=on][#new_actor=kite_right][#expression_right=neutral]
+Makoto: Tired. I’ll have a lot of paper work to do, but that can wait until the morning. Unless you want to do it for me. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=neutral]
+Kite: It pains me to remind you My Lady, but I still lack the capacity for mortal tasks. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
+Makoto: I know. I'm going to bed. Goodnight.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
+#fade to black
+Makoto closes her case file. [#actor_left=off][#actor_right=off]
+do wait(0.5)
+do Signals.animateScreenWipe.emit("gradient_up")
+do wait(0.3)
+do Global.prepareDialogue("gameEnd", "res://Assets/Dialogue/General.dialogue", "creditsScene", "Credits")
+do sceneManager.transition_to_scene("Credits")
 => END

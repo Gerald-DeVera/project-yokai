@@ -12,6 +12,10 @@ func _ready() -> void:
 	elif Global.dialogueFlags.interviewedSagawa == true && Global.dialogueFlags.interviewedYumiStreet == true && self.get_parent().name == "Overworld":
 		self.visible = false
 		interactButton.locked = true
+	elif Global.dialogueFlags.defeatedKijo == true && self.get_parent().name == "Office":
+		self.position = Vector2(287.0,252.0)
+		self.modulate.a = 1
+		yumiAnimate.play("idle_right")
 	
 func ToggleVis(assetName: String, toggled: bool):
 	if assetName == self.name:
@@ -85,3 +89,5 @@ func moveBody(charName: String, event: String):
 			tween.set_ease(Tween.EASE_IN)
 			tween.set_trans(Tween.TRANS_CUBIC)
 			tween.tween_property(self, "position", Vector2(280,252), 7)
+		elif event == "hide":
+			self.visible = false

@@ -1,23 +1,36 @@
 [gd_scene format=3 uid="uid://bybxhbeovcc5i"]
 
 [ext_resource type="Script" uid="uid://bpbt6cobjguyv" path="res://Scripts/hazard.gd" id="1_drdsm"]
-[ext_resource type="Texture2D" uid="uid://b48otjs5qwkg1" path="res://Assets/IMPORTANT.png" id="1_m8yaq"]
+[ext_resource type="Texture2D" uid="uid://coexba3d16q1e" path="res://Assets/Environment/platforming tiles/spikes.png" id="2_bntfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drdsm"]
-size = Vector2(104, 38)
+size = Vector2(108, 19)
 
 [node name="Hazard" type="Node2D" unique_id=1809822342]
 script = ExtResource("1_drdsm")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1660097144]
+visible = false
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 118.0
+offset_bottom = 39.0
+texture = ExtResource("2_bntfy")
+region_rect = Rect2(0, 2, 24, 22)
+axis_stretch_horizontal = 1
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1406447746]
-offset_right = 128.0
-offset_bottom = 78.0
-texture = ExtResource("1_m8yaq")
+offset_left = 11.0
+offset_top = 15.0
+offset_right = 118.0
+offset_bottom = 39.0
+texture = ExtResource("2_bntfy")
+stretch_mode = 1
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1572386737]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=263954184]
-position = Vector2(63, 40)
+position = Vector2(64, 29.5)
 shape = SubResource("RectangleShape2D_drdsm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

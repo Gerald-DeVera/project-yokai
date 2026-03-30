@@ -5,17 +5,17 @@
 [ext_resource type="Script" uid="uid://ckgqr6f3stypj" path="res://Scripts/BossLevel.gd" id="1_myua3"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="1_rf6cf"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="2_bqvk6"]
-[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
+[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="2_mngpy"]
 [ext_resource type="Script" uid="uid://dh88mqpfjao2w" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
 [ext_resource type="Script" uid="uid://js6x0gvwqhao" path="res://Scripts/entityScripts/boss.gd" id="2_oq4ni"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="4_1b4hs"]
-[ext_resource type="Script" path="res://Scripts/boulderSpawnerManager.gd" id="5_3n5q1"]
+[ext_resource type="Script" uid="uid://n7v321bo3ra" path="res://Scripts/boulderSpawnerManager.gd" id="5_3n5q1"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="5_hh1ma"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_mngpy"]
 [ext_resource type="Script" uid="uid://dghx2bvex2g4e" path="res://Scripts/boulderSpawner.gd" id="5_tv0ub"]
 [ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="6_7xje2"]
-[ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="6_nltor"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/beta platforming/portal.tscn" id="6_nltor"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
@@ -23,9 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://5ccoo2ajgtkf" path="res://Scenes/Levels/beta platforming/spirit platform.tscn" id="11_sqrx0"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
 [ext_resource type="AudioStream" uid="uid://cstj3d5vroha5" path="res://Assets/Audio/BackgroundTracks/Art.wav" id="16_tv0ub"]
-[ext_resource type="PackedScene" uid="uid://bmbtupp20w1al" path="res://Scenes/Entities/boulder.tscn" id="19_sqrx0"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/boulder.tscn" id="19_sqrx0"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="20_5mk18"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="26_sneht"]
+[ext_resource type="PackedScene" uid="uid://c3jufhstqbgjl" path="res://Scenes/Backgrounds/platform_parallax.tscn" id="27_sneht"]
 
 [sub_resource type="Curve2D" id="Curve2D_bunke"]
 _data = {
@@ -102,10 +103,13 @@ sources/1 = SubResource("TileSetAtlasSource_ch33t")
 [node name="BossLevel" type="Node2D" unique_id=99681630]
 script = ExtResource("1_myua3")
 
+[node name="PlatformParallax" parent="." unique_id=1214220624 instance=ExtResource("27_sneht")]
+z_index = -5
+position = Vector2(16, -414)
+
 [node name="bossStuff" type="Node" parent="." unique_id=74740881]
 
 [node name="Boss" parent="bossStuff" unique_id=1873205114 instance=ExtResource("1_kokxh")]
-visible = false
 position = Vector2(216, -68)
 script = ExtResource("2_oq4ni")
 
@@ -178,6 +182,9 @@ visible = false
 position = Vector2(335, -87)
 rotation = 3.1415927
 cubic_interp = false
+
+[node name="Boss2" parent="bossStuff" unique_id=906069203 instance=ExtResource("1_kokxh")]
+position = Vector2(4014, -177)
 
 [node name="tilemaps" type="Node" parent="." unique_id=1871530816]
 
@@ -350,15 +357,15 @@ position = Vector2(1072, -213)
 pairedPortal = NodePath("../PortalK")
 
 [node name="Portal3J" parent="Portals" unique_id=287007240 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("6_nltor")]
-position = Vector2(3421, 17)
+position = Vector2(3421, -269)
 pairedPortal = NodePath("../Portal4J")
-direction = Vector2i(1, 0)
+direction = Vector2i(0, 1)
 
 [node name="Portal4J" parent="Portals" unique_id=900585740 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("6_nltor")]
 position = Vector2(3775, 14)
 rotation = -3.1415927
 pairedPortal = NodePath("../Portal3J")
-direction = Vector2i(0, -1)
+direction = Vector2i(0, 1)
 
 [node name="Portal5G" parent="Portals" unique_id=108987774 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("6_nltor")]
 position = Vector2(4629, -201)
@@ -423,8 +430,7 @@ position = Vector2(5968, -285)
 [node name="Hazards" type="Node" parent="." unique_id=1379060054]
 
 [node name="Hazard2" parent="Hazards" unique_id=888548475 instance=ExtResource("6_7xje2")]
-position = Vector2(182, -2)
-scale = Vector2(4.565, 1.085)
+position = Vector2(225, 0)
 
 [node name="Hazard" parent="Hazards" unique_id=1809822342 instance=ExtResource("6_7xje2")]
 position = Vector2(117, 0)

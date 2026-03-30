@@ -6,7 +6,7 @@ class_name portal
 @export var direction : Vector2i
 var velocityMultiplier = 1.0
 var upwardBoostVelocity = -200
-@onready var playerCharacter = $"../PlayerCharacter"
+@onready var playerCharacter = get_tree().current_scene.get_node("PlayerCharacter")
 var playerOffset = 10
 
 var canTeleport = true

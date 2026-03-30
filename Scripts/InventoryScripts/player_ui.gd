@@ -26,6 +26,8 @@ func _ready() -> void:
 	if get_parent().name == "BossLevel" or get_parent().name == "PlatformingLevel":
 		HealthBar.visible = true
 
+
+
 func _on_inventory_ui_inventory_close():
 	UIAnimation.play_backwards("move")
 
@@ -39,6 +41,14 @@ func _on_resume_button_pressed() -> void:
 	UIAnimation.play_backwards("pause_move")
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("PauseMenu"):
+		print("am i paused?")
+		if get_tree().paused != true:
+			UIAnimation.play("pause_move")
+			get_tree().paused = true
+		elif get_tree().paused == true:
+			UIAnimation.play_backwards("pause_move")
+			get_tree().paused = false
 	return
 
 func _on_quit_button_pressed() -> void:
@@ -85,3 +95,4 @@ func takeDamage(damage: int, objectVelocity: Vector2):
 			lowhpflash.visible = true
 		await HealthAni.animation_finished
 		HealthProg.value -= damage
+		
