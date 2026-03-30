@@ -33,7 +33,7 @@ elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaif
 if Global.dialogueFlags.confirmedYui == false:
 	Curious Yokai: Umm... Can I help you?
 	=> END
-elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == false:
+elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == false && Global.dialogueFlags.keyYokaifound == false:
 	Curious Yokai: Is that a mortal!? [shake rate=20.0 level=5 connected=1]Here!?[/shake]
 	Kite: Indeed, this is Lady Makoto, and you shan’t disrespect her!
 	Curious Yokai: I didn’t mean no disrespect, I've just never seen a mortal in person before!
@@ -51,7 +51,7 @@ elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYo
 	Curious Yokai: Whoa, first I saw a mortal, then that mortal thanked me. I gotta tell my friends about this!
 	do Global.dialogueFlags.uselessYokaifound = true
 	=> END
-elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == true:
+elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == true or Global.dialogueFlags.InaFound == true:
 	% Curious Yokai: A real mortal, no way!
 	% Curious Yokai: Is it true that humans can't see spirits?
 	=> END

@@ -11,7 +11,7 @@ func _ready() -> void:
 	elif Global.dialogueFlags.InaShuPlan == true && self.get_parent().name == "Overworld":
 		self.visible = true
 	elif Global.dialogueFlags.keyYokaifound == true && Global.dialogueFlags.InaFound == true && Global.dialogueFlags.gotBeans == true && self.get_parent().name == "YokaiHome":
-		self.visible = true
+		self.visible = false
 
 func ToggleVis(assetName: String, toggled: bool):
 	if assetName == self.name:

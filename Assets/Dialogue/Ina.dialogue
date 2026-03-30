@@ -145,6 +145,7 @@ if Global.dialogueFlags.InaShuPlan == false
 	Ina: Of course. I’ll be waiting for you then!~ [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 	do Global.dialogueFlags.InaShuPlan = true
 	do Global.unlocked_dialogue["InaDialogueOverworld"] = true
+	do Global.locked_dialogue["InaDialogue"] = true
 	do Global.questsList.quests.append(load("res://Assets/Quests/Quest18.tres"))
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest17.tres"))
 	do Signals.updateInfoAnimation.emit("notebook")

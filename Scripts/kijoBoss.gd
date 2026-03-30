@@ -2,7 +2,8 @@ extends Node2D
 
 func _ready() -> void:
 	Signals.moveCharacter.connect(Callable(self,"moveBody"))
-
+	if Global.oneshot_assets.has(self.name):
+		queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
