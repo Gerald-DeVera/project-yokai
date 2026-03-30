@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ckgqr6f3stypj" path="res://Scripts/BossLevel.gd" id="1_myua3"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="1_rf6cf"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="2_bqvk6"]
-[ext_resource type="Script" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
+[ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="2_mngpy"]
 [ext_resource type="Script" uid="uid://dh88mqpfjao2w" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="4_1b4hs"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_mngpy"]
 [ext_resource type="Script" uid="uid://dghx2bvex2g4e" path="res://Scripts/boulderSpawner.gd" id="5_tv0ub"]
 [ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="6_7xje2"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/beta platforming/portal.tscn" id="6_nltor"]
+[ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="6_nltor"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
 [ext_resource type="Texture2D" uid="uid://0i3rl58d582t" path="res://Assets/Sprites/aura.png" id="14_sneht"]
 [ext_resource type="AudioStream" uid="uid://cstj3d5vroha5" path="res://Assets/Audio/BackgroundTracks/Art.wav" id="16_tv0ub"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/boulder.tscn" id="19_sqrx0"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="20_5mk18"]
 [ext_resource type="Script" uid="uid://bgpmils1d4tpk" path="res://Scripts/kijo_one_shot.gd" id="26_5mk18"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="26_sneht"]
@@ -272,13 +271,9 @@ position = Vector2(3840, -51)
 [node name="Checkpoint" parent="checkpointManager" unique_id=2097986206 instance=ExtResource("7_ddmpi")]
 position = Vector2(-482, 38)
 
-[node name="Checkpoint3" parent="checkpointManager" unique_id=1465774527 instance=ExtResource("7_ddmpi")]
+[node name="Checkpoint4" parent="checkpointManager" unique_id=1465774527 instance=ExtResource("7_ddmpi")]
 position = Vector2(3840, -58)
 
-[node name="Boulder" type="Sprite2D" parent="." unique_id=1592226866]
-modulate = Color(0.9733173, 0.41555798, 0.7537728, 1)
-position = Vector2(-1214, -411)
-texture = ExtResource("11_oq4ni")
 [node name="Boss" parent="." unique_id=1873205114 instance=ExtResource("1_kokxh")]
 position = Vector2(-322, -90)
 script = ExtResource("12_37m20")
@@ -324,9 +319,6 @@ speed_scale = 1.123
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1415003084]
 stream = ExtResource("16_tv0ub")
-
-[node name="Boulder2" parent="." unique_id=2107697425 instance=ExtResource("19_sqrx0")]
-position = Vector2(-1218, -352)
 
 [node name="FallingPlatform3" parent="." unique_id=644855615 instance=ExtResource("20_5mk18")]
 position = Vector2(-13, -33)
@@ -602,6 +594,7 @@ position = Vector2(675, -10)
 
 [node name="JumpBlock3" parent="." unique_id=1484090261 instance=ExtResource("26_sneht")]
 position = Vector2(3547, 46)
+
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
 visible = false
 
