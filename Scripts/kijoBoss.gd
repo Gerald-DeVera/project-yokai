@@ -2,7 +2,8 @@ extends Node2D
 
 func _ready() -> void:
 	Signals.moveCharacter.connect(Callable(self,"moveBody"))
-
+	if Global.oneshot_assets.has(self.name):
+		queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -13,7 +14,7 @@ func moveBody(charName: String, event: String):
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
-			tween.tween_property(self, "position", Vector2(-120.0,-258.0), 1)
+			tween.tween_property(self, "position", Vector2(-15.0,-497.0), 1)
 		elif event == "flyAway2":
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_OUT)

@@ -20,6 +20,8 @@ signal toggleNotebookInput(input: bool)
 
 signal toggleInventoryInput(input: bool)
 
+signal toggleEscapeInput(input: bool)
+
 signal respawnPlayer()
 
 signal damagePlayer(damage: int, objectVelocity: Vector2)

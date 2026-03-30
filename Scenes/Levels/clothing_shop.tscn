@@ -222,7 +222,6 @@ player_pos = Vector2(1518, 290)
 interactText = "To City"
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("5_wft7n")]
-visible = false
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("6_rphfw")]
 

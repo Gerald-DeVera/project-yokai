@@ -11,10 +11,12 @@ extends CanvasLayer
 @onready var HealthAni = $HealthBar/AnimationPlayer
 @onready var lowhpflash = $HealthBar/lowhp
 @onready var writeSFX = $AudioStreamPlayer
+var escapeInputDisabled = true	
 
 func _ready() -> void:
 	Signals.updateInfoAnimation.connect(Callable(self,"updateInfo"))
 	Signals.damagePlayer.connect(Callable(self,"takeDamage"))
+	Signals.toggleEscapeInput.connect(Callable(self,"toggleInput"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableHotkeys"))
 	DialogueManager.dialogue_ended.connect(Callable(self,"enableHotkeys"))
 	Global.PlayerUIAnimation = UIAnimation
@@ -30,6 +32,9 @@ func _ready() -> void:
 
 func _on_inventory_ui_inventory_close():
 	UIAnimation.play_backwards("move")
+	await UIAnimation.animation_finished
+	Signals.toggleNotebookInput.emit(false)
+	Signals.toggleEscapeInput.emit(false)
 
 func _on_inventory_ui_inventory_open():
 	UIAnimation.play("RESET")
@@ -40,9 +45,15 @@ func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
 	UIAnimation.play_backwards("pause_move")
 
+func toggleInput(input: bool) -> void:
+	escapeInputDisabled = input
+
+
 func _physics_process(delta):
+	if escapeInputDisabled:
+		return
+	
 	if Input.is_action_just_pressed("PauseMenu"):
-		print("am i paused?")
 		if get_tree().paused != true:
 			UIAnimation.play("pause_move")
 			get_tree().paused = true
@@ -52,7 +63,14 @@ func _physics_process(delta):
 	return
 
 func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+	match OS.get_name():
+		"Windows", "macOS", "Linux":
+			get_tree().quit()
+		"Web":
+			get_tree().paused = false
+			Signals.animateScreenWipe.emit("gradient_up")
+			await get_tree().create_timer(1.0).timeout
+			sceneManager.transition_to_scene("MainMenu")
 	
 func updateInfo(infoType: String):
 	if infoType == "inventory":
@@ -80,15 +98,23 @@ func updateInfo(infoType: String):
 		await get_tree().create_timer(1.0).timeout
 		UIAnimation.play("tutorial")
 		Signals.togglePlayerInput.emit(false)
+		Signals.toggleInventoryInput.emit(true)
+		Signals.toggleNotebookInput.emit(true)
+		escapeInputDisabled = true
 		await get_tree().create_timer(5.0).timeout
 		UIAnimation.play_backwards("tutorial")
 		await UIAnimation.animation_finished
 		Signals.togglePlayerInput.emit(true)
+		escapeInputDisabled = false
+		Signals.toggleInventoryInput.emit(false)
+		Signals.toggleNotebookInput.emit(false)
 		
 func disableHotkeys(resource):
 		$Hotkeys.visible = false
+		escapeInputDisabled = true
 func enableHotkeys(resource):
 		$Hotkeys.visible = true
+		escapeInputDisabled = false
 
 func takeDamage(damage: int, objectVelocity: Vector2):
 		HealthAni.play("lifelost")

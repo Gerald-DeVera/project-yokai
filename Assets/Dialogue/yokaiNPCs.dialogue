@@ -4,11 +4,11 @@ if Global.dialogueFlags.confirmedYui == false:
 	Lively Yokai: Hey! You look a lot like a mortal...
 	=> END
 elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaifound == false:
-	Lively Yokai: Whoa, are you a real [wave amp=20 freq=5]mortal?[/wave] I’ve only heard stories about you guys. [wave amp=25 freq=5]You stink![/wave]
-	Kite: Do not speak ill of Lady Makoto if you know what is good for you!
-	Makoto: It’s alright Kite, mission first.
-	Kite: You are lucky this time, small one, but just know you have been spared by a true agent of justice!
-	Lively Yokai: Heh, whatever. So what do you want from me? I’m very busy.
+	Lively Yokai: Whoa, are you a real [wave amp=20 freq=5]mortal?[/wave] I’ve only heard stories about you guys. [wave amp=25 freq=5]You stink![/wave][#animate_left=exit_convo][#animate_right=enter_convo]
+	Kite: Do not speak ill of Lady Makoto if you know what is good for you! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left][#expression_left=angry]
+	Makoto: It’s alright Kite, mission first. [#animate_left=enter_convo][#new_actor=makoto][#expression_left=neutral]
+	Kite: You are lucky this time, small one, but just know you have been spared by a true agent of justice! [#animate_left=enter_convo][#new_actor=kite_left]
+	Lively Yokai: Heh, whatever. So what do you want from me? I’m very busy. [#animate_left=exit_convo][#animate_right=enter_convo]
 	Makoto: It’ll only be a second. Do you know any yokai around here that are familiar with curses?
 	Lively Yokai: Erm… I think the [outline_size=5][color=orange]kitsune who runs the tea shop[/color][/outline_size] to the east knows a thing or two. 
 	Lively Yokai: She’s [wave amp=20 freq=5]pretty powerful[/wave]  and [shake rate=20.0 level=5 connected=1]really OLD…[/shake] [font_size=14]Please don’t tell her I said that.[/font_size]
@@ -16,6 +16,7 @@ elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaif
 	Lively Yokai: No problem! Now I'm going back to watching beetles fight!
 	do Global.dialogueFlags.keyYokaifound = true
 	do Signals.toggleAsset.emit("InaDialogue", true)
+	do Global.unlocked_dialogue["InaDialogue"] = true
 	do Signals.toggleAsset.emit("InaSprite", true)
 	do Global.questsList.quests.append(load("res://Assets/Quests/Quest16.tres"))
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest15.tres"))
@@ -30,27 +31,27 @@ elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaif
 ~ searchRin2
 #Nothing dThis is kinda just throwaway dialogue meant to pad out the searching for ina rin portion of the game to make it feel less linear
 if Global.dialogueFlags.confirmedYui == false:
-	Curious Yokai: Umm... Can I help you?
+	Curious Yokai: Umm... Can I help you? [#animate_left=exit_convo][#animate_right=enter_convo]
 	=> END
-elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == false:
-	Curious Yokai: Is that a mortal!? [shake rate=20.0 level=5 connected=1]Here!?[/shake]
-	Kite: Indeed, this is Lady Makoto, and you shan’t disrespect her!
-	Curious Yokai: I didn’t mean no disrespect, I've just never seen a mortal in person before!
-	Makoto: It’s alright. Don’t mind Kite.
-	Kite: I would very much like it if you did mind me!
-	Curious Yokai: Uhhh… okay? Um, so what’s a mortal doing here anyway?
-	Makoto: I’m looking for someone who knows a lot about curses. Do you know anyone like that around here?
-	Curious Yokai: Ummmmmmmm...
+elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == false && Global.dialogueFlags.keyYokaifound == false:
+	Curious Yokai: Is that a mortal!? [shake rate=20.0 level=5 connected=1]Here!?[/shake][#animate_left=exit_convo][#animate_right=enter_convo]
+	Kite: Indeed, this is Lady Makoto, and you shan’t disrespect her! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left][#expression_left=happy]
+	Curious Yokai: I didn’t mean no disrespect, I've just never seen a mortal in person before![#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: It’s alright. Don’t mind Kite. [#animate_left=enter_convo][#new_actor=makoto][#expression_left=unimp]
+	Kite: I would very much like it if you did mind me! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left]
+	Curious Yokai: Uhhh… okay? Um, so what’s a mortal doing here anyway?[#animate_left=exit_convo][#animate_right=enter_convo]
+	Makoto: I’m looking for someone who knows a lot about curses. Do you know anyone like that around here? [#animate_left=enter_convo][#new_actor=makoto][#expression_left=neutral]
+	Curious Yokai: Ummmmmmmm... [#animate_left=exit_convo][#animate_right=enter_convo]
 	Curious Yokai: ...
 	Curious Yokai: .......
 	Curious Yokai: ...........
 	Curious Yokai: ................
 	Curious Yokai: Nope!
-	Makoto: I see... Thank you for your time then.
-	Curious Yokai: Whoa, first I saw a mortal, then that mortal thanked me. I gotta tell my friends about this!
+	Makoto: I see... Thank you for your time then. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Curious Yokai: Whoa, first I saw a mortal, then that mortal thanked me. I gotta tell my friends about this![#animate_left=exit_convo][#animate_right=enter_convo]
 	do Global.dialogueFlags.uselessYokaifound = true
 	=> END
-elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == true:
-	% Curious Yokai: A real mortal, no way!
+elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == true or Global.dialogueFlags.InaFound == true:
+	% Curious Yokai: A real mortal, no way![#animate_left=exit_convo][#animate_right=enter_convo]
 	% Curious Yokai: Is it true that humans can't see spirits?
 	=> END

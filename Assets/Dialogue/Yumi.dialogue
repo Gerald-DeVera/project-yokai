@@ -213,12 +213,14 @@ do Global.MemoriesEncountered += 1
 do Global.prepareDialogue("Memory1Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment1", "PlatformingStage")
 do Global.oneshot_assets["MemoryShard1"] = true
 do Global.oneshot_assets["MemoryDoor1"] = true
+do Global.oneshot_assets["BlockedPath"] = true
 => END
 
 ~ postMemoryFragment1
 Kite: My lady, are you alright? You touched that shard and stood there frozen. [#animate_right=enter_convo][#expression_right=angry][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
 Makoto: Yumi showed me one of her memories and she spoke to me... I think we’re going the right way. Let’s keep moving. [#animate_right=exit_convo][#animate_left=enter_convo]
 Kite: Of course, my lady! [#animate_right=enter_convo][#expression_right=neutral][#animate_left=exit_convo]
+A new way forward has been opened. [#actor_left=off][#actor_right=off]
 do Global.finishOneShot("Memory1Done")
 => END
 
@@ -246,12 +248,13 @@ do Global.MemoriesEncountered += 1
 do Global.prepareDialogue("Memory2Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment2", "PlatformingStage")
 do Global.oneshot_assets["MemoryShard2"] = true
 do Global.oneshot_assets["MemoryDoor2"] = true
+do Global.oneshot_assets["BlockedPath2"] = true
 => END
 
 ~ postMemoryFragment2
 Kite: My lady, it happened again! Are you ok? [#animate_right=enter_convo][#expression_right=angry][#animate_left=exit_convo][#actor_right=on][#new_actor=kite_right]
 Makoto: I am. [#animate_right=exit_convo][#animate_left=enter_convo]
-A new way forward has been opened.
+A new way forward has been opened. [#actor_left=off][#actor_right=off]
 do Global.finishOneShot("Memory2Done")
 => END
 
@@ -285,13 +288,14 @@ do Global.MemoriesEncountered += 1
 do Global.prepareDialogue("Memory2Done", "res://Assets/Dialogue/Yumi.dialogue", "postMemoryFragment3", "PlatformingStage")
 do Global.oneshot_assets["MemoryShard3"] = true
 do Global.oneshot_assets["MemoryDoor3"] = true
+do Global.oneshot_assets["BlockedPath3"] = true
 => END
 
 ~ postMemoryFragment3
 Makoto: ... [#expression_right=neutral][#expression_left=angry][#actor_right=on][#new_actor=kite_right]
 Kite: Lady Makoto…? [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: Let’s finish this, Kite. [#animate_left=enter_convo][#animate_right=exit_convo]
-Kite: Lady Makoto, wait! Before we move forward, I must let you know. The Kijo is weak and losing her grip on Yumi’s heart. 
+Kite: Lady Makoto, wait! Before we move forward, I must let you know. The Kijo is weak and losing her grip on Yumi’s heart. [#animate_left=exit_convo][#animate_right=enter_convo]
 Kite: However, we cannot seal her yet. We need her to expel more of her cursed energy.
 Makoto: So what do you suggest, then? [#animate_left=enter_convo][#animate_right=exit_convo]
 Kite: We simply need to burn her own energy away! It will be dangerous, but you will need to endure an onslaught of her rage. [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=angry]
@@ -299,6 +303,7 @@ Kite: But fear not -- with me by your side, harm shall not befall you! [#express
 Makoto: So I just need to avoid her attacks for a little while… For Yumi and Yui’s, sake I’ll do it. [#animate_left=enter_convo][#animate_right=exit_convo]
 Makoto: That’s what agents of justice do. Right? [#expression_left=happy]
 Kite: Indeed! [#animate_left=exit_convo][#animate_right=enter_convo]
+A new way forward has been opened. [#actor_left=off][#actor_right=off]
 do Global.finishOneShot("Memory3Done")
 do Global.questsList.quests.append(load("res://Assets/Quests/Quest21.tres"))
 do Global.markPreviousQuest(load("res://Assets/Quests/Quest20.tres"))
@@ -344,7 +349,7 @@ do Global.oneshot_assets["Boss2"] = true
 ~ kijoTaunt2
 do Signals.moveCharacter.emit("PlayerCharacter", "idleLoad")
 do Global.grabCameraPos()
-do Global.moveCamera(Vector2(50, -40))
+do Global.moveCamera(Vector2(60, -20))
 Kijo:  [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]Huff... You're persistent... BUT YOU WON'T GET PAST MY MALEVOLENT MAZE! AHAHAHAHA![/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo][#expression_left=angry][#actor_right=on][#new_actor=kijo]
 Makoto: I've been through worse.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
 do Global.resetCamera()

@@ -4,7 +4,7 @@ var runOnce = true
 var pageNumber
 var MAX_PAGES = 5
 var questEntryTemplate = preload("res://Scenes/UIandUtil/quest_entry.tscn")
-var inputDisabled = false
+var inputDisabled = true
 
 @onready var pageTitle = $Main/TitleLeft
 @onready var questPage = $Main/QuestPage
@@ -37,15 +37,17 @@ func setup() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if inputDisabled:
+		return
 	if Input.is_action_just_pressed("Notebook") and visible == true:
 		Signals.togglePlayerInput.emit(true)
 		Signals.toggleInventoryInput.emit(false)
+		Signals.toggleEscapeInput.emit(false)
 		notebookAnimate.play_backwards("toggle")
 		await notebookAnimate.animation_finished
 		visible = false
 		return
-	if inputDisabled:
-		return
+
 	
 	if Input.is_action_just_pressed("Notebook") and visible == false:
 		notebookAnimate.play("RESET")
@@ -54,6 +56,7 @@ func _process(delta: float) -> void:
 		notebookAnimate.play("toggle")
 		Signals.togglePlayerInput.emit(false)
 		Signals.toggleInventoryInput.emit(true)
+		Signals.toggleEscapeInput.emit(true)
 		setup()
 	
 

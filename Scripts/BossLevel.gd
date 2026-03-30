@@ -9,6 +9,7 @@ extends Node
 var levelVelocity = -350
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	sceneManager.sceneLoadCheck()
 	playerCharacter.jump_velocity = levelVelocity
 	Signals.reloadScene.connect(Callable(self, "restartLevel"))
 	Signals.transitionToPlatforming.connect(Callable(self,"openTheBox"))

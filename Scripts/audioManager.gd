@@ -9,7 +9,8 @@ const levelMusic = {
 	"boss" = preload("res://Assets/Audio/BackgroundTracks/Art.wav"),
 	"clothing" = preload("res://Assets/Audio/BackgroundTracks/CityHouse.wav"),
 	"ramen" = preload("res://Assets/Audio/BackgroundTracks/RamenShop.wav"),
-	"memory" = preload("res://Assets/Audio/BackgroundTracks/memory.mp3")
+	"memory" = preload("res://Assets/Audio/BackgroundTracks/Mem.wav"),
+	"credits" = preload("res://Assets/Audio/BackgroundTracks/EndingBit.wav")
 }
 
 # Called when the node enters the scene tree for the first time.

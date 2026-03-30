@@ -9,7 +9,7 @@ const speed = 150.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canInteract = false
 var interactable = ""
-var inputDisabled = false
+var inputDisabled = true
 var spiritSightOn = true
 var direction: Vector2
 var hasStopped = true
@@ -55,12 +55,6 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		move_and_slide()
-	
-	if Input.is_action_just_pressed("Fullscreen"):
-		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 	#Do not continue if we do not allow input for the player
 	if inputDisabled:
@@ -204,12 +198,10 @@ func SeeTheThings():
 func moveBody(charName: String, event: String):
 	if charName == self.name:
 		if event == "exitStore":
-			print("im movin")
 			$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(-1,0))
 		elif event == "chaseShu":
 			$Animations/AnimationTree.set("parameters/MovementStateMachine/RunSet/blend_position", Vector2(1,0))
 			movement_state_machine.travel("RunSet")
-			print("im chasin")
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)

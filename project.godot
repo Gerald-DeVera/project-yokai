@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="PROJECT Yokai"
-run/main_scene="uid://boe7aodqj52wj"
+run/main_scene="uid://cu8431wkxyxpp"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=60
+boot_splash/bg_color=Color(0.014275229, 0.0142752165, 0.014275211, 1)
+boot_splash/stretch_mode=0
+boot_splash/image="uid://kgnbw81g1nai"
 config/icon="res://icon.svg"
 
 [autoload]

@@ -145,6 +145,7 @@ if Global.dialogueFlags.InaShuPlan == false
 	Ina: Of course. I’ll be waiting for you then!~ [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 	do Global.dialogueFlags.InaShuPlan = true
 	do Global.unlocked_dialogue["InaDialogueOverworld"] = true
+	do Global.locked_dialogue["InaDialogue"] = true
 	do Global.questsList.quests.append(load("res://Assets/Quests/Quest18.tres"))
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest17.tres"))
 	do Signals.updateInfoAnimation.emit("notebook")
@@ -178,6 +179,7 @@ if Global.dialogueFlags.gotBeans == false
 	Ina: Of course, anything for you dear. [#animate_right=enter_convo][#animate_left=exit_convo][#new_actor=ina]
 	Kite: Think nothing of it, my Lady! [#animate_right=enter_convo][#new_actor=kite_right]
 	Makoto: Well with this, I think [outline_size=5][color=orange]we’re ready,[/color][/outline_size] Kite. We have a call to make back at the office. [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=angry]
+	Take a moment to review all of your information and evidence, then proceed onwards. [#actor_left=off][#actor_right=off]
 	do Signals.collectItem.emit(load("res://Assets/InventoryItems/beans.tres"))
 	do Global.questsList.quests.append(load("res://Assets/Quests/Quest19.tres"))
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest18.tres"))
@@ -185,6 +187,8 @@ if Global.dialogueFlags.gotBeans == false
 	do Global.zoomCamera(Vector2(1.5,1.5))
 	do Global.resetCamera()
 	do Global.unlocked_dialogue["Desk"] = true
+	do Global.locked_dialogue["InaShuDialogue"] = true
+	do Global.dialogueFlags.gotBeans = true
 	=> END
 elif Global.dialogueFlags.gotBeans == true
 	do Global.grabCameraPos()

@@ -12,6 +12,6 @@ func _ready() -> void:
 	Signals.moveCharacter.connect(Callable(self,"moveBody"))
 	if Global.dialogueFlags.shuConfront == true:
 		self.visible = true
-		await get_tree().create_timer(10.0).timeout
+		await get_tree().create_timer(4.0).timeout
 		Global.oneshot_assets[self.name] = true
 		self.queue_free()	
