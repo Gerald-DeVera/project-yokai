@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
-[ext_resource type="Script" uid="uid://dq1plli07gu3g" path="res://Scripts/kijoBoss.gd" id="12_37m20"]
-[ext_resource type="Script" uid="uid://dwoqqnscpn0yt" path="res://Scenes/Entities/boss.gd" id="12_86gf6"]
+[ext_resource type="Script" path="res://Scripts/kijoBoss.gd" id="12_37m20"]
+[ext_resource type="Script" path="res://Scenes/Entities/boss.gd" id="12_86gf6"]
 [ext_resource type="Script" uid="uid://dqdedxqqcua5x" path="res://Scripts/camera_control.gd" id="14_37m20"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
 [ext_resource type="Texture2D" uid="uid://0i3rl58d582t" path="res://Assets/Sprites/aura.png" id="14_sneht"]
@@ -437,25 +437,25 @@ scale = Vector2(1.395, 1)
 [node name="Portals" type="Node" parent="." unique_id=1324805676]
 
 [node name="PortalK" parent="Portals" unique_id=1650646621 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("6_nltor")]
-position = Vector2(1560, 10)
+position = Vector2(1557, -142)
 rotation = -3.1415927
 pairedPortal = NodePath("../Portal2K")
-direction = Vector2i(0, -1)
+direction = Vector2i(0, 1)
 
 [node name="Portal2K" parent="Portals" unique_id=1538348820 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("6_nltor")]
-position = Vector2(1079, -100)
+position = Vector2(1077, -87)
 pairedPortal = NodePath("../PortalK")
 
 [node name="Portal3J" parent="Portals" unique_id=287007240 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("6_nltor")]
-position = Vector2(3551, -152)
+position = Vector2(3550, -47)
 pairedPortal = NodePath("../Portal4J")
 direction = Vector2i(0, 1)
 
 [node name="Portal4J" parent="Portals" unique_id=900585740 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("6_nltor")]
-position = Vector2(3778, 14)
+position = Vector2(3766, -151)
 rotation = -3.1415927
 pairedPortal = NodePath("../Portal3J")
-direction = Vector2i(0, -1)
+direction = Vector2i(0, 1)
 
 [node name="Portal5G" parent="Portals" unique_id=108987774 node_paths=PackedStringArray("pairedPortal") instance=ExtResource("6_nltor")]
 position = Vector2(4764, 17)
@@ -588,7 +588,7 @@ position = Vector2(-174, 3)
 position = Vector2(-283, 3)
 
 [node name="JumpBlock" parent="." unique_id=764757466 instance=ExtResource("26_sneht")]
-position = Vector2(1077, 14)
+position = Vector2(1074, 47)
 scale = Vector2(4.13, 1)
 
 [node name="JumpBlock2" parent="." unique_id=1443456910 instance=ExtResource("26_sneht")]
@@ -601,7 +601,12 @@ position = Vector2(613, -10)
 position = Vector2(675, -10)
 
 [node name="JumpBlock3" parent="." unique_id=1484090261 instance=ExtResource("26_sneht")]
+<<<<<<< Updated upstream
 position = Vector2(3547, 46)
+=======
+position = Vector2(3557, 45)
+
+>>>>>>> Stashed changes
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
 visible = false
 
