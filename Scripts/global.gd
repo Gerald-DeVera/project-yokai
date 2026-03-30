@@ -176,3 +176,10 @@ func examineYui(option: String):
 func markPreviousQuest(questName: QuestItem):
 	var index = questsList.quests.find(questName)
 	questsList.quests[index].completionStatus = true
+	
+func _physics_process(delta: float) -> void:
+		if Input.is_action_just_pressed("Fullscreen"):
+			if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			else:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

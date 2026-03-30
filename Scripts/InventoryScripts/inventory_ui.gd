@@ -15,7 +15,7 @@ signal inventoryOpen
 var slots: Array
 var curSlotIndex: int = 0
 var is_open = false
-var inputDisabled = false
+var inputDisabled = true
 var numRows = 3
 
 func _ready() -> void:
@@ -36,7 +36,6 @@ func updateSlots():
 		slots[i].update(inv.items[i])
 
 func toggleInventoryInput(input: bool):
-	print("inventory input called")
 	inputDisabled = input
 
 func enableInput(resource):
@@ -53,12 +52,13 @@ func _process(delta: float) -> void:
 		if is_open:
 			inventoryClose.emit()
 			close()
-			Signals.toggleNotebookInput.emit(false)
+
 		else:
 			inventoryOpen.emit()
 			open()
 			curSlotIndex = 0
 			Signals.toggleNotebookInput.emit(true)
+			Signals.toggleEscapeInput.emit(true)
 
 	if is_open:
 		if Input.is_action_just_pressed("move_left"):

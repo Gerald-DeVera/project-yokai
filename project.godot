@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PROJECT Yokai"
-run/main_scene="uid://boe7aodqj52wj"
+run/main_scene="uid://cu8431wkxyxpp"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
