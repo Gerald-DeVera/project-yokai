@@ -449,7 +449,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_12d20"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2905, 287, 0, 0, 0, 0, -774, 297)
+"points": PackedVector2Array(0, 0, 0, 0, 3165.0737, 288, 0, 0, 0, 0, -774, 297)
 }
 point_count = 2
 
@@ -1282,10 +1282,12 @@ script = ExtResource("33_12d20")
 speed = 150
 
 [node name="Path2D" type="Path2D" parent="npc_test3" unique_id=183564422]
+position = Vector2(41.445496, 0)
+scale = Vector2(1.0535471, 1)
 curve = SubResource("Curve2D_12d20")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="npc_test3/Path2D" unique_id=1008004541]
-position = Vector2(2542.1, 287.98645)
+position = Vector2(2802.1746, 288.82913)
 rotation = -0.0019289036
 progress = 362.9011
 rotates = false

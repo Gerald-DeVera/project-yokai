@@ -24,6 +24,7 @@ func _ready() -> void:
 	Signals.PlayerInteractPressed.connect(Callable(self,"ButtonPressed"))
 	Signals.toggleArea.connect(Callable(self,"ToggleLock"))
 	DialogueManager.dialogue_started.connect(Callable(self,"disableVis"))
+	DialogueManager.dialogue_ended.connect(Callable(self,"enableVis"))
 	tooltip.text = (interactText)
 	if Global.oneshot_assets.has(self.name):
 		queue_free()
@@ -121,3 +122,7 @@ func ToggleLock(areaName: String, toggled: bool):
 			
 func disableVis(resource):
 	Sprite2.visible = false
+	
+func enableVis(resource):
+	if self.interactable == true:
+		Sprite2.visible = true

@@ -392,7 +392,7 @@ texture = ExtResource("6_jecex")
 [node name="ShuDialogue" parent="." unique_id=1279941344 instance=ExtResource("9_jecex")]
 light_mask = 2
 z_index = 10
-position = Vector2(281, 249)
+position = Vector2(275, 252)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
 dialogueStartingPosition = "shuFirstMeeting"
 isDialogue = true

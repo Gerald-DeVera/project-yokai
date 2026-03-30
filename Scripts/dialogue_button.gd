@@ -83,7 +83,9 @@ func updateTooltip(interactName: String, newtooltip: String):
 		
 func disableVis(resource):
 	Sprite2.visible = false
-
+	if self.name == "ShuDialogue" && self.get_parent().name == "FlowerShop" && Global.dialogueFlags.evidenceFound == true:
+		self.visible = false
+	
 func enableVis(resource):
 	if self.interactable == true:
 		Sprite2.visible = true

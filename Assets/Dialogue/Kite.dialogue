@@ -61,6 +61,7 @@ do Signals.updateInfoAnimation.emit("notebook")
 
 ~ allEvidenceFoundAlley
 #This plays once all evidence is gathered.
+do Signals.moveCharacter.emit("PlayerCharacter", "idleLoad")
 do Global.grabCameraPos()
 do Global.moveCamera(Vector2(0,5))
 do Global.zoomCamera(Vector2(3.5,3.5))

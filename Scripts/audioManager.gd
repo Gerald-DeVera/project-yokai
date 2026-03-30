@@ -7,10 +7,10 @@ const levelMusic = {
 	"yokaihome" = preload("res://Assets/Audio/BackgroundTracks/YokaiHome.wav"),
 	"platforming" = preload("res://Assets/Audio/BackgroundTracks/Plat.wav"),
 	"boss" = preload("res://Assets/Audio/BackgroundTracks/Art.wav"),
-	"clothing" = preload("res://Assets/Audio/BackgroundTracks/CityHouse.wav"),
+	"clothing" = preload("res://Assets/Audio/BackgroundTracks/ClothingShop.wav"),
 	"ramen" = preload("res://Assets/Audio/BackgroundTracks/RamenShop.wav"),
 	"memory" = preload("res://Assets/Audio/BackgroundTracks/Mem.wav"),
-	"credits" = preload("res://Assets/Audio/BackgroundTracks/EndingBit.wav")
+	"credits" = preload("res://Assets/Audio/BackgroundTracks/REALEnding.wav")
 }
 
 # Called when the node enters the scene tree for the first time.

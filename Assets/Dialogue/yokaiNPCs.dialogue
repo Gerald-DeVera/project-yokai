@@ -1,7 +1,7 @@
 ~ searchRin1
 #This plays post shu explanation while looking for a yokai curse expert
 if Global.dialogueFlags.confirmedYui == false:
-	Lively Yokai: Hey! You look a lot like a mortal...
+	Lively Yokai: Hey! You look a lot like a mortal...[#animate_left=exit_convo][#animate_right=enter_convo]
 	=> END
 elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaifound == false:
 	Lively Yokai: Whoa, are you a real [wave amp=20 freq=5]mortal?[/wave] I’ve only heard stories about you guys. [wave amp=25 freq=5]You stink![/wave][#animate_left=exit_convo][#animate_right=enter_convo]
@@ -9,11 +9,11 @@ elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaif
 	Makoto: It’s alright Kite, mission first. [#animate_left=enter_convo][#new_actor=makoto][#expression_left=neutral]
 	Kite: You are lucky this time, small one, but just know you have been spared by a true agent of justice! [#animate_left=enter_convo][#new_actor=kite_left]
 	Lively Yokai: Heh, whatever. So what do you want from me? I’m very busy. [#animate_left=exit_convo][#animate_right=enter_convo]
-	Makoto: It’ll only be a second. Do you know any yokai around here that are familiar with curses?
-	Lively Yokai: Erm… I think the [outline_size=5][color=orange]kitsune who runs the tea shop[/color][/outline_size] to the east knows a thing or two. 
+	Makoto: It’ll only be a second. Do you know any yokai around here that are familiar with curses? [#animate_left=enter_convo][#new_actor=makoto]
+	Lively Yokai: Erm… I think the [outline_size=5][color=orange]kitsune who runs the tea shop[/color][/outline_size] to the east knows a thing or two.[#animate_left=exit_convo][#animate_right=enter_convo]
 	Lively Yokai: She’s [wave amp=20 freq=5]pretty powerful[/wave]  and [shake rate=20.0 level=5 connected=1]really OLD…[/shake] [font_size=14]Please don’t tell her I said that.[/font_size]
-	Makoto: Noted… I’ll let you get back to what you were doing then. Thank you.
-	Lively Yokai: No problem! Now I'm going back to watching beetles fight!
+	Makoto: Noted… I’ll let you get back to what you were doing then. Thank you. [#animate_left=enter_convo][#animate_right=exit_convo]
+	Lively Yokai: No problem! Now I'm going back to watching beetles fight! [#animate_left=exit_convo][#animate_right=enter_convo]
 	do Global.dialogueFlags.keyYokaifound = true
 	do Signals.toggleAsset.emit("InaDialogue", true)
 	do Global.unlocked_dialogue["InaDialogue"] = true
@@ -23,8 +23,8 @@ elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaif
 	do Signals.updateInfoAnimation.emit("notebook")
 	=> END
 elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaifound == true:
-	% Lively Yokai: I love beetles!
-	% Lively Yokai: You smell kinda funny.
+	% Lively Yokai: I love beetles! [#animate_left=exit_convo][#animate_right=enter_convo]
+	% Lively Yokai: You smell kinda funny. [#animate_left=exit_convo][#animate_right=enter_convo]
 	=> END
 
 
@@ -53,5 +53,5 @@ elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYo
 	=> END
 elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.uselessYokaifound == true or Global.dialogueFlags.InaFound == true:
 	% Curious Yokai: A real mortal, no way![#animate_left=exit_convo][#animate_right=enter_convo]
-	% Curious Yokai: Is it true that humans can't see spirits?
+	% Curious Yokai: Is it true that humans can't see spirits?[#animate_left=exit_convo][#animate_right=enter_convo]
 	=> END

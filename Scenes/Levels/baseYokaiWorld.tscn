@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://1avkfws0t0pg" path="res://Assets/Audio/SFX/yokai_ambience.wav" id="41_ex5xx"]
 [ext_resource type="Texture2D" uid="uid://b8abmhd6bko3w" path="res://Assets/Sprites/bakeneko.png" id="43_yh40u"]
 [ext_resource type="Texture2D" uid="uid://g8ndn82edf8x" path="res://Assets/Sprites/iwana bouzu.png" id="44_sjyt5"]
+[ext_resource type="Texture2D" uid="uid://bhjmbxsgt222b" path="res://Assets/Sprites/shuten douji.png" id="44_yh40u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8x7c5"]
 distance = 3.0
@@ -584,6 +585,82 @@ _data = {
 &"play_title": SubResource("Animation_x82q5")
 }
 
+[sub_resource type="Animation" id="Animation_cpiwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_mbkun"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 3, 5, 3, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbeam"]
+_data = {
+&"RESET": SubResource("Animation_cpiwc"),
+&"idle": SubResource("Animation_mbkun")
+}
+
+[sub_resource type="Animation" id="Animation_tovhe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_cxoqv"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7glee"]
+_data = {
+&"RESET": SubResource("Animation_tovhe"),
+&"idle": SubResource("Animation_cxoqv")
+}
+
 [sub_resource type="Animation" id="Animation_gxuay"]
 length = 0.001
 tracks/0/type = "value"
@@ -988,10 +1065,27 @@ stream = ExtResource("41_ex5xx")
 volume_db = -1.926
 autoplay = true
 
+[node name="ShutenDouji" type="Sprite2D" parent="." unique_id=1839928839]
+position = Vector2(1328, 162)
+texture = ExtResource("44_yh40u")
+hframes = 2
+vframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShutenDouji" unique_id=1871305079]
+libraries/ = SubResource("AnimationLibrary_cbeam")
+autoplay = &"idle"
+
 [node name="Bakeneko" type="Sprite2D" parent="." unique_id=762840585]
 position = Vector2(3099, 164)
 texture = ExtResource("43_yh40u")
 hframes = 2
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bakeneko" unique_id=484249491]
+libraries/ = SubResource("AnimationLibrary_7glee")
+autoplay = &"idle"
+speed_scale = 0.678
 
 [node name="IwanaBouzu" type="Sprite2D" parent="." unique_id=1145260208]
 position = Vector2(508, 165)

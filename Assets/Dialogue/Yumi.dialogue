@@ -8,7 +8,7 @@ Makoto: Would you like to take over? [#animate_right=exit_convo][#animate_left=e
 Kite: I would! [#animate_left=exit_convo][#animate_right=enter_convo]
 Kite: However, most unfortunately, I lack the hands required for such delicate and corporeal work, my lady. [#expression_right=angry]
 Makoto: ... [#expression_left=unimp][#animate_right=exit_convo][#animate_left=enter_convo]
-Kite: Do we have any upcoming cases my lady? Evil waits for no one, and as agents of justice, we must work tirelessly to maintain the peace! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
+Kite: Do we have any upcoming cases, my lady? Evil waits for no one, and as agents of justice, we must work tirelessly to maintain the peace! [#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=neutral]
 Makoto: Yes. Uncle Yutaka said he did have a case for us soon. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=neutral]
 Kite: Wonderful! Shall we be expecting him? [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: Not this time. He said someone would come to us. [#animate_right=exit_convo][#animate_left=enter_convo]
@@ -360,6 +360,7 @@ do Global.oneshot_assets["Boss3"] = true
 
 ~ kijoSealed
 do Signals.moveCharacter.emit("PlayerCharacter", "idleLoad")
+do Global.dialogueFlags.defeatedKijo = true
 do Global.moveCamera(Vector2(40, 0))
 do Global.zoomCamera(Vector2(1.5,1.5))
 Makoto: It looks like you’re out of steam, Kijo. It’s time you get sealed for good! [#expression_left=angry][#actor_right=on][#new_actor=kijo]
@@ -371,7 +372,6 @@ Kite: Lady Makoto, use the box to seal her!
 [do Signals.moveCharacter.emit("PlayerCharacter", "box_kijo")]Makoto opens the spirit box.[do Signals.transitionToPlatforming.emit()][do Signals.moveCharacter.emit("Boss4", "enterBox")][#actor_left=off][#actor_right=off]
 As the last of the Kijo's spirit is pulled into the box, it seals itself and the world fades into darkness.
 #load one shot for ending scene
-do Global.dialogueFlags.defeatedKijo == true
 do Global.prepareDialogue("enterEnding", "res://Assets/Dialogue/Yumi.dialogue", "endingScene", "Office")
 do wait(5.0)
 do sceneManager.transition_to_scene("Office")

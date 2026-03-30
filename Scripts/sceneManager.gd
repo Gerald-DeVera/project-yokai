@@ -53,7 +53,7 @@ func transition_to_scene(level : String):
 				audioManager.playLevelMusic("cityNight")
 			"Credits":
 				audioManager.playLevelMusic("credits")
-			"Alleyway", "Flower", "Office":
+			"Alley", "Flower", "Office":
 				audioManager.stopMusic()
 
 func sceneLoadCheck():

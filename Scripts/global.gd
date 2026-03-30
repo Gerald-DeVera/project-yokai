@@ -64,7 +64,7 @@ var dialogueFlags = {
 	InaFound = false,
 	InaShuPlan = false,
 	gotBeans = false,
-	defeatedKijo = false
+	defeatedKijo = false,
 }
 
 var YuiOptions = {

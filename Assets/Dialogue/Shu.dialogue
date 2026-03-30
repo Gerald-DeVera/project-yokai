@@ -95,6 +95,7 @@ Florist: Tsk. Just my luck.
 Makoto: Ah- Hey! [#animate_left=enter_convo][#expression_left=confused]
 Kite: My lady, are you alright!? We must give chase! [#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=kite_right][#expression_right=angry]
 Makoto: I didn’t think she’d make a run for it. Let’s go! [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=confused]
+do Signals.toggleAsset.emit("ShuDialogue", false)
 do Global.zoomCamera(Vector2(2.5,2.5))
 do Global.resetCamera()
 do Global.prepareDialogue("ShuConfrontDone", "res://Assets/Dialogue/Kite.dialogue", "afterShuRuns", "Alley")
@@ -226,7 +227,7 @@ if Global.dialogueFlags.shuExplain == false:
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest13.tres"))
 	do Signals.updateInfoAnimation.emit("invnote")
 	do Global.npcProfileList.profileInfo[3] = load("res://Assets/NotebookNPCProfiles/Shu.tres")
-	do Global.npcProfileList.profileInfo[1].evidenceQuotes.append("Is currently stuck in a curse-induced coma.")
+	do Global.npcProfileList.profileInfo[0].evidenceQuotes.append("Is currently stuck in a curse-induced coma.")
 	=> END 
 elif Global.dialogueFlags.shuExplain == true:
 	=> shuYokaiLore
