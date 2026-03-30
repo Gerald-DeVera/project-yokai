@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://r4htcjkjow5u" path="res://Assets/Sprites/spirit sight aura.png" id="3_g4oe6"]
 [ext_resource type="Texture2D" uid="uid://gs5qpe4sp2g1" path="res://Assets/Sprites/spirit sight eye-Sheet.png" id="4_86atj"]
 [ext_resource type="Shader" uid="uid://cbawr00jxeodk" path="res://Shaders/hitflash.tres" id="5_td8ue"]
-[ext_resource type="AudioStream" uid="uid://b1d40utnl7ywd" path="res://Assets/Audio/SFX/walk_tile.wav" id="6_yu0ev"]
+[ext_resource type="AudioStream" uid="uid://dreenk76thvmd" path="res://Assets/Audio/SFX/walk_tile.mp3" id="7_td8ue"]
 
 [sub_resource type="Gradient" id="Gradient_g4oe6"]
 offsets = PackedFloat32Array(0.39490446, 0.71672356)
@@ -1142,7 +1142,8 @@ position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_2tapu")
 
 [node name="WalkAudio" type="AudioStreamPlayer" parent="." unique_id=1725559920]
-stream = ExtResource("6_yu0ev")
+stream = ExtResource("7_td8ue")
+volume_db = -9.576
 
 [node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="." unique_id=788173632]
 libraries/ = SubResource("AnimationLibrary_0aity")

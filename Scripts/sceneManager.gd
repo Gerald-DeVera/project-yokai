@@ -41,14 +41,18 @@ func transition_to_scene(level : String):
 					audioManager.playLevelMusic("ramen")
 			"Memory":
 					audioManager.playLevelMusic("memory")
-			"Yokai", "YokaiHome":
+			"Yokai":
 				audioManager.playLevelMusic("yokai")
+			"YokaiHome":
+				audioManager.playLevelMusic("yokaihome")
 			"PlatformingStage":
 				audioManager.playLevelMusic("platforming")
 			"BossLevel":
 				audioManager.playLevelMusic("boss")
 			"MainMenu":
 				audioManager.playLevelMusic("cityNight")
+			"Alleyway", "Flower":
+				audioManager.stopMusic()
 
 func sceneLoadCheck():
 	Signals.togglePlayerInput.emit(false)

@@ -37,7 +37,7 @@ func openTheBox():
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN)
 		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.tween_property(kijoBoxLight, "energy",1.0, 2)
+		tween.tween_property(kijoBoxLight, "energy",1.0, 1.3)
 		await tween.finished
 		var tween2 = create_tween()
 		tween2.set_ease(Tween.EASE_IN)
