@@ -14,12 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_mngpy"]
 [ext_resource type="Script" uid="uid://dghx2bvex2g4e" path="res://Scripts/boulderSpawner.gd" id="5_tv0ub"]
 [ext_resource type="PackedScene" uid="uid://bybxhbeovcc5i" path="res://Scenes/Levels/beta platforming/hazard.tscn" id="6_7xje2"]
-[ext_resource type="PackedScene" uid="uid://dookstfpldo40" path="res://Scenes/Levels/beta platforming/portal.tscn" id="6_nltor"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/beta platforming/portal.tscn" id="6_nltor"]
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
-[ext_resource type="Script" path="res://Scripts/kijoBoss.gd" id="12_37m20"]
-[ext_resource type="Script" path="res://Scenes/Entities/boss.gd" id="12_86gf6"]
+[ext_resource type="Script" uid="uid://dq1plli07gu3g" path="res://Scripts/kijoBoss.gd" id="12_37m20"]
+[ext_resource type="Script" uid="uid://dwoqqnscpn0yt" path="res://Scenes/Entities/boss.gd" id="12_86gf6"]
 [ext_resource type="Script" uid="uid://dqdedxqqcua5x" path="res://Scripts/camera_control.gd" id="14_37m20"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
 [ext_resource type="Texture2D" uid="uid://0i3rl58d582t" path="res://Assets/Sprites/aura.png" id="14_sneht"]
@@ -300,6 +300,7 @@ position = Vector2(6354, -202)
 script = ExtResource("12_86gf6")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_m5b0x")]
+z_index = 2
 position = Vector2(-482, 13)
 jump_velocity = -300.0
 

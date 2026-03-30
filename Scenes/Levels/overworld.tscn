@@ -30,7 +30,7 @@
 [ext_resource type="Shader" uid="uid://d1c5vm3afwd6j" path="res://Shaders/foliage.tres" id="25_qjsi7"]
 [ext_resource type="Texture2D" uid="uid://bpyraa42ekbiu" path="res://Assets/Environment/lightcone.png" id="26_fnh4o"]
 [ext_resource type="Texture2D" uid="uid://d15arm0j1rxgd" path="res://Assets/Environment/bg_overworld/bg_tree.png" id="26_x82q5"]
-[ext_resource type="Script" path="res://Scripts/load_shader.gd" id="27_4ig2c"]
+[ext_resource type="Script" uid="uid://cen8gjqfrar8c" path="res://Scripts/load_shader.gd" id="27_4ig2c"]
 [ext_resource type="PackedScene" uid="uid://gmvotdpb4ayo" path="res://Scenes/UIandUtil/player_ui.tscn" id="29_sg6ii"]
 [ext_resource type="Theme" uid="uid://b7h0edkhnv8f2" path="res://Assets/Themes and Fonts/default_pixel_theme.tres" id="29_x82q5"]
 [ext_resource type="Texture2D" uid="uid://d0v0cpcojup" path="res://Assets/Sprites/pompous girl.png" id="31_w6jw5"]
@@ -42,10 +42,10 @@
 [ext_resource type="Texture2D" uid="uid://bqx3ah64ned35" path="res://Assets/Sprites/ina sprite-Sheet.png" id="36_ien3c"]
 [ext_resource type="Texture2D" uid="uid://ckhxcdwbo7vsh" path="res://Assets/Sprites/old man.png" id="36_kgpk6"]
 [ext_resource type="Texture2D" uid="uid://ce736uqcxyiv7" path="res://Assets/Sprites/shu sprite-Sheet.png" id="37_fnh4o"]
-[ext_resource type="Script" path="res://Scenes/Entities/ina_sprite.gd" id="37_otjua"]
+[ext_resource type="Script" uid="uid://bs6p8utp40hpl" path="res://Scenes/Entities/ina_sprite.gd" id="37_otjua"]
 [ext_resource type="Texture2D" uid="uid://bafx8wx5m1ny7" path="res://Assets/Sprites/hooded fellow.png" id="38_kgpk6"]
 [ext_resource type="Script" uid="uid://dr5p4jg445ckp" path="res://Scenes/Entities/shu_overworld_path.gd" id="39_0urf5"]
-[ext_resource type="Script" path="res://Scripts/yui_ghost.gd" id="39_ien3c"]
+[ext_resource type="Script" uid="uid://cxjfw5nhwxidr" path="res://Scripts/yui_ghost.gd" id="39_ien3c"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="39_otjua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sg6ii"]
@@ -367,7 +367,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_m1tok"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -775, 296, 0, 0, 0, 0, 2854, 289)
+"points": PackedVector2Array(0, 0, 0, 0, -775, 296, 0, 0, 0, 0, 3236, 296)
 }
 point_count = 2
 
@@ -449,7 +449,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_12d20"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2854, 289, 0, 0, 0, 0, -774, 297)
+"points": PackedVector2Array(0, 0, 0, 0, 2905, 287, 0, 0, 0, 0, -774, 297)
 }
 point_count = 2
 
@@ -1261,7 +1261,7 @@ speed = 90
 curve = SubResource("Curve2D_m1tok")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="npc_test2/Path2D" unique_id=597528912]
-position = Vector2(-412.10092, 295.3)
+position = Vector2(-412.09915, 296.00003)
 rotation = -0.0019289036
 progress = 362.9011
 rotates = false
@@ -1279,13 +1279,13 @@ autoplay = &"walk"
 
 [node name="npc_test3" type="Node2D" parent="." unique_id=885701341]
 script = ExtResource("33_12d20")
-speed = 200
+speed = 150
 
 [node name="Path2D" type="Path2D" parent="npc_test3" unique_id=183564422]
 curve = SubResource("Curve2D_12d20")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="npc_test3/Path2D" unique_id=1008004541]
-position = Vector2(2491.101, 289.80023)
+position = Vector2(2542.1, 287.98645)
 rotation = -0.0019289036
 progress = 362.9011
 rotates = false

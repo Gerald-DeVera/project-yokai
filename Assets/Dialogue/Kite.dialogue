@@ -90,6 +90,10 @@ do Global.questsList.quests.append(load("res://Assets/Quests/Quest8.tres"))
 do Global.markPreviousQuest(load("res://Assets/Quests/Quest7.tres"))
 do Signals.updateInfoAnimation.emit("invnote")
 do Global.TimeOfDay = "Night"
+do Global.oneshot_assets["UselessWitness1"] = true
+do Global.oneshot_assets["UselessWitness1Dialogue"] = true
+do Global.oneshot_assets["KeyWitness1"] = true
+do Global.oneshot_assets["KeyWitness1Dialogue"] = true
 => END
 
 ~ afterShuRuns
@@ -142,7 +146,6 @@ Makoto: The spirit realm? Why is there an entrance to the spirit realm here? [#a
 Kite: The mortal realm and spirit realm are ever interconnected. You’re as likely to find a place to cross over in an old alley as a shrine in the woods. [#animate_left=exit_convo][#animate_right=enter_convo]
 Makoto: There’s a lot I want to ask, but we need to find that florist. [#animate_right=exit_convo][#animate_left=enter_convo][#expression_left=angry]
 Kite: Well then, onwards, my lady! FOR JUSTICE! [#animate_left=exit_convo][#animate_right=enter_convo]
-Take a moment to review all of your information and evidence, then proceed onwards. [#actor_left=off][#actor_right=off]
 do Global.finishOneShot("PortalFound")
 do Global.questsList.quests.append(load("res://Assets/Quests/Quest12.tres"))
 do Global.markPreviousQuest(load("res://Assets/Quests/Quest11.tres"))
