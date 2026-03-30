@@ -63,7 +63,11 @@ func _physics_process(delta):
 	return
 
 func _on_quit_button_pressed() -> void:
-	get_tree().quit()
+	match OS.get_name():
+		"Windows", "macOS", "Linux":
+			get_tree().quit()
+		"Web":
+			sceneManager.transition_to_scene("MainMenu")
 	
 func updateInfo(infoType: String):
 	if infoType == "inventory":
