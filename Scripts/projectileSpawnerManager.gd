@@ -3,7 +3,8 @@ extends Node
 @onready var spawners = [
 	$spawner1,
 	$spawner2,
-	$spawner3
+	$spawner3,
+	$spawner4
 ]
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
