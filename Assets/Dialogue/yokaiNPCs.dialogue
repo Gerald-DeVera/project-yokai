@@ -16,6 +16,7 @@ elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaif
 	Lively Yokai: No problem! Now I'm going back to watching beetles fight!
 	do Global.dialogueFlags.keyYokaifound = true
 	do Signals.toggleAsset.emit("InaDialogue", true)
+	do Global.unlocked_dialogue["InaDialogue"] = true
 	do Signals.toggleAsset.emit("InaSprite", true)
 	do Global.questsList.quests.append(load("res://Assets/Quests/Quest16.tres"))
 	do Global.markPreviousQuest(load("res://Assets/Quests/Quest15.tres"))
