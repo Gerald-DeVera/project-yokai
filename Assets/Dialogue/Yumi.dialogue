@@ -109,6 +109,7 @@ Make the call? [#actor_left=off]
 	=> END
 
 ~ yumiAccusation
+do Global.locked_dialogue["Desk"] = true
 do Signals.animateScreenWipe.emit("timeskip")
 do wait(4.0)
 do Global.grabCameraPos()
@@ -302,6 +303,7 @@ do Global.finishOneShot("Memory3Done")
 do Global.questsList.quests.append(load("res://Assets/Quests/Quest21.tres"))
 do Global.markPreviousQuest(load("res://Assets/Quests/Quest20.tres"))
 do Signals.updateInfoAnimation.emit("notebook")
+do Global.prepareDialogue("confrontBoss", "res://Assets/Dialogue/Yumi.dialogue", "kijoConfrontation", "BossLevel")
 => END
 
 ~ kijoConfrontation
@@ -319,25 +321,41 @@ Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]We’v
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]We’re shoved into the closet to collect dust only to be pulled out when we’re considered useful! [/color][/outline_size][/shake]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]No longer will we be cast to the side! Forced to watch as others revel in the spotlight as we vie for second place! [/color][/outline_size][/shake]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]I’ll crush you, detective, and claim my revenge![/color][/outline_size][/shake]
+do Global.finishOneShot("confrontBoss")
 => END
 
+~ kijoTaunt1
+Kijo: AHHAHAH!
+Makoto: You won't get away with this.
+
+~ kijoTaunt2
+Kijo: Huff... TRY MY MALEVOLENT MAZE!
+Makoto: I've been through worse.
+
 ~ kijoSealed
+do Global.moveCamera(Vector2(40, 0))
+do Global.zoomCamera(Vector2(1.5,1.5))
 Makoto: It looks like you’re out of steam, Kijo. It’s time you get sealed for good! [#expression_left=angry][#actor_right=on][#new_actor=kijo]
 Kijo: [shake rate=20.0 level=5 connected=1][outline_size=5][color=crimson]NO NO NO! Yumi was the perfect host! How could this be happening!? How could she reject ME!?[/color][/outline_size][/shake][#animate_left=exit_convo][#animate_right=enter_convo]
-Makoto: Because mortal hearts aren’t that simple, Spirit. Yumi never wanted any of this. She may have been hurt, but she cared for Yui far more than she could ever hate this world you claim abandoned her.[#animate_left=enter_convo][#animate_right=exit_convo]
-Kite: Indeed! Humans are much more complex and kind than you could ever hope to understand Kijo! Perhaps one day you may see it with your own eyes. Lady Makoto, use the box to seal her![#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
-Makoto opens the spirit box. [#actor_left=off][#actor_right=off]
+Makoto: Because mortal hearts aren’t that simple, Spirit. Yumi never wanted any of this. [#animate_left=enter_convo][#animate_right=exit_convo]
+Makoto: She may have been hurt, but she cared for Yui far more than she could ever hate this world you claim abandoned her.
+Kite: Indeed! Humans are much more complex and kind than you could ever hope to understand Kijo! Perhaps one day you may see it with your own eyes. [#animate_left=enter_convo][#new_actor=kite_left][#expression_left=happy]
+Kite: Lady Makoto, use the box to seal her!
+[do Signals.moveCharacter.emit("PlayerCharacter", "box_kijo")]Makoto opens the spirit box.[do Signals.transitionToPlatforming.emit()][do Signals.moveCharacter.emit("Boss4", "enterBox")][#actor_left=off][#actor_right=off]
 As the last of the Kijo's spirit is pulled into the box, it seals itself and the world fades into darkness.
 #load one shot for ending scene
 do Global.dialogueFlags.defeatedKijo == true
+do Global.prepareDialogue("enterEnding", "res://Assets/Dialogue/Yumi.dialogue", "endingScene", "Office")
+do wait(5.0)
+do sceneManager.transition_to_scene("Office")
 => END
 
 ~ endingScene
 do Global.grabCameraPos()
 do Global.moveCamera(Vector2(0, 0))
 do Global.zoomCamera(Vector2(3.5,3.5))
-You reawaken in the real world.
-Kite: Lady Makoto, you’re awake! [#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=kite_right][#expression_right=angry][#actor_right=on]
+You reawaken in the real world.[#actor_left=off]
+Kite: Lady Makoto, you’re awake! [#actor_left=on][#animate_left=exit_convo][#animate_right=enter_convo][#new_actor=kite_right][#expression_right=angry][#actor_right=on]
 Makoto: Ugh… What happened? Did we succeed? [#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
 Kite: Yes, you did it my Lady! After you sealed the Kijo, its domain unraveled and both you and Miss Yumi were returned to the mortal realm.[#animate_left=exit_convo][#animate_right=enter_convo][#expression_right=happy]
 Kite: When you returned, you had passed out! I could do naught but wait and hope for your recovery to be swift. [#expression_right=angry]
@@ -399,6 +417,7 @@ Kite: It pains me to remind you My Lady, but I still lack the capacity for morta
 Makoto: I know. I'm going to bed. Goodnight.[#animate_left=enter_convo][#animate_right=exit_convo][#expression_left=unimp]
 #fade to black
 Makoto closes her case file. [#actor_left=off][#actor_right=off]
+do Global.finishOneShot("enterEnding")
 do wait(0.5)
 do Signals.animateScreenWipe.emit("gradient_up")
 do wait(0.3)

@@ -16,7 +16,7 @@ var MemoryStarting: String = "yumiMemoryFragment1"
 var MemoriesEncountered = 0
 
 #time state
-var TimeOfDay: String = "Night"
+var TimeOfDay: String = "Day"
 
 #preload a bunch of textures for evidence in cutscenes
 var evidenceTextures = {
@@ -64,7 +64,7 @@ var dialogueFlags = {
 	InaFound = false,
 	InaShuPlan = false,
 	gotBeans = false,
-	defeatedKijo = true,
+	defeatedKijo = false
 }
 
 var YuiOptions = {

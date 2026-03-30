@@ -632,9 +632,11 @@ interactText = "To City"
 [node name="Desk" parent="." unique_id=1461815565 instance=ExtResource("5_lhiah")]
 position = Vector2(327, 245)
 dialogueBalloon = "res://Scenes/DialogueBalloons/balloon.tscn"
-dialogueStartingPosition = "endingScene"
+dialogueStartingPosition = "preAccusation"
 isDialogue = true
+interactText = "Call"
 dialoguePath = "res://Assets/Dialogue/Yumi.dialogue"
+locked = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=143729060]
 z_index = -1

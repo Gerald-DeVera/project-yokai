@@ -23,6 +23,6 @@ Our hopes and our fears are freed from the box we all keep within ourselves.
 In this moment of quiet introspection one must wonder...
 [wave amp=20 freq=5]...What box defines you? [/wave]
 do Global.finishOneShot("gameEnd")
-do Signals.playCredits()
+do Signals.playCredits.emit()
 => END
 #wait, and do short credits sequence before bringing back to main menu

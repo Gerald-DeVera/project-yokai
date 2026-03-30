@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://d1maaviped4xj" path="res://Scripts/projectileSpawner.gd" id="2_hh1ma"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="2_mngpy"]
 [ext_resource type="Script" uid="uid://dh88mqpfjao2w" path="res://Scripts/projectileSpawnerManager.gd" id="2_om0u7"]
-[ext_resource type="Script" uid="uid://js6x0gvwqhao" path="res://Scripts/entityScripts/boss.gd" id="2_oq4ni"]
 [ext_resource type="PackedScene" uid="uid://iij1i57nxqvc" path="res://Scenes/Levels/beta platforming/leaf platform.tscn" id="4_1b4hs"]
 [ext_resource type="Script" path="res://Scripts/boulderSpawnerManager.gd" id="5_3n5q1"]
 [ext_resource type="PackedScene" uid="uid://cghtljfncxgdr" path="res://Scenes/Levels/beta platforming/tree platform.tscn" id="5_hh1ma"]
@@ -19,11 +18,15 @@
 [ext_resource type="PackedScene" uid="uid://3uixw5405jop" path="res://Scenes/Levels/beta platforming/platforms.tscn" id="6_om0u7"]
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="7_bunke"]
 [ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="7_ddmpi"]
-[ext_resource type="Texture2D" uid="uid://1ycp8ukf7flq" path="res://Assets/Sprites/boulder.png" id="11_oq4ni"]
+[ext_resource type="PackedScene" uid="uid://5ccoo2ajgtkf" path="res://Scenes/Levels/beta platforming/spirit platform.tscn" id="11_sqrx0"]
+[ext_resource type="Script" uid="uid://dwoqqnscpn0yt" path="res://Scenes/Entities/boss.gd" id="12_86gf6"]
+[ext_resource type="Script" uid="uid://dqdedxqqcua5x" path="res://Scripts/camera_control.gd" id="14_37m20"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="14_bunke"]
+[ext_resource type="Texture2D" uid="uid://0i3rl58d582t" path="res://Assets/Sprites/aura.png" id="14_sneht"]
 [ext_resource type="AudioStream" uid="uid://cstj3d5vroha5" path="res://Assets/Audio/BackgroundTracks/Art.wav" id="16_tv0ub"]
 [ext_resource type="PackedScene" uid="uid://bmbtupp20w1al" path="res://Scenes/Entities/boulder.tscn" id="19_sqrx0"]
 [ext_resource type="PackedScene" uid="uid://b1qa8jrtqp1ea" path="res://Scenes/Levels/beta platforming/fallingPlatform.tscn" id="20_5mk18"]
+[ext_resource type="Script" uid="uid://bgpmils1d4tpk" path="res://Scripts/kijo_one_shot.gd" id="26_5mk18"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="26_sneht"]
 [ext_resource type="PackedScene" uid="uid://c3jufhstqbgjl" path="res://Scenes/Backgrounds/platform_parallax.tscn" id="27_sneht"]
 
@@ -107,6 +110,47 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_ch33t")
 
+[sub_resource type="Animation" id="Animation_bjinq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yw2vo"]
+resource_name = "pulse"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86gf6"]
+_data = {
+&"RESET": SubResource("Animation_bjinq"),
+&"pulse": SubResource("Animation_yw2vo")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sneht"]
+size = Vector2(384.5, 20)
+
 [node name="BossLevel" type="Node2D" unique_id=99681630]
 script = ExtResource("1_myua3")
 
@@ -115,11 +159,6 @@ z_index = -5
 position = Vector2(16, -414)
 
 [node name="bossStuff" type="Node" parent="." unique_id=74740881]
-
-[node name="Boss" parent="bossStuff" unique_id=1873205114 instance=ExtResource("1_kokxh")]
-visible = false
-position = Vector2(216, -68)
-script = ExtResource("2_oq4ni")
 
 [node name="ProjectileSpawners" type="Node" parent="bossStuff" unique_id=905808343]
 script = ExtResource("2_om0u7")
@@ -191,9 +230,6 @@ position = Vector2(335, -87)
 rotation = 3.1415927
 cubic_interp = false
 
-[node name="Boss2" parent="bossStuff" unique_id=906069203 instance=ExtResource("1_kokxh")]
-position = Vector2(4014, -177)
-
 [node name="tilemaps" type="Node" parent="." unique_id=1871530816]
 
 [node name="decodecoTile" type="TileMapLayer" parent="tilemaps" unique_id=2099867354]
@@ -225,34 +261,45 @@ position = Vector2(1608, -33)
 [node name="Checkpoint" parent="checkpointManager" unique_id=2097986206 instance=ExtResource("7_ddmpi")]
 position = Vector2(-382, 38)
 
-[node name="Boulder" type="Sprite2D" parent="." unique_id=1592226866]
-modulate = Color(0.9733173, 0.41555798, 0.7537728, 1)
-position = Vector2(-1214, -411)
-texture = ExtResource("11_oq4ni")
+[node name="Boss2" parent="." unique_id=1873205114 instance=ExtResource("1_kokxh")]
+position = Vector2(1962, -256)
 
-[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
-visible = false
+[node name="Boss3" parent="." unique_id=273761071 instance=ExtResource("1_kokxh")]
+position = Vector2(3980, -165)
 
-[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_mngpy")]
-visible = false
+[node name="Boss4" parent="." unique_id=574207675 instance=ExtResource("1_kokxh")]
+position = Vector2(6354, -202)
+script = ExtResource("12_86gf6")
 
 [node name="PlayerCharacter" parent="." unique_id=152485545 instance=ExtResource("1_m5b0x")]
 position = Vector2(-521, 9)
 jump_velocity = -300.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=1904402119]
-position = Vector2(-2, -30)
+position = Vector2(-2, 2)
 offset = Vector2(0, -25.235)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.815
+script = ExtResource("14_37m20")
+randShake = 0.51
 
 [node name="CharacterBody2D" parent="." unique_id=2061426401 instance=ExtResource("14_bunke")]
 position = Vector2(-50, -52)
 
+[node name="Aura" type="Sprite2D" parent="." unique_id=1443806060]
+visible = false
+position = Vector2(6268, -144)
+texture = ExtResource("14_sneht")
+flip_h = true
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Aura" unique_id=1447141482]
+libraries/ = SubResource("AnimationLibrary_86gf6")
+speed_scale = 1.123
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1415003084]
 stream = ExtResource("16_tv0ub")
-autoplay = true
 
 [node name="Boulder2" parent="." unique_id=2107697425 instance=ExtResource("19_sqrx0")]
 position = Vector2(-1218, -352)
@@ -475,7 +522,8 @@ position = Vector2(2472, 1)
 position = Vector2(2637, 1)
 
 [node name="JumpBlock" parent="." unique_id=764757466 instance=ExtResource("26_sneht")]
-position = Vector2(1076, 47)
+position = Vector2(1077, 14)
+scale = Vector2(4.13, 1)
 
 [node name="JumpBlock2" parent="." unique_id=1443456910 instance=ExtResource("26_sneht")]
 position = Vector2(4381, -169)
@@ -483,7 +531,31 @@ position = Vector2(4381, -169)
 [node name="Checkpoint" parent="." unique_id=1465774527 instance=ExtResource("7_ddmpi")]
 position = Vector2(3840, -58)
 
+[node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("2_bqvk6")]
+visible = false
+
+[node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_mngpy")]
+visible = false
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=79019867]
+visible = false
+position = Vector2(6268, -176)
+rotation = -1.5707964
+color = Color(0.94851965, 1.4824272e-05, 0.6263497, 1)
+energy = 0.0
+blend_mode = 1
+
+[node name="KijoOneShotEnd" type="Node2D" parent="." unique_id=494121741]
+position = Vector2(6275, -168)
+rotation = -1.5707964
+script = ExtResource("26_5mk18")
+
+[node name="Area2D" type="Area2D" parent="KijoOneShotEnd" unique_id=706480489]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KijoOneShotEnd/Area2D" unique_id=1476600649]
+position = Vector2(127.749985, -7)
+shape = SubResource("RectangleShape2D_sneht")
+
 [connection signal="timeout" from="bossStuff/ProjectileSpawners/cooldown" to="bossStuff/ProjectileSpawners" method="_on_cooldown_timeout"]
 [connection signal="timeout" from="bossStuff/BoulderSpawners/Timer" to="bossStuff/BoulderSpawners" method="_on_timer_timeout"]
-
-[editable path="bossStuff/Boss"]
+[connection signal="body_entered" from="KijoOneShotEnd/Area2D" to="KijoOneShotEnd" method="_on_area_2d_body_entered"]

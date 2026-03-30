@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var creditsPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,3 +13,6 @@ func _process(delta):
 
 func rollItBaby():
 	await get_tree().create_timer(3.0).timeout
+	creditsPlayer.play("credit_play")
+	await creditsPlayer.animation_finished
+	sceneManager.transition_to_scene("MainMenu")
