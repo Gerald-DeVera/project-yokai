@@ -30,7 +30,7 @@ func transition_to_scene(level : String):
 		get_tree().change_scene_to_file(scene_path)
 		currentScene = level
 		match currentScene:
-			"City", "Office": #exclude alley for now
+			"City": #exclude alley for now
 				if Global.TimeOfDay == "Day":
 					audioManager.playLevelMusic("cityDay")
 				else:
@@ -51,7 +51,7 @@ func transition_to_scene(level : String):
 				audioManager.playLevelMusic("boss")
 			"MainMenu":
 				audioManager.playLevelMusic("cityNight")
-			"Alleyway", "Flower":
+			"Alleyway", "Flower", "Office":
 				audioManager.stopMusic()
 
 func sceneLoadCheck():
@@ -63,6 +63,7 @@ func sceneLoadCheck():
 	if Global.dialoguePrep.dialogueOneShot == true and currentScene == Global.dialoguePrep.dialogueSceneStart:
 		Global.initiateDialogueOneShot()
 	else:
+		print("scene manager emit true")
 		Signals.togglePlayerInput.emit(true)
 	#	Signals.toggleInventoryInput.emit(false)
 	#	Signals.toggleNotebookInput.emit(true)

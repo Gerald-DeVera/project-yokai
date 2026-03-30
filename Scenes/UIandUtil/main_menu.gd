@@ -65,6 +65,7 @@ func _process(delta):
 
 	
 func _on_start_pressed():
+	$Start.disabled = true
 	resetGame()
 	Signals.animateScreenWipe.emit("gradient_up")
 	await get_tree().create_timer(3.0).timeout
