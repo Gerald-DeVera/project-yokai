@@ -4,10 +4,11 @@ const levelMusic = {
 	"cityDay" = preload("res://Assets/Audio/BackgroundTracks/DayCity.wav"),
 	"cityNight" = preload("res://Assets/Audio/BackgroundTracks/NightCity.wav"),
 	"yokai" = preload("res://Assets/Audio/BackgroundTracks/Yokai.wav"),
+	"yokaihome" = preload("res://Assets/Audio/BackgroundTracks/YokaiHome.wav"),
 	"platforming" = preload("res://Assets/Audio/BackgroundTracks/Plat.wav"),
 	"boss" = preload("res://Assets/Audio/BackgroundTracks/Art.wav"),
-	"clothing" = preload("res://Assets/Audio/BackgroundTracks/clothing_bgm.mp3"),
-	"ramen" = preload("res://Assets/Audio/BackgroundTracks/ramen_bgm.mp3"),
+	"clothing" = preload("res://Assets/Audio/BackgroundTracks/CityHouse.wav"),
+	"ramen" = preload("res://Assets/Audio/BackgroundTracks/RamenShop.wav"),
 	"memory" = preload("res://Assets/Audio/BackgroundTracks/memory.mp3")
 }
 
@@ -27,6 +28,10 @@ func playMusic(music: AudioStream, volume = 0.0):
 	stream = music
 	volume_db = volume
 	play()
+	pass
+	
+func stopMusic():
+	#stop()
 	pass
 
 func playLevelMusic(level: String = "cityDay"):

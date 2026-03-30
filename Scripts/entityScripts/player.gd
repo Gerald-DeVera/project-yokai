@@ -116,6 +116,7 @@ func toggleInput(toggle: bool):
 
 
 func disableInput(resource):
+	walkingSFX.stop()
 	inputDisabled = true
 	Signals.updateInfoAnimation.emit("hideTips")
 	if is_on_floor():
@@ -134,9 +135,9 @@ func animate(direction):
 		$Animations/AnimationTree.set("parameters/MovementStateMachine/FallSet/blend_position", Vector2(direction,0))
 		if is_on_floor():
 			movement_state_machine.travel("RunSet")
-			#if walkingSFX.playing != true:
-				#walkingSFX.pitch_scale = randf_range(0.9,1.1)
-				#walkingSFX.play()
+			if walkingSFX.playing != true:
+				walkingSFX.pitch_scale = randf_range(0.9,1.1)
+				walkingSFX.play()
 			$Animations/AnimationTree.set("parameters/MovementStateMachine/RunSet/blend_position", Vector2(direction,0))
 			$Animations/AnimationTree.set("parameters/MovementStateMachine/IdleSet/blend_position", Vector2(direction,0))
 			$Animations/AnimationTree.set("parameters/WindupSpace/blend_position",Vector2(direction,0))
@@ -145,9 +146,11 @@ func animate(direction):
 			#movement_state_machine.travel("JumpSet")
 		elif not is_on_floor() && velocity.y < 10:
 			movement_state_machine.travel("FallSet")
+			walkingSFX.stop()
 	else:
 		if is_on_floor():
 			movement_state_machine.travel("IdleSet")
+			walkingSFX.stop()
 			if hasStopped != true && Input.is_action_just_pressed("move_left") or hasStopped != true && Input.is_action_just_pressed("move_right"):
 				$Animations/AnimationTree.set("parameters/animation_tween/blend_amount", 1)
 				$Animations/AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
@@ -210,14 +213,25 @@ func moveBody(charName: String, event: String):
 			await $Animations/AnimationTree.animation_finished
 			movement_state_machine.travel("IdleSet")
 		elif event == "box":
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/box/blend_position", Vector2(-1,0))
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/box_idle/blend_position", Vector2(-1,0))
 			movement_state_machine.travel("box")
 			await $Animations/AnimationTree.animation_finished
 			movement_state_machine.travel("box_idle")
 		elif event == "box_idle":
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/box_idle/blend_position", Vector2(-1,0))
+			movement_state_machine.travel("box_idle")
+		elif event == "box_idle_right":
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/box_idle/blend_position", Vector2(1,0))
 			movement_state_machine.travel("box_idle")
 		elif event == "idleLoad":
 			movement_state_machine.travel("IdleSet")
-
+		elif event == "box_kijo":
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/box/blend_position", Vector2(1,0))
+			$Animations/AnimationTree.set("parameters/MovementStateMachine/box_idle/blend_position", Vector2(1,0))
+			movement_state_machine.travel("box")
+			await $Animations/AnimationTree.animation_finished
+			movement_state_machine.travel("box_idle")
 			
 func tempChangeVelocity(newVelocity: float):
 	jump_velocity = newVelocity

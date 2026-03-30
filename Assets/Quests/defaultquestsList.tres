@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestsList" format=3 uid="uid://2j0vx6rslv0r"]
+
+[ext_resource type="Script" uid="uid://pjdgdolk5h1u" path="res://Scripts/questItem.gd" id="1_6h6ja"]
+[ext_resource type="Resource" uid="uid://djhxuor13bg38" path="res://Assets/Quests/Quest1.tres" id="2_ijist"]
+[ext_resource type="Script" uid="uid://dkio648xmkgkh" path="res://Scripts/questsList.gd" id="3_judf1"]
+
+[resource]
+script = ExtResource("3_judf1")
+quests = Array[ExtResource("1_6h6ja")]([ExtResource("2_ijist")])
