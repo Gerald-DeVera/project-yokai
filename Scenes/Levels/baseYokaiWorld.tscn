@@ -1004,5 +1004,29 @@ libraries/ = SubResource("AnimationLibrary_cpiwc")
 autoplay = &"idle"
 speed_scale = 0.691
 
+[node name="BgYokaiLantern" type="Sprite2D" parent="." unique_id=776713732]
+position = Vector2(1930, 158)
+texture = ExtResource("8_wh3g1")
+
+[node name="BgYokaiLantern2" type="Sprite2D" parent="." unique_id=1085565054]
+position = Vector2(1854, 158)
+texture = ExtResource("8_wh3g1")
+
+[node name="BgYokaiLantern3" type="Sprite2D" parent="." unique_id=1405174543]
+position = Vector2(1777, 158)
+texture = ExtResource("8_wh3g1")
+
+[node name="BgYokaiLantern4" type="Sprite2D" parent="." unique_id=1813322436]
+position = Vector2(1691, 158)
+texture = ExtResource("8_wh3g1")
+
+[node name="BgYokaiLantern5" type="Sprite2D" parent="." unique_id=758470239]
+position = Vector2(1615, 158)
+texture = ExtResource("8_wh3g1")
+
+[node name="BgYokaiLantern6" type="Sprite2D" parent="." unique_id=253379334]
+position = Vector2(1534, 158)
+texture = ExtResource("8_wh3g1")
+
 [connection signal="body_entered" from="YokaiShuOneShot/Area2D" to="YokaiShuOneShot" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="YokaiShuOneShot2/Area2D" to="YokaiShuOneShot2" method="_on_area_2d_body_entered"]

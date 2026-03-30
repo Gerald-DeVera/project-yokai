@@ -6,9 +6,11 @@ func _ready() -> void:
 		self.visible = true
 	elif Global.dialogueFlags.keyYokaifound == true && Global.dialogueFlags.InaFound == true && self.get_parent().name == "BaseYokaiWorld":
 		self.visible = false
-	elif Global.dialogueFlags.keyYokaifound == true && Global.dialogueFlags.InaFound == true && self.get_parent().name == "YokaiHome":
+	elif Global.dialogueFlags.keyYokaifound == true && Global.dialogueFlags.InaFound == true && Global.dialogueFlags.gotBeans == false && self.get_parent().name == "YokaiHome":
 		self.visible = true
 	elif Global.dialogueFlags.InaShuPlan == true && self.get_parent().name == "Overworld":
+		self.visible = true
+	elif Global.dialogueFlags.keyYokaifound == true && Global.dialogueFlags.InaFound == true && Global.dialogueFlags.gotBeans == true && self.get_parent().name == "YokaiHome":
 		self.visible = true
 
 func ToggleVis(assetName: String, toggled: bool):

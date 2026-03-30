@@ -251,7 +251,6 @@ _data = {
 script = ExtResource("1_3agdf")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1833414164]
-visible = false
 offset_top = -3108.0
 offset_right = 4576.0
 offset_bottom = 40.0

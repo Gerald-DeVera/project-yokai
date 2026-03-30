@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3uixw5405jop"]
 
-[ext_resource type="Texture2D" uid="uid://go8rb5oc6jef" path="res://Assets/Environment/platforming tiles/rock platform.png" id="1_3aet1"]
+[ext_resource type="Texture2D" uid="uid://bwx4surbykeqe" path="res://Assets/Environment/platforming tiles/normal platform.png" id="1_3aet1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji2ks"]
 size = Vector2(72, 4.5)

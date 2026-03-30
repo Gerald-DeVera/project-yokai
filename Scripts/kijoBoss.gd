@@ -13,7 +13,7 @@ func moveBody(charName: String, event: String):
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_CUBIC)
-			tween.tween_property(self, "position", Vector2(-120.0,-258.0), 1)
+			tween.tween_property(self, "position", Vector2(-15.0,-497.0), 1)
 		elif event == "flyAway2":
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_OUT)

@@ -186,6 +186,7 @@ if Global.dialogueFlags.gotBeans == false
 	do Global.zoomCamera(Vector2(1.5,1.5))
 	do Global.resetCamera()
 	do Global.unlocked_dialogue["Desk"] = true
+	do Global.locked_dialogue["InaShuDialogue"] = true
 	do Global.dialogueFlags.gotBeans = true
 	=> END
 elif Global.dialogueFlags.gotBeans == true

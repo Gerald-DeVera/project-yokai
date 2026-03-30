@@ -4,11 +4,11 @@ if Global.dialogueFlags.confirmedYui == false:
 	Lively Yokai: Hey! You look a lot like a mortal...
 	=> END
 elif Global.dialogueFlags.confirmedYui == true && Global.dialogueFlags.keyYokaifound == false:
-	Lively Yokai: Whoa, are you a real [wave amp=20 freq=5]mortal?[/wave] I’ve only heard stories about you guys. [wave amp=25 freq=5]You stink![/wave]
-	Kite: Do not speak ill of Lady Makoto if you know what is good for you!
-	Makoto: It’s alright Kite, mission first.
-	Kite: You are lucky this time, small one, but just know you have been spared by a true agent of justice!
-	Lively Yokai: Heh, whatever. So what do you want from me? I’m very busy.
+	Lively Yokai: Whoa, are you a real [wave amp=20 freq=5]mortal?[/wave] I’ve only heard stories about you guys. [wave amp=25 freq=5]You stink![/wave][#animate_left=exit_convo][#animate_right=enter_convo]
+	Kite: Do not speak ill of Lady Makoto if you know what is good for you! [#animate_left=enter_convo][#animate_right=exit_convo][#new_actor=kite_left][#expression_left=angry]
+	Makoto: It’s alright Kite, mission first. [#animate_left=enter_convo][#new_actor=makoto][#expression_left=neutral]
+	Kite: You are lucky this time, small one, but just know you have been spared by a true agent of justice! [#animate_left=enter_convo][#new_actor=kite_left]
+	Lively Yokai: Heh, whatever. So what do you want from me? I’m very busy. [#animate_left=exit_convo][#animate_right=enter_convo]
 	Makoto: It’ll only be a second. Do you know any yokai around here that are familiar with curses?
 	Lively Yokai: Erm… I think the [outline_size=5][color=orange]kitsune who runs the tea shop[/color][/outline_size] to the east knows a thing or two. 
 	Lively Yokai: She’s [wave amp=20 freq=5]pretty powerful[/wave]  and [shake rate=20.0 level=5 connected=1]really OLD…[/shake] [font_size=14]Please don’t tell her I said that.[/font_size]

@@ -161,6 +161,13 @@ size = Vector2(384.5, 20)
 [node name="BossLevel" type="Node2D" unique_id=99681630]
 script = ExtResource("1_myua3")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1839052205]
+z_index = -6
+offset_top = -3108.0
+offset_right = 4576.0
+offset_bottom = 40.0
+color = Color(1, 0.63529414, 0.8784314, 1)
+
 [node name="PlatformParallax" parent="." unique_id=1214220624 instance=ExtResource("27_sneht")]
 z_index = -5
 position = Vector2(16, -414)
