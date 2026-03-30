@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bu8vbtqehd0g7" path="res://Scripts/checkpointManager.gd" id="4_qjfmv"]
 [ext_resource type="PackedScene" uid="uid://blc0clnqvdoqs" path="res://Scenes/Other/scene_transition_animation.tscn" id="5_jssjv"]
 [ext_resource type="Texture2D" uid="uid://b37r5xokatang" path="res://Assets/Environment/platforming tiles/deco tiles.png" id="6_blihi"]
+[ext_resource type="PackedScene" uid="uid://bu6sugp6qcel7" path="res://Scenes/Levels/beta platforming/checkpoint.tscn" id="6_v7bv4"]
 [ext_resource type="Texture2D" uid="uid://4v7xabv8mnaa" path="res://Assets/Environment/platforming tiles/ground tiles.png" id="7_33qrt"]
 [ext_resource type="PackedScene" uid="uid://dt0w5nvoacytm" path="res://Scenes/Entities/Kite.tscn" id="8_gnp17"]
 [ext_resource type="PackedScene" uid="uid://c5y1rx0iuaxx1" path="res://Scenes/Levels/beta platforming/jumpBlock.tscn" id="9_y8vqb"]
@@ -200,11 +201,27 @@ position = Vector2(810, -144)
 
 [node name="Camera2D" type="Camera2D" parent="PlayerCharacter" unique_id=242642598]
 position = Vector2(-2, -30)
+zoom = Vector2(1.3, 1.3)
 
 [node name="PlayerUI" parent="." unique_id=668959072 instance=ExtResource("3_y8vqb")]
 
 [node name="checkpointManager" type="Node" parent="." unique_id=2028239319]
 script = ExtResource("4_qjfmv")
+
+[node name="Checkpoint" parent="checkpointManager" unique_id=703634066 instance=ExtResource("6_v7bv4")]
+position = Vector2(1931, -312)
+
+[node name="Checkpoint2" parent="checkpointManager" unique_id=998420477 instance=ExtResource("6_v7bv4")]
+position = Vector2(2503, -384)
+
+[node name="Checkpoint3" parent="checkpointManager" unique_id=1755144650 instance=ExtResource("6_v7bv4")]
+position = Vector2(3087, -168)
+
+[node name="Checkpoint4" parent="checkpointManager" unique_id=1109267507 instance=ExtResource("6_v7bv4")]
+position = Vector2(4320, -288)
+
+[node name="Checkpoint5" parent="checkpointManager" unique_id=484996917 instance=ExtResource("6_v7bv4")]
+position = Vector2(4729, -600)
 
 [node name="SceneTransitionAnimation" parent="." unique_id=302174458 instance=ExtResource("5_jssjv")]
 
